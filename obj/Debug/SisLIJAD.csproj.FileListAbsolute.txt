@@ -1,0 +1,6 @@
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\bin\SisLIJAD.dll
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\bin\SisLIJAD.pdb
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\obj\Debug\SisLIJAD.dll.licenses
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\obj\Debug\SisLIJAD.dll
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\obj\Debug\SisLIJAD.pdb
+C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\obj\Debug\SisLIJAD.csprojResolveAssemblyReference.cache

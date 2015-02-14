@@ -1,0 +1,299 @@
+/*Estilo CSS creado por Haniel Lopez para culminación de estudios 2014. UCA*/
+body {
+    /* background-color: rgba(11, 163, 112, 0.52);
+  background-color:  rgba(227, 232, 218, 0.86);*/
+    background-image: linear-gradient(
+      rgba(115, 195, 24, 0.13), 
+      rgba(115, 195, 24, 0.13)
+    ),url(../Images/swirl_pattern.png);
+    background-repeat: repeat;
+  
+}
+
+#centerbox {
+    background-color: rgba(90, 155, 16, 0.32);
+    height: 57%;
+    margin: 7% 9%;
+    position: fixed;
+    text-align: justify;
+    width: 80%;
+  }
+
+#Titulo1 {
+    /*color: #051537;*/
+    color: #ececec;
+    font-family: Lato, Verdana, Constantia;
+    font-size: 40px;
+    padding-top: 0.5em;
+    padding-bottom: 0.3em;
+    text-align: center;
+    text-shadow: 0 2px 0.8px #808080;
+}
+
+.footer {
+    background-color: rgba(68, 117, 185, 0.8);
+    color: #ececec;
+    font-family: Verdana;
+    font-weight: 500;
+    float: right;
+    bottom: 0;
+    padding-top: 4px;
+    position: fixed;
+    height: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+#test {
+    background-color: rgba(68, 117, 185, 0.8);
+    margin-bottom: 18%;
+    height: 50px;
+    width: 100%;
+}
+header {
+    background-color: rgba(68, 117, 185, 0.8);
+    border-bottom-color: #122953;
+    border-style: solid;
+    border-bottom-width: 5px;
+    height: 60px;
+    margin-top: 0%;
+    width: 100%;
+}
+.headform{
+   font-family: Lato, Verdana, Constantia;
+    font-size: 21px;
+    font-weight: 700;
+    color: Gray;
+    text-align: center;
+    height: 10%;
+    width: 100%;
+}
+.headform p {
+    padding-top: 5px;
+    text-shadow: 1px 2.5px 0.3px  rgba(61, 69, 69, 0.12);
+}
+.label-login {
+    background-color: #ececec;
+    color: #2a2a2a;
+    font-weight: 600;
+    height: 30px;
+    width: 50%;
+}
+.lock{
+    background-image: url(../images/Greenlock);
+}
+
+.panel {
+    background-color: rgba(232, 163, 0, 0.73);
+    float: right;/*Con este codigo se rellena la centerbox*/
+    height: 100%;
+    width: 20%;
+   }
+#panelcliente:hover{
+    background: #ff7b29;
+}
+#paneltec:hover{
+    background: #ff7a69;
+}
+
+#paneladmin:hover{
+    background: #ff8a29;
+}
+
+#panelprof:hover{
+    background: #ee7b29;
+}
+
+#panelest:hover{
+    background: #ff7b45;
+}
+
+#wrapper {
+    background: -webkit-linear-gradient(0deg, #e8efda, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(0deg, #e8efda, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(0deg, #e8efda, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(0deg, #e8efda, white); /* Standard syntax (must be last) */
+   /* border-bottom-style: outset;
+    border-bottom-color: Black;rgba(90, 155, 16, 0.32);
+    border-width: medium;*/
+   border: 6px outset rgba(90, 155, 16, 0.47);
+    height: 18em;
+    top: 4em;
+     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 38%;
+}
+/*
+#wrapcontainer {
+    background: rgba(90, 155, 16, 0.51);
+    /*traido de wrapper
+    
+}
+    
+*/
+
+.alineacion {
+    /*Este codigo pone los elementos en fila horizontalmente
+    display: inline-block;*/
+    display: block;
+    margin: 2em;
+    
+}
+
+/* ***********PURE CSS IDEAS*********** */
+
+ .large-button{
+            color: #808080;
+            border-radius: 4px;
+            font-family: Lato, Verdana, Constantia;
+            font-size: 1em;
+            height: 3em;
+            width: 60%;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+.button-green{
+    background-color: rgba(90, 155, 16, 0.47);
+}
+
+ 
+/*   CRUDFORM       */
+
+/*Baseform contiene todo el formulario*/
+.BaseForm {
+    background-color: rgba(217, 217, 217, 0.69);
+    width: 87%;
+    margin: 1em auto;
+    
+    
+}
+
+/*Half classes establecen de forma vertical la division del formulario en 2*/
+.HalfLeft{
+    background-color: rgba(232, 163, 0, 0.73);
+
+  float: right;
+   width: 50%; 
+}
+.HalfRight{
+    background-color: #00ff21;
+ float: right;
+   width: 50%;
+}
+
+.HalfMiddle{
+    background-color: rgba(68, 117, 185, 0.8);
+    height: auto;
+    margin-bottom:0%; 
+    width: 100%;
+}
+
+.InnerMid{
+    display: inline-block;
+    margin-left: 17em;
+}
+
+/*Añadiendo margenes entre los controles*/
+.InnerCtrl{
+    margin: 0.7em;
+}
+
+.InnerCtrlMid {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.FrmBtnWrapper{
+    background-color: #0094ff;
+    padding: 0.7em;
+    text-align: center;
+}
+
+
+/*----------------***********************************************************************------*/
+.Header {
+   /* background-color: #0094ff;
+    height: 170px;
+    width: 100%;*/ 
+        background-image: url("../Images/SisLIJAD2.png");
+         background-repeat:no-repeat;
+    background-position:94% 50%;
+     background-size: 80px 60px;
+     
+    background-color: rgba(68, 117, 185, 0.8);
+    border-bottom-color: #122953;
+    border-style: solid;
+    border-bottom-width: 5px;
+    height: 60px;
+    margin-top: 0%;
+    width: 100%;
+    
+}
+
+.Center{
+    /*display: inline-block;*/
+    /*background-color: #ff6a00;*/
+    height: 45em;
+    width: 100%;
+}
+
+
+.Controls {
+    background-color: #ff6a00;
+    height: 100px;
+    width: 100%;
+}
+.Grid {
+    background-color:#808080; 
+    float: right;
+    height: 100%;
+        padding-top: 10px;
+    width: 67%;
+
+}
+.MainContainer {
+    background-color: #F5F5DC;
+ }
+
+Footer{
+    background-color: #0094ff;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 0%;
+}
+Header{
+        background-color: #0094ff;
+        height: 190px;
+    width: 100%;
+}
+
+nav{
+    background-color: #F5F5DC;
+     float: left;
+     height: 100%;
+    width: 15%;
+}
+
+section {
+    background-color: #ffd800;
+    display: inline-grid;
+    height: 17em;
+    margin: 2em 1em 1em 2em;
+    width: 20.5%;
+      
+}
+
+
+
+/* LOGO  */
+.logo  
+{
+    background-image: url("../Images/SisLIJAD4.png");
+         background-repeat:no-repeat;
+    background-position:right center;
+     background-size: 80px 60px;
+     margin-top:0px;
+    
+    }
