@@ -9,28 +9,15 @@ using DevExpress.Web.ASPxGridView;
 
 namespace SisLIJAD.MPR
 {
-    public partial class Lab2 : System.Web.UI.Page
+    public partial class LabNew : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.IsCallback) {
-                GridPrincipal.DataBind();
-            }   
+
         }
-
-        #region Buttons
-
-
-
-
-
-        #endregion
-
-
         #region CRUD
         protected void Select()
         {
-            //string value = HiddenV.Get("GridId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
@@ -96,6 +83,7 @@ namespace SisLIJAD.MPR
             finally
             {
                 con.Close();
+
             }
 
 
@@ -118,7 +106,7 @@ namespace SisLIJAD.MPR
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
-               }
+                }
                 else
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
@@ -133,6 +121,7 @@ namespace SisLIJAD.MPR
                 con.Close();
             }
         }
+
         protected void Delete()
         {
             SqlConnection con = new SqlConnection(Database.ConnectionString);
@@ -140,11 +129,10 @@ namespace SisLIJAD.MPR
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("delete from MPR_Laboratorios where IdLaboratorio = @IdLaboratorio", con);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", txtIdD.Text);
+                cmd.Parameters.AddWithValue("@IdLaboratorio", txtId.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
-                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
-                    Response.Redirect("Lab2.aspx");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
                 }
                 else
                 {
@@ -164,105 +152,17 @@ namespace SisLIJAD.MPR
         }
         #endregion
 
-   
 
-        
-        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+#region Buttons
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Insert();
+        }
+
+        protected void btnSelect_Click(object sender, EventArgs e)
         {
             Select();
-
-            #region ifvalue
-            //  string valNuevo = HiddenV.Get("Nuevo").ToString();
-          //  string insertar = "0";
-          //  string tipo = "1";
-            
-            
-          //  if (valNuevo == insertar)
-          //  {
-          //      Insert();
-          //   }
-          //       else
-          //  {
-          //      string valSave = HiddenV.Get("Save").ToString();
-          //      if (tipo == valNuevo && tipo == valSave)
-          //      {
-          //          Update();
-          //      }
-
-          //      else
-          //      {
-          //          Select();
-          //      }
-          //  }
-
-            //HiddenV.Clear();
-            #endregion
-            #region swithc
-            //string value = HiddenV.Get("Nuevo").ToString();
-            ////string insertar = "0";
-            ////string seleccionar = "1";
-
-            //switch (value) {
-            //    case "0": Insert();
-            //        break;
-            //    case "1": Select();
-            //        break;
-
-            //    default: Response.Write("<script>alert(\"an error filling callback occur\")</script>");
-            //        break;
-            //    }
-            //HiddenV.Clear(); 
-            #endregion
-
-
         }
-
-        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
-        {
-            GridPrincipal.DataBind();
-            GridPrincipal.Focus();
-    
-        }
-
-       
-        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            string valNuevo = HiddenV.Get("Nuevo").ToString();
-            string insertar = "0";
-            string tipo = "1";
-
-
-            if (valNuevo == insertar)
-            {
-                Insert();
-                GridPrincipal.DataBind();
-            }
-            else
-            {
-                string valSave = HiddenV.Get("Save").ToString();
-                if (tipo == valNuevo && tipo == valSave)
-                {
-                    Update();
-                    GridPrincipal.DataBind();
-                }
-
-                else
-                {
-                    Select();
-                }
-            }
-            
-            HiddenV.Clear();
-
-        }
-
-        protected void DelCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            Delete();
-        }
-
-        
-  
-       
+#endregion
     }
 }

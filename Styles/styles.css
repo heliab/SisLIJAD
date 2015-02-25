@@ -5,7 +5,8 @@ body {
     background-image: linear-gradient(
       rgba(115, 195, 24, 0.13), 
       rgba(115, 195, 24, 0.13)
-    ),url(../Images/swirl_pattern.png);
+    ),/*url(../Images/swirl_pattern.png);*/url(../Images/back_p2.png);
+    
     background-repeat: repeat;
   
 }
@@ -38,7 +39,7 @@ body {
     float: right;
     bottom: 0;
     padding-top: 4px;
-    position: fixed;
+  /*  position: absolute; or fixed*/
     height: 50px;
     text-align: center;
     width: 100%;
@@ -291,9 +292,77 @@ section {
 .logo  
 {
     background-image: url("../Images/SisLIJAD4.png");
-         background-repeat:no-repeat;
+    background-repeat:no-repeat;
     background-position:right center;
-     background-size: 80px 60px;
-     margin-top:0px;
+    background-size: 80px 60px;
+    margin-top:0px;
     
     }
+    
+    
+    /*Botones*/
+    .ctrlist li
+    {
+    display: inline;
+    list-style-type: none;
+/*padding-right: 20px;*/
+    }
+   
+     .ctrlist
+     {
+         padding-top: 5px;
+         padding-bottom:5px;
+         }
+    .wrapctrl
+    {
+         background:rgba(27, 0, 0, 0.2);
+        border-left-style:solid;
+        border-left-width: 2.5px;
+        width:100%;
+        }
+        
+        
+   .frmctrl li 
+    {
+    display: inline;
+    list-style-type: none;
+        }
+     /*Colores de botones*/   
+           .button-green {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-red {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-orange {
+            background: rgb(223, 117, 20);
+        }
+
+        .button-blue {
+            background: rgb(66, 184, 221); 
+        }
+        .button-purple {
+            background:rgb(87, 98, 194);
+            }
+        .button-gray
+        {
+            background:rgb(238-233-233);
+            }
+       /*Tamaño botones*/  
+       .button-xsmall {
+            font-size: 70%;
+        }
+
+        .button-small {
+            font-size: 85%;
+        }
+
+        .button-large {
+            font-size: 110%;
+        }
+
+        .button-xlarge {
+            font-size: 125%;}
+    /**/

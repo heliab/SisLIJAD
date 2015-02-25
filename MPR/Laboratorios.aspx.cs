@@ -164,31 +164,34 @@ namespace SisLIJAD.MPR
         }
         protected void Delete()
         {
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
+            if (Page.IsPostBack)
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_Laboratorios where IdLaboratorio = @IdLaboratorio", con);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", txtIdD.Text);
-                if (cmd.ExecuteNonQuery() == 1)
+                SqlConnection con = new SqlConnection(Database.ConnectionString);
+                try
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("delete from MPR_Laboratorios where IdLaboratorio = @IdLaboratorio", con);
+                    cmd.Parameters.AddWithValue("@IdLaboratorio", txtIdD.Text);
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                    Response.Write("<script>alert(\"an error occur\")</script>");
                 }
+                finally
+                {
+                    con.Close();
+                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-                Response.Write("<script>alert(\"an error occur\")</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-
         }
         #endregion
 
@@ -246,27 +249,43 @@ namespace SisLIJAD.MPR
 
         protected void btnConfirmD_Click(object sender, EventArgs e)
         {
-            string value = CRUDOP.Get("Tipo").ToString();
-            string tipo = "0";
-            if (value == tipo)
+            if (IsPostBack)
             {
                 Delete();
                 GridPrincipal.DataBind();
-
             }
-            else
-            {
-                Response.Redirect("Laboratorios.aspx");
-            }
-            CRUDOP.Clear();
-            CRUDOP.Set("Tipo",1);
-            string value2 = CRUDOP.Get("Tipo").ToString();
-            Response.Write(value2);
         }
 
         protected void btnBind_Click(object sender, EventArgs e)
         {
             GridPrincipal.DataBind();
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string value = HiddenV.Get("Nuevo").ToString();
+            string insertar = "0";
+          
+            if (value == insertar)
+            {
+                Insert();
+                GridPrincipal.DataBind();
+
+            }
+            
+          
+            else
+            {
+                Update();
+                GridPrincipal.DataBind();
+            }
+            HiddenV.Clear();
+
+        }
+
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            Select();
         }
     }
 }

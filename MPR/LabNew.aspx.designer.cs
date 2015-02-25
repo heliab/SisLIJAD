@@ -10,88 +10,43 @@
 namespace SisLIJAD.MPR {
     
     
-    public partial class Lab2 {
+    public partial class LabNew {
         
         /// <summary>
-        /// Control NewCallback.
+        /// Control btnNew.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnNew;
         
         /// <summary>
-        /// Control HiddenV.
+        /// Control btnSelect.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSelect;
         
         /// <summary>
-        /// Control DelCallback.
+        /// Control bntDelete.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback.ASPxCallback DelCallback;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton bntDelete;
         
         /// <summary>
-        /// Control GridPrincipal.
+        /// Control btnClear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
-        
-        /// <summary>
-        /// Control SDSLaboratorios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSLaboratorios;
-        
-        /// <summary>
-        /// Control FormPopup.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl FormPopup;
-        
-        /// <summary>
-        /// Control PopupControlContentControl1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl1;
-        
-        /// <summary>
-        /// Control FillingCallback.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel FillingCallback;
-        
-        /// <summary>
-        /// Control PanelContent1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnClear;
         
         /// <summary>
         /// Control lblId.
@@ -175,57 +130,39 @@ namespace SisLIJAD.MPR {
         protected global::System.Web.UI.WebControls.SqlDataSource SDSEntidad;
         
         /// <summary>
-        /// Control DeleteForm.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl DeleteForm;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnGuardar;
         
         /// <summary>
-        /// Control PopupControlContentControl4.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl4;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelar;
         
         /// <summary>
-        /// Control PanelContent4.
+        /// Control GridPrincipal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent4;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
         
         /// <summary>
-        /// Control txtIdD.
+        /// Control SDSLaboratorios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtIdD;
-        
-        /// <summary>
-        /// Control btnConfirmD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnConfirmD;
-        
-        /// <summary>
-        /// Control btnCancelarD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelarD;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSLaboratorios;
     }
 }

@@ -19,26 +19,21 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script src="../Scripts/jsfunctions.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
     <div>
         <dx:ASPxButton ID="btnNew" runat="server" Text="Nuevo" AutoPostBack="False" ClientIDMode="AutoID">
             <ClientSideEvents Click="function(s, e) {
-fn_New();
+fn_Nuevo();
  ASPxClientEdit.ClearGroup('ControlGroup1');
 }" />
         </dx:ASPxButton>
         
     </div>
-    <dx:ASPxButton ID="btnSelect" runat="server" Text="Editar" AutoPostBack="False">
+    <dx:ASPxButton ID="btnSelect" runat="server" Text="Editar" AutoPostBack="False" 
+        onclick="btnSelect_Click">
     <ClientSideEvents Click="function(s, e) {
-    alert('Hidden');
-	    HiddenV.Set('Nuevo', 1);
-        alert('before callback');
-FillingCallback.PerformCallback();
-alert('After callback');
- FormPopup.Show();
+fn_Editar();
 }" />
     </dx:ASPxButton>
     <dx:ASPxButton ID="btnDelete" runat="server" Text="Borrar" 
@@ -64,8 +59,7 @@ alert('After callback');
         oncustomcallback="GridPrincipal_CustomCallback" AutoFocusNewRow="true">
         <ClientSideEvents FocusedRowChanged="function(s, e) {
 
-GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
-txtId.SetText(GridId);
+GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
   }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdLaboratorio" ReadOnly="True" 
@@ -86,8 +80,13 @@ txtId.SetText(GridId);
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
         </Columns>
+
+<SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
+
         <SettingsPager AlwaysShowPager="True" PageSize="15">
         </SettingsPager>
+
+<SettingsEditing Mode="EditForm"></SettingsEditing>
 
       <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" 
             ShowGroupPanel="True" />
@@ -111,11 +110,6 @@ txtId.SetText(GridId);
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" 
         ClientIDMode="AutoID" Height="186px" Width="298px">
-        <ClientSideEvents CloseUp="function(s, e) {
-	GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
-    txtId.SetText(GridId); 
-fn_CleanGroup1(1);
-}" />
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server">
                 <dx:ASPxCallbackPanel ID="FillingCallback" runat="server" ClientInstanceName="FillingCallback"
@@ -168,13 +162,13 @@ fn_CleanGroup1(1);
 
                                                            </div>
                             <div>
-                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" AutoPostBack="True">
+                                <dx:ASPxButton ID="btnGuardar" runat="server" Text="Guardar" 
+                                    AutoPostBack="False" OnClick="btnGuardar_Click">
 
                                     <ClientSideEvents Click="function(s, e) {
                                     if (!ASPxClientEdit.ValidateGroup('ControlGroup1')){
                                         retutn;
                                         }
-                                    FillingCallback.PerformCallback();
                                     GridPrincipal.PerformCallback();
                                     fn_ClosePopup(1);
                                     }" />
@@ -200,7 +194,6 @@ fn_CleanGroup1(1);
         <ClientSideEvents CloseUp="function(s, e) {
 	GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
     txtId.SetText(GridId); 
-fn_CleanGroup1(1);
 }" />
         <ContentStyle BackColor="#FFFDFD">
         </ContentStyle>

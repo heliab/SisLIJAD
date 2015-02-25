@@ -1,4 +1,19 @@
 ﻿
+function fn_Editar() {
+    fn_GetIdValue();
+    HiddenV.Set('Nuevo', 1);
+   FormPopup.Show();
+ }
+
+function fn_Nuevo() {
+    txtId.SetText('Nuevo');
+    HiddenV.Set('Nuevo', 0);
+    fn_CleanGroup(1);
+    FormPopup.Show();
+ }
+
+
+/************************ Callbacks js functions *********************************/
 function fn_NewJS() {
     txtId.SetText('Nuevo');
     HiddenV.Set('Nuevo', 0);
@@ -9,26 +24,36 @@ function fn_NewJS() {
 function fn_EditJS() {
     HiddenV.Set('Nuevo', 1);
     HiddenV.Set('Save', 0);
+    fn_GetIdValue();
+    //alert('despues de get id value'+GridId);
     FillingCallback.PerformCallback();
+    //alert('Despues del callback');
     FormPopup.Show();
+
 
 }
 function fn_SaveJS() {
     if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
         retutn;
     }
+    fn_ShowMessage();
     HiddenV.Set('Save',1);
-    FillingCallback.PerformCallback();
-    fn_ClosePopup(1);
+    // FillingCallback.PerformCallback();
+    NewCallback.PerformCallback();
+    fn_CleanGroup1();
+GridPrincipal.PerformCallback();
+    FormPopup.Hide();
+
+//    alert('After perform callback');
 }
 
 function fn_DeleteJS() {
     fn_ShowDelete();
-
-}
+ }
 function fn_ConfirmDJS() {
-    DeleteCallback.PerformCallback();
-    fn_ClosePopup(2);
+    DelCallback.PerformCallback();
+    fn_EndCallback();
+     fn_ClosePopup(2);
 
 }
 function fn_CancelDJS() {
@@ -37,12 +62,14 @@ function fn_CancelDJS() {
 function fn_CancelJS() {
     fn_ClosePopup(1);
 }
-
+function fn_EndCallback(){
+    GridPrincipal.PerformCallback();
+}
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
-    //HiddenId.Set("GridId", GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
-    txtId.SetText(GridId);
+    //HiddenV.Set("GridId", GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
+   txtId.SetText(GridId);
     return GridId;
 }
 
@@ -82,10 +109,11 @@ function fn_CallUpdate() {
 
 //****************************************Funciones Nuevo******************************************
 function fn_New() {
+    
+       HiddenV.Set('Nuevo', 0);
     txtId.SetText('Nuevo');
-    HiddenV.Set('Nuevo', 0);
-    fn_CleanGroup1();
-    FormPopup.Show();
+fn_CleanGroup1();
+FormPopup.Show();
 }
 
 function fn_SubNew() {
@@ -118,18 +146,19 @@ function fn_ClosePopup(e) {
     //0 Valida el formy}ulario cuando se cierra el popup con cancelar
     switch (e) {
         case 0:
+            
             FormPopup.Hide();
             fn_GetIdValue();
-            fn_CleanGroup1();
+            fn_CleanGroup(1);
             break;
         //1 Cuando se guardan los datos
         case 1:
             FormPopup.Hide();
-            fn_GetIdValue();
-           break;
-            //    fn_CleanGroup2();
+          
             break;
-        //2 Cuando se va a cerrar el popup de eliminar 
+            //    fn_CleanGroup2();
+            
+        //2 Cuando se va a cerrar el popup de eliminar
         case 2:
             DeleteForm.Hide();
             break;
@@ -158,6 +187,9 @@ function fn_ClosePopup(e) {
 function fn_CleanGroup(e) {
     switch (e) {
         case 1: ASPxClientEdit.ClearGroup('ControlGroup1');
+             break;
+
+        default: ASPxClientEdit.ClearGroup('ControlGroup1');
             break;
     }
    
