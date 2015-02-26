@@ -1,8 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true"
-    CodeBehind="Lab2.aspx.cs" Inherits="SisLIJAD.MPR.Lab2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="Ubicaciones.aspx.cs" Inherits="SisLIJAD.MINV.Ubicaciones" %>
 
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
-    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -19,24 +16,11 @@
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-    <%--  <dx:ASPxMenu ID="ASPxMenu1" runat="server" ClientIDMode="AutoID" 
-        HorizontalAlign="Center" VerticalAlign="Middle" Width="100%">
-        <Items>
-            <dx:MenuItem Text="Inicio">
-            </dx:MenuItem>
-            <dx:MenuItem Text="Movimientos">
-            </dx:MenuItem>
-            <dx:MenuItem Text="Ubicaciones">
-            </dx:MenuItem>
-            <dx:MenuItem Text="Administracion">
-            </dx:MenuItem>
-        </Items>
-    </dx:ASPxMenu>
-    --%>
-    <div class="wrapctrl">
+<div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button" href="javascript:fn_NewJS();" title="Nuevo"><i class="fa fa-plus">
             </i> Nuevo</a></li>
@@ -49,9 +33,7 @@
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
-    
 fn_EndCallback();
-
 }" />
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
@@ -67,7 +49,7 @@ fn_EndCallback();
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSLaboratorios" KeyFieldName="IdLaboratorio" SettingsBehavior-AllowFocusedRow="True"
+        DataSourceID="SDSUbic" KeyFieldName="IdUbicacion" SettingsBehavior-AllowFocusedRow="True"
         SettingsEditing-Mode="EditForm" Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents FocusedRowChanged="function(s, e) {
@@ -75,23 +57,15 @@ GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
 GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdLaboratorio" ReadOnly="True" VisibleIndex="0"
-                Caption="Id" Width="4%">
-                <EditFormSettings Visible="False" />
-                <Settings AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn FieldName="IdUbicacion" ReadOnly="True" 
+                VisibleIndex="0" Caption="Id" Width="10%" SortIndex="0" 
+                SortOrder="Descending">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="NomLaboratorio" VisibleIndex="1" Caption="Nombre"
-                Width="28%">
-                <Settings AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn FieldName="DescUbicacion" VisibleIndex="1" Caption="Descripcion">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DescLaboratorio" VisibleIndex="2" Width="40%">
-                <Settings AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn FieldName="DescTipoUB" VisibleIndex="2" Caption="Tipo Ubicacion" Width="22%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Responsable" VisibleIndex="3" ReadOnly="True">
-                <Settings AutoFilterCondition="Contains" />
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn ShowSelectCheckbox="False" VisibleIndex="4" ClearFilterButton-Text="Limpiar"
-                ClearFilterButton-Visible="True">
+             <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -103,16 +77,18 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
 <SettingsEditing Mode="EditForm"></SettingsEditing>
 
         <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
-        <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí"
-            Title="Estados de materiales" />
+        <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí"/>
         <Styles>
             <FocusedRow BackColor="#5180BF">
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
-    <asp:SqlDataSource ID="SDSLaboratorios" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT MPR_Laboratorios.IdLaboratorio, MPR_Laboratorios.NomLaboratorio, MPR_Laboratorios.DescLaboratorio, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS Responsable FROM MPR_Laboratorios INNER JOIN USER_Entidad ON MPR_Laboratorios.IdEntidad = USER_Entidad.IdEntidad">
+    <asp:SqlDataSource ID="SDSUbic" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+        
+        
+        SelectCommand="SELECT MINV_Ubicaciones.IdUbicacion, MINV_Ubicaciones.DescUbicacion, MINV_Tipo_Ubic.DescTipoUB FROM MINV_Ubicaciones INNER JOIN MINV_Tipo_Ubic ON MINV_Ubicaciones.IdTipoUb = MINV_Tipo_Ubic.IdTipoUb">
     </asp:SqlDataSource>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
@@ -120,7 +96,7 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="186px" Width="332px" CloseAction="CloseButton">
+        Height="186px" Width="320px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 	
 fn_CleanGroup(1);
@@ -138,6 +114,7 @@ fn_EndCallback();
 }" />
                     <PanelCollection>
                         <dx:PanelContent ID="PanelContent1" runat="server">
+                        <div class="form">
                             <div>
                                 <dx:ASPxLabel ID="lblId" runat="server" Text="Id">
                                 </dx:ASPxLabel>
@@ -146,26 +123,22 @@ fn_EndCallback();
                                 </dx:ASPxTextBox>
                             </div>
                             <div>
-                                <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre laboratorio">
+                                <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre de ubicación">
                                 </dx:ASPxLabel>
-                                <dx:ASPxTextBox ID="txtLab" runat="server" Width="170px" ClientInstanceName="txtLab"
-                                    ValidationSettings-ValidationGroup="ControlGroup1">
+                                <dx:ASPxTextBox ID="txtUbic" runat="server" Width="191px" ClientInstanceName="txtUbic"
+                                    ValidationSettings-ValidationGroup="ControlGroup1" 
+                                    NullText="Ej. Laboratorio Hidraulica,etc" Height="16px">
+                                    <NullTextStyle BackColor="#F3F3F3">
+                                    </NullTextStyle>
                                     <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                         SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                         <RegularExpression ErrorText="Informacion Requerida" />
                                         <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                                <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Descripción de laboratorio">
+                                <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Tipo de ubicación">
                                 </dx:ASPxLabel>
-                                <dx:ASPxMemo ID="mDesc" runat="server" Height="71px" Width="80%" ClientInstanceName="mDesc"
-                                    NullText="Puede añadir una descripción al laboratorio.">
-                                    <ValidationSettings ValidationGroup="ControlGroup1">
-                                    </ValidationSettings>
-                                </dx:ASPxMemo>
-                                <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Responsable">
-                                </dx:ASPxLabel>
-                                <dx:ASPxComboBox ID="cmbEntidad" runat="server" ClientInstanceName="cmbEntidad" DataSourceID="SDSEntidad"
+                                <dx:ASPxComboBox ID="cmbTipoUbic" runat="server" ClientInstanceName="cmbTipoUbic" DataSourceID="SDSTipoUbic"
                                     TextField="Responsable" ValueField="IdEntidad">
                                     <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                         SetFocusOnError="True" ValidationGroup="ControlGroup1">
@@ -173,9 +146,10 @@ fn_EndCallback();
                                         <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                     </ValidationSettings>
                                 </dx:ASPxComboBox>
-                                <asp:SqlDataSource ID="SDSEntidad" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                    SelectCommand="SELECT IdEntidad, CAST(PNombre AS NVARCHAR) + ' ' + CAST(PApellido AS NVARCHAR) AS Responsable FROM USER_Entidad">
+                                <asp:SqlDataSource ID="SDSTipoUbic" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                    SelectCommand="SELECT IdTipoUb AS Id, DescTipoUB AS Tipo FROM MINV_Tipo_Ubic">
                                 </asp:SqlDataSource>
+                            </div>
                             </div>
                             <div>
                                 <ul class="frmctrl">
@@ -187,6 +161,7 @@ fn_EndCallback();
                                         class="fa fa-repeat"></i>Limpiar</a></li>
                                 </ul>
                             </div>
+                          
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxCallbackPanel>
@@ -204,6 +179,7 @@ fn_EndCallback();
         </ModalBackgroundStyle>
         <ContentCollection>
             <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
+                            <div class="form">
                             <div>
                                 <p>
                                     <strong>¿Seguro que quiere eliminar el siguiente registro?</strong></p>
@@ -211,6 +187,7 @@ fn_EndCallback();
                                     ClientEnabled="true" ReadOnly="True" Font-Bold="True" 
                                     HorizontalAlign="Center">
                                 </dx:ASPxTextBox>
+                            </div>
                             </div>
                             <div>
                                 <ul class="frmctrl">

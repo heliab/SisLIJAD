@@ -22,14 +22,16 @@ function fn_NewJS() {
 }
 
 function fn_EditJS() {
-    HiddenV.Set('Nuevo', 1);
-    HiddenV.Set('Save', 0);
-    fn_GetIdValue();
-    //alert('despues de get id value'+GridId);
-    FillingCallback.PerformCallback();
-    //alert('Despues del callback');
-    FormPopup.Show();
 
+    if (fn_GetIdValue() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', 1);
+        fn_GetIdValue();
+        FillingCallback.PerformCallback();
+        FormPopup.Show();
+    }
 
 }
 function fn_SaveJS() {
@@ -37,14 +39,11 @@ function fn_SaveJS() {
         retutn;
     }
     fn_ShowMessage();
-    HiddenV.Set('Save',1);
-    // FillingCallback.PerformCallback();
     NewCallback.PerformCallback();
-    fn_CleanGroup1();
+    fn_CleanGroup(1);
+    alert('Despues de clean group');
 GridPrincipal.PerformCallback();
     FormPopup.Hide();
-
-//    alert('After perform callback');
 }
 
 function fn_DeleteJS() {
@@ -60,9 +59,9 @@ function fn_CancelDJS() {
     fn_ClosePopup(2);
 }
 function fn_CancelJS() {
-    fn_ClosePopup(1);
+    fn_ClosePopup(0);
 }
-function fn_EndCallback(){
+function fn_EndCallback(s, e) {
     GridPrincipal.PerformCallback();
 }
 /* **********************************Funciones Grid************************************* */
@@ -77,11 +76,6 @@ function fn_GetIdValue2() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
     document.getElementById('txtId2').value = GridId;
     document.getElementById('btnUpdate').click();
-}
-
-function fn_EndBinding() { 
-
-
 }
 /***********************************Funciones SubGrid**************************************/
 function fn_GetSubIdValue() {
@@ -146,10 +140,10 @@ function fn_ClosePopup(e) {
     //0 Valida el formy}ulario cuando se cierra el popup con cancelar
     switch (e) {
         case 0:
-            
+
             FormPopup.Hide();
-            fn_GetIdValue();
             fn_CleanGroup(1);
+            HiddenV.Clear();
             break;
         //1 Cuando se guardan los datos
         case 1:

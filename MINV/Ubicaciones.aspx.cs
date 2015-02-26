@@ -7,13 +7,14 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 
-namespace SisLIJAD.MPR
+
+namespace SisLIJAD.MINV
 {
-    public partial class Lab2 : System.Web.UI.Page
+    public partial class Ubicaciones : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         #region Callbacks
@@ -22,36 +23,24 @@ namespace SisLIJAD.MPR
         {
             GridPrincipal.DataBind();
             GridPrincipal.Focus();
-
         }
 
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
             string valNuevo = HiddenV.Get("Nuevo").ToString();
-            string insertar = "0";
-            string tipo = "1";
 
-
-            if (valNuevo == insertar)
+            switch (valNuevo)
             {
-                Insert();
-                GridPrincipal.DataBind();
-            }
-            else
-            {
-                string valSave = HiddenV.Get("Save").ToString();
-                if (tipo == valNuevo && tipo == valSave)
-                {
-                    Update();
+                case "0": Insert();
                     GridPrincipal.DataBind();
-                }
+                    break;
+                case "1": Update();
+                    GridPrincipal.DataBind();
+                    break;
+                default: Response.Write("Error con valor de crud");
+                    break;
 
-                else
-                {
-                    Select();
-                }
             }
-
             HiddenV.Clear();
 
         }
@@ -64,51 +53,6 @@ namespace SisLIJAD.MPR
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             Select();
-
-            #region ifvalue
-            //  string valNuevo = HiddenV.Get("Nuevo").ToString();
-            //  string insertar = "0";
-            //  string tipo = "1";
-
-
-            //  if (valNuevo == insertar)
-            //  {
-            //      Insert();
-            //   }
-            //       else
-            //  {
-            //      string valSave = HiddenV.Get("Save").ToString();
-            //      if (tipo == valNuevo && tipo == valSave)
-            //      {
-            //          Update();
-            //      }
-
-            //      else
-            //      {
-            //          Select();
-            //      }
-            //  }
-
-            //HiddenV.Clear();
-            #endregion
-            #region swithc
-            //string value = HiddenV.Get("Nuevo").ToString();
-            ////string insertar = "0";
-            ////string seleccionar = "1";
-
-            //switch (value) {
-            //    case "0": Insert();
-            //        break;
-            //    case "1": Select();
-            //        break;
-
-            //    default: Response.Write("<script>alert(\"an error filling callback occur\")</script>");
-            //        break;
-            //    }
-            //HiddenV.Clear(); 
-            #endregion
-
-
         }
 
         #endregion
@@ -122,22 +66,20 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MPR_Laboratorios where IdLaboratorio= @IdLaboratorio", con);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", txtId.Text);
+                SqlCommand cmd = new SqlCommand("Select * from MINV_Tipo_Ubic where IdTipoUb= @IdTipoUb", con);
+                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
 
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdLaboratorio"].ToString();
-                    txtLab.Text = dr["NomLaboratorio"].ToString();
-                    mDesc.Text = dr["DescLaboratorio"].ToString();
-                    cmbEntidad.Value = dr["IdEntidad"].ToString();
-
+                    txtId.Text = dr["IdTipoUb"].ToString();
+                    txtUbic.Text = dr["DescTipoUB"].ToString();
                 }
                 else
                 {
+
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
 
                 }
@@ -161,19 +103,18 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Laboratorios(NomLaboratorio, DescLaboratorio,IdEntidad) values(@NomLaboratorio,@DescLaboratorio,@IdEntidad)", con);
-                cmd.Parameters.AddWithValue("@NomLaboratorio", txtLab.Text);
-                cmd.Parameters.AddWithValue("@DescLaboratorio", mDesc.Text);
-                cmd.Parameters.AddWithValue("@IdEntidad", cmbEntidad.Value);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Tipo_Ubic(DescTipoUB) values(@DescTipoUB)", con);
+                cmd.Parameters.AddWithValue("@DescTipoUB", txtUbic.Text);
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El laboratorio" + txtLab.Text + " se ha guardado correctamente") + "')</script>");
-
+               
+                    Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
                 }
                 else
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+             
+                Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
             }
             catch (Exception ex)
             {
@@ -194,18 +135,15 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MPR_Laboratorios set NomLaboratorio=@NomLaboratorio, DescLaboratorio=@DescLaboratorio,IdEntidad=@IdEntidad where IdLaboratorio = @IdLaboratorio", con);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", txtId.Text);
-                cmd.Parameters.AddWithValue("@NomLaboratorio", txtLab.Text);
-                cmd.Parameters.AddWithValue("@DescLaboratorio", mDesc.Text);
-                cmd.Parameters.AddWithValue("@IdEntidad", cmbEntidad.Value);
+                SqlCommand cmd = new SqlCommand("update MINV_Tipo_Ubic set DescTipoUB=@DescTipoUB where IdTipoUb = @IdTipoUb", con);
+                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
+                cmd.Parameters.AddWithValue("@DescTipoUB", txtUbic.Text);
 
-                //cmbPersonal.DataBind();
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
-               }
+                }
                 else
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
@@ -226,12 +164,11 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_Laboratorios where IdLaboratorio = @IdLaboratorio", con);
-                cmd.Parameters.AddWithValue("@IdLaboratorio", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Tipo_Ubic where IdTipoUb = @IdTipoUb", con);
+                cmd.Parameters.AddWithValue("@IdTipoUb", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
-                    Response.Redirect("Lab2.aspx");
                 }
                 else
                 {

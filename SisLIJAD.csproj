@@ -79,12 +79,15 @@
     <Content Include="MINV\EstadoMAteriales.aspx" />
     <Content Include="MINV\Oficinas.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
+    <Content Include="MINV\TipoUbicaciones.aspx" />
+    <Content Include="MINV\Ubicaciones.aspx" />
     <Content Include="MINV\UbicacionesEspecificas.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\LabNew.aspx" />
     <Content Include="MPR\Lab2.aspx" />
     <Content Include="MPR\Laboratorios.aspx" />
     <Content Include="Scripts\jsfunctions.js" />
+    <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
     <Content Include="SICOM\Proveedores.aspx" />
     <Content Include="SICOM\TipoMoneda.aspx" />
@@ -218,6 +221,20 @@
     </Compile>
     <Compile Include="MINV\TipoMateriales.aspx.designer.cs">
       <DependentUpon>TipoMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\TipoUbicaciones.aspx.cs">
+      <DependentUpon>TipoUbicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\TipoUbicaciones.aspx.designer.cs">
+      <DependentUpon>TipoUbicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Ubicaciones.aspx.cs">
+      <DependentUpon>Ubicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Ubicaciones.aspx.designer.cs">
+      <DependentUpon>Ubicaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\UbicacionesEspecificas.aspx.cs">
       <DependentUpon>UbicacionesEspecificas.aspx</DependentUpon>

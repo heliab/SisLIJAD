@@ -318,14 +318,22 @@ section {
          background:rgba(27, 0, 0, 0.2);
         border-left-style:solid;
         border-left-width: 2.5px;
+        padding-left: 2.3em;
         width:100%;
         }
         
-        
+     .frmctrl 
+     {
+         padding-left: 2.3em;
+         }   
    .frmctrl li 
     {
     display: inline;
     list-style-type: none;
+        }
+    .form
+    {
+        padding-left:1.7em;
         }
      /*Colores de botones*/   
            .button-green {

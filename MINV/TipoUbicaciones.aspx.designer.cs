@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.MPR {
+namespace SisLIJAD.MINV {
     
     
-    public partial class Lab2 {
+    public partial class TipoUbicaciones {
         
         /// <summary>
         /// Control NewCallback.
@@ -49,13 +49,13 @@ namespace SisLIJAD.MPR {
         protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
         
         /// <summary>
-        /// Control SDSLaboratorios.
+        /// Control SDSTipoUbic.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSLaboratorios;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSTipoUbic;
         
         /// <summary>
         /// Control FormPopup.
@@ -121,58 +121,13 @@ namespace SisLIJAD.MPR {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel4;
         
         /// <summary>
-        /// Control txtLab.
+        /// Control txtUbic.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtLab;
-        
-        /// <summary>
-        /// Control ASPxLabel2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel2;
-        
-        /// <summary>
-        /// Control mDesc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxMemo mDesc;
-        
-        /// <summary>
-        /// Control ASPxLabel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
-        
-        /// <summary>
-        /// Control cmbEntidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbEntidad;
-        
-        /// <summary>
-        /// Control SDSEntidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSEntidad;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtUbic;
         
         /// <summary>
         /// Control DeleteForm.
