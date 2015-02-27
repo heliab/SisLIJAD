@@ -373,4 +373,26 @@ section {
 
         .button-xlarge {
             font-size: 125%;}
-    /**/
+    /*Colores de letra sobre los botones*/
+    .blue-font:hover,.green-font:hover,.red-font:hover,.yellow-font:hover
+    {
+    -webkit-transition: color 0.8s ease-out;
+    -moz-transition: color 0.8s ease-out;
+    }
+    .blue-font:hover
+    {
+    color:rgb(27,128,191);
+    }
+    .green-font:hover
+    {
+  color:rgb(14,145,0);
+        }
+    .red-font:hover
+    {
+   color:rgb(191,43,27);
+        }
+    .yellow-font:hover
+    {
+        color:rgb(243, 229, 171);
+        
+        }

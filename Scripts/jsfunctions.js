@@ -64,6 +64,52 @@ function fn_CancelJS() {
 function fn_EndCallback(s, e) {
     GridPrincipal.PerformCallback();
 }
+
+/****** Sub Functions for Subforms***/
+function fn_SubNewJS() {
+    txtSubId.SetText('Nuevo');
+    HiddenV.Set('Nuevo', 2);
+    SubFormPopup.Show();
+    fn_CleanGroup(2);
+
+}
+function fn_SubEditJS() {
+
+    if (fn_GetSubIdValue() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', 3);
+        fn_GetSubIdValue();
+        SubFillingCallback.PerformCallback();
+        SubFormPopup.Show();
+    }
+
+}
+function fn_SubSaveJS() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup2')) {
+        retutn;
+    }
+    NewCallback.PerformCallback();
+    fn_CleanGroup(2);
+    GridPrincipal.PerformCallback();
+    SubFormPopup.Hide();
+}
+function fn_SubDeleteJS() {
+    fn_ShowSubDelete();
+}
+function fn_SubConfirmDJS() {
+    DelCallback.PerformCallback();
+    fn_EndCallback();
+    fn_ClosePopup(2);
+
+}
+function fn_SubCancelDJS() {
+    fn_ClosePopup(2);
+}
+function fn_SubCancelJS() {
+    fn_ClosePopup(0);
+}
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
@@ -80,7 +126,7 @@ function fn_GetIdValue2() {
 /***********************************Funciones SubGrid**************************************/
 function fn_GetSubIdValue() {
     SubGridId = SubGrid.GetRowKey(SubGrid.GetFocusedRowIndex());
-    txtIdSub.SetText(SubGridId);
+    txtSubId.SetText(SubGridId);
     return SubGridId;
 }
 
@@ -110,30 +156,24 @@ fn_CleanGroup1();
 FormPopup.Show();
 }
 
-function fn_SubNew() {
-    fn_GetSubIdValue();
-    fn_CleanGroup2();
-    SubForm.Show();
 
-}
-// *************************************Funciones Editar ******************************************
-function fn_Select() {
-//    if (fn_GetIdValue() == null)
-//    { alert("Debe seleccionar un registro!"); }
-//    else {
-//        HiddenV.Set('Nuevo', 1);
-//        FillCallback.PerformCallBack()
-//        FormPopup.Show();
-    //    }
-
-}
 // *************************************Funciones Borrar ******************************************
 function fn_ShowDelete() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
     txtIdD.SetText(GridId);
     DeleteForm.Show();
 }
-
+function fn_ShowSubDelete() {
+    if (fn_GetSubIdValue() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', "-1");
+        SubGridId = SubGrid.GetRowKey(SubGrid.GetFocusedRowIndex());
+        txtIdD.SetText(SubGridId);
+        DeleteForm.Show();
+    }
+ }
 
 /* **************************************Funciones popup **************************************   */
 function fn_ClosePopup(e) {
@@ -181,7 +221,9 @@ function fn_ClosePopup(e) {
 function fn_CleanGroup(e) {
     switch (e) {
         case 1: ASPxClientEdit.ClearGroup('ControlGroup1');
-             break;
+            break;
+        case 2: ASPxClientEdit.ClearGroup('ControlGroup2');
+            break;
 
         default: ASPxClientEdit.ClearGroup('ControlGroup1');
             break;
