@@ -31,15 +31,6 @@ namespace SisLIJAD.MINV {
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
         
         /// <summary>
-        /// Control DelCallback.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback.ASPxCallback DelCallback;
-        
-        /// <summary>
         /// Control GridPrincipal.
         /// </summary>
         /// <remarks>

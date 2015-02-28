@@ -47,10 +47,11 @@ GridPrincipal.PerformCallback();
 }
 
 function fn_DeleteJS() {
+    HiddenV.Set('Nuevo', 2);
     fn_ShowDelete();
  }
 function fn_ConfirmDJS() {
-    DelCallback.PerformCallback();
+    NewCallback.PerformCallback();
     fn_EndCallback();
      fn_ClosePopup(2);
 
@@ -68,7 +69,7 @@ function fn_EndCallback(s, e) {
 /****** Sub Functions for Subforms***/
 function fn_SubNewJS() {
     txtSubId.SetText('Nuevo');
-    HiddenV.Set('Nuevo', 2);
+    HiddenV.Set('Nuevo', 3);
     SubFormPopup.Show();
     fn_CleanGroup(2);
 
@@ -79,7 +80,7 @@ function fn_SubEditJS() {
         alert('Debe seleciconar un registro');
     }
     else {
-        HiddenV.Set('Nuevo', 3);
+        HiddenV.Set('Nuevo', 4);
         fn_GetSubIdValue();
         SubFillingCallback.PerformCallback();
         SubFormPopup.Show();
@@ -96,7 +97,8 @@ function fn_SubSaveJS() {
     SubFormPopup.Hide();
 }
 function fn_SubDeleteJS() {
-    fn_ShowSubDelete();
+    HiddenV.Set('Nuevo', 5);
+      fn_ShowSubDelete();
 }
 function fn_SubConfirmDJS() {
     DelCallback.PerformCallback();
@@ -168,7 +170,6 @@ function fn_ShowSubDelete() {
         alert('Debe seleciconar un registro');
     }
     else {
-        HiddenV.Set('Nuevo', "-1");
         SubGridId = SubGrid.GetRowKey(SubGrid.GetFocusedRowIndex());
         txtIdD.SetText(SubGridId);
         DeleteForm.Show();

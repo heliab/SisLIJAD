@@ -23,6 +23,8 @@
             cmbUbic.PerformCallback();
             fn_SubNewJS();
         }
+
+       
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -44,14 +46,7 @@ fn_EndCallback();
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
-    <dx:ASPxCallback ID="DelCallback" runat="server" ClientInstanceName="DelCallback"
-        OnCallback="DelCallback_Callback">
-        <ClientSideEvents EndCallback="function(s, e) {
     
-fn_EndCallback();
-
-}" />
-    </dx:ASPxCallback>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
@@ -59,8 +54,10 @@ fn_EndCallback();
         SettingsEditing-Mode="EditForm" Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback" Font-Size="Small">
         <ClientSideEvents FocusedRowChanged="function(s, e) {
+GridPrincipal.CollapseAllDetailRows();
 GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
-GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
+}" DetailRowExpanding="function(s, e) {
+	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdUbicacion" ReadOnly="True" 
@@ -112,9 +109,11 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
                     <Columns>
                         <dx:GridViewDataTextColumn Caption="Id" FieldName="IdEspec" ReadOnly="True" 
                             VisibleIndex="0" Width="14%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Ubicacion Especifica" FieldName="EspecUbic" 
                             VisibleIndex="1">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
                             <ClearFilterButton Text="Limpiar" Visible="True">
@@ -306,7 +305,8 @@ fn_EndCallback();
                                 <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Ubicación">
                                 </dx:ASPxLabel>
                                 <dx:ASPxComboBox ID="cmbUbic" runat="server" ClientInstanceName="cmbUbic" DataSourceID="SDSUbica"
-                                    TextField="Ubicacion" ValueField="Id" OnCallback="cmbUbic_Callback">
+                                    TextField="Ubicacion" ValueField="Id" OnCallback="cmbUbic_Callback" 
+                                    DropDownStyle="DropDown">
                                 </dx:ASPxComboBox>
                                 <asp:SqlDataSource ID="SDSUbica" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
                                     

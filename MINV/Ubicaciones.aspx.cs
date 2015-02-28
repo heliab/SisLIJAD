@@ -41,11 +41,13 @@ namespace SisLIJAD.MINV
                 case "1": Update();
                     GridPrincipal.DataBind();
                     break;
-                case "2": SubInsert();
+                case "2": Delete();
                     break;
-                case "3": SubUpdate();
+                case "3": SubInsert();
                     break;
-                case "-1": SubDelete();
+                case "4": SubUpdate();
+                    break;
+                case "5": SubDelete();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -53,11 +55,6 @@ namespace SisLIJAD.MINV
             }
             HiddenV.Clear();
 
-        }
-
-        protected void DelCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            Delete();
         }
 
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
@@ -286,9 +283,9 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Ubic_Espec set EspecUbic=@EspecUbic, IdUbicacion=@IdUbicacion where IdUbicEspec = @IdUbicEspec", con);
-                cmd.Parameters.AddWithValue("@IdUbicacion", txtSubId.Text);
-                cmd.Parameters.AddWithValue("@DescUbicacion", txtUbicEs.Text);
+                SqlCommand cmd = new SqlCommand("update MINV_Ubic_Espec set EspecUbic=@EspecUbic, IdUbicacion=@IdUbicacion where (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec)", con);
+                cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
+                cmd.Parameters.AddWithValue("@EspecUbic", txtUbicEs.Text);
                 cmd.Parameters.AddWithValue("@IdUbicacion", cmbUbic.Value);
 
 
@@ -315,7 +312,7 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Ubic_Espec where WHERE (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec", con);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Ubic_Espec WHERE (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec)", con);
                 cmd.Parameters.AddWithValue("@IdEspec", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
