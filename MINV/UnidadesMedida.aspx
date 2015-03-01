@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
-    CodeBehind="EquiposMaquinarias.aspx.cs" Inherits="SisLIJAD.MPR.EquiposMaquinarias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="UnidadesMedida.aspx.cs" Inherits="SisLIJAD.MINV.UnidadesMedida" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
@@ -17,10 +16,12 @@
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-    <div class="wrapctrl">
+<div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                 class="fa fa-plus"></i>Nuevo</a></li>
@@ -30,6 +31,7 @@
                 <i class="fa fa-trash"></i>Borrar</a></li>
         </ul>
     </div>
+
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
@@ -41,23 +43,23 @@ fn_EndCallback();
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEquipo" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+        DataSourceID="SDSEstadoMaterial" KeyFieldName="IdUnidadM" SettingsBehavior-AllowFocusedRow="True"
+        Width="100%" ClientInstanceName="GridPrincipal" 
+        OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
-            <dx:GridViewDataTextColumn Caption="Id" FieldName="IdEquipo" ReadOnly="True" VisibleIndex="0"
-                Width="7%">
+            <dx:GridViewDataTextColumn Caption="Id" FieldName="IdUnidadM" ReadOnly="True" VisibleIndex="0"
+                Width="8%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Nombre Equipo" FieldName="NomMaq" VisibleIndex="1"
-                Width="28%">
+            <dx:GridViewDataTextColumn Caption="Nombre" FieldName="NomUnidadM" 
+                VisibleIndex="1" Width="35%">
+                <Settings AllowDragDrop="True" AllowSort="True" 
+                    AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="2">
+            <dx:GridViewDataTextColumn Caption="Abreviatura" FieldName="AbrUnid" 
+                VisibleIndex="2">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Serie" FieldName="NumSerie" VisibleIndex="3">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Ubicacion" FieldName="EspecUbic" VisibleIndex="4">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
+            <dx:GridViewCommandColumn VisibleIndex="3" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -73,7 +75,9 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT MPR_EquipMaquin.IdEquipo, MPR_EquipMaquin.NomMaq, MPR_EquipMaquin.Modelo, MPR_EquipMaquin.NumSerie, MINV_Ubic_Espec.EspecUbic FROM MINV_Ubic_Espec INNER JOIN MPR_EquipMaquin ON MINV_Ubic_Espec.IdUbicEspec = MPR_EquipMaquin.IdUbicEspec">
+        
+        
+        SelectCommand="SELECT [IdUnidadM], [NomUnidadM], [AbrUnid] FROM [MINV_UnidadM]">
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
@@ -102,9 +106,9 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre de Equipo">
+                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Unidad de medida">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtNom" runat="server" Width="199px" ClientInstanceName="txtNom"
+                                    <dx:ASPxTextBox ID="txtUnd" runat="server" Width="199px" ClientInstanceName="txtUnd"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
@@ -114,43 +118,26 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Modelo">
+                                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Abreviatura">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtModel" runat="server" Width="199px" ClientInstanceName="txtModel"
+                                    <dx:ASPxTextBox ID="txtAbvr" runat="server" Width="199px" ClientInstanceName="txtAbvr"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
-                                    </dx:ASPxTextBox>
-                                </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Numero de Serie">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtNumSerie" runat="server" Width="199px" ClientInstanceName="txtNumSerie"
-                                        ValidationSettings-ValidationGroup="ControlGroup1">
-                                    </dx:ASPxTextBox>
-                                </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione Ubicacion">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbUbic" runat="server" ClientInstanceName="cmbUbic" DataSourceID="SDSTipoUbic"
-                                        TextField="Tipo" ValueField="Id">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                         </ValidationSettings>
-                                    </dx:ASPxComboBox>
+                                    </dx:ASPxTextBox>
                                 </div>
-                                <asp:SqlDataSource ID="SDSTipoUbic" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                    SelectCommand="SELECT IdTipoUb AS Id, DescTipoUB AS Tipo FROM MINV_Tipo_Ubic">
-                                </asp:SqlDataSource>
                             </div>
-                            <div>
+                             <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
-                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
-                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
-                                        <i class="fa fa-times"></i>Cancelar</a></li>
-                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
-                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
+                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
+                                    </i>Guardar</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
+                                    </i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i
+                                        class="fa fa-repeat"></i>Limpiar</a></li>
                                 </ul>
                             </div>
                         </dx:PanelContent>
@@ -172,8 +159,7 @@ fn_CleanGroup(1);
             <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
                 <div class="form">
                     <div>
-                        <p>
-                            <strong>¿Seguro que quiere eliminar el siguiente registro?</strong></p>
+                        <p><strong>¿Seguro que quiere eliminar el siguiente registro?</strong></p>
                         <dx:ASPxTextBox ID="txtIdD" runat="server" Width="170px" ClientInstanceName="txtIdD"
                             ClientEnabled="true" ReadOnly="True" Font-Bold="True" HorizontalAlign="Center">
                         </dx:ASPxTextBox>

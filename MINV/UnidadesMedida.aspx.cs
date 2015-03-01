@@ -9,12 +9,13 @@ using DevExpress.Web.ASPxGridView;
 
 namespace SisLIJAD.MINV
 {
-    public partial class EstadoMateriales : System.Web.UI.Page
+    public partial class UnidadesMedida : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
 
 
         #region CRUD
@@ -24,15 +25,16 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MINV_EstadoMateriales where IdEstado= @IdEstado", con);
-                cmd.Parameters.AddWithValue("@IdEstado", txtId.Text);
+                SqlCommand cmd = new SqlCommand("Select * from MINV_UnidadM where IdUnidadM= @IdUnidadM", con);
+                cmd.Parameters.AddWithValue("@IdUnidadM", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdEstado"].ToString();
-                    txtDesc.Text = dr["DescEstado"].ToString();
+                    txtId.Text = dr["IdUnidadM"].ToString();
+                    txtUnd.Text = dr["NomUnidadM"].ToString();
+                    txtAbvr.Text = dr["AbrUnid"].ToString();
                 }
                 else
                 {
@@ -60,14 +62,15 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_EstadoMateriales (DescEstado) values(@DescEstado)", con);
-                cmd.Parameters.AddWithValue("@DescEstado", txtDesc.Text);
+                SqlCommand cmd = new SqlCommand("insert into MINV_UnidadM (NomUnidadM,AbrUnid) values(@NomUnidadM,@AbrUnid)", con);
+                cmd.Parameters.AddWithValue("@NomUnidadM", txtUnd.Text);
+                cmd.Parameters.AddWithValue("@AbrUnid", txtAbvr.Text);
 
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El estado " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("La unidad " + txtUnd.Text + " se ha guardado correctamente") + "')</script>");
 
                 }
                 else
@@ -91,9 +94,10 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_EstadoMateriales set DescEstado=@DescEstado where IdEstado = @IdEstado", con);
-                cmd.Parameters.AddWithValue("@IdEstado", txtId.Text);
-                cmd.Parameters.AddWithValue("@DescEstado", txtDesc.Text);
+                SqlCommand cmd = new SqlCommand("update MINV_UnidadM set NomUnidadM=@NomUnidadM,AbrUnid=@AbrUnid where IdUnidadM = @IdUnidadM", con);
+                cmd.Parameters.AddWithValue("@IdUnidadM", txtId.Text);
+                cmd.Parameters.AddWithValue("@NomUnidadM", txtUnd.Text);
+                cmd.Parameters.AddWithValue("@AbrUnid", txtAbvr.Text);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
@@ -120,8 +124,8 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_EstadoMateriales where IdEstado = @IdEstado", con);
-                cmd.Parameters.AddWithValue("@IdEstado", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MINV_UnidadM where IdUnidadM = @IdUnidadM", con);
+                cmd.Parameters.AddWithValue("@IdUnidadM", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");

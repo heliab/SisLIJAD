@@ -17,9 +17,10 @@ function fn_Nuevo() {
 function fn_NewJS() {
     txtId.SetText('Nuevo');
     HiddenV.Set('Nuevo', 0);
-    fn_CleanGroup(1);
     FormPopup.Show();
+    fn_CleanGroup(1);
 }
+
 
 function fn_EditJS() {
 
@@ -47,8 +48,13 @@ GridPrincipal.PerformCallback();
 }
 
 function fn_DeleteJS() {
-    HiddenV.Set('Nuevo', 2);
-    fn_ShowDelete();
+    if (fn_GetIdValue() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', 2);
+        fn_ShowDelete();
+    }
  }
 function fn_ConfirmDJS() {
     NewCallback.PerformCallback();
@@ -154,8 +160,9 @@ function fn_New() {
     
        HiddenV.Set('Nuevo', 0);
     txtId.SetText('Nuevo');
-fn_CleanGroup1();
+fn_CleanGroup(1);
 FormPopup.Show();
+fn_CleanGroup1();
 }
 
 

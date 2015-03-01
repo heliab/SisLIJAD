@@ -77,6 +77,7 @@
     <Content Include="MINV\TipoMateriales.aspx" />
     <Content Include="MINV\TipoUbicaciones.aspx" />
     <Content Include="MINV\Ubicaciones.aspx" />
+    <Content Include="MINV\UnidadesMedida.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\LabNew.aspx" />
     <Content Include="MPR\Lab2.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="MINV\Ubicaciones.aspx.designer.cs">
       <DependentUpon>Ubicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\UnidadesMedida.aspx.cs">
+      <DependentUpon>UnidadesMedida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\UnidadesMedida.aspx.designer.cs">
+      <DependentUpon>UnidadesMedida.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
