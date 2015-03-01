@@ -333,8 +333,11 @@ section {
         }
     .form
     {
+        background-color: rgba(240,240,240, 0.3);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
-        }
+     }
      /*Colores de botones*/   
            .button-green {
             background: rgb(28, 184, 65); /* this is a green */

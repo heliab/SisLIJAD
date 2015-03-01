@@ -20,25 +20,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-    <div>
-        <dx:ASPxButton ID="btnNew" runat="server" Text="Nuevo" AutoPostBack="False" ClientIDMode="AutoID">
-            <ClientSideEvents Click="function(s, e) {
-fn_New();
- ASPxClientEdit.ClearGroup('ControlGroup1');
-}" />
-        </dx:ASPxButton>
-        
-    </div>
-    <dx:ASPxButton ID="btnSelect" runat="server" Text="Editar" AutoPostBack="False"
-        ClientIDMode="AutoID" onclick="btnSelect_Click">
-    </dx:ASPxButton>
-    <dx:ASPxButton ID="btnDelete" runat="server" Text="Borrar" 
-        ClientIDMode="AutoID" AutoPostBack="False">
-        <ClientSideEvents Click="function(s, e) {
-	fn_ShowDelete()
-}" />
-    </dx:ASPxButton>
 
+<div class="wrapctrl">
+        <ul class="ctrlist">
+            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i class="fa fa-plus">
+            </i> Nuevo</a></li>
+            <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar"><i class="fa fa-pencil-square-o">
+            </i> Editar</a></li>
+            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
+                <i class="fa fa-trash"></i> Borrar</a></li>
+        </ul>
+    </div>
+    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+        OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
+        <ClientSideEvents EndCallback="function(s, e) {
+fn_EndCallback();
+}" />
+    </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV"></dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
@@ -47,12 +45,7 @@ fn_New();
         DataSourceID="SDSTBodegas" KeyFieldName="IdBodega" SettingsBehavior-AllowFocusedRow="True"
         SettingsEditing-Mode="EditForm" Width="100%" 
         ClientInstanceName="GridPrincipal">
-        <ClientSideEvents FocusedRowChanged="function(s, e) {
-
-GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
-txtId.SetText(GridId);
-  }" />
-        <Columns>
+      <Columns>
             <dx:GridViewDataTextColumn FieldName="IdBodega" ReadOnly="True" 
                 VisibleIndex="0" Caption="Id" Width="4%">
                 <EditFormSettings Visible="False" />
@@ -89,8 +82,6 @@ txtId.SetText(GridId);
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" 
         ClientIDMode="AutoID" Height="186px" Width="298px">
         <ClientSideEvents CloseUp="function(s, e) {
-	GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
-    txtId.SetText(GridId); 
 fn_CleanGroup1(1);
 }" />
         <ContentCollection>

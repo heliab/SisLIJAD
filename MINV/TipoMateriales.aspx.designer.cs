@@ -13,31 +13,13 @@ namespace SisLIJAD.MINV {
     public partial class TipoMateriales {
         
         /// <summary>
-        /// Control btnNew.
+        /// Control NewCallback.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnNew;
-        
-        /// <summary>
-        /// Control btnSelect.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSelect;
-        
-        /// <summary>
-        /// Control btnDelete.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnDelete;
+        protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
         
         /// <summary>
         /// Control HiddenV.
@@ -139,24 +121,6 @@ namespace SisLIJAD.MINV {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtDesc;
         
         /// <summary>
-        /// Control btnGuardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnGuardar;
-        
-        /// <summary>
-        /// Control btnCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelar;
-        
-        /// <summary>
         /// Control DeleteForm.
         /// </summary>
         /// <remarks>
@@ -175,24 +139,6 @@ namespace SisLIJAD.MINV {
         protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl4;
         
         /// <summary>
-        /// Control ASPxCallbackPanel3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel ASPxCallbackPanel3;
-        
-        /// <summary>
-        /// Control PanelContent4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent4;
-        
-        /// <summary>
         /// Control txtIdD.
         /// </summary>
         /// <remarks>
@@ -200,23 +146,5 @@ namespace SisLIJAD.MINV {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtIdD;
-        
-        /// <summary>
-        /// Control btnConfirmD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnConfirmD;
-        
-        /// <summary>
-        /// Control btnCancelarD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelarD;
     }
 }

@@ -73,15 +73,10 @@
     <Content Include="Images\back_small_steps.png" />
     <Content Include="Images\swirl_pattern.png" />
     <Content Include="Images\back_white_wall_hash.png" />
-    <Content Include="MINV\Bodegas.aspx" />
-    <Content Include="MINV\Default1.aspx" />
-    <Content Include="MINV\EstadMateriales.aspx" />
-    <Content Include="MINV\EstadoMAteriales.aspx" />
-    <Content Include="MINV\Oficinas.aspx" />
+    <Content Include="MINV\EstadoMateriales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
     <Content Include="MINV\TipoUbicaciones.aspx" />
     <Content Include="MINV\Ubicaciones.aspx" />
-    <Content Include="MINV\UbicacionesEspecificas.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\LabNew.aspx" />
     <Content Include="MPR\Lab2.aspx" />
@@ -173,33 +168,12 @@
     <Compile Include="MINVMASTER.Master.designer.cs">
       <DependentUpon>MINVMASTER.Master</DependentUpon>
     </Compile>
-    <Compile Include="MINV\Bodegas.aspx.cs">
-      <DependentUpon>Bodegas.aspx</DependentUpon>
+    <Compile Include="MINV\EstadoMateriales.aspx.cs">
+      <DependentUpon>EstadoMateriales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MINV\Bodegas.aspx.designer.cs">
-      <DependentUpon>Bodegas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\Default1.aspx.cs">
-      <DependentUpon>Default1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\Default1.aspx.designer.cs">
-      <DependentUpon>Default1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\EstadMateriales.aspx.cs">
-      <DependentUpon>EstadMateriales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\EstadMateriales.aspx.designer.cs">
-      <DependentUpon>EstadMateriales.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\EstadoMAteriales.aspx.cs">
-      <DependentUpon>EstadoMAteriales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\EstadoMAteriales.aspx.designer.cs">
-      <DependentUpon>EstadoMAteriales.aspx</DependentUpon>
+    <Compile Include="MINV\EstadoMateriales.aspx.designer.cs">
+      <DependentUpon>EstadoMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\MasterMinv.Master.cs">
       <DependentUpon>MasterMinv.Master</DependentUpon>
@@ -207,13 +181,6 @@
     </Compile>
     <Compile Include="MINV\MasterMinv.Master.designer.cs">
       <DependentUpon>MasterMinv.Master</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\Oficinas.aspx.cs">
-      <DependentUpon>Oficinas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\Oficinas.aspx.designer.cs">
-      <DependentUpon>Oficinas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\TipoMateriales.aspx.cs">
       <DependentUpon>TipoMateriales.aspx</DependentUpon>
@@ -235,13 +202,6 @@
     </Compile>
     <Compile Include="MINV\Ubicaciones.aspx.designer.cs">
       <DependentUpon>Ubicaciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\UbicacionesEspecificas.aspx.cs">
-      <DependentUpon>UbicacionesEspecificas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\UbicacionesEspecificas.aspx.designer.cs">
-      <DependentUpon>UbicacionesEspecificas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
@@ -331,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Bones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

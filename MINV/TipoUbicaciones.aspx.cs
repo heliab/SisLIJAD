@@ -35,6 +35,9 @@ namespace SisLIJAD.MINV
                case "1": Update();
                          GridPrincipal.DataBind();
                          break;
+               case "2": Delete();
+                         GridPrincipal.DataBind();
+                         break;
                default: Response.Write("Error con valor de crud");
                          break;
            
@@ -43,11 +46,7 @@ namespace SisLIJAD.MINV
 
         }
 
-        protected void DelCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            Delete();
-        }
-
+     
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             Select();

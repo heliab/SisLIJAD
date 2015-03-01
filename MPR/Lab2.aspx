@@ -180,7 +180,7 @@ fn_EndCallback();
                             <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guadar</a></li>
+                                    </i>Guardar</a></li>
                                     <li><a class="pure-button" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
                                     </i>Cancelar</a></li>
                                     <li><a class="pure-button" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i

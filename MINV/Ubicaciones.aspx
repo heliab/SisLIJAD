@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="Ubicaciones.aspx.cs" Inherits="SisLIJAD.MINV.Ubicaciones" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxNavBar" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
@@ -28,6 +34,62 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
+    <dx:ASPxMenu ID="ASPxMenu1" runat="server" AutoSeparators="RootOnly" 
+        BorderBetweenItemAndSubMenu="HideRootOnly" ClientIDMode="AutoID" 
+        CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" CssPostfix="SoftOrange" 
+        GutterWidth="0px" ItemSpacing="1px" 
+        SeparatorHeight="1px" SeparatorWidth="1px" ShowPopOutImages="True" 
+        SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css" 
+        Font-Bold="True" Font-Size="Small" Width="100%" >
+        <SeparatorPaddings Padding="0px" />
+        <Items>
+<dx:MenuItem Text=""></dx:MenuItem>
+            <dx:MenuItem Text="Inicio" NavigateUrl="~/MINV/Default1.aspx">
+            </dx:MenuItem>
+            <dx:MenuItem BeginGroup="True" Text="Solicitudes">
+                <Items>
+                    <dx:MenuItem Text="Prestamos">
+                    </dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Registros">
+                <Items>
+                    <dx:MenuItem Text="Entradas">
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Salidas">
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Transferencias">
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Ajustes Inventario">
+                    </dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Reportes">
+            </dx:MenuItem>
+            <dx:MenuItem Text="Mantenimiento">
+                <Items>
+                    <dx:MenuItem Text="Tipo Ubicaciones">
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Ubicaciones Especificas">
+                    </dx:MenuItem>
+                    <dx:MenuItem Text="Estado de Materiales">
+                    </dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="">
+            </dx:MenuItem>
+        </Items>
+        <LoadingPanelImage Url="~/App_Themes/SoftOrange/Web/Loading.gif">
+        </LoadingPanelImage>
+        <ItemStyle DropDownButtonSpacing="8px" ImageSpacing="6px" 
+            PopOutImageSpacing="10px" />
+        <SubMenuItemStyle>
+            <HoverStyle BackColor="#0066CC">
+                <Border BorderColor="#0066CC" />
+            </HoverStyle>
+        </SubMenuItemStyle>
+        <SubMenuStyle GutterWidth="0px" />
+    </dx:ASPxMenu>
 <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i class="fa fa-plus">
@@ -130,9 +192,6 @@ GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
                     </Styles>
                 </dx:ASPxGridView>
                 <asp:SqlDataSource ID="SDSUbicEspec" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-                    
-                    
                     SelectCommand="SELECT CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) AS IdEspec, EspecUbic FROM MINV_Ubic_Espec WHERE (IdUbicacion = @IdUbicacion)">
                     <SelectParameters>
                         <asp:SessionParameter Name="IdUbicacion" SessionField="IdUbicacion" />
@@ -154,7 +213,7 @@ GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
         Height="186px" Width="320px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
-	
+
 fn_CleanGroup(1);
 }" CloseButtonClick="function(s, e) {
 	fn_CleanGroup(1);
@@ -211,7 +270,7 @@ fn_EndCallback();
                             <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guadar</a></li>
+                                    </i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
                                     </i>Cancelar</a></li>
                                     <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i
@@ -320,7 +379,7 @@ fn_EndCallback();
                             <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guadar</a></li>
+                                    </i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_SubCancelJS()" title="Cancelar"><i class="fa fa-times">
                                     </i>Cancelar</a></li>
                                     <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(2);" title="Limpiar"><i

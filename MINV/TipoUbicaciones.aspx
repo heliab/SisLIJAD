@@ -22,11 +22,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
    <div class="wrapctrl">
         <ul class="ctrlist">
-            <li><a class="pure-button" href="javascript:fn_NewJS();" title="Nuevo"><i class="fa fa-plus">
+            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i class="fa fa-plus">
             </i> Nuevo</a></li>
-            <li><a class="pure-button" href="javascript:fn_EditJS();" title="Editar"><i class="fa fa-pencil-square-o">
+            <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar"><i class="fa fa-pencil-square-o">
             </i> Editar</a></li>
-            <li><a class="pure-button pure-button-primary" href="javascript:fn_DeleteJS();" title="Borrar">
+            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
                 <i class="fa fa-trash"></i> Borrar</a></li>
         </ul>
     </div>
@@ -38,19 +38,11 @@ fn_EndCallback();
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
-    <dx:ASPxCallback ID="DelCallback" runat="server" ClientInstanceName="DelCallback"
-        OnCallback="DelCallback_Callback">
-        <ClientSideEvents EndCallback="function(s, e) {
-    
-fn_EndCallback();
-
-}" />
-    </dx:ASPxCallback>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSTipoUbic" KeyFieldName="IdTipoUb" SettingsBehavior-AllowFocusedRow="True"
-        SettingsEditing-Mode="EditForm" Width="100%" ClientInstanceName="GridPrincipal"
+        Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents FocusedRowChanged="function(s, e) {
 GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
@@ -74,10 +66,7 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         <SettingsBehavior AllowFocusedRow="True" />
         <SettingsPager AlwaysShowPager="True" PageSize="15">
         </SettingsPager>
-
-<SettingsEditing Mode="EditForm"></SettingsEditing>
-
-        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
+       <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí"/>
         <Styles>
             <FocusedRow BackColor="#5180BF">
@@ -126,9 +115,7 @@ fn_EndCallback();
                                 <dx:ASPxTextBox ID="txtUbic" runat="server" Width="191px" ClientInstanceName="txtUbic"
                                     ValidationSettings-ValidationGroup="ControlGroup1" 
                                     NullText="Ej. Laboratorios, Oficinas, etc." Height="16px">
-                                    <NullTextStyle BackColor="#F3F3F3">
-                                    </NullTextStyle>
-                                    <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                      <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                         SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                         <RegularExpression ErrorText="Informacion Requerida" />
                                         <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
@@ -139,7 +126,7 @@ fn_EndCallback();
                             <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guadar</a></li>
+                                    </i>Guardar</a></li>
                                     <li><a class="pure-button" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
                                     </i>Cancelar</a></li>
                                     <li><a class="pure-button" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i

@@ -13,31 +13,13 @@ namespace SisLIJAD.MINV {
     public partial class UbicacionesEspecificas {
         
         /// <summary>
-        /// Control btnNew.
+        /// Control NewCallback.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnNew;
-        
-        /// <summary>
-        /// Control btnSelect.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSelect;
-        
-        /// <summary>
-        /// Control btnDelete.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnDelete;
+        protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
         
         /// <summary>
         /// Control HiddenV.
