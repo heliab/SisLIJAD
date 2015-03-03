@@ -25,7 +25,7 @@ namespace SisLIJAD.MINV
             {
                 con.Open();
                 //SqlCommand cmd = new SqlCommand("Select * from MPR_EquipMaquin where IdMaterial= @IdMaterial", con);
-                SqlCommand cmd = new SqlCommand("SELECT     IdMaterial, CodUCA, NomMaterial, IdUnidad, Marca, NumSerie, Modelo, Prestamo FROM dbo.MINV_Materiales WHERE (IdMaterial = @IdMaterial)", con);
+                SqlCommand cmd = new SqlCommand("SELECT  IdMaterial, CodUCA, NomMaterial, IdUnidad, Marca, NumSerie, Modelo, Prestamo FROM dbo.MINV_Materiales WHERE (IdMaterial = @IdMaterial)", con);
                 cmd.Parameters.AddWithValue("@IdMaterial", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -67,11 +67,16 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_EquipMaquin (NomMaq,Modelo,NumSerie,IdUbicEspec) values(@NomMaq,@Modelo,@NumSerie,@IdUbicEspec)", con);
-                //cmd.Parameters.AddWithValue("@NomMaq", txtNom.Text);
-                //cmd.Parameters.AddWithValue("@Modelo", txtModel.Text);
-                //cmd.Parameters.AddWithValue("@NumSerie", txtNumSerie.Text);
-                //cmd.Parameters.AddWithValue("@IdUbicEspec", cmbUbicEspec.Value);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Materiales (CodUCA, NomMaterial, IdUnidad, Marca, NumSerie, Modelo, Prestamo) values(@CodUCA, @NomMaterial, @IdUnidad, @Marca, @NumSerie, @Modelo, @Prestamo)", con);
+                cmd.Parameters.AddWithValue("@CodUCA", txtCodUCA.Text);
+                cmd.Parameters.AddWithValue("@NomMaterial", txtNomMat.Text);
+                cmd.Parameters.AddWithValue("@IdUnidad", cmbUdM.Value);
+                cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
+                cmd.Parameters.AddWithValue("@Modelo", txtModel.Text);
+                cmd.Parameters.AddWithValue("@NumSerie", txtNumSerie.Text);
+                cmd.Parameters.AddWithValue("@Prestamo", chkPrest.Checked ? 1 : 0);
+                //cmd.Parameters["@Prestamo"].Value = chkPrest.Checked ? 1 : 0;
+                
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -99,12 +104,15 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MPR_EquipMaquin set NomMaq=@NomMaq,Modelo=@Modelo,NumSerie=@NumSerie,IdUbicEspec=@IdUbicEspec where IdMaterial = @IdMaterial", con);
-                //cmd.Parameters.AddWithValue("@IdMaterial", txtId.Text);
-                //cmd.Parameters.AddWithValue("@NomMaq", txtNom.Text);
-                //cmd.Parameters.AddWithValue("@Modelo", txtModel.Text);
-                //cmd.Parameters.AddWithValue("@NumSerie", txtNumSerie.Text);
-                //cmd.Parameters.AddWithValue("@IdUbicEspec", cmbUbicEspec.Value);
+                SqlCommand cmd = new SqlCommand("update MINV_Materiales set CodUCA=@CodUCA,NomMaterial=@NomMaterial,IdUnidad=@IdUnidad,Marca=@Marca,NumSerie=@NumSerie,Modelo=@Modelo,Prestamo=@Prestamo where IdMaterial = @IdMaterial", con);
+                cmd.Parameters.AddWithValue("@IdMaterial", txtId.Text);
+                cmd.Parameters.AddWithValue("@CodUCA", txtCodUCA.Text);
+                cmd.Parameters.AddWithValue("@NomMaterial", txtNomMat.Text);
+                cmd.Parameters.AddWithValue("@IdUnidad", cmbUdM.Value);
+                cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
+                cmd.Parameters.AddWithValue("@Modelo", txtModel.Text);
+                cmd.Parameters.AddWithValue("@NumSerie", txtNumSerie.Text);
+                cmd.Parameters.AddWithValue("@Prestamo", chkPrest.Checked ? 1 : 0);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
@@ -131,7 +139,7 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_EquipMaquin where IdMaterial = @IdMaterial", con);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Materiales where IdMaterial = @IdMaterial", con);
                 cmd.Parameters.AddWithValue("@IdMaterial", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
