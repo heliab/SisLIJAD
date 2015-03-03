@@ -319,8 +319,9 @@ section {
         border-left-style:solid;
         border-left-width: 2.5px;
         padding-left: 2.3em;
-        width:100%;
+        width:auto;
         }
+        
         
      .frmctrl 
      {

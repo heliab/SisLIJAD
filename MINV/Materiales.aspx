@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
-    CodeBehind="EquiposMaquinarias.aspx.cs" Inherits="SisLIJAD.MPR.EquiposMaquinarias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="Materiales.aspx.cs" Inherits="SisLIJAD.MINV.Materiales" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
@@ -17,6 +16,8 @@
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -41,28 +42,40 @@ fn_EndCallback();
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEquipo" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+        DataSourceID="SDSMaterial" KeyFieldName="IdMaterial" SettingsBehavior-AllowFocusedRow="True"
+        Width="100%" ClientInstanceName="GridPrincipal" 
+        OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
-            <dx:GridViewDataTextColumn Caption="Id" FieldName="IdEquipo" ReadOnly="True" VisibleIndex="0"
+            <dx:GridViewDataTextColumn FieldName="IdMaterial" ReadOnly="True" VisibleIndex="0"
                 Width="7%">
+                <Settings AllowDragDrop="True" AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Equipo/Maquinaria" FieldName="NomMaq" VisibleIndex="1"
-                Width="20%">
+            <dx:GridViewDataTextColumn FieldName="CodUCA" VisibleIndex="1">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="NomMaterial" VisibleIndex="2" 
+                Caption="Material">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="No Serie" FieldName="NumSerie" 
-                VisibleIndex="3">
+            <dx:GridViewDataTextColumn FieldName="NomUnidadM" 
+                VisibleIndex="3" Caption="Unidad" Width="9%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Ubicacion" FieldName="DescUbicacion" 
-                VisibleIndex="4">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Ubic/Especifica" FieldName="EspecUbic" 
+            
+            <dx:GridViewDataTextColumn FieldName="Marca" 
                 VisibleIndex="5">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
+            <dx:GridViewDataTextColumn FieldName="NumSerie" VisibleIndex="6">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="7">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataCheckColumn FieldName="Prestamo" VisibleIndex="8" Width="5%">
+            </dx:GridViewDataCheckColumn>
+            <dx:GridViewCommandColumn VisibleIndex="8">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -77,9 +90,11 @@ fn_EndCallback();
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
-    <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+    <asp:SqlDataSource ID="SDSMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT MPR_EquipMaquin.IdEquipo, MPR_EquipMaquin.NomMaq, MPR_EquipMaquin.Modelo, MPR_EquipMaquin.NumSerie, MINV_Ubicaciones.DescUbicacion, MINV_Ubic_Espec.EspecUbic FROM MINV_Ubic_Espec INNER JOIN MPR_EquipMaquin ON MINV_Ubic_Espec.IdUbicEspec = MPR_EquipMaquin.IdUbicEspec INNER JOIN MINV_Ubicaciones ON MINV_Ubic_Espec.IdUbicacion = MINV_Ubicaciones.IdUbicacion">
+        
+        
+        SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca, MINV_Materiales.NumSerie, MINV_Materiales.Modelo, MINV_Materiales.Prestamo FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
@@ -108,27 +123,59 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre de Equipo">
+                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Codigo UCA">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtNom" runat="server" Width="199px" ClientInstanceName="txtNom"
+                                    <dx:ASPxTextBox ID="txtCodUCA" runat="server" Width="199px" ClientInstanceName="txtCodUCA"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
-                                       <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
+                                     </dx:ASPxTextBox>
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Nombre Material">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtNomMat" runat="server" Width="199px" ClientInstanceName="txtNomMat"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+<ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                 </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Modelo">
+                                    <div>
+                                    <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Unidad de Medida">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtModel" runat="server" Width="199px" ClientInstanceName="txtModel"
-                                        ValidationSettings-ValidationGroup="ControlGroup1">
-<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
-                                    </dx:ASPxTextBox>
+                                    <dx:ASPxComboBox ID="cmbUdM" runat="server" ClientInstanceName="cmbUdM" DataSourceID="SDSUdM"
+                                        TextField="Nom" ValueField="Id">
+                                          <Columns>
+                                            <dx:ListBoxColumn Caption="Id" FieldName="Id" />
+                                            <dx:ListBoxColumn Caption="Unidad" FieldName="Nom" />
+                                        </Columns>
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                        </ValidationSettings>
+                                    </dx:ASPxComboBox>
                                 </div>
+                                <asp:SqlDataSource ID="SDSUdM" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                    
+                                    
+                                    SelectCommand="SELECT IdUnidadM AS Id, NomUnidadM AS Nom FROM MINV_UnidadM">
+                                </asp:SqlDataSource>
+
+                                        <div>
+                                    <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Marca">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtMarca" runat="server" Width="199px" ClientInstanceName="txtMarca"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <ValidationSettings ValidationGroup="ControlGroup1">
+                                        </ValidationSettings>
+                                    </dx:ASPxTextBox>
+                                </div>                            
+                                
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Numero de Serie">
+                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Numero de serie">
                                     </dx:ASPxLabel>
                                     <dx:ASPxTextBox ID="txtNumSerie" runat="server" Width="199px" ClientInstanceName="txtNumSerie"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
@@ -137,49 +184,23 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione Ubicacion">
+                                    <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Modelo">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbUbic" runat="server" ClientInstanceName="cmbUbic" DataSourceID="SDSTipoUbic"
-                                        TextField="DescU" ValueField="IdU">
-                                        <ClientSideEvents SelectedIndexChanged="function(s, e) {cmbUbicEspec.PerformCallback();}" />
-                                        <Columns>
-                                            <dx:ListBoxColumn Caption="Id" FieldName="IdU" />
-                                            <dx:ListBoxColumn Caption="Ubicacion" FieldName="DescU" />
-                                        </Columns>
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                    <dx:ASPxTextBox ID="txtModel" runat="server" Width="199px" ClientInstanceName="txtModel"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <ValidationSettings ValidationGroup="ControlGroup1">
                                         </ValidationSettings>
-                                    </dx:ASPxComboBox>
+                                    </dx:ASPxTextBox>
                                 </div>
-                                <asp:SqlDataSource ID="SDSTipoUbic" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                    
-                                    SelectCommand="SELECT IdUbicacion AS IdU, DescUbicacion AS DescU FROM MINV_Ubicaciones">
-                                </asp:SqlDataSource>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Seleccione Ubicacion Especifica">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbUbicEspec" runat="server" ClientInstanceName="cmbUbicEspec" DataSourceID="SDSTipoUbicEspec"
-                                        TextField="Ubi" ValueField="Id" OnCallback="UbicEspec_Callback">
-                                        <Columns>
-                                            <dx:ListBoxColumn Caption="Id" FieldName="Id" />
-                                            <dx:ListBoxColumn Caption="Ubicacion" FieldName="Ubi" />
-                                        </Columns>
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                        </ValidationSettings>
-                                    </dx:ASPxComboBox>
-                                </div>
-                                <asp:SqlDataSource ID="SDSTipoUbicEspec" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                    SelectCommand="SELECT (IdUbicEspec) as Id, (EspecUbic) as Ubi FROM MINV_Ubic_Espec WHERE (IdUbicacion = @IdUbicacion)">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="cmbUbic" Name="IdUbicacion" 
-                                            PropertyName="Value" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                               <div class="Half-form-left">
+                                   <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Para Prestamo">
+                                   </dx:ASPxLabel>
+                                   <dx:ASPxCheckBox ID="chkPrest" runat="server" ClientInstanceName="chkPrest">
+                                   </dx:ASPxCheckBox>
+                               </div>
+                               <div class="Half-form-right">
+                               
+                               </div>
                             </div>
                             <div>
                                 <ul class="frmctrl">
