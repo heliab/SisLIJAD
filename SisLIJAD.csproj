@@ -76,6 +76,7 @@
     <Content Include="MINV\EstadoMateriales.aspx" />
     <Content Include="MINV\Materiales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
+    <Content Include="MINV\TipoMovimiento.aspx" />
     <Content Include="MINV\TipoUbicaciones.aspx" />
     <Content Include="MINV\Ubicaciones.aspx" />
     <Content Include="MINV\UnidadesMedida.aspx" />
@@ -83,6 +84,7 @@
     <Content Include="MPR\LabNew.aspx" />
     <Content Include="MPR\Lab2.aspx" />
     <Content Include="MPR\Laboratorios.aspx" />
+    <Content Include="MPR\TiposPrueba.aspx" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
@@ -198,6 +200,13 @@
     <Compile Include="MINV\TipoMateriales.aspx.designer.cs">
       <DependentUpon>TipoMateriales.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MINV\TipoMovimiento.aspx.cs">
+      <DependentUpon>TipoMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\TipoMovimiento.aspx.designer.cs">
+      <DependentUpon>TipoMovimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MINV\TipoUbicaciones.aspx.cs">
       <DependentUpon>TipoUbicaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,6 +262,13 @@
     </Compile>
     <Compile Include="MPR\MasterMPR.Master.designer.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\TiposPrueba.aspx.cs">
+      <DependentUpon>TiposPrueba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\TiposPrueba.aspx.designer.cs">
+      <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SICOM\Default.aspx.cs">
