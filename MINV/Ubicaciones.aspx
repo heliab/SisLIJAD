@@ -25,7 +25,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function fn_NewSubUbica() {
-            HiddenV.Set("Session", fn_GetIdValue());
             cmbUbic.PerformCallback();
             fn_SubNewJS();
         }

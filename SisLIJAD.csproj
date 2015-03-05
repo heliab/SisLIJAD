@@ -73,6 +73,7 @@
     <Content Include="Images\back_small_steps.png" />
     <Content Include="Images\swirl_pattern.png" />
     <Content Include="Images\back_white_wall_hash.png" />
+    <Content Include="MINV\EntradaInventario.aspx" />
     <Content Include="MINV\EstadoMateriales.aspx" />
     <Content Include="MINV\Materiales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
@@ -171,6 +172,13 @@
     </Compile>
     <Compile Include="MINVMASTER.Master.designer.cs">
       <DependentUpon>MINVMASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\EntradaInventario.aspx.cs">
+      <DependentUpon>EntradaInventario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\EntradaInventario.aspx.designer.cs">
+      <DependentUpon>EntradaInventario.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\EstadoMateriales.aspx.cs">
       <DependentUpon>EstadoMateriales.aspx</DependentUpon>

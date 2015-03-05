@@ -20,7 +20,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<div class="wrapctrl">
+    <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                 class="fa fa-plus"></i>Nuevo</a></li>
@@ -30,7 +30,6 @@
                 <i class="fa fa-trash"></i>Borrar</a></li>
         </ul>
     </div>
-
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
@@ -43,15 +42,13 @@ fn_EndCallback();
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEstado" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" 
-        OnCustomCallback="GridPrincipal_CustomCallback">
+        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
             <dx:GridViewDataTextColumn Caption="Id" FieldName="IdEstado" ReadOnly="True" VisibleIndex="0"
                 Width="17%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Descripcion" FieldName="DescEstado" 
-                VisibleIndex="1">
+            <dx:GridViewDataTextColumn Caption="Descripcion" FieldName="DescEstado" VisibleIndex="1">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
@@ -70,7 +67,6 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
         SelectCommand="SELECT [IdEstado], [DescEstado] FROM [MINV_EstadoMateriales]">
     </asp:SqlDataSource>
 </asp:Content>
@@ -112,14 +108,14 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                             </div>
-                             <div>
+                            <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guardar</a></li>
-                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
-                                    </i>Cancelar</a></li>
-                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i
-                                        class="fa fa-repeat"></i>Limpiar</a></li>
+                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
+                                        <i class="fa fa-times"></i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
+                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
                                 </ul>
                             </div>
                         </dx:PanelContent>

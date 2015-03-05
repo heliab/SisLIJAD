@@ -14,7 +14,7 @@ function fn_Nuevo() {
 
 
 /************************ Callbacks js functions *********************************/
-function fn_NewJS() {
+ function fn_NewJS() {
     txtId.SetText('Nuevo');
     HiddenV.Set('Nuevo', 0);
     FormPopup.Show();
@@ -74,6 +74,7 @@ function fn_EndCallback(s, e) {
 
 /****** Sub Functions for Subforms***/
 function fn_SubNewJS() {
+    HiddenV.Set("Session", fn_GetIdValue());
     txtSubId.SetText('Nuevo');
     HiddenV.Set('Nuevo', 3);
     SubFormPopup.Show();
@@ -116,7 +117,7 @@ function fn_SubCancelDJS() {
     fn_ClosePopup(2);
 }
 function fn_SubCancelJS() {
-    fn_ClosePopup(0);
+    fn_ClosePopup(5);
 }
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
@@ -213,8 +214,8 @@ function fn_ClosePopup(e) {
             //Cerrar popup Subform y limpiar datos, en vez de Opoup client side events
             //Botón Cancelar del subform
         case 5:
-           // fn_CleanGroup2();
-            SubForm.Hide();
+            fn_CleanGroup(2);
+            SubFormPopup.Hide();
 
             break;
             
