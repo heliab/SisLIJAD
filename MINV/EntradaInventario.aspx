@@ -40,8 +40,9 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+ 
 <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSTipoUbic" KeyFieldName="IdTipoUb" SettingsBehavior-AllowFocusedRow="True"
+        DataSourceID="SDSEntradas" KeyFieldName="IdEntrada" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents FocusedRowChanged="function(s, e) {
@@ -49,19 +50,22 @@ GridPrincipal.Focus(GridPrincipal.focusedRowIndex);
 GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdTipoUb" ReadOnly="True" VisibleIndex="0"
-                Caption="Id" Width="17%">
-                <Settings AllowDragDrop="True" AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn FieldName="IdEntrada" ReadOnly="True" 
+                VisibleIndex="0">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DescTipoUB" VisibleIndex="1" 
-                Caption="Descripcion Ubicacion">
-                <Settings AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn FieldName="EntryHeader" VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
-                <ClearFilterButton Text="Limpiar" Visible="True">
-                </ClearFilterButton>
-            </dx:GridViewCommandColumn>
+            <dx:GridViewDataTextColumn FieldName="PNombre" VisibleIndex="2">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="FechaEntrada" VisibleIndex="3">
+            </dx:GridViewDataDateColumn>
+            <dx:GridViewDataTextColumn FieldName="HoraRecep" VisibleIndex="4">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Recibido" VisibleIndex="5">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Observacion" VisibleIndex="6">
+            </dx:GridViewDataTextColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True" />
         <SettingsPager AlwaysShowPager="True" PageSize="15">
@@ -73,8 +77,9 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
-    <asp:SqlDataSource ID="SDSTipoUbic" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT [IdTipoUb], [DescTipoUB] FROM [MINV_Tipo_Ubic]">
+    <asp:SqlDataSource ID="SDSEntradas" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+        
+        SelectCommand="SELECT MINV_Entradas.IdEntrada, MINV_Entradas.EntryHeader, USER_Entidad.PNombre, MINV_Entradas.FechaEntrada, MINV_Entradas.HoraRecep, ent.PNombre AS Recibido, MINV_Entradas.Observacion FROM MINV_Entradas INNER JOIN USER_Entidad ON MINV_Entradas.IdEntidad = USER_Entidad.IdEntidad INNER JOIN USER_Entidad AS ent ON MINV_Entradas.RecepcionadoPor = ent.IdEntidad">
     </asp:SqlDataSource>
 
 </asp:Content>
@@ -111,27 +116,96 @@ fn_EndCallback();
                                 </dx:ASPxTextBox>
                             </div>
                             <div>
-                                <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripción de ubicación">
+                                <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Encabezado de entrada">
                                 </dx:ASPxLabel>
-                                <dx:ASPxTextBox ID="txtUbic" runat="server" Width="191px" ClientInstanceName="txtUbic"
-                                    ValidationSettings-ValidationGroup="ControlGroup1" 
-                                    NullText="Ej. Laboratorios, Oficinas, etc." Height="16px">
+                                <dx:ASPxMemo ID="memoEntra" runat="server" ClientInstanceName="memoEntra" 
+                                    Height="61px" Width="224px" ValidationSettings-ValidationGroup="ControlGroup1">
+
                                       <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                         SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                         <RegularExpression ErrorText="Informacion Requerida" />
                                         <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                     </ValidationSettings>
-                                </dx:ASPxTextBox>
-                            </div>
+                                </dx:ASPxMemo>
                             </div>
                             <div>
-                                <ul class="frmctrl">
-                                    <li><a class="pure-button" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guardar</a></li>
-                                    <li><a class="pure-button" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
-                                    </i>Cancelar</a></li>
-                                    <li><a class="pure-button" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i
-                                        class="fa fa-repeat"></i>Limpiar</a></li>
+                                <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione Proveedor">
+                                </dx:ASPxLabel>
+                                <dx:ASPxComboBox ID="cmbProveedor" runat="server" ClientInstanceName="cmbProveedor" DataSourceID="SDSProveedor" TextField="PNombre" 
+                                    ValueField="IdEntidad">
+                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                        SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                        <RegularExpression ErrorText="Informacion Requerida" />
+                                        <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxComboBox>
+                                <asp:SqlDataSource ID="SDSProveedor" runat="server" 
+                                    ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                    SelectCommand="SELECT IdEntidad, PNombre FROM USER_Entidad WHERE (IdTipo = 2)"></asp:SqlDataSource>
+                            </div>
+                            <div>
+                                <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Fecha de Entrada">
+                                </dx:ASPxLabel>
+                                <dx:ASPxDateEdit ID="deFecha" runat="server" ClientInstanceName="deFecha" 
+                                    EditFormat="DateTime">
+                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                        SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                        <RegularExpression ErrorText="Informacion Requerida" />
+                                        <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxDateEdit>
+
+                            </div>
+                            <div>
+                                <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Hora entrada">
+                                </dx:ASPxLabel>
+                                <dx:ASPxLabel ID="lbhora" runat="server" Text="Hora"></dx:ASPxLabel>
+                                <dx:ASPxTimeEdit ID="teHora" runat="server" ClientIDMode="AutoID" ClientInstanceName="texHora"
+                                ValidationSettings-ValidationGroup="ControlGroup1" Height="16px" Width="163px">
+                                <ValidationSettings ValidationGroup="ControlGroup1">
+                                <RegularExpression ErrorText="Informacion Requerida"/>
+                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />                            
+                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+
+                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                     </ValidationSettings>
+                                
+                                </dx:ASPxTimeEdit>
+                            </div>
+                            <div>
+                                <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Recepcionado por">
+                                </dx:ASPxLabel>
+                                 <dx:ASPxComboBox ID="cmbPersonal" runat="server" ClientInstanceName="cmbPersonal" DataSourceID="SDSEnt" TextField="PNombre" 
+                                    ValueField="IdEntidad">
+                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                        SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                        <RegularExpression ErrorText="Informacion Requerida" />
+                                        <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                    </ValidationSettings>
+                                </dx:ASPxComboBox>
+                                <asp:SqlDataSource ID="SDSEnt" runat="server" 
+                                    ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                    SelectCommand="SELECT IdEntidad, PNombre FROM USER_Entidad WHERE (IdTipo = 1)"></asp:SqlDataSource>
+                            </div>
+                            <div>
+                                <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Observaciones">
+                                </dx:ASPxLabel>
+                                <dx:ASPxMemo ID="memoObser" runat="server" ClientInstanceName="memoObser" 
+                                    Height="59px" Width="214px">
+                                    <ValidationSettings ValidationGroup="ControlGroup1">
+                                    </ValidationSettings>
+                                </dx:ASPxMemo>
+                            </div>
+                            </div>
+                     
+                            <div>
+                                 <ul class="frmctrl">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
+                                        <i class="fa fa-times"></i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
+                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
                                 </ul>
                             </div>
                           
@@ -172,3 +246,5 @@ fn_EndCallback();
         </ContentCollection>
     </dx:ASPxPopupControl>
 </asp:Content>
+
+

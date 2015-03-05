@@ -16,68 +16,201 @@ namespace SisLIJAD.MINV
 
         }
 
-        #region Callbacks
+        //#region Callbacks
 
-        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
-        {
-            GridPrincipal.DataBind();
-            GridPrincipal.Focus();
-        }
+        //protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+        //{
+        //    GridPrincipal.DataBind();
+        //    GridPrincipal.Focus();
+        //}
 
-        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            string valNuevo = HiddenV.Get("Nuevo").ToString();
+        //protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
+        //{
+        //    string valNuevo = HiddenV.Get("Nuevo").ToString();
 
-            switch (valNuevo)
-            {
-                case "0": Insert();
-                    GridPrincipal.DataBind();
-                    break;
-                case "1": Update();
-                    GridPrincipal.DataBind();
-                    break;
-                case "2": Delete();
-                    GridPrincipal.DataBind();
-                    break;
-                default: Response.Write("Error con valor de crud");
-                    break;
+        //    switch (valNuevo)
+        //    {
+        //        case "0": Insert();
+        //            GridPrincipal.DataBind();
+        //            break;
+        //        case "1": Update();
+        //            GridPrincipal.DataBind();
+        //            break;
+        //        case "2": Delete();
+        //            GridPrincipal.DataBind();
+        //            break;
+        //        default: Response.Write("Error con valor de crud");
+        //            break;
 
-            }
-            HiddenV.Clear();
+        //    }
+        //    HiddenV.Clear();
 
-        }
-
-
-        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            Select();
-        }
-
-        #endregion
+        //}
 
 
-        #region CRUD
+        //protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        //{
+        //    Select();
+        //}
+
+        //#endregion
+
+
+        //#region CRUD
+        //protected void Select()
+        //{
+        //    //string value = HiddenV.Get("GridId").ToString();
+        //    SqlConnection con = new SqlConnection(Database.ConnectionString);
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("Select * from MINV_Tipo_Ubic where IdTipoUb= @IdTipoUb", con);
+        //        cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
+
+        //        //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
+        //        SqlDataReader dr = cmd.ExecuteReader();
+        //        if (dr.Read())
+        //        {
+        //            // display data in textboxes
+        //            txtId.Text = dr["IdTipoUb"].ToString();
+        //            memoEntra.Text = dr["DescTipoUB"].ToString();
+        //        }
+        //        else
+        //        {
+
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+
+        //        }
+        //        dr.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+
+
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
+        //protected void Insert()
+        //{
+
+        //    SqlConnection con = new SqlConnection(Database.ConnectionString);
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("insert into MINV_Tipo_Ubic(DescTipoUB) values(@DescTipoUB)", con);
+        //        cmd.Parameters.AddWithValue("@DescTipoUB", memoEntra.Text);
+
+        //        int count = cmd.ExecuteNonQuery();
+        //        if (count == 1)
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + memoEntra.Text + " se ha guardado correctamente") + "')</script>");
+        //        }
+        //        else
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+        //        Response.Write("<script>alert(\"an error occur\")</script>");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+
+
+
+        //}
+        //protected void Update()
+        //{
+        //    SqlConnection con = new SqlConnection(Database.ConnectionString);
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("update MINV_Tipo_Ubic set DescTipoUB=@DescTipoUB where IdTipoUb = @IdTipoUb", con);
+        //        cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
+        //        cmd.Parameters.AddWithValue("@DescTipoUB", memoEntra.Text);
+
+
+        //        if (cmd.ExecuteNonQuery() == 1)
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
+        //        }
+        //        else
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
+        //protected void Delete()
+        //{
+        //    SqlConnection con = new SqlConnection(Database.ConnectionString);
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("delete from MINV_Tipo_Ubic where IdTipoUb = @IdTipoUb", con);
+        //        cmd.Parameters.AddWithValue("@IdTipoUb", txtIdD.Text);
+        //        if (cmd.ExecuteNonQuery() == 1)
+        //        {
+        //            Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+        //        }
+        //        else
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+        //        Response.Write("<script>alert(\"an error occur\")</script>");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+
+        //}
+        //#endregion
+          #region CRUD
         protected void Select()
         {
-            //string value = HiddenV.Get("GridId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MINV_Tipo_Ubic where IdTipoUb= @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
+                SqlCommand cmd = new SqlCommand("Select IdEntrada,EntryHeader,IdEntidad,FechaEntrada,HoraRecep,RecepcionadoPor,Observacion from MINV_Entradas where IdEntrada= @IdEntrada", con);
+               // SqlCommand cmd = new SqlCommand("Select IdEntrada,EntryHeader,IdEntidad,RecepcionadoPor,Observacion from MINV_Entradas where IdEntrada= @IdEntrada", con);
+                cmd.Parameters.AddWithValue("@IdEntrada", txtId.Text);
+                
 
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdTipoUb"].ToString();
-                    txtUbic.Text = dr["DescTipoUB"].ToString();
+                    txtId.Text = dr["IdEntrada"].ToString();
+                    memoEntra.Text = dr["EntryHeader"].ToString();
+                    cmbProveedor.Value = dr["IdEntidad"].ToString();
+                    deFecha.Text = dr["FechaEntrada"].ToString();
+                    teHora.Text = dr["HoraRecep"].ToString();
+                    cmbPersonal.Value = dr["RecepcionadoPor"].ToString();
+                    memoObser.Text = dr["Observacion"].ToString();
+                    
                 }
                 else
                 {
-
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
 
                 }
@@ -94,6 +227,7 @@ namespace SisLIJAD.MINV
                 con.Close();
             }
         }
+
         protected void Insert()
         {
 
@@ -101,13 +235,21 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Tipo_Ubic(DescTipoUB) values(@DescTipoUB)", con);
-                cmd.Parameters.AddWithValue("@DescTipoUB", txtUbic.Text);
+               SqlCommand cmd = new SqlCommand("insert into MINV_Entradas(EntryHeader,IdEntidad,FechaEntrada,HoraRecep,RecepcionadoPor,Observacion) values(@EntryHeader,@IdEntidad,@FechaEntrada,@HoraRecep,@RecepcionadoPor,@Observacion)", con);
+               //  SqlCommand cmd = new SqlCommand("insert into MINV_Entradas(EntryHeader,IdEntidad,RecepcionadoPor,Observacion) values(@EntryHeader,@IdEntidad,@RecepcionadoPor,@Observacion)", con);
+               cmd.Parameters.AddWithValue("@EntryHeader", memoEntra.Text);
+               cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
+               cmd.Parameters.AddWithValue("@FechaEntrada", deFecha.Value);
+               cmd.Parameters.AddWithValue("@HoraRecep", teHora.Text);
+               cmd.Parameters.AddWithValue("@RecepcionadoPor", cmbPersonal.Value);
+               cmd.Parameters.AddWithValue("@Observacion", memoObser.Text);
+
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
+                    //Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
+
                 }
                 else
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
@@ -115,7 +257,6 @@ namespace SisLIJAD.MINV
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-                Response.Write("<script>alert(\"an error occur\")</script>");
             }
             finally
             {
@@ -131,10 +272,14 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Tipo_Ubic set DescTipoUB=@DescTipoUB where IdTipoUb = @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
-                cmd.Parameters.AddWithValue("@DescTipoUB", txtUbic.Text);
-
+                SqlCommand cmd = new SqlCommand("update MINV_Entradas set EntryHeader=@EntryHeader,IdEntidad=@IdEntidad,FechaEntrada=@FechaEntrada,HoraRecep=@HoraRecep,RecepcionadoPor=@RecepcionadoPor,Observacion=@Observacion where IdEntrada = @IdEntrada", con);
+                cmd.Parameters.AddWithValue("@IdEntrada", txtId.Text);
+                cmd.Parameters.AddWithValue("@EntryHeader", memoEntra.Text);
+                cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
+                cmd.Parameters.AddWithValue("@FechaEntrada", deFecha.Value);
+                cmd.Parameters.AddWithValue("@HoraRecep", teHora.Text);
+                cmd.Parameters.AddWithValue("@RecepcionadoPor", cmbPersonal.Value);
+                cmd.Parameters.AddWithValue("@Observacion", memoObser.Text);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -160,11 +305,11 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Tipo_Ubic where IdTipoUb = @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Entradas where IdEntrada = @IdEntrada", con);
+                cmd.Parameters.AddWithValue("@IdEntrada", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
-                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
                 }
                 else
                 {
@@ -174,7 +319,6 @@ namespace SisLIJAD.MINV
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-                Response.Write("<script>alert(\"an error occur\")</script>");
             }
             finally
             {
@@ -184,5 +328,38 @@ namespace SisLIJAD.MINV
         }
         #endregion
 
+        #region Callbacks
+        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
+        {
+            string valNuevo = HiddenV.Get("Nuevo").ToString();
+
+            switch (valNuevo)
+            {
+                case "0": Insert();
+                    GridPrincipal.DataBind();
+                    break;
+                case "1": Update();
+                    GridPrincipal.DataBind();
+                    break;
+                case "2": Delete();
+                    break;
+                default: Response.Write("Error con valor de crud");
+                    break;
+
+            }
+            HiddenV.Clear();
+        }
+
+        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+        {
+            GridPrincipal.DataBind();
+            GridPrincipal.Focus();
+        }
+
+        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            Select();
+        }
+        #endregion
     }
 }
