@@ -71,7 +71,25 @@ function fn_CancelJS() {
 function fn_EndCallback(s, e) {
     GridPrincipal.PerformCallback();
 }
+function GetAprobRow() {
+    GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
+    function SetAprob(Value) {
+        if (Value == 1) {
+            alert('El registro ya ha sido aprobado y no puede realizar cambios');
+            return
+        }
+        else { fn_AprobarJS(); }
+    }
+}
 
+function fn_AprobarJS() {
+    if (confirm("¿Desea aprobar el registro?\nEl proceso no tiene retroceso!")) {
+        HiddenV.Set('Nuevo', 6);
+        HiddenV.Set('Aprobar', fn_GetIdValue());
+        NewCallback.PerformCallback();
+        fn_EndCallback();
+    }
+ }
 /****** Sub Functions for Subforms***/
 function fn_SubNewJS() {
     HiddenV.Set("Session", fn_GetIdValue());
@@ -81,6 +99,7 @@ function fn_SubNewJS() {
     fn_CleanGroup(2);
 
 }
+
 function fn_SubEditJS() {
 
     if (fn_GetSubIdValue() == null) {
@@ -103,6 +122,14 @@ function fn_SubSaveJS() {
     GridPrincipal.PerformCallback();
     SubFormPopup.Hide();
 }
+function fn_SubAdd() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup2')) {
+        retutn;
+    }
+    NewCallback.PerformCallback();
+    fn_CleanGroup(2);
+    GridPrincipal.PerformCallback();
+ }
 function fn_SubDeleteJS() {
     HiddenV.Set('Nuevo', 5);
       fn_ShowSubDelete();

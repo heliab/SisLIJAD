@@ -283,7 +283,7 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Ubic_Espec set EspecUbic=@EspecUbic, IdUbicacion=@IdUbicacion where (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec)", con);
+                SqlCommand cmd = new SqlCommand("UPDATE MINV_Ubic_Espec set EspecUbic=@EspecUbic, IdUbicacion=@IdUbicacion where (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec)", con);
                 cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
                 cmd.Parameters.AddWithValue("@EspecUbic", txtUbicEs.Text);
                 cmd.Parameters.AddWithValue("@IdUbicacion", cmbUbic.Value);

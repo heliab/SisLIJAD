@@ -75,6 +75,7 @@
     <Content Include="Images\back_white_wall_hash.png" />
     <Content Include="MINV\EntradaInventario.aspx" />
     <Content Include="MINV\EstadoMateriales.aspx" />
+    <Content Include="MINV\Existencias.aspx" />
     <Content Include="MINV\Materiales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
     <Content Include="MINV\TipoMovimiento.aspx" />
@@ -186,6 +187,13 @@
     </Compile>
     <Compile Include="MINV\EstadoMateriales.aspx.designer.cs">
       <DependentUpon>EstadoMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Existencias.aspx.cs">
+      <DependentUpon>Existencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Existencias.aspx.designer.cs">
+      <DependentUpon>Existencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\MasterMinv.Master.cs">
       <DependentUpon>MasterMinv.Master</DependentUpon>

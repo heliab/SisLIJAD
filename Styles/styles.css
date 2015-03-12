@@ -400,3 +400,9 @@ section {
         color:rgb(243, 229, 171);
         
         }
+        
+        /*espacio izquierdo de botones*/
+        #leftmar-button
+        {
+       margin-left: 30px;
+        }

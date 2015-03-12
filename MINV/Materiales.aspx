@@ -47,35 +47,24 @@ fn_EndCallback();
         OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdMaterial" ReadOnly="True" VisibleIndex="0"
-                Width="7%">
-                <Settings AllowDragDrop="True" AutoFilterCondition="Contains" />
+                Width="12%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="CodUCA" VisibleIndex="1">
-                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NomMaterial" VisibleIndex="2" 
-                Caption="Material">
-                <Settings AutoFilterCondition="Contains" />
+                Caption="Nombre Material">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NomUnidadM" 
-                VisibleIndex="3" Caption="Unidad" Width="9%">
-                <Settings AutoFilterCondition="Contains" />
+                VisibleIndex="3" Caption="Unidad Medida">
             </dx:GridViewDataTextColumn>
             
             <dx:GridViewDataTextColumn FieldName="Marca" 
                 VisibleIndex="5">
-                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="NumSerie" VisibleIndex="6">
-                <Settings AutoFilterCondition="Contains" />
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="7">
-                <Settings AutoFilterCondition="Contains" />
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Prestamo" VisibleIndex="8" Width="5%">
+            <dx:GridViewDataCheckColumn FieldName="Prestamo" VisibleIndex="5" Width="7%">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="8">
+            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -94,7 +83,8 @@ fn_EndCallback();
         
         
         
-        SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca, MINV_Materiales.NumSerie, MINV_Materiales.Modelo, MINV_Materiales.Prestamo FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
+        
+        SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca, MINV_Materiales.Prestamo FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
@@ -174,24 +164,7 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>                            
                                 
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Numero de serie">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtNumSerie" runat="server" Width="199px" ClientInstanceName="txtNumSerie"
-                                        ValidationSettings-ValidationGroup="ControlGroup1">
-                                        <ValidationSettings ValidationGroup="ControlGroup1">
-                                        </ValidationSettings>
-                                    </dx:ASPxTextBox>
-                                </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Modelo">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtModel" runat="server" Width="199px" ClientInstanceName="txtModel"
-                                        ValidationSettings-ValidationGroup="ControlGroup1">
-                                        <ValidationSettings ValidationGroup="ControlGroup1">
-                                        </ValidationSettings>
-                                    </dx:ASPxTextBox>
-                                </div>
+                              
                                <div class="Half-form-left">
                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Para Prestamo">
                                    </dx:ASPxLabel>
