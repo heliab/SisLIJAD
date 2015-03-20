@@ -13,6 +13,15 @@ namespace SisLIJAD.MINV {
     public partial class TipoUbicaciones {
         
         /// <summary>
+        /// Control ASPxMenu1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxMenu.ASPxMenu ASPxMenu1;
+        
+        /// <summary>
         /// Control NewCallback.
         /// </summary>
         /// <remarks>

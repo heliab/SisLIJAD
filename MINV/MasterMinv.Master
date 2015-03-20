@@ -1,8 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterMinv.master.cs"
     Inherits="SisLIJAD.MINV.MasterMinv" %>
 
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
-    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -19,11 +17,26 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Bienvenid@ <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        <br>
+                      [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/>  ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
     <div class="Header" id="Titulo1">
         Inventario de materiales
     </div>
-    <div class="logo">
-    </div>
+     
+<%--    <div class="logo">
+   
+    </div>--%>
+
     <div>
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
         </asp:ContentPlaceHolder>
@@ -32,7 +45,7 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <footer class="footer"></footer>
+    <div class="footer"></div>
     </form>
 </body>
 </html>

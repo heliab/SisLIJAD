@@ -1,0 +1,39 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="UserInformation.aspx.cs" Inherits="SisLIJAD.Cuenta.UserInformation" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
+<h2>User Information</h2>
+    <p>
+        <asp:HyperLink ID="BackLink" runat="server" 
+            NavigateUrl="~/Cuenta/ManageUser.aspx">&lt;&lt; Volver a lista de usuarios</asp:HyperLink>
+    </p>
+    <table>
+        <tr>
+            <td class="tdLabel">Usuario:</td>
+            <td><asp:Label runat="server" ID="UserNameLabel"></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="tdLabel">Aprobado:</td>
+            <td>
+                <asp:CheckBox ID="IsApproved" runat="server" AutoPostBack="true" 
+                    oncheckedchanged="IsApproved_CheckedChanged" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tdLabel">Bloqueado:</td>
+            <td>
+                <asp:Label runat="server" ID="LastLockoutDateLabel"></asp:Label>
+                <br />
+                <asp:Button runat="server" ID="UnlockUserButton" Text="Desbloquear usuario" 
+                    onclick="UnlockUserButton_Click" />
+            </td>
+        </tr>
+    </table>
+    <p>
+        <asp:Label ID="StatusMessage" CssClass="Important" runat="server"></asp:Label>
+    </p>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
+</asp:Content>

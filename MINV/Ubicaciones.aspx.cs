@@ -203,11 +203,11 @@ namespace SisLIJAD.MINV
             SubSelect();
         }
 
-        protected void cmbUbic_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            Session["IdUb"] = HiddenV.Get("Session").ToString();
-            cmbUbic.DataBind();
-        }
+        //protected void cmbUbic_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        //{
+        //    Session["IdUb"] = HiddenV.Get("Session").ToString();
+        //    cmbUbic.DataBind();
+        //}
 
         #endregion
 
@@ -228,7 +228,7 @@ namespace SisLIJAD.MINV
                     // display data in textboxes
                     txtSubId.Text = dr["IdEspec"].ToString();
                     txtUbicEs.Text = dr["EspecUbic"].ToString();
-                    cmbUbic.Value = dr["IdUbicacion"].ToString();
+                   // cmbUbic.Value = dr["IdUbicacion"].ToString();
                 }
                 else
                 {
@@ -251,13 +251,14 @@ namespace SisLIJAD.MINV
         
         }
         protected void SubInsert() {
+           string idub= HiddenV.Get("Session").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MINV_Ubic_Espec(EspecUbic,IdUbicacion) values(@EspecUbic,@IdUbicacion)", con);
                 cmd.Parameters.AddWithValue("@EspecUbic", txtUbicEs.Text);
-                cmd.Parameters.AddWithValue("@IdUbicacion", cmbUbic.Value);
+                cmd.Parameters.AddWithValue("@IdUbicacion", idub);
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -279,6 +280,7 @@ namespace SisLIJAD.MINV
             }
         }
         protected void SubUpdate() {
+            string idub = HiddenV.Get("Session").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
@@ -286,7 +288,7 @@ namespace SisLIJAD.MINV
                 SqlCommand cmd = new SqlCommand("UPDATE MINV_Ubic_Espec set EspecUbic=@EspecUbic, IdUbicacion=@IdUbicacion where (CAST(IdUbicacion AS NVARCHAR) + '.' + CAST(IdUbicEspec AS NVARCHAR) = @IdEspec)", con);
                 cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
                 cmd.Parameters.AddWithValue("@EspecUbic", txtUbicEs.Text);
-                cmd.Parameters.AddWithValue("@IdUbicacion", cmbUbic.Value);
+                cmd.Parameters.AddWithValue("@IdUbicacion", idub);
 
 
                 if (cmd.ExecuteNonQuery() == 1)

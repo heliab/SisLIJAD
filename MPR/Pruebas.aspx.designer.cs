@@ -13,6 +13,15 @@ namespace SisLIJAD.MPR {
     public partial class Pruebas {
         
         /// <summary>
+        /// Control ASPxMenu1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxMenu.ASPxMenu ASPxMenu1;
+        
+        /// <summary>
         /// Control NewCallback.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace SisLIJAD.MPR {
         protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
         
         /// <summary>
-        /// Control SDSTipoP.
+        /// Control SDSPruebas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSTipoP;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSPruebas;
         
         /// <summary>
         /// Control FormPopup.

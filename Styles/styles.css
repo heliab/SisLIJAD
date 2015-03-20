@@ -1,10 +1,13 @@
 /*Estilo CSS creado por Haniel Lopez para culminación de estudios 2014. UCA*/
 body {
     /* background-color: rgba(11, 163, 112, 0.52);
-  background-color:  rgba(227, 232, 218, 0.86);*/
+  background-color:  rgba(227, 232, 218, 0.86);
     background-image: linear-gradient(
       rgba(115, 195, 24, 0.13), 
-      rgba(115, 195, 24, 0.13)
+      rgba(115, 195, 24, 0.13)*/
+        background-image: linear-gradient(
+      rgba(224,224,224, 0.4), 
+      rgba(115, 195, 24, 0.2)
     ),/*url(../Images/swirl_pattern.png);*/url(../Images/back_p2.png);
     
     background-repeat: repeat;
@@ -36,13 +39,18 @@ body {
     color: #ececec;
     font-family: Verdana;
     font-weight: 500;
-    float: right;
-    bottom: 0;
+    /*float: right;
+   
     padding-top: 4px;
   /*  position: absolute; or fixed*/
     height: 50px;
     text-align: center;
     width: 100%;
+	position:fixed;
+	bottom:0;
+	left:0;
+	float:left;
+
 }
 
 #test {
@@ -218,18 +226,19 @@ header {
    /* background-color: #0094ff;
     height: 170px;
     width: 100%;*/ 
-        background-image: url("../Images/SisLIJAD2.png");
+        background-image: url("../Images/SisLIJAD3.png");
          background-repeat:no-repeat;
-    background-position:94% 50%;
-     background-size: 80px 60px;
+    background-position:5% 50%;
+     background-size: 80px 70px;
      
-    background-color: rgba(68, 117, 185, 0.8);
+    background-color: rgba(68, 117, 185, 0.9);
     border-bottom-color: #122953;
     border-style: solid;
     border-bottom-width: 5px;
     height: 60px;
     margin-top: 0%;
     width: 100%;
+
     
 }
 
@@ -291,9 +300,9 @@ section {
 /* LOGO  */
 .logo  
 {
-    background-image: url("../Images/SisLIJAD4.png");
+    background-image: url("../Images/SisLIJAD2.png");
     background-repeat:no-repeat;
-    background-position:right center;
+    background-position:left center;
     background-size: 80px 60px;
     margin-top:0px;
     
@@ -406,3 +415,34 @@ section {
         {
        margin-left: 30px;
         }
+        
+        /*Login display from site css*/
+        .loginDisplay
+{
+    font-size: 1.1em;
+   /*  display: block;
+   text-align: right;*/
+    padding: 10px;
+    color: White;
+    position:fixed;
+    left:85%;
+    margin-top:2em;
+    font-family: Lato, Verdana, Constantia;
+    text-shadow: 0 2px 0.8px #808080;
+}
+
+.loginDisplay a:link
+{
+    color: blue;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: rgb(168,0,0);
+}
+

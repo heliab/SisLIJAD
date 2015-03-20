@@ -60,11 +60,18 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Clientes\CrearSolicitudes.aspx" />
+    <Content Include="Clientes\welcome.aspx" />
+    <Content Include="Cuenta\ManageUser.aspx" />
+    <Content Include="Cuenta\UserAndRoles.aspx" />
+    <Content Include="Cuenta\UserInformation.aspx" />
     <Content Include="humans.txt" />
     <Content Include="Images\back_square.png" />
     <Content Include="Images\back_fabric.png" />
     <Content Include="Images\back_p2.png" />
+    <Content Include="Images\me.jpg" />
     <Content Include="Images\SisLIJAD.png" />
     <Content Include="Images\SisLIJAD2.png" />
     <Content Include="Images\SisLIJAD3.png" />
@@ -72,21 +79,28 @@
     <Content Include="Images\back_small_steps.png" />
     <Content Include="Images\swirl_pattern.png" />
     <Content Include="Images\back_white_wall_hash.png" />
+    <Content Include="MINV\AjustesInventario.aspx" />
+    <Content Include="MINV\DefaultMINV.aspx" />
     <Content Include="MINV\EntradaInventario.aspx" />
     <Content Include="MINV\EstadoMateriales.aspx" />
     <Content Include="MINV\Existencias.aspx" />
     <Content Include="MINV\Materiales.aspx" />
+    <Content Include="MINV\MaterialesDañados.aspx" />
+    <Content Include="MINV\Salidas.aspx" />
+    <Content Include="MINV\SolicitudesMateriales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
     <Content Include="MINV\TipoMovimiento.aspx" />
     <Content Include="MINV\TipoUbicaciones.aspx" />
+    <Content Include="MINV\Transferencias.aspx" />
     <Content Include="MINV\Ubicaciones.aspx" />
     <Content Include="MINV\UnidadesMedida.aspx" />
+    <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
-    <Content Include="MPR\LabNew.aspx" />
-    <Content Include="MPR\Lab2.aspx" />
-    <Content Include="MPR\Laboratorios.aspx" />
+    <Content Include="MPR\PesoSecoSuelto.aspx" />
     <Content Include="MPR\Pruebas.aspx" />
+    <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
+    <Content Include="RecoverMail.htm" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
@@ -104,6 +118,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\styles.css" />
+    <Content Include="Tecnicos\Bienvenidos.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -121,6 +136,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AccountMASTER.Master.cs">
+      <DependentUpon>AccountMASTER.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\AccountMASTER.Master.designer.cs">
+      <DependentUpon>AccountMASTER.Master</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -143,6 +165,13 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RecoverPassword.aspx.designer.cs">
+      <DependentUpon>RecoverPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,7 +180,55 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\Database.cs" />
-    <Compile Include="Classes\ScriptFunctions.cs" />
+    <Compile Include="Clientes\ClientesMASTER.Master.cs">
+      <DependentUpon>ClientesMASTER.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\ClientesMASTER.Master.designer.cs">
+      <DependentUpon>ClientesMASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CrearSolicitudes.aspx.cs">
+      <DependentUpon>CrearSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\CrearSolicitudes.aspx.designer.cs">
+      <DependentUpon>CrearSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\welcome.aspx.cs">
+      <DependentUpon>welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\welcome.aspx.designer.cs">
+      <DependentUpon>welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\AccountMASTER.Master.cs">
+      <DependentUpon>AccountMASTER.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\AccountMASTER.Master.designer.cs">
+      <DependentUpon>AccountMASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\ManageUser.aspx.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\ManageUser.aspx.designer.cs">
+      <DependentUpon>ManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\UserAndRoles.aspx.cs">
+      <DependentUpon>UserAndRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\UserAndRoles.aspx.designer.cs">
+      <DependentUpon>UserAndRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\UserInformation.aspx.cs">
+      <DependentUpon>UserInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\UserInformation.aspx.designer.cs">
+      <DependentUpon>UserInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,12 +239,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MINVMASTER.Master.cs">
-      <DependentUpon>MINVMASTER.Master</DependentUpon>
+    <Compile Include="MINV\AjustesInventario.aspx.cs">
+      <DependentUpon>AjustesInventario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MINVMASTER.Master.designer.cs">
-      <DependentUpon>MINVMASTER.Master</DependentUpon>
+    <Compile Include="MINV\AjustesInventario.aspx.designer.cs">
+      <DependentUpon>AjustesInventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\DefaultMINV.aspx.cs">
+      <DependentUpon>DefaultMINV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\DefaultMINV.aspx.designer.cs">
+      <DependentUpon>DefaultMINV.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\EntradaInventario.aspx.cs">
       <DependentUpon>EntradaInventario.aspx</DependentUpon>
@@ -204,6 +288,27 @@
     <Compile Include="MINV\Materiales.aspx.designer.cs">
       <DependentUpon>Materiales.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MINV\MaterialesDañados.aspx.cs">
+      <DependentUpon>MaterialesDañados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\MaterialesDañados.aspx.designer.cs">
+      <DependentUpon>MaterialesDañados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Salidas.aspx.cs">
+      <DependentUpon>Salidas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Salidas.aspx.designer.cs">
+      <DependentUpon>Salidas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\SolicitudesMateriales.aspx.cs">
+      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\SolicitudesMateriales.aspx.designer.cs">
+      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MINV\TipoMateriales.aspx.cs">
       <DependentUpon>TipoMateriales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +330,13 @@
     <Compile Include="MINV\TipoUbicaciones.aspx.designer.cs">
       <DependentUpon>TipoUbicaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MINV\Transferencias.aspx.cs">
+      <DependentUpon>Transferencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Transferencias.aspx.designer.cs">
+      <DependentUpon>Transferencias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MINV\Ubicaciones.aspx.cs">
       <DependentUpon>Ubicaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,33 +351,19 @@
     <Compile Include="MINV\UnidadesMedida.aspx.designer.cs">
       <DependentUpon>UnidadesMedida.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MPR\DefaultMPR.aspx.cs">
+      <DependentUpon>DefaultMPR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\DefaultMPR.aspx.designer.cs">
+      <DependentUpon>DefaultMPR.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.designer.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\LabNew.aspx.cs">
-      <DependentUpon>LabNew.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\LabNew.aspx.designer.cs">
-      <DependentUpon>LabNew.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\Lab2.aspx.cs">
-      <DependentUpon>Lab2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\Lab2.aspx.designer.cs">
-      <DependentUpon>Lab2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\Laboratorios.aspx.cs">
-      <DependentUpon>Laboratorios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\Laboratorios.aspx.designer.cs">
-      <DependentUpon>Laboratorios.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\MasterMPR.Master.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
@@ -274,12 +372,26 @@
     <Compile Include="MPR\MasterMPR.Master.designer.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
     </Compile>
+    <Compile Include="MPR\PesoSecoSuelto.aspx.cs">
+      <DependentUpon>PesoSecoSuelto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\PesoSecoSuelto.aspx.designer.cs">
+      <DependentUpon>PesoSecoSuelto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MPR\Pruebas.aspx.cs">
       <DependentUpon>Pruebas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MPR\Pruebas.aspx.designer.cs">
       <DependentUpon>Pruebas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\SolicitudesPruebas.aspx.cs">
+      <DependentUpon>SolicitudesPruebas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\SolicitudesPruebas.aspx.designer.cs">
+      <DependentUpon>SolicitudesPruebas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\TiposPrueba.aspx.cs">
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
@@ -331,12 +443,24 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Tecnicos\Bienvenidos.aspx.cs">
+      <DependentUpon>Bienvenidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\Bienvenidos.aspx.designer.cs">
+      <DependentUpon>Bienvenidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\TecnicosMASTER.Master.cs">
+      <DependentUpon>TecnicosMASTER.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\TecnicosMASTER.Master.designer.cs">
+      <DependentUpon>TecnicosMASTER.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Bones\" />
-    <Folder Include="Clientes\" />
-    <Folder Include="Tecnicos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -344,9 +468,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MINVMASTER.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MINV\MasterMinv.Master" />
@@ -358,6 +479,9 @@
     <Content Include="MPR\MasterMPR.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cuenta\AccountMASTER.Master" />
+    <Content Include="Clientes\ClientesMASTER.Master" />
+    <Content Include="Account\AccountMASTER.Master" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -389,6 +513,7 @@
     <None Include="Styles\font-awesome\scss\_spinning.scss" />
     <None Include="Styles\font-awesome\scss\_stacked.scss" />
     <None Include="Styles\font-awesome\scss\_variables.scss" />
+    <Content Include="Tecnicos\TecnicosMASTER.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

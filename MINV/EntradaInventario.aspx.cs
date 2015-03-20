@@ -24,7 +24,7 @@ namespace SisLIJAD.MINV
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("Select IdEntrada,EntryHeader,IdEntidad,FechaEntrada,HoraRecep,RecepcionadoPor,Observacion from MINV_Entradas where IdEntrada= @IdEntrada", con);
-                // SqlCommand cmd = new SqlCommand("Select IdEntrada,EntryHeader,IdEntidad,RecepcionadoPor,Observacion from MINV_Entradas where IdEntrada= @IdEntrada", con);
+                
                 cmd.Parameters.AddWithValue("@IdEntrada", txtId.Text);
 
 
