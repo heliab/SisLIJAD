@@ -7,13 +7,14 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 using System.Web.Security;
+
 namespace SisLIJAD.Clientes
 {
     public partial class CrearSolicitudes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["username"]= User.Identity.Name;
         }
         #region CRUD
         protected void Select()
@@ -144,6 +145,36 @@ namespace SisLIJAD.Clientes
             }
 
         }
+
+        protected void EnviarSol()
+        {
+            string val = HiddenV.Get("Enviar").ToString();
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Pruebas set Enviada=@Enviada where IdSolicPrueba=@IdSolicPrueba", con);
+                cmd.Parameters.AddWithValue("@IdSolicPrueba", val);
+                cmd.Parameters.Add("@Enviada", SqlDbType.Bit).Value = 1;
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido aprobar") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
         #endregion
 
         #region Callbacks
@@ -160,6 +191,14 @@ namespace SisLIJAD.Clientes
                     GridPrincipal.DataBind();
                     break;
                 case "2": Delete();
+                    break;
+                case "3": SubInsert();
+                    break;
+                case "4": SubUpdate();
+                    break;
+                case "5": SubDelete();
+                    break;
+                case "6": EnviarSol();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -180,5 +219,162 @@ namespace SisLIJAD.Clientes
         }
 
         #endregion
+
+        
+        #region Subcallbacks
+        protected void SubFillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            SubSelect();
+        }
+        protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+        protected void cmbPrueba_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            Session["IdSol"] = HiddenV.Get("SessionId").ToString();
+            cmbPrueba.DataBind();
+        }
+
+        #endregion
+
+        #region SubDRUD
+        protected void SubSelect()
+        {
+
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) AS IdEspec," +
+                    "IdPrueba,ObservPrueba FROM MPR_Det_Sol_Prueba WHERE (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR)"
+                    +"= @IdEspec)", con);
+                cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
+
+                //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    // display data in textboxes
+                    txtSubId.Text = dr["IdEspec"].ToString();
+                    cmbPrueba.Text = dr["IdPrueba"].ToString();
+                    memoOb.Text = dr["ObservPrueba"].ToString();
+                  
+                }
+                else
+                {
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+        protected void SubInsert()
+        {
+            string idub = HiddenV.Get("Session").ToString();
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Sol_Prueba(IdSolPrueba,IdPrueba,ObservPrueba) values(@IdSolPrueba,@IdPrueba,@ObservPrueba)", con);
+
+                cmd.Parameters.AddWithValue("@IdSolPrueba", idub);
+                cmd.Parameters.AddWithValue("@IdPrueba", cmbPrueba.Value);
+                cmd.Parameters.AddWithValue("@ObservPrueba", memoOb.Text);
+                int count = cmd.ExecuteNonQuery();
+                if (count == 1)
+                {
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha guardado correctamente") + "')</script>");
+                }
+                else
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void SubUpdate()
+        {
+            string idub = HiddenV.Get("Session").ToString();
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Det_Sol_Prueba set IdSolPrueba=@IdSolPrueba, IdPrueba=@IdPrueba,ObservPrueba=@ObservPrueba where (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) = @IdEspec)", con);
+                cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
+                cmd.Parameters.AddWithValue("@IdSolPrueba", idub);
+                cmd.Parameters.AddWithValue("@IdPrueba", cmbPrueba.Value);
+                cmd.Parameters.AddWithValue("@ObservPrueba", memoOb.Text);
+
+
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void SubDelete()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Sol_Prueba WHERE (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) = @IdEspec)", con);
+                cmd.Parameters.AddWithValue("@IdEspec", txtIdD.Text);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
+
+       
+       
     }
 }

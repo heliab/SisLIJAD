@@ -18,9 +18,41 @@
     <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <script type="text/javascript">
+     function fn_SubNewSolJS() {
+         fn_GetValOnHid();
+         cmbPrueba.PerformCallback();
+         fn_SubNewJS();
+        }
+
+     function fn_SubEditJSSol() {
+         fn_GetValOnHid();
+         cmbPrueba.PerformCallback();
+         fn_SubEditJS();
+     }
+
+     function fn_SubAddSol() {
+         fn_GetValOnHid();
+         fn_SubAdd();
+         cmbPrueba.PerformCallback();
+
+     }
+     function fn_GetValOnHid() {
+         HiddenV.Set("SessionId", fn_GetIdValue());
+     }
+     function fn_EnviarSolJS() {
+         if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
+        HiddenV.Set('Nuevo', 6);
+        HiddenV.Set('Enviar', fn_GetIdValue());
+        NewCallback.PerformCallback();
+        fn_EndCallback();
+        alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
+    }
+         }
+     
+     
+ </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
 <div class="wrapctrl">
@@ -31,7 +63,7 @@
                 <i class="fa fa-pencil-square-o"></i> Editar</a></li>
             <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
                 <i class="fa fa-trash"></i> Borrar</a></li>
-            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
+            <li><a class="pure-button green-font" href="javascript:fn_EnviarSolJS();" title="Borrar">
                 <i class="fa fa-paper-plane-o"></i> Enviar solicitud</a></li>
         </ul>
     </div>
@@ -61,10 +93,10 @@ fn_EndCallback();
                 Caption="Descripción solicitud">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="2" 
-                Width="10%">
+                Width="15%">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Solicitante" FieldName="username" 
-                VisibleIndex="3" Width="18%">
+                VisibleIndex="3" Width="11%">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="4" Width="8%">
             </dx:GridViewDataCheckColumn>
@@ -89,38 +121,36 @@ fn_EndCallback();
             <DetailRow>
                 <div class="wrapctrl">
                     <ul class="ctrlist">
-                        <li><a class="pure-button blue-font" href="javascript:fn_NewDetEntry();" title="Nuevo">
+                        <li><a class="pure-button blue-font" href="javascript:fn_SubNewSolJS();" title="Nuevo">
                             <i class="fa fa-plus"></i>Nuevo</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditDetEntry();" title="Editar">
+                        <li><a class="pure-button green-font" href="javascript:fn_SubEditJSSol();" title="Editar">
                             <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteDetEntry();" title="Borrar">
+                        <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
                             <i class="fa fa-trash"></i>Borrar</a></li>
                     </ul>
                 </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                     ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%">
+                    Width="100%" KeyFieldName="IdDetalle">
+                    <TotalSummary>
+                        <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
+                    </TotalSummary>
                     <Columns>
                         <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
-                            ShowInCustomizationForm="True" SortIndex="0" SortOrder="Descending" 
-                            VisibleIndex="0" Width="8%">
+                            VisibleIndex="0" Width="10%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Ensaye" FieldName="NomPrueba" 
-                            ShowInCustomizationForm="True" VisibleIndex="1">
+                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" 
+                            Caption="Nombre Ensaye" Width="25%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Observacion particular" 
-                            FieldName="ObservPrueba" ShowInCustomizationForm="True" VisibleIndex="2">
+                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" 
+                            Caption="Observacion">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Duracion dias" FieldName="Duracion" 
-                            ShowInCustomizationForm="True" VisibleIndex="3" Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" 
+                            Caption="Duración Días Aprox" Width="10%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewCommandColumn VisibleIndex="4" Width="0%">
-                            <ClearFilterButton Text="Limpiar" Visible="True">
-                            </ClearFilterButton>
-                        </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
-                    <Settings ShowFilterRow="True" />
+                    <Settings ShowFilterRow="True" ShowFooter="True" />
                     <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
                     <SettingsDetail IsDetailGrid="True" />
                     <Styles>
@@ -132,13 +162,18 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-          SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas ORDER BY IdSolicPrueba DESC">
+          
+        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) ORDER BY IdSolicPrueba DESC">
+        <SelectParameters>
+            <asp:SessionParameter Name="username" SessionField="username" />
+        </SelectParameters>
     </asp:SqlDataSource>
      <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
           
-        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolPrueba)">
+        
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
          <SelectParameters>
-             <asp:SessionParameter Name="IdSolPrueba" SessionField="IdSolPrueba" />
+             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
          </SelectParameters>
     </asp:SqlDataSource>
 
@@ -190,7 +225,8 @@ fn_CleanGroup(1);
                                         </ValidationSettings>
                                     </dx:ASPxMemo>
                                 </div>
-                            
+                                <div><i>*Agregue luego a su solicitud, los ensayes que requiere</i></div>
+                            </div>
                                 <div>
                                     <ul class="frmctrl">
                                         <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
@@ -252,7 +288,13 @@ fn_EndCallback();
                                 <div>
                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione Prueba">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbPrueba" runat="server" ClientInstanceName="cmbPrueba">
+                                    <dx:ASPxComboBox ID="cmbPrueba" runat="server" ClientInstanceName="cmbPrueba" 
+                                        Width="95%" DataSourceID="SDSPruebas" TextField="NomPrueba" 
+                                        ValueField="IdPrueba" OnCallback="cmbPrueba_Callback">
+                                        <Columns>
+                                            <dx:ListBoxColumn Caption="Id" FieldName="IdPrueba" Width="10%" />
+                                            <dx:ListBoxColumn Caption="Prueba" FieldName="NomPrueba" />
+                                        </Columns>
                                      <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
@@ -261,61 +303,33 @@ fn_EndCallback();
                                             <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
+                                    <asp:SqlDataSource ID="SDSPruebas" runat="server" 
+                                        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                        
+                                        SelectCommand="SELECT IdPrueba, NomPrueba FROM MPR_Prueba WHERE (IdPrueba NOT IN (SELECT IdPrueba FROM MPR_Det_Sol_Prueba WHERE (IdSolPrueba = @IdSol)))">
+                                        <SelectParameters>
+                                            <asp:SessionParameter Name="IdSol" SessionField="IdSol" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripcion prueba">
+                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Observación adicional">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxMemo ID="memoOb" ClientInstanceName="memoOb" runat="server" Height="51px"
-                                        Width="259px">
+                                    <dx:ASPxMemo ID="memoOb" ClientInstanceName="memoOb" runat="server" Height="30px"
+                                        Width="95%" 
+                                        NullText="Puede añadir información adicional a cada prueba aquí">
+                                         <NullTextStyle Font-Italic="True" ForeColor="Gray">
+                                         </NullTextStyle>
                                          <ValidationSettings ValidationGroup="ControlGroup2">
                                         </ValidationSettings>
                                     </dx:ASPxMemo>
                                 </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel13" runat="server" Text="Estado  Material">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbEstado" runat="server" ClientInstanceName="cmbEstado" DataSourceID="SDSEst"
-                                        TextField="DescEstado" ValueField="IdEstado">
-                                        <Columns>
-                                            <dx:ListBoxColumn Caption="Id" FieldName="IdEstado" />
-                                            <dx:ListBoxColumn Caption="Estado" FieldName="DescEstado" />
-                                        </Columns>
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                        </ValidationSettings>
-                                    </dx:ASPxComboBox>
-                                    <asp:SqlDataSource ID="SDSEst" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                        SelectCommand="SELECT [IdEstado], [DescEstado] FROM [MINV_EstadoMateriales]">
-                                    </asp:SqlDataSource>
-                                </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Cantidad">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxSpinEdit ID="sCant" ClientInstanceName="sCant" runat="server" Height="22px"
-                                        Number="0.0" LargeIncrement="1" Increment="0.1" NullText="0,0" Width="114px"
-                                        MaxValue="2147483647">
-                                        <SpinButtons ShowLargeIncrementButtons="True">
-                                        </SpinButtons>
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                        </ValidationSettings>
-                                    </dx:ASPxSpinEdit>
-                                </div>
-                              
                             </div>
                             <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button green-font" href="javascript:fn_SubAdd()" title="Guardar">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SubAddSol();" title="Guardar">
                                         <i class="fa fa-plus-square"></i>Nuevo</a></li>
-                                    <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS()" title="Guardar">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_SubCancelJS()" title="Cancelar">
                                         <i class="fa fa-times"></i>Cancelar</a></li>

@@ -211,6 +211,15 @@ namespace SisLIJAD.Clientes {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbPrueba;
         
         /// <summary>
+        /// Control SDSPruebas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSPruebas;
+        
+        /// <summary>
         /// Control ASPxLabel4.
         /// </summary>
         /// <remarks>
@@ -227,51 +236,6 @@ namespace SisLIJAD.Clientes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxMemo memoOb;
-        
-        /// <summary>
-        /// Control ASPxLabel13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel13;
-        
-        /// <summary>
-        /// Control cmbEstado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbEstado;
-        
-        /// <summary>
-        /// Control SDSEst.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSEst;
-        
-        /// <summary>
-        /// Control ASPxLabel10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel10;
-        
-        /// <summary>
-        /// Control sCant.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sCant;
         
         /// <summary>
         /// Control DeleteForm.

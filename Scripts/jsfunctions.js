@@ -39,11 +39,9 @@ function fn_SaveJS() {
     if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
         retutn;
     }
-    fn_ShowMessage();
     NewCallback.PerformCallback();
     fn_CleanGroup(1);
-    alert('Despues de clean group');
-GridPrincipal.PerformCallback();
+    GridPrincipal.PerformCallback();
     FormPopup.Hide();
 }
 
@@ -101,7 +99,7 @@ function fn_SubNewJS() {
 }
 
 function fn_SubEditJS() {
-
+    HiddenV.Set("Session", fn_GetIdValue());
     if (fn_GetSubIdValue() == null) {
         alert('Debe seleciconar un registro');
     }
@@ -146,6 +144,63 @@ function fn_SubCancelDJS() {
 function fn_SubCancelJS() {
     fn_ClosePopup(5);
 }
+
+/*SubForm2**/
+function fn_SubNew2JS() {
+    HiddenV.Set("Session", fn_GetIdValue());
+    txtSubId2.SetText('Nuevo');
+    HiddenV.Set('Nuevo', 10);
+    SubFormPopup2.Show();
+    fn_CleanGroup(3);
+
+}
+
+function fn_SubEdit2JS() {
+    HiddenV.Set("Session", fn_GetIdValue());
+    if (fn_GetSubIdValue2() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', 11);
+        fn_GetSubIdValue2();
+        SubFillingCallback2.PerformCallback();
+        SubFormPopup2.Show();
+    }
+
+}
+function fn_SubSave2JS() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup3')) {
+        retutn;
+    }
+    NewCallback.PerformCallback();
+    fn_CleanGroup(3);
+    GridPrincipal.PerformCallback();
+    SubFormPopup2.Hide();
+}
+function fn_SubAdd2() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup3')) {
+        retutn;
+    }
+    NewCallback.PerformCallback();
+    fn_CleanGroup(3);
+    GridPrincipal.PerformCallback();
+}
+function fn_SubDelete2JS() {
+    HiddenV.Set('Nuevo', 12);
+    fn_ShowSubDelete2();
+}
+function fn_SubConfirmD2JS() {
+    DelCallback.PerformCallback();
+    fn_EndCallback();
+    fn_ClosePopup(2);
+
+}
+function fn_SubCancelD2JS() {
+    fn_ClosePopup(2);
+}
+function fn_SubCancel2JS() {
+    fn_ClosePopup(3);
+}
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
@@ -154,7 +209,7 @@ function fn_GetIdValue() {
     return GridId;
 }
 
-function fn_GetIdValue2() {
+function fn_GetIdValueN() {
     GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
     document.getElementById('txtId2').value = GridId;
     document.getElementById('btnUpdate').click();
@@ -165,7 +220,12 @@ function fn_GetSubIdValue() {
     txtSubId.SetText(SubGridId);
     return SubGridId;
 }
-
+function fn_GetSubIdValue2() {
+    SubGridId2 = SubGrid2.GetRowKey(SubGrid.GetFocusedRowIndex());
+    txtSubId2.SetText(SubGridId2);
+    return SubGridId2;
+    
+}
 
 
 /* *******************************Funciones Mensajes ************************************ */
@@ -209,7 +269,17 @@ function fn_ShowSubDelete() {
         txtIdD.SetText(SubGridId);
         DeleteForm.Show();
     }
- }
+}
+function fn_ShowSubDelete2() {
+    if (fn_GetSubIdValue2() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        SubGridId = SubGrid2.GetRowKey(SubGrid.GetFocusedRowIndex());
+        txtIdD2.SetText(SubGridId2);
+        DeleteForm.Show();
+    }
+}
 
 /* **************************************Funciones popup **************************************   */
 function fn_ClosePopup(e) {
@@ -235,11 +305,8 @@ function fn_ClosePopup(e) {
             //GridPrincipal.Focus(GridPrincipal.focusedRowIndex);  ver si esto ocasiona problemas
             //3 Al guardar subformulario
         case 3:
-            fn_Validate(1);
-            SubForm.Hide();
+            SubFormPopup2.Hide();
             break;
-            //Cerrar popup Subform y limpiar datos, en vez de Opoup client side events
-            //Botón Cancelar del subform
         case 5:
             fn_CleanGroup(2);
             SubFormPopup.Hide();
@@ -260,7 +327,8 @@ function fn_CleanGroup(e) {
             break;
         case 2: ASPxClientEdit.ClearGroup('ControlGroup2');
             break;
-
+        case 3: ASPxClientEdit.ClearGroup('ControlGroup3');
+            break;
         default: ASPxClientEdit.ClearGroup('ControlGroup1');
             break;
     }
