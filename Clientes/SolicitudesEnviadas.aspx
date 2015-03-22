@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesEnviadas.aspx.cs" Inherits="SisLIJAD.Clientes.SolicitudesEnviadas" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -18,38 +18,39 @@
     <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- <script type="text/javascript">
-     function fn_SubNewSolJS() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubNewJS();
-        }
-
-     function fn_SubEditJSSol() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubEditJS();
-     }
-
-     function fn_SubAddSol() {
-         fn_GetValOnHid();
-         fn_SubAdd();
-         cmbPrueba.PerformCallback();
-
-     }
-     function fn_GetValOnHid() {
-         HiddenV.Set("SessionId", fn_GetIdValue());
-     }
-     function fn_EnviarSolJS() {
-         if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
-        HiddenV.Set('Nuevo', 6);
-        HiddenV.Set('Enviar', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
-        alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
+<script type="text/javascript">
+    function fn_SubNewSolJS() {
+        fn_GetValOnHid();
+        cmbPrueba.PerformCallback();
+        fn_SubNewJS();
     }
-         }
+
+    function fn_SubEditJSSol() {
+        fn_GetValOnHid();
+        cmbPrueba.PerformCallback();
+        fn_SubEditJS();
+    }
+
+    function fn_SubAddSol() {
+        fn_GetValOnHid();
+        fn_SubAdd();
+        cmbPrueba.PerformCallback();
+
+    }
+    function fn_GetValOnHid() {
+        HiddenV.Set("SessionId", fn_GetIdValue());
+    }
+    function fn_EnviarSolJS() {
+        if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
+            HiddenV.Set('Nuevo', 6);
+            HiddenV.Set('Enviar', fn_GetIdValue());
+            NewCallback.PerformCallback();
+            fn_EndCallback();
+            alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
+        }
+    }
      
      
  </script>
@@ -58,13 +59,10 @@
 <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                class="fa fa-plus"></i> Nueva Solicitud</a></li>
+                class="fa fa-search-plus"></i> Reporte</a></li>
             <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
-                <i class="fa fa-pencil-square-o"></i> Editar</a></li>
-            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
-                <i class="fa fa-trash"></i> Borrar</a></li>
-            <li><a class="pure-button green-font" href="javascript:fn_EnviarSolJS();" title="Borrar">
-                <i class="fa fa-paper-plane-o"></i> Enviar solicitud</a></li>
+                <i class="fa fa-clipboard"></i> Ver</a></li>
+           
         </ul>
     </div>
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
@@ -76,6 +74,7 @@ fn_EndCallback();
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
@@ -158,7 +157,8 @@ fn_EndCallback();
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) and (Enviada=0) ORDER BY IdSolicPrueba DESC">
+        
+        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) and (Enviada=1) ORDER BY IdSolicPrueba DESC">
         <SelectParameters>
             <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
@@ -170,10 +170,8 @@ fn_EndCallback();
         </SelectParameters>
     </asp:SqlDataSource>
 
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-   
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True" 
         HeaderText="Formulario de registro" Modal="True"

@@ -63,6 +63,7 @@
     <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Clientes\CrearSolicitudes.aspx" />
+    <Content Include="Clientes\SolicitudesEnviadas.aspx" />
     <Content Include="Clientes\welcome.aspx" />
     <Content Include="Cuenta\ManageUser.aspx" />
     <Content Include="Cuenta\UserAndRoles.aspx" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="Clientes\CrearSolicitudes.aspx.designer.cs">
       <DependentUpon>CrearSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\SolicitudesEnviadas.aspx.cs">
+      <DependentUpon>SolicitudesEnviadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\SolicitudesEnviadas.aspx.designer.cs">
+      <DependentUpon>SolicitudesEnviadas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\welcome.aspx.cs">
       <DependentUpon>welcome.aspx</DependentUpon>
