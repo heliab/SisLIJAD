@@ -191,7 +191,7 @@ function fn_SubDelete2JS() {
 }
 function fn_SubConfirmD2JS() {
     DelCallback.PerformCallback();
-    fn_EndCallback();
+    GridPrincipal.PerformCallback();
     fn_ClosePopup(2);
 
 }
@@ -199,7 +199,7 @@ function fn_SubCancelD2JS() {
     fn_ClosePopup(2);
 }
 function fn_SubCancel2JS() {
-    fn_ClosePopup(3);
+    fn_ClosePopup(2);
 }
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
@@ -221,7 +221,7 @@ function fn_GetSubIdValue() {
     return SubGridId;
 }
 function fn_GetSubIdValue2() {
-    SubGridId2 = SubGrid2.GetRowKey(SubGrid.GetFocusedRowIndex());
+    SubGridId2 = SubGrid2.GetRowKey(SubGrid2.GetFocusedRowIndex());
     txtSubId2.SetText(SubGridId2);
     return SubGridId2;
     
@@ -272,11 +272,11 @@ function fn_ShowSubDelete() {
 }
 function fn_ShowSubDelete2() {
     if (fn_GetSubIdValue2() == null) {
-        alert('Debe seleciconar un registro');
+        alert('Debe seleciconar un registro!');
     }
     else {
-        SubGridId = SubGrid2.GetRowKey(SubGrid.GetFocusedRowIndex());
-        txtIdD2.SetText(SubGridId2);
+        SubGridId2 = SubGrid2.GetRowKey(SubGrid2.GetFocusedRowIndex());
+        txtIdD.SetText(SubGridId2);
         DeleteForm.Show();
     }
 }

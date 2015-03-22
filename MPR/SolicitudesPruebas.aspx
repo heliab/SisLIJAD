@@ -116,7 +116,7 @@ function fn_SubNewEntJS() {
              fn_GetValOnHid()
              cmbTecnic.PerformCallback();
              fn_SubEdit2JS();
-          }
+            }
      }
        
 }
@@ -130,7 +130,7 @@ function fn_SubDeleteEntJS() {
         else {
             fn_GetValOnHid();
             fn_SubDelete2JS();
-         }
+            }
     }
 
 }
@@ -335,16 +335,14 @@ fn_EndCallback();
                                         ClientInstanceName="SubGrid2" Width="100%" AutoGenerateColumns="False" 
                                         DataSourceID="SDSTecnicos" KeyFieldName="IdEntidad">
                                         <Columns>
-                                            <dx:GridViewDataTextColumn Caption="Id Personal" FieldName="IdEntidad" 
-                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="12%">
+                                            <dx:GridViewDataTextColumn FieldName="IdEntidad" ShowInCustomizationForm="True" 
+                                                VisibleIndex="0" Caption="Id Personal" Width="10%">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataTextColumn FieldName="TécnicoEncargado" ReadOnly="True" 
-                                                ShowInCustomizationForm="True" VisibleIndex="1">
-                                                <Settings AutoFilterCondition="Contains" />
+                                                ShowInCustomizationForm="True" VisibleIndex="1" Width="40%">
                                             </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn Caption="Mensaje de administrador" 
-                                                FieldName="Mensaje" ShowInCustomizationForm="True" VisibleIndex="2" Width="40%">
-                                                <Settings AutoFilterCondition="Contains" />
+                                            <dx:GridViewDataTextColumn FieldName="Mensaje" ShowInCustomizationForm="True" 
+                                                VisibleIndex="2">
                                             </dx:GridViewDataTextColumn>
                                         </Columns>
                                         <SettingsBehavior AllowFocusedRow="True" />
@@ -665,7 +663,7 @@ fn_EndCallback();
                 <div class="form">
                     <div>
                         <p>
-                            <strong>¿Seguro que quiere eliminar la solicitud?</strong></p>
+                            <strong>¿Seguro que quiere eliminar el registro?</strong></p>
                         <dx:ASPxTextBox ID="txtIdD" runat="server" Width="170px" ClientInstanceName="txtIdD"
                             ClientEnabled="true" ReadOnly="True" Font-Bold="True" HorizontalAlign="Center">
                         </dx:ASPxTextBox>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesAsignadas.aspx.cs" Inherits="SisLIJAD.Tecnicos.SolicitudesAsignadas" %>
+
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -19,55 +20,9 @@
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- <script type="text/javascript">
-     function fn_SubNewSolJS() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubNewJS();
-        }
-
-     function fn_SubEditJSSol() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubEditJS();
-     }
-
-     function fn_SubAddSol() {
-         fn_GetValOnHid();
-         fn_SubAdd();
-         cmbPrueba.PerformCallback();
-
-     }
-     function fn_GetValOnHid() {
-         HiddenV.Set("SessionId", fn_GetIdValue());
-     }
-     function fn_EnviarSolJS() {
-         if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
-        HiddenV.Set('Nuevo', 6);
-        HiddenV.Set('Enviar', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
-        alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
-    }
-         }
-     
-     
- </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<div class="wrapctrl">
-        <ul class="ctrlist">
-            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                class="fa fa-plus"></i> Nueva Solicitud</a></li>
-            <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
-                <i class="fa fa-pencil-square-o"></i> Editar</a></li>
-            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
-                <i class="fa fa-trash"></i> Borrar</a></li>
-            <li><a class="pure-button green-font" href="javascript:fn_EnviarSolJS();" title="Borrar">
-                <i class="fa fa-paper-plane-o"></i> Enviar solicitud</a></li>
-        </ul>
-    </div>
-    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+ <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
 fn_EndCallback();
@@ -79,34 +34,29 @@ fn_EndCallback();
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+        Width="100%" ClientInstanceName="GridPrincipal" 
+        OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents DetailRowExpanding="function(s, e) {
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" VisibleIndex="0"
-                Caption="Id Solicitud" Width="8%">
+            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" 
+                VisibleIndex="0">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" Caption="Descripción solicitud">
+            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="2" Width="15%">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Solicitante" FieldName="username" VisibleIndex="3"
-                Width="11%">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="4" Width="8%">
+            <dx:GridViewDataCheckColumn FieldName="Autorizado" VisibleIndex="2">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
-                <ClearFilterButton Text="Limpiar" Visible="True">
-                </ClearFilterButton>
-            </dx:GridViewCommandColumn>
+            <dx:GridViewDataTextColumn FieldName="FechaAprobación" VisibleIndex="3">
+            </dx:GridViewDataTextColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
             <Summary Text="Página {0} de {1} ({2} items)" />
         </SettingsPager>
-        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
+        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" 
+            ShowGroupPanel="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
         <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
         <Styles>
@@ -132,16 +82,17 @@ fn_EndCallback();
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>
                     <Columns>
-                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" VisibleIndex="0"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                            VisibleIndex="0" Width="10%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" Caption="Nombre Ensaye"
-                            Width="30%">
+                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" 
+                            Caption="Nombre Ensaye" Width="25%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" Caption="Observacion">
+                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" 
+                            Caption="Observacion">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" Caption="Duración Días Aprox"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" 
+                            Caption="Duración Días Aprox" Width="10%">
                         </dx:GridViewDataTextColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
@@ -157,23 +108,20 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) ORDER BY IdSolicPrueba DESC">
-        <SelectParameters>
-            <asp:SessionParameter Name="username" SessionField="username" />
-        </SelectParameters>
+          
+        
+        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, Autorizado, FechaAprobación FROM MPR_Solic_Pruebas WHERE (Autorizado = 1) ORDER BY IdSolicPrueba DESC">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+     <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
-        <SelectParameters>
-            <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
-        </SelectParameters>
+         <SelectParameters>
+             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
+         </SelectParameters>
     </asp:SqlDataSource>
-
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-   
-    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
+
+<dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True" 
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
@@ -367,5 +315,4 @@ fn_EndCallback();
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
-
 </asp:Content>

@@ -152,8 +152,9 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Pruebas set Autorizado=@Autorizado,Cancelada=@Cancelada where IdSolicPrueba=@IdSolicPrueba", con);
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Pruebas set FechaAprobación=@FechaAprobación,Autorizado=@Autorizado,Cancelada=@Cancelada where IdSolicPrueba=@IdSolicPrueba", con);
                 cmd.Parameters.AddWithValue("@IdSolicPrueba", val);
+                cmd.Parameters.AddWithValue("@FechaAprobación", DateTime.Now);
                 cmd.Parameters.Add("@Autorizado", SqlDbType.Bit).Value = 1;
                 cmd.Parameters.Add("@Cancelada", SqlDbType.Bit).Value = 0;
                 if (cmd.ExecuteNonQuery() == 1)
@@ -181,8 +182,9 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Pruebas set Autorizado=@Autorizado,Cancelada=@Cancelada where IdSolicPrueba=@IdSolicPrueba", con);
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Pruebas set FechaAprobación=@FechaAprobación,Autorizado=@Autorizado,Cancelada=@Cancelada where IdSolicPrueba=@IdSolicPrueba", con);
                 cmd.Parameters.AddWithValue("@IdSolicPrueba", val);
+                cmd.Parameters.AddWithValue("@FechaAprobación", DateTime.Now);
                 cmd.Parameters.Add("@Autorizado", SqlDbType.Bit).Value = 0;
                 cmd.Parameters.Add("@Cancelada", SqlDbType.Bit).Value = 1;
                 if (cmd.ExecuteNonQuery() == 1)
@@ -264,7 +266,7 @@ namespace SisLIJAD.MPR
                     break;
                 case "11":SubUpdate2();
                     break;
-                case "12": SubDelete();
+                case "12": SubDelete2();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -554,7 +556,7 @@ namespace SisLIJAD.MPR
         }
         protected void SubDelete2()
         {
-            string IdSol = HiddenV.Get("Session").ToString();
+            string IdSol = HiddenV.Get("SessionId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
