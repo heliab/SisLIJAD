@@ -173,7 +173,7 @@ header {
 /*Baseform contiene todo el formulario*/
 .BaseForm {
     background-color: rgba(217, 217, 217, 0.69);
-    width: 87%;
+    width: 100%;
     margin: 1em auto;
     
     
@@ -446,3 +446,24 @@ section {
     color: rgb(168,0,0);
 }
 
+/***Font color*/
+
+.semiblack-font
+{
+    color:#303030;
+    }
+.darkred-font
+{
+    color:#A00000;
+    }
+    /*Ficah pruebas*/
+    .ficha
+    {
+        background:rgba(200,200,200,0.8);
+        border-style:solid;
+        border-width: 1.2px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        margin-left: 1em;
+        width:90%;
+        }

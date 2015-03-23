@@ -202,7 +202,7 @@ function fn_GetValOnHid() {
                 <i class="fa fa-pencil-square-o"></i>Editar</a></li>
             <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
                 <i class="fa fa-trash"></i>Borrar</a></li>--%>
-            <li <%--id="leftmar-button"--%>><a class="pure-button green-font" href="javascript:fn_GetAutRow();"
+            <li><a class="pure-button green-font" href="javascript:fn_GetAutRow();"
                 title="Aprobar"><i class="fa fa-check-square-o"></i>Autorizado</a></li>
             <li><a class="pure-button red-font" href="javascript:fn_GetCancelRow();" title="Aprobar">
                 <i class="fa fa-ban"></i>Descartado</a></li>

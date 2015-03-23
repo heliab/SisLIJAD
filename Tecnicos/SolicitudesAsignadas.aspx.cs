@@ -25,12 +25,27 @@ namespace SisLIJAD.Tecnicos
 
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
+            Session["IdDetalle"] = HiddenV.Get("IdDetalle").ToString();
+            Session["IdPrueba"] = HiddenV.Get("IdPrueba").ToString();
+            string IdPrueba= HiddenV.Get("IdPrueba").ToString();
+            switch (IdPrueba) {
+                case "1": Response.Redirect("~/Pruebas/");
+                    break;
+                default: Response.Write("Error con ID PRueba");
+                    break;
+            }
 
+          
         }
 
         protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridPrincipal.DataBind();
+        }
+
+        protected void SubGrid2_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
 
        

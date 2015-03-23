@@ -69,6 +69,15 @@
     <Content Include="Cuenta\UserAndRoles.aspx" />
     <Content Include="Cuenta\UserInformation.aspx" />
     <Content Include="humans.txt" />
+    <Content Include="Images\ASPxRoundPanel\552374105\BottomLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\BottomRightCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\HeaderContent.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\HeaderLeftEdge.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\HeaderRightEdge.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\NoHeaderTopLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\NoHeaderTopRightCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\TopLeftCorner.png" />
+    <Content Include="Images\ASPxRoundPanel\552374105\TopRightCorner.png" />
     <Content Include="Images\back_square.png" />
     <Content Include="Images\back_fabric.png" />
     <Content Include="Images\back_p2.png" />
@@ -101,6 +110,7 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
+    <Content Include="Pruebas\PesoVolumétricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
@@ -410,6 +420,13 @@
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pruebas\PesoVolumétricoSecoSuelto.aspx.cs">
+      <DependentUpon>PesoVolumétricoSecoSuelto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\PesoVolumétricoSecoSuelto.aspx.designer.cs">
+      <DependentUpon>PesoVolumétricoSecoSuelto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SICOM\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

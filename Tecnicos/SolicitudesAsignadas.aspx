@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesAsignadas.aspx.cs" Inherits="SisLIJAD.Tecnicos.SolicitudesAsignadas" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
@@ -19,10 +21,28 @@
     <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
+<%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <script type="text/javascript">
-
+    function fn_IrCalculo() {
+        fn_GetEnsaye();
+        fn_GetSolicitud();
+        NewCallback.PerformCallback();
+    }
+    function fn_GetEnsaye() {
+        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdPrueba', GetIdPrueba);
+        function GetIdPrueba(IdPrueba) {
+            HiddenV.Set("IdPrueba", IdPrueba);
+        }
+    }
+    function fn_GetSolicitud() {
+        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle', GetIdSolicitud);
+        function GetIdPrueba(IdDetalle) {
+            HiddenV.Set("IdDetalle", IdDetalle);
+        }
+     }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -36,6 +56,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+    
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -69,15 +90,21 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-            <div class="wrapctrl">
+            <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" 
+        ClientIDMode="AutoID" Width="100%">
+        <TabPages>
+            <dx:TabPage Text="Ensayes">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
+                     <div class="wrapctrl">
                     <ul class="ctrlist">
-                        <li><a class="pure-button blue-font" href="javascript:fn_IrCalculo();" title="Nuevo">
+                        <li><a class=" pure-button blue-font" href="javascript:fn_IrCalculo();" title="Nuevo">
                             <i class="fa fa-external-link"></i>Ir a cálculo</a></li>
                     </ul>
                 </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                     ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%" KeyFieldName="IdDetalle">
+                    Width="100%">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>
@@ -86,14 +113,23 @@ fn_EndCallback();
                             VisibleIndex="0" Width="10%">
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" 
-                            Caption="Nombre Ensaye" Width="25%">
+                            Caption="Ensaye">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" 
-                            Caption="Observacion">
+                            Width="40%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" 
-                            Caption="Duración Días Aprox" Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="IdPrueba" VisibleIndex="3" Width="7%">
                         </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Duracion" ShowInCustomizationForm="True" 
+                            VisibleIndex="4" Width="8%">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5" 
+                            Width="0%">
+                            <ClearFilterButton Text="Limpiar" Visible="True">
+                            </ClearFilterButton>
+                        </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
                     <Settings ShowFilterRow="True" ShowFooter="True" />
@@ -104,6 +140,40 @@ fn_EndCallback();
                         </FocusedRow>
                     </Styles>
                 </dx:ASPxGridView>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+            <dx:TabPage Text="Encargados">
+                <ContentCollection>
+                    <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
+                    <dx:ASPxGridView ID="SubGrid2" runat="server" ClientIDMode="AutoID" 
+                                        ClientInstanceName="SubGrid2" Width="100%" AutoGenerateColumns="False" 
+                                        DataSourceID="SDSTecnicos" KeyFieldName="IdEntidad" 
+                            OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect">
+                                        <Columns>
+                                            <dx:GridViewDataTextColumn FieldName="IdEntidad" ShowInCustomizationForm="True" 
+                                                VisibleIndex="0" Caption="Id Personal" Width="10%">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn FieldName="TécnicoEncargado" ReadOnly="True" 
+                                                ShowInCustomizationForm="True" VisibleIndex="1" Width="40%">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn FieldName="Mensaje" ShowInCustomizationForm="True" 
+                                                VisibleIndex="2">
+                                            </dx:GridViewDataTextColumn>
+                                        </Columns>
+                                        <SettingsBehavior AllowFocusedRow="True" />
+                                        <Settings ShowFilterRow="True" ShowFooter="True" />
+                                        <Styles>
+                                            <FocusedRow BackColor="#5180BF">
+                                            </FocusedRow>
+                                        </Styles>
+                                    </dx:ASPxGridView>
+                    </dx:ContentControl>
+                </ContentCollection>
+            </dx:TabPage>
+        </TabPages>
+    </dx:ASPxPageControl>
+           
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
@@ -112,8 +182,17 @@ fn_EndCallback();
         
         SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, Autorizado, FechaAprobación FROM MPR_Solic_Pruebas WHERE (Autorizado = 1) ORDER BY IdSolicPrueba DESC">
     </asp:SqlDataSource>
+     <asp:SqlDataSource ID="SDSTecnicos" runat="server" 
+         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+         
+         SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (USER_Entidad.IdTipo = 1) AND (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
+        <SelectParameters>
+            <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
+        </SelectParameters>
+     </asp:SqlDataSource>
      <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
+        
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.IdPrueba,MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
          <SelectParameters>
              <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
          </SelectParameters>
