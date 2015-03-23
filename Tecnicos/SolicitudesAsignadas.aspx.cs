@@ -17,5 +17,22 @@ namespace SisLIJAD.Tecnicos
         {
 
         }
+
+        protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+
+        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
+        {
+
+        }
+
+        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+        {
+            GridPrincipal.DataBind();
+        }
+
+       
     }
 }

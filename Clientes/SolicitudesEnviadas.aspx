@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesEnviadas.aspx.cs" Inherits="SisLIJAD.Clientes.SolicitudesEnviadas" %>
+
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -17,6 +20,9 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
     <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+
+
+<%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -83,18 +89,19 @@ fn_EndCallback();
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" VisibleIndex="0"
-                Caption="Id Solicitud" Width="8%">
+            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" 
+                VisibleIndex="0" Caption="Id Solicitud" Width="12%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" Caption="Descripción solicitud">
+            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" 
+                Caption="Descripción Prueba" Width="60%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="2" Width="15%">
+            <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="2" Width="10%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Solicitante" FieldName="username" VisibleIndex="3"
-                Width="11%">
+            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="3">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="4" Width="8%">
+            <dx:GridViewDataCheckColumn FieldName="Autorizado" VisibleIndex="4" Width="7%">
             </dx:GridViewDataCheckColumn>
             <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
@@ -114,33 +121,24 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-                <div class="wrapctrl">
-                    <ul class="ctrlist">
-                        <li><a class="pure-button blue-font" href="javascript:fn_SubNewSolJS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Nuevo</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_SubEditJSSol();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
-                </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%" KeyFieldName="IdDetalle">
+                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" KeyFieldName="IdDetalle"
+                    OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect" Width="100%">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>
                     <Columns>
-                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" VisibleIndex="0"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" ShowInCustomizationForm="True"
+                            VisibleIndex="0" Width="10%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" Caption="Nombre Ensaye"
-                            Width="30%">
+                        <dx:GridViewDataTextColumn Caption="Nombre Ensaye" FieldName="NomPrueba" ShowInCustomizationForm="True"
+                            VisibleIndex="1" Width="30%">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" Caption="Observacion">
+                        <dx:GridViewDataTextColumn Caption="Observacion" FieldName="ObservPrueba" ShowInCustomizationForm="True"
+                            VisibleIndex="2">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" Caption="Duración Días Aprox"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn Caption="Duración Días Aprox" FieldName="Duracion" ShowInCustomizationForm="True"
+                            VisibleIndex="3" Width="10%">
                         </dx:GridViewDataTextColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
@@ -158,9 +156,11 @@ fn_EndCallback();
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
         
-        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) and (Enviada=1) ORDER BY IdSolicPrueba DESC">
+        
+        
+        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba,username, FechaRegistro,Autorizado FROM MPR_Solic_Pruebas WHERE (username=@username) and (Autorizado=1) ORDER BY IdSolicPrueba DESC">
         <SelectParameters>
-            <asp:SessionParameter Name="username" SessionField="username" />
+            <asp:Parameter Name="username" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
@@ -172,7 +172,7 @@ fn_EndCallback();
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
+<%--    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True" 
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
@@ -365,6 +365,6 @@ fn_EndCallback();
                 </div>
             </dx:PopupControlContentControl>
         </ContentCollection>
-    </dx:ASPxPopupControl>
+    </dx:ASPxPopupControl>--%>
 
 </asp:Content>

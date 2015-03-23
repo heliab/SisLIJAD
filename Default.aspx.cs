@@ -14,7 +14,11 @@ namespace SisLIJAD
         {
             if (Roles.IsUserInRole("Clientes"))
             {
-                Response.Redirect("~/Clientes/CrearSolicitud.aspx");
+                Response.Redirect("~/Clientes/CrearSolicitudes.aspx");
+            }
+            if (Roles.IsUserInRole("Tecnico"))
+            {
+                Response.Redirect("~/Tecnicos/SolicitudesAsignadas.aspx");
             }
         }
     }
