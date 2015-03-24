@@ -13,5 +13,10 @@ namespace SisLIJAD.Pruebas
         {
 
         }
+
+        protected void GridPrincipal_CustomCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs e)
+        {
+            GridPrincipal.DataBind();
+        }
     }
 }

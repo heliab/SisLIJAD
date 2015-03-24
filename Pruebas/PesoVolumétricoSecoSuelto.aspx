@@ -32,77 +32,138 @@
         BackColor="#F3F3F3" ClientIDMode="AutoID" 
         CssFilePath="~/App_Themes/RedLine/{0}/styles.css" CssPostfix="RedLine" 
         HeaderText="Detalles Solicitud">
-        <ContentPaddings PaddingBottom="6px" PaddingTop="3px" />
-        <HeaderStyle BackColor="#DEDEDE">
+        <ContentPaddings PaddingBottom="12px" />
+<ContentPaddings PaddingBottom="12px"></ContentPaddings>
+
+        <HeaderStyle>
         <Border BorderStyle="None" />
-        <BorderLeft BorderStyle="None" />
-        <BorderRight BorderStyle="None" />
-        <BorderBottom BorderStyle="None" />
+<Border BorderStyle="None"></Border>
         </HeaderStyle>
-        <TopLeftCorner Height="5px" Url="~/Images/ASPxRoundPanel/552374105/TopLeftCorner.png" 
-            Width="5px">
+        <TopLeftCorner Height="6px" Url="~/App_Themes/RedLine/Web/rpTopLeftCorner.png" 
+            Width="6px">
         </TopLeftCorner>
-        <NoHeaderTopLeftCorner Height="5px" 
-            Url="~/Images/ASPxRoundPanel/552374105/NoHeaderTopLeftCorner.png" 
-            Width="5px">
+        <NoHeaderTopLeftCorner Height="6px" 
+            Url="~/App_Themes/RedLine/Web/rpNoHeaderTopLeftCorner.png" 
+            Width="6px">
         </NoHeaderTopLeftCorner>
-        <TopRightCorner Height="5px" 
-            Url="~/Images/ASPxRoundPanel/552374105/TopRightCorner.png" Width="5px">
+        <TopRightCorner Height="6px" 
+            Url="~/App_Themes/RedLine/Web/rpTopRightCorner.png" Width="6px">
         </TopRightCorner>
-        <NoHeaderTopRightCorner Height="5px" 
-            Url="~/Images/ASPxRoundPanel/552374105/NoHeaderTopRightCorner.png" 
-            Width="5px">
+        <NoHeaderTopRightCorner Height="6px" 
+            Url="~/App_Themes/RedLine/Web/rpNoHeaderTopRightCorner.png" 
+            Width="6px">
         </NoHeaderTopRightCorner>
-        <BottomRightCorner Height="5px" 
-            Url="~/Images/ASPxRoundPanel/552374105/BottomRightCorner.png" Width="5px">
+        <BottomRightCorner Height="6px" 
+            Url="~/App_Themes/RedLine/Web/rpBottomRightCorner.png" Width="6px">
         </BottomRightCorner>
-        <BottomLeftCorner Height="5px" 
-            Url="~/Images/ASPxRoundPanel/552374105/BottomLeftCorner.png" Width="5px">
+        <BottomLeftCorner Height="6px" 
+            Url="~/App_Themes/RedLine/Web/rpBottomLeftCorner.png" Width="6px">
         </BottomLeftCorner>
         <HeaderLeftEdge>
-            <BackgroundImage ImageUrl="~/Images/ASPxRoundPanel/552374105/HeaderLeftEdge.png" 
-                Repeat="NoRepeat" VerticalPosition="bottom" HorizontalPosition="left" />
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderLeftEdge.png" 
+                Repeat="NoRepeat" VerticalPosition="bottom" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderLeftEdge.png" Repeat="NoRepeat" VerticalPosition="bottom"></BackgroundImage>
         </HeaderLeftEdge>
-        <HeaderContent>
-            <BackgroundImage ImageUrl="~/Images/ASPxRoundPanel/552374105/HeaderContent.png" 
-                Repeat="RepeatX" VerticalPosition="bottom" HorizontalPosition="left" />
+        <HeaderContent BackColor="#DADADA">
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderContent.png" 
+                Repeat="RepeatX" VerticalPosition="bottom" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderContent.png" Repeat="RepeatX" VerticalPosition="bottom"></BackgroundImage>
         </HeaderContent>
         <HeaderRightEdge>
-            <BackgroundImage ImageUrl="~/Images/ASPxRoundPanel/552374105/HeaderRightEdge.png" 
-                Repeat="NoRepeat" VerticalPosition="bottom" HorizontalPosition="right" />
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderRightEdge.png" 
+                Repeat="NoRepeat" VerticalPosition="bottom" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpHeaderRightEdge.png" Repeat="NoRepeat" VerticalPosition="bottom"></BackgroundImage>
         </HeaderRightEdge>
         <NoHeaderTopEdge BackColor="#F3F3F3">
         </NoHeaderTopEdge>
+        <TopEdge>
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpTopEdge.png" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpTopEdge.png"></BackgroundImage>
+        </TopEdge>
+        <RightEdge>
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpRightEdge.png" Repeat="RepeatY" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpRightEdge.png" Repeat="RepeatY"></BackgroundImage>
+        </RightEdge>
+        <BottomEdge>
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpBottomEdge.png" Repeat="RepeatX" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpBottomEdge.png" Repeat="RepeatX"></BackgroundImage>
+        </BottomEdge>
+        <LeftEdge>
+            <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpLeftEdge.png" />
+<BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpLeftEdge.png"></BackgroundImage>
+        </LeftEdge>
         <PanelCollection>
-<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
-      <div class="BaseForm">
-            <div class="HalfLeft">
-                 <label class="InnerCtrl" for="male">Label</label>
-                 <input class="InnerCtrl" type="text" name="fname">
-            </div>
-            <div class="HalfRight">
-                 <label class="InnerCtrl" for="male">Label2</label>
-                 <input class="InnerCtrl" type="text" name="fname">
-            </div>
-            <div class="HalfMiddle">
-                <div class="InnerMid">
-                <label class="InnerCtrl" for="male">Label2</label>
-                 <input class="InnerCtrlMid" type="text" name="fname">
+            <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                <div class="BaseForm">
+                    <div class="row">
+                        <div class="first">
+                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Id Solicitud">
+                            </dx:ASPxLabel>
+                            <dx:ASPxLabel ID="lblIdSol" runat="server" Text="" Font-Bold="True">
+                            </dx:ASPxLabel>
+                        </div>
+                        <div class="Second">
+                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Id Ensaye" >
+                            </dx:ASPxLabel>
+                            <dx:ASPxLabel ID="lblIdEnsaye" runat="server" Text="" Font-Bold="True">
+                            </dx:ASPxLabel>
+                        </div>
+                        <div class="third">
+                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Descripción Solicitud">
+                            </dx:ASPxLabel>
+                            <dx:ASPxLabel ID="lblDescripcion" runat="server" Text=""  Font-Bold="True">
+                            </dx:ASPxLabel>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          <div class="HalfMiddle">
-              <div class="FrmBtnWrapper">
-                <input type="submit" value="Cancel">
-                <input type="submit" value="Guardar">
-              </div>
-          </div>
-        </div>
+        
             </dx:PanelContent>
 </PanelCollection>
-        <Border BorderStyle="Solid" BorderColor="#8B8B8B" BorderWidth="1px" />
+        <Border BorderStyle="None" />
+
+<Border BorderStyle="None"></Border>
     </dx:ASPxRoundPanel>
+     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+        OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
+        <ClientSideEvents EndCallback="function(s, e) {
+fn_EndCallback();
+}" />
+    </dx:ASPxCallback>
+    <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
+    </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+    <dx:ASPxGridView ID="GridPrincipal" runat="server" 
+        ClientInstanceName="GridPrincipal" 
+        oncustomcallback="GridPrincipal_CustomCallback" Width="100%" 
+        AutoGenerateColumns="False" ClientIDMode="AutoID" DataSourceID="SDSEnsayes" 
+        KeyFieldName="IdSolPrueba"> <ClientSideEvents DetailRowExpanding="function(s, e) {
+	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
+}" />
+        <Columns>
+            <dx:GridViewDataTextColumn FieldName="IdSolPrueba" ReadOnly="True" 
+                VisibleIndex="0">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="IdPrueba" ReadOnly="True" 
+                VisibleIndex="1">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="2">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="3">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="4">
+            </dx:GridViewDataTextColumn>
+        </Columns>
+        <SettingsBehavior AllowFocusedRow="True" />
+        <Settings ShowFilterRow="True" />
+    </dx:ASPxGridView>
+    <asp:SqlDataSource ID="SDSEnsayes" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+        SelectCommand="SELECT MPR_Det_Sol_Prueba.IdSolPrueba, MPR_Det_Sol_Prueba.IdPrueba, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolPrueba)">
+        <SelectParameters>
+            <asp:SessionParameter Name="IdSolPrueba" SessionField="IdSolPrueba" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
 </asp:Content>
