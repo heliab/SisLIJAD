@@ -29,15 +29,15 @@ namespace SisLIJAD.Tecnicos
             Session["IdPrueba"] = HiddenV.Get("IdPrueba").ToString();
             string IdPrueba= HiddenV.Get("IdPrueba").ToString();
             switch (IdPrueba) {
-                case "1": Response.Redirect("~/Pruebas/");
-                    break;
+                case "1": Response.Redirect("~/Pruebas/PesoVolumétricoSecoSuelto.aspx");
+                      break;
                 default: Response.Write("Error con ID PRueba");
                     break;
             }
 
           
         }
-
+        
         protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridPrincipal.DataBind();

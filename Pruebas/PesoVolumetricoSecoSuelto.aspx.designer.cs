@@ -10,7 +10,7 @@
 namespace SisLIJAD.Pruebas {
     
     
-    public partial class PesoVolumétricoSecoSuelto {
+    public partial class PesoVolumetricoSecoSuelto {
         
         /// <summary>
         /// Control ASPxRoundPanel1.
@@ -22,58 +22,22 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxRoundPanel.ASPxRoundPanel ASPxRoundPanel1;
         
         /// <summary>
-        /// Control ASPxLabel2.
+        /// Control GridFicha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridFicha;
         
         /// <summary>
-        /// Control lblIdSol.
+        /// Control SDSPruebaFicha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblIdSol;
-        
-        /// <summary>
-        /// Control ASPxLabel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
-        
-        /// <summary>
-        /// Control lblIdEnsaye.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblIdEnsaye;
-        
-        /// <summary>
-        /// Control ASPxLabel3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
-        
-        /// <summary>
-        /// Control lblDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblDescripcion;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSPruebaFicha;
         
         /// <summary>
         /// Control NewCallback.
@@ -94,13 +58,13 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
         
         /// <summary>
-        /// Control GridPrincipal.
+        /// Control GridResultados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridResultados;
         
         /// <summary>
         /// Control SDSEnsayes.

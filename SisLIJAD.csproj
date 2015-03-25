@@ -110,7 +110,7 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
-    <Content Include="Pruebas\PesoVolumétricoSecoSuelto.aspx" />
+    <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
@@ -420,12 +420,12 @@
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pruebas\PesoVolumétricoSecoSuelto.aspx.cs">
-      <DependentUpon>PesoVolumétricoSecoSuelto.aspx</DependentUpon>
+    <Compile Include="Pruebas\PesoVolumetricoSecoSuelto.aspx.cs">
+      <DependentUpon>PesoVolumetricoSecoSuelto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pruebas\PesoVolumétricoSecoSuelto.aspx.designer.cs">
-      <DependentUpon>PesoVolumétricoSecoSuelto.aspx</DependentUpon>
+    <Compile Include="Pruebas\PesoVolumetricoSecoSuelto.aspx.designer.cs">
+      <DependentUpon>PesoVolumetricoSecoSuelto.aspx</DependentUpon>
     </Compile>
     <Compile Include="SICOM\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

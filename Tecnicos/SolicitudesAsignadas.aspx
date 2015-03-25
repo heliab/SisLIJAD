@@ -26,23 +26,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <script type="text/javascript">
-    function fn_IrCalculo() {
-        fn_GetEnsaye();
-        fn_GetSolicitud();
-        NewCallback.PerformCallback();
-    }
-    function fn_GetEnsaye() {
-        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdPrueba', GetIdPrueba);
-        function GetIdPrueba(IdPrueba) {
-            HiddenV.Set("IdPrueba", IdPrueba);
+
+    function fn_IrCalculo(e) {
+        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle;IdPrueba', fn_GetValues);
+        function fn_GetValues(val) {
+            switch (val[1]) {
+                case 1:
+                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&?Sol=" + fn_GetIdPrValue() +"&?Pr="+val[1] ;
+                    break;
+                case 2: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 3: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 4: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 5: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 6: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 7: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+            }
+           
         }
     }
-    function fn_GetSolicitud() {
-        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle', GetIdSolicitud);
-        function GetIdPrueba(IdDetalle) {
-            HiddenV.Set("IdDetalle", IdDetalle);
-        }
+    function fn_GetIdPrValue() {
+        GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
+        return GridId;
      }
+ 
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -104,7 +116,7 @@ fn_EndCallback();
                 </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                     ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%">
+                    Width="100%" KeyFieldName="IdDetalle">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>

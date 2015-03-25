@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="PesoVolumétricoSecoSuelto.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumétricoSecoSuelto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="PesoVolumetricoSecoSuelto.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumetricoSecoSuelto" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
@@ -94,12 +94,12 @@
         </LeftEdge>
         <PanelCollection>
             <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
-                <div class="BaseForm">
+                <%--<div class="BaseForm">
                     <div class="row">
                         <div class="first">
                             <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Id Solicitud">
                             </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblIdSol" runat="server" Text="" Font-Bold="True">
+                            <dx:ASPxLabel ID="lblIdSol" runat="server" Text='<%# Eval("IdDetalle")%>' Font-Bold="True">
                             </dx:ASPxLabel>
                         </div>
                         <div class="Second">
@@ -111,12 +111,60 @@
                         <div class="third">
                             <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Descripción Solicitud">
                             </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblDescripcion" runat="server" Text=""  Font-Bold="True">
+                            <dx:ASPxLabel ID="lblDescSol" runat="server" Text=""  Font-Bold="True">
                             </dx:ASPxLabel>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripción Solicitud">
+                            </dx:ASPxLabel>
+                            <dx:ASPxLabel ID="lblDesc" runat="server" Text=""  Font-Bold="True">
+                            </dx:ASPxLabel>
+                    </div>
+                </div>--%>
+
+                <dx:ASPxGridView ID="GridFicha" runat="server" ClientInstanceName="GridFicha" 
+                    AutoGenerateColumns="False" DataSourceID="SDSPruebaFicha" Width="100%" 
+                    KeyFieldName="IdDetalle"> 
+                    <Columns>
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                            ShowInCustomizationForm="True" VisibleIndex="0">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" 
+                            ShowInCustomizationForm="True" VisibleIndex="1" 
+                            Caption="Descripción Solicitud" Width="25%">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="NomPrueba" ShowInCustomizationForm="True" 
+                            VisibleIndex="2" Caption="Ensaye" Width="25%">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" 
+                            ShowInCustomizationForm="True" VisibleIndex="3" 
+                            Caption="Observación Cliente">
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
+                    <SettingsBehavior AllowGroup="False" AllowFocusedRow="True" />
+                    <SettingsPager Visible="False">
+                    </SettingsPager>
+                    <Settings GridLines="None" />
+                    <Styles>
+                        <Header>
+                            <Border BorderStyle="Groove" />
+                        </Header>
+                        <Row Cursor="auto">
+                        </Row>
+                        <FocusedRow BackColor="White" ForeColor="Black">
+                        </FocusedRow>
+                    </Styles>
+                    
+                </dx:ASPxGridView>
+                <asp:SqlDataSource ID="SDSPruebaFicha" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
         
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) = @Id)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="Id" QueryStringField="Id" />
+        </SelectParameters>
+    </asp:SqlDataSource>
             </dx:PanelContent>
 </PanelCollection>
         <Border BorderStyle="None" />
@@ -133,25 +181,23 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-    <dx:ASPxGridView ID="GridPrincipal" runat="server" 
-        ClientInstanceName="GridPrincipal" 
-        oncustomcallback="GridPrincipal_CustomCallback" Width="100%" 
-        AutoGenerateColumns="False" ClientIDMode="AutoID" DataSourceID="SDSEnsayes" 
-        KeyFieldName="IdSolPrueba"> <ClientSideEvents DetailRowExpanding="function(s, e) {
+    <dx:ASPxGridView ID="GridResultados" runat="server" 
+        ClientInstanceName="GridResultados" 
+        oncustomcallback="GridResultados_CustomCallback" Width="100%" 
+        AutoGenerateColumns="False" ClientIDMode="AutoID" 
+        DataSourceID="SDSEnsayes"> <ClientSideEvents DetailRowExpanding="function(s, e) {
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolPrueba" ReadOnly="True" 
+            <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
                 VisibleIndex="0">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="IdPrueba" ReadOnly="True" 
+            <dx:GridViewDataTextColumn FieldName="NomPrueba" 
                 VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="3">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="4">
+            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="3">
             </dx:GridViewDataTextColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True" />
@@ -159,11 +205,13 @@ fn_EndCallback();
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSEnsayes" runat="server" 
         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-        SelectCommand="SELECT MPR_Det_Sol_Prueba.IdSolPrueba, MPR_Det_Sol_Prueba.IdPrueba, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolPrueba)">
+        
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) = @Id)">
         <SelectParameters>
-            <asp:SessionParameter Name="IdSolPrueba" SessionField="IdSolPrueba" />
+            <asp:QueryStringParameter Name="Id" QueryStringField="Id" />
         </SelectParameters>
     </asp:SqlDataSource>
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
 </asp:Content>
