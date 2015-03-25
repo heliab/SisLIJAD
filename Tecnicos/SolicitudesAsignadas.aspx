@@ -32,7 +32,7 @@
         function fn_GetValues(val) {
             switch (val[1]) {
                 case 1:
-                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&?Sol=" + fn_GetIdPrValue() +"&?Pr="+val[1] ;
+                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() +"&Pr="+val[1] ;
                     break;
                 case 2: window.location.href = "/Pruebas/?Id=" + val[0];
                     break;

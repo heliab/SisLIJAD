@@ -11,11 +11,14 @@ namespace SisLIJAD.Pruebas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txt1.Text = Request.QueryString["Id"];
+            
+            txt2.Text =Request.QueryString["Sol"];
+            
         }
 
         protected void LoaDataInit() { 
-        
+            
         }
       
 
