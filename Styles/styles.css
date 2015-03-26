@@ -33,6 +33,16 @@ body {
     text-align: center;
     text-shadow: 0 2px 0.8px #808080;
 }
+.Titulo2 {
+    /*color: #051537;*/
+    color: #ececec;
+    font-family: Lato, Verdana, Constantia;
+    font-size: 1.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    text-align: left;
+    text-shadow: 0 2px 0.8px #808080;
+}
 
 .footer {
     background-color: rgba(68, 117, 185, 0.8);
@@ -50,7 +60,7 @@ body {
 	bottom:0;
 	left:0;
 	float:left;
-
+    margin-top:3em;
 }
 
 #test {
@@ -338,7 +348,10 @@ section {
         padding-left: 2.3em;
         width:auto;
         }
-        
+  .leftctrl
+  {
+      text-align:right;
+      }      
         
      .frmctrl 
      {
@@ -475,3 +488,59 @@ section {
         margin-left: 1em;
         width:90%;
         }
+        .wraptitle
+    {
+         background:rgba(27, 0, 0, 0.2);
+        border-left-style:solid;
+        border-left-width: 2.5px;
+        padding-left: 2.3em;
+        width:96.6%;
+        
+        margin-bottom:0.2em;
+        margin-top:0.2em;
+        }
+       
+    .ctrlist2 li
+    {
+    display: inline;
+    list-style-type: none;
+/*padding-right: 20px;*/
+    }
+   
+     .ctrlist2
+     {
+         margin:0px;
+         padding-bottom:4px;
+
+         }
+     .ctrleft
+     {
+         padding-left:68%;
+         
+         }
+         td
+         {
+             vertical-align:middle;}
+         hr
+         {
+             background-color:rgb(248,248,248);
+             
+              
+               width:80%; height:0.4px; 
+             }
+       /*  #myfooter
+         {
+             clear: both;
+ position: relative;
+ z-index: 10;
+ height: 3em;
+ margin-top: -3em;
+  background-color: rgba(68, 117, 185, 0.8);
+             }
+             .content
+             {
+                  height: 100%;
+                  padding-bottom: 3em;
+                 }
+                 body > .content { height: auto; min-height: 100%; }
+                 html, body, .content  { height: 100%; }*/

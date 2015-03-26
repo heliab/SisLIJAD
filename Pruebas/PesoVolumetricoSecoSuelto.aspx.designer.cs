@@ -13,24 +13,6 @@ namespace SisLIJAD.Pruebas {
     public partial class PesoVolumetricoSecoSuelto {
         
         /// <summary>
-        /// Control txt1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txt1;
-        
-        /// <summary>
-        /// Control txt2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txt2;
-        
-        /// <summary>
         /// Control ASPxRoundPanel1.
         /// </summary>
         /// <remarks>
@@ -92,5 +74,131 @@ namespace SisLIJAD.Pruebas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSEnsayes;
+        
+        /// <summary>
+        /// Control FormPopup.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl FormPopup;
+        
+        /// <summary>
+        /// Control PopupControlContentControl1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl1;
+        
+        /// <summary>
+        /// Control FillingCallback.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel FillingCallback;
+        
+        /// <summary>
+        /// Control PanelContent1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent1;
+        
+        /// <summary>
+        /// Control lblId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblId;
+        
+        /// <summary>
+        /// Control txtId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtId;
+        
+        /// <summary>
+        /// Control ASPxLabel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
+        
+        /// <summary>
+        /// Control sG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sG;
+        
+        /// <summary>
+        /// Control ASPxLabel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel2;
+        
+        /// <summary>
+        /// Control sT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sT;
+        
+        /// <summary>
+        /// Control ASPxLabel3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
+        
+        /// <summary>
+        /// Control sV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sV;
+        
+        /// <summary>
+        /// Control ASPxLabel4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel4;
+        
+        /// <summary>
+        /// Control txtResult.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtResult;
     }
 }

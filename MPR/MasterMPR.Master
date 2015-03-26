@@ -34,7 +34,7 @@
     </div>
     <div class="logo">
     </div>
-    <div>
+    <div class="content">
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
         </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="GridContent" runat="server">
@@ -42,7 +42,8 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <footer class="footer"></footer>
+  <div class="footer"></div>
+    
     </form>
 </body>
 </html>

@@ -11,17 +11,10 @@ namespace SisLIJAD.Pruebas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txt1.Text = Request.QueryString["Id"];
-            
-            txt2.Text =Request.QueryString["Sol"];
-            
+           
         }
 
-        protected void LoaDataInit() { 
-            
-        }
-      
-
+        
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
 
@@ -31,5 +24,11 @@ namespace SisLIJAD.Pruebas
         {
             GridResultados.DataBind();
         }
+
+        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            CalcularPVSS(){}
+        }
+        protected void CalcularPVSS() { }
     }
 }

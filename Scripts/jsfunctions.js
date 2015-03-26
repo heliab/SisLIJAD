@@ -356,7 +356,11 @@ function fn_Validate(e) {
    
 }
 
+/************************* Funciones prueba *************************/
+function fn_NewMainTest() {
 
+
+}
 
 //function fn_CleanIdText() {
 //    if (txtId.Text != null) {
