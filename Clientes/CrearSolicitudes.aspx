@@ -320,7 +320,7 @@ fn_EndCallback();
                             </div>
                             <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button green-font" href="javascript:fn_SubAddSol();" title="Guardar">
+                                    <li><a class="pure-button button-blue green-font" href="javascript:fn_SubAddSol();" title="Guardar">
                                         <i class="fa fa-plus-square"></i>Nuevo</a></li>
                                     <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>

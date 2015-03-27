@@ -226,7 +226,11 @@ function fn_GetSubIdValue2() {
     return SubGridId2;
     
 }
-
+function fn_GetGridResIdValue() {
+    ResGridId = GridResultados.GetRowKey(GridResultados.GetFocusedRowIndex());
+    txtId.SetText(ResGridId);
+    return ResGridId;
+ }
 
 /* *******************************Funciones Mensajes ************************************ */
 function fn_PrintValue(GridId) {
@@ -323,6 +327,8 @@ function fn_ClosePopup(e) {
 /* ********************************* Funciones Validar Grupos *********************************** */
 function fn_CleanGroup(e) {
     switch (e) {
+        case -1: ASPxClientEdit.ClearGroup('ControlGroupR');
+            break;
         case 1: ASPxClientEdit.ClearGroup('ControlGroup1');
             break;
         case 2: ASPxClientEdit.ClearGroup('ControlGroup2');
@@ -350,6 +356,9 @@ function fn_Validate(e) {
         case 1: if (!ASPxClientEdit.ValidateGroup('ControlGroup2'))
                 return;
             break;
+        case -1: if (!ASPxClientEdit.ValidateGroup('ControlGroupR'))
+                return;
+            break;
         default: fn_ClosePopup(1);
     }
     
@@ -358,10 +367,55 @@ function fn_Validate(e) {
 
 /************************* Funciones prueba *************************/
 function fn_NewMainTest() {
+    txtId.SetText('Nuevo Calculo');
+    HiddenV.Set('Fill', 0);//0 es para editar //El resto para pruebas
+    FormPopup.Show();
+    fn_CleanGroup(1);
+    fn_CleanGroup(-1);
+  }
+  function fn_SaveTestJS() {
+      if (!ASPxClientEdit.ValidateGroup('ControlGroupR')) {
+          retutn;
+      }
+      if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
+          retutn;
+      }
+              
+        NewCallback.PerformCallback();
+        fn_CleanGroup(1);
+        GridPrincipal.PerformCallback();
+        FormPopup.Hide();
+  }
+  function fn_CalcJS() {
+      if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
+          retutn;
+      }
+     
+          HiddenV.Set('Fill', 1);
+          FillingCallback.PerformCallback();
+      
+  }
+  function fn_CleanTestPopup(e) {
+      switch (e) {
+          case 1: fn_CleanGroup(0);//En caso sea el primer popup de la primera prueba
+              fn_CleanGroup(-1);
+              break;
+          default: fn_CleanGroup(0);
+              break;
+      }
+  }
+  function fn_EditTestJS() {
+      if (fn_GetGridResIdValue() == null) {
+          alert('Debe seleciconar un registro');
+      }
+      else {
+          HiddenV.Set('Nuevo', 1);
+          FillingCallback.PerformCallback();
+          FormPopup.Show();
+      }
+  }
 
-
-}
-
+ 
 //function fn_CleanIdText() {
 //    if (txtId.Text != null) {
 //        txtId.SetText('Nuevo');

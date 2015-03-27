@@ -239,6 +239,10 @@ header {
 {
     display:table-cell;
     }
+   .first
+    {
+        width:19em;
+        }
 /*----------------***********************************************************************------*/
 .Header {
    /* background-color: #0094ff;
@@ -413,6 +417,8 @@ section {
     -webkit-transition: color 0.8s ease-out;
     -moz-transition: color 0.8s ease-out;
     }
+    .white-font:hover{-webkit-transition: color 0.5s ease-out;
+    -moz-transition: color 0.5s ease-out;}
     .blue-font:hover
     {
     color:rgb(27,128,191);
@@ -430,7 +436,10 @@ section {
         color:rgb(243, 229, 171);
         
         }
-        
+        .white-font:hover
+        {
+            color:rgb(246, 246, 246);
+            }
         /*espacio izquierdo de botones*/
         #leftmar-button
         {

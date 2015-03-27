@@ -200,9 +200,11 @@ fn_EndCallback();
             </div>
             <div class="Second">
             <ul class="ctrlist2">
-                <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                    class="fa fa-plus"></i>Nuevo</a></li>
-                <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
+                <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido"><i
+                    class="fa fa-plus"></i>PVSS/Vol.</a></li>
+                <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Peso seco unitario suelto con Factor de medida"><i
+                    class="fa fa-plus"></i>PVSS/FC</a></li>
+                <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
                     <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                 <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
                     <i class="fa fa-trash"></i>Borrar</a></li>
@@ -255,7 +257,7 @@ fn_EndCallback();
         HeaderText="Formulario de calculo" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="200px" Width="399px" CloseAction="CloseButton">
+        Height="200px" Width="420px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
@@ -289,6 +291,7 @@ fn_CleanGroup(1);
                                 </div>
                         </div>
                     </div>
+                    <br />
                                      <div class="row">
                                          <div class="first">
                                              <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso del material suelto y recipiente">
@@ -298,7 +301,7 @@ fn_CleanGroup(1);
                                                  <SpinButtons ShowLargeIncrementButtons="True">
                                                  </SpinButtons>
                                                  <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                     ValidationGroup="ControlGroup1">
+                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                      <RegularExpression ErrorText="Informacion Requerida" />
                                                      <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                      <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
@@ -317,7 +320,7 @@ fn_CleanGroup(1);
                                                  <SpinButtons ShowLargeIncrementButtons="True">
                                                  </SpinButtons>
                                                  <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                     ValidationGroup="ControlGroup1">
+                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                      <RegularExpression ErrorText="Informacion Requerida" />
                                                      <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                      <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
@@ -337,7 +340,7 @@ fn_CleanGroup(1);
                                                  <SpinButtons ShowLargeIncrementButtons="True">
                                                  </SpinButtons>
                                                  <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                     ValidationGroup="ControlGroup1">
+                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                      <RegularExpression ErrorText="Informacion Requerida" />
                                                      <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                      <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
@@ -349,32 +352,71 @@ fn_CleanGroup(1);
                      <div class="second">
                          <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
                          </dx:ASPxLabel>
-                         <dx:ASPxTextBox ID="txtResult" runat="server" Width="140px" 
+                         <dx:ASPxTextBox ID="txtResult" runat="server" Width="125px" 
                              ClientInstanceName="txtResult" ReadOnly="True">
-                             
+                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
+                                                     ValidationGroup="ControlGroupR" 
+                                 ErrorTextPosition="Bottom">
+                                                     <RegularExpression ErrorText="Informacion Requerida" />
+                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                                 </ValidationSettings>
                              <Border BorderWidth="1px" />
                              
                          </dx:ASPxTextBox>
                     </div>
                 </div>
                             </div>
+                            </div>
                             <br />
                             <%--<hr noshade="noshade" />--%>
                                 <div>
                                     <ul class="frmctrl">
-                                        <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                        <li><a class="pure-button button-green white-font" href="javascript:fn_CalcJS()" title="Guardar">
                                             <i class="fa fa-calculator"></i>Calcular</a></li>
-                                             <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                             <li><a class="pure-button green-font" href="javascript:fn_SaveTestJS()" title="Guardar">
                                             <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                         <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
                                             <i class="fa fa-times"></i>Cancelar</a></li>
-                                        <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
+                                        <li><a class="pure-button yellow-font" href="javascript:fn_CleanTestPopup(1);" title="Limpiar">
                                             <i class="fa fa-repeat"></i>Limpiar</a></li>
                                     </ul>
                                 </div>
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxCallbackPanel>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="DeleteForm" runat="server" ClientInstanceName="DeleteForm"
+        AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
+        PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
+        FooterText="Formulario borrar" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
+        Width="240px">
+        <ContentStyle BackColor="#FFFDFD">
+        </ContentStyle>
+        <ModalBackgroundStyle BackColor="#E4EFE9">
+        </ModalBackgroundStyle>
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
+                <div class="form">
+                    <div>
+                        <p>
+                            <strong>¿Seguro que quiere eliminar el siguiente registro?</strong></p>
+                        <dx:ASPxTextBox ID="txtIdD" runat="server" Width="170px" ClientInstanceName="txtIdD"
+                            ClientEnabled="true" ReadOnly="True" Font-Bold="True" HorizontalAlign="Center">
+                        </dx:ASPxTextBox>
+                    </div>
+                </div>
+                <div>
+                    <ul class="frmctrl">
+                        <li><a class="pure-button" href="javascript:fn_ConfirmDJS()" title="Borrar"><i class="fa fa-trash-o">
+                        </i>Borrar</a></li>
+                        <li><a class="pure-button" href="javascript:fn_CancelDJS()" title="Cancelar"><i class="fa fa-times">
+                        </i>Cancelar</a></li>
+                    </ul>
+                </div>
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
