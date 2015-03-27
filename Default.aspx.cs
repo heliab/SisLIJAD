@@ -12,13 +12,20 @@ namespace SisLIJAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Roles.IsUserInRole("Clientes"))
+            if (Page.IsPostBack)
             {
-                Response.Redirect("~/Clientes/CrearSolicitudes.aspx");
-            }
-            if (Roles.IsUserInRole("Tecnico"))
-            {
-                Response.Redirect("~/Tecnicos/SolicitudesAsignadas.aspx");
+                if (Roles.IsUserInRole("Clientes"))
+                {
+                    Response.Redirect("~/Clientes/CrearSolicitudes.aspx");
+                }
+                if (Roles.IsUserInRole("Tecnico"))
+                {
+                    Response.Redirect("~/Tecnicos/SolicitudesAsignadas.aspx");
+                }
+                if (Roles.IsUserInRole("Administrador"))
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             }
         }
     }

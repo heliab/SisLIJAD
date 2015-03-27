@@ -230,7 +230,13 @@ function fn_GetGridResIdValue() {
     ResGridId = GridResultados.GetRowKey(GridResultados.GetFocusedRowIndex());
     txtId.SetText(ResGridId);
     return ResGridId;
- }
+}
+
+function fn_GetGridResIdValue2() {
+    ResGridId2 = GridResultados2.GetRowKey(GridResultados2.GetFocusedRowIndex());
+    txtId2.SetText(ResGridId2);
+    return ResGridId2;
+}
 
 /* *******************************Funciones Mensajes ************************************ */
 function fn_PrintValue(GridId) {
@@ -284,7 +290,16 @@ function fn_ShowSubDelete2() {
         DeleteForm.Show();
     }
 }
-
+function fn_ShowDeleteTestJS() {
+    if (fn_GetGridResIdValue() == null) {
+        alert('Debe seleciconar un registro!');
+    }
+    else {
+        ResGridId = GridResultados.GetRowKey(GridResultados.GetFocusedRowIndex());
+        txtIdD.SetText(ResGridId);
+        DeleteForm.Show();
+    }
+ }
 /* **************************************Funciones popup **************************************   */
 function fn_ClosePopup(e) {
     //0 Valida el formy}ulario cuando se cierra el popup con cancelar
@@ -368,7 +383,8 @@ function fn_Validate(e) {
 /************************* Funciones prueba *************************/
 function fn_NewMainTest() {
     txtId.SetText('Nuevo Calculo');
-    HiddenV.Set('Fill', 0);//0 es para editar //El resto para pruebas
+    HiddenV.Set('Fill', 1); //0 es para editar //El resto para pruebas
+    HiddenV.Set('Nuevo', 0)
     FormPopup.Show();
     fn_CleanGroup(1);
     fn_CleanGroup(-1);
@@ -383,7 +399,7 @@ function fn_NewMainTest() {
               
         NewCallback.PerformCallback();
         fn_CleanGroup(1);
-        GridPrincipal.PerformCallback();
+        GridResultados.PerformCallback();
         FormPopup.Hide();
   }
   function fn_CalcJS() {
@@ -404,24 +420,100 @@ function fn_NewMainTest() {
               break;
       }
   }
+  
   function fn_EditTestJS() {
+
       if (fn_GetGridResIdValue() == null) {
           alert('Debe seleciconar un registro');
       }
       else {
           HiddenV.Set('Nuevo', 1);
+          HiddenV.Set('Fill', 0);
           FillingCallback.PerformCallback();
           FormPopup.Show();
       }
-  }
 
- 
-//function fn_CleanIdText() {
-//    if (txtId.Text != null) {
-//        txtId.SetText('Nuevo');
-//        alert('Hey here');
-//    }
-//    else {
-//        alert('The text is null');
-//    } 
-//}
+  }
+  function fn_CancelTestJS() {
+      fn_CleanGroup(-1);
+      fn_CleanGroup(0);
+      FormPopup.Hide();
+  }
+  function fn_DeleteTestJS() {
+      HiddenV.Set('Nuevo', 2);
+      fn_ShowDeleteTestJS();
+  }
+ function fn_ConfirmDJS() {
+  NewCallback.PerformCallback();
+  GridResultados.PerformCalback();
+  fn_ClosePopup(2);
+}
+
+//Funciones 2
+function fn_NewMainTest2() {
+    txtId.SetText('Nuevo Calculo');
+    HiddenV.Set('Fill', 1); //0 es para editar //El resto para pruebas
+    HiddenV.Set('Nuevo', 3)
+    FormPopup2.Show();
+    fn_CleanGroup(1);
+    fn_CleanGroup(-1);
+}
+function fn_SaveTestJS2() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroupR')) {
+        retutn;
+    }
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
+        retutn;
+    }
+
+    NewCallback.PerformCallback();
+    fn_CleanGroup(1);
+    GridResultados2.PerformCallback();
+    FormPopup.Hide();
+}
+function fn_CalcJS2() {
+    if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
+        retutn;
+    }
+
+    HiddenV.Set('Fill', 1);
+    FillingCallback2.PerformCallback();
+
+}
+function fn_CleanTestPopup(e) {
+    switch (e) {
+        case 1: fn_CleanGroup(0); //En caso sea el primer popup de la primera prueba
+            fn_CleanGroup(-1);
+            break;
+        default: fn_CleanGroup(0);
+            break;
+    }
+}
+
+function fn_EditTestJS() {
+
+    if (fn_GetGridResIdValue2() == null) {
+        alert('Debe seleciconar un registro');
+    }
+    else {
+        HiddenV.Set('Nuevo', 1);
+        HiddenV.Set('Fill', 0);
+        FillingCallback2.PerformCallback();
+        FormPopup.Show();
+    }
+
+}
+function fn_CancelTestJS() {
+    fn_CleanGroup(-1);
+    fn_CleanGroup(0);
+    FormPopup.Hide();
+}
+function fn_DeleteTestJS() {
+    HiddenV.Set('Nuevo', 2);
+    fn_ShowDeleteTestJS();
+}
+function fn_ConfirmDJS() {
+    NewCallback.PerformCallback();
+    GridResultados.PerformCalback();
+    fn_ClosePopup(2);
+}

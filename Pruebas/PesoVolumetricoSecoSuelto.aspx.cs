@@ -21,7 +21,7 @@ namespace SisLIJAD.Pruebas
         {
             GridResultados.DataBind();
             GridResultados.Focus();
-        }
+         }
 
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
@@ -51,7 +51,7 @@ namespace SisLIJAD.Pruebas
             {
                 case "0": Select();
                     break;
-                case "-1": CalcularPVSS_V();
+                case "1": CalcularPVSS_V();
                     break;
                 default: Response.Write("Error en fillingcallback");
                     break;
@@ -69,16 +69,19 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MPR_Det_Result_Prueba where IdTipoUb= @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
+                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C29_G,C29_T,C29_V from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                cmd.Parameters.AddWithValue("@Codigo", txtId.Text);
 
-                //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
+               
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdTipoUb"].ToString();
-                    //txtUbic.Text = dr["DescTipoUB"].ToString();
+                    txtId.Text = dr["Codigo"].ToString();
+                    sG.Text = dr["C29_G"].ToString();
+                    sT.Text = dr["C29_T"].ToString();
+                    sV.Text = dr["C29_V"].ToString();
+
                 }
                 else
                 {
@@ -101,13 +104,17 @@ namespace SisLIJAD.Pruebas
         }
         protected void Insert()
         {
-
+            string Sol=Request.QueryString["Sol"];
+            string Pr = Request.QueryString["Pr"];
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(FechaEmisionIndiv,C29_G,C29_T,C29_V,"+ 
-               "C29_M_Result) values(@FechaEmisionIndiv,@C29_G,@C29_T,@C29_V,@C29_M_Result)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C29_G,C29_T,C29_V," +
+               "C29_M_Result) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C29_G,@C29_T,@C29_V,@C29_M_Result)", con);
+              
+                cmd.Parameters.AddWithValue("@IdSolicPrueba", Sol);
+                cmd.Parameters.AddWithValue("@IdPrueba", Pr);
                 cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
                 cmd.Parameters.AddWithValue("@C29_G", sG.Value);
                 cmd.Parameters.AddWithValue("@C29_T", sT.Value);
@@ -141,10 +148,13 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MPR_Det_Result_Prueba set DescTipoUB=@DescTipoUB where IdTipoUb = @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtId.Text);
-              //  cmd.Parameters.AddWithValue("@DescTipoUB", txtUbic.Text);
-
+                SqlCommand cmd = new SqlCommand("update MPR_Det_Result_Prueba set FechaEmisionIndiv=@FechaEmisionIndiv,C29_G=@C29_G,C29_T=@C29_T,C29_V=@C29_V,C29_M_Result=@C29_M_Result where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                cmd.Parameters.AddWithValue("@codigo", txtId.Text);
+                cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
+                cmd.Parameters.AddWithValue("@C29_G", sG.Value);
+                cmd.Parameters.AddWithValue("@C29_T", sT.Value);
+                cmd.Parameters.AddWithValue("@C29_V", sV.Value);
+                cmd.Parameters.AddWithValue("@C29_M_Result", txtResult.Text);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -170,8 +180,8 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Result_Prueba where IdTipoUb = @IdTipoUb", con);
-                cmd.Parameters.AddWithValue("@IdTipoUb", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                cmd.Parameters.AddWithValue("@codigo", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -195,7 +205,7 @@ namespace SisLIJAD.Pruebas
         #endregion
 
 
-        #region formnulas
+        #region formulas
         protected void CalcularPVSS_V() 
         {
             float G = Convert.ToInt32(sG.Text);
@@ -205,6 +215,28 @@ namespace SisLIJAD.Pruebas
             float division = suma / V;
             txtResult.Text = Convert.ToString(division);
         }
+        protected void CalcularPVSS_F()
+        {
+            float G = Convert.ToInt32(sG.Text);
+            float S = Convert.ToInt32(sT.Text);
+            float V = Convert.ToInt32(sV.Text);
+            float suma = G - S;
+            float division = suma / V;
+            txtResult.Text = Convert.ToString(division);
+        }
         #endregion
+
+        protected void FillingCallback2_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+
+        }
+
+        protected void GridResultados2_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+        {
+            GridResultados2.DataBind();
+            GridResultados2.Focus();
+        }
+
+    
     }
 }
