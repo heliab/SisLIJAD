@@ -81,6 +81,23 @@
                 <SubMenuStyle GutterWidth="0px" />
 
             </dx:ASPxMenu>
+            <dx:ASPxMenu ID="ASPxMenu1" runat="server" AutoSeparators="RootOnly" 
+                ClientIDMode="AutoID" CssFilePath="~/App_Themes/Blue/{0}/styles.css" 
+                CssPostfix="Blue" ImageFolder="~/App_Themes/Blue/{0}/" ItemSpacing="0px" 
+                SeparatorHeight="100%" SeparatorWidth="2px" ShowPopOutImages="True" 
+                ShowSubMenuShadow="False">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/SolicitudesAsignadas.aspx" 
+                        Text="Solicitudes asignadas">
+                    </dx:MenuItem>
+                </Items>
+                <ItemSubMenuOffset FirstItemX="2" FirstItemY="-12" LastItemX="2" 
+                    LastItemY="-12" X="2" Y="-12" />
+                <RootItemSubMenuOffset FirstItemX="-2" LastItemX="-2" X="-1" />
+                <SubMenuItemStyle ImageSpacing="19px" PopOutImageSpacing="30px">
+                </SubMenuItemStyle>
+                <SubMenuStyle GutterWidth="0px" />
+            </dx:ASPxMenu>
       </LoggedInTemplate>
 
         </asp:LoginView>

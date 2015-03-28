@@ -94,6 +94,15 @@ namespace SisLIJAD.Pruebas {
         protected global::System.Web.UI.WebControls.SqlDataSource SDSEnsayes;
         
         /// <summary>
+        /// Control SDSEnsayes2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSEnsayes2;
+        
+        /// <summary>
         /// Control FormPopup.
         /// </summary>
         /// <remarks>
@@ -274,22 +283,22 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtId2;
         
         /// <summary>
-        /// Control ASPxLabel8.
+        /// Control ASPxLabel6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel8;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel6;
         
         /// <summary>
-        /// Control sF.
+        /// Control sG2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sF;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sG2;
         
         /// <summary>
         /// Control ASPxLabel7.
@@ -310,22 +319,22 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sT2;
         
         /// <summary>
-        /// Control ASPxLabel6.
+        /// Control ASPxLabel8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel6;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel8;
         
         /// <summary>
-        /// Control sG2.
+        /// Control sF.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sG2;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sF;
         
         /// <summary>
         /// Control ASPxLabel9.
@@ -337,13 +346,13 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel9;
         
         /// <summary>
-        /// Control ASPxTextBox2.
+        /// Control txtResult2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox2;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtResult2;
         
         /// <summary>
         /// Control DeleteForm.

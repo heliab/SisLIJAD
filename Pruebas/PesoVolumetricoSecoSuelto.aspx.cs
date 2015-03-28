@@ -16,13 +16,16 @@ namespace SisLIJAD.Pruebas
            
         }
         #region Callbacks
-
         protected void GridResultados_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridResultados.DataBind();
             GridResultados.Focus();
          }
-
+        protected void GridResultados2_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+        {
+            GridResultados2.DataBind();
+            GridResultados2.Focus();
+        }
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
             string valNuevo = HiddenV.Get("Nuevo").ToString();
@@ -35,6 +38,12 @@ namespace SisLIJAD.Pruebas
                        break;
                 case "2": Delete();
                        break;
+                case "3": Insert2();
+                       break;
+                case "4": Update2();
+                       break;
+                case "5": Delete2();
+                       break;
                 default: Response.Write("Error con valor de crud");
                     break;
 
@@ -42,8 +51,6 @@ namespace SisLIJAD.Pruebas
             HiddenV.Clear();
 
         }
-
-
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             string value = HiddenV.Get("Fill").ToString();
@@ -58,9 +65,20 @@ namespace SisLIJAD.Pruebas
             }
 
         }
-
+        protected void FillingCallback2_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            string value = HiddenV.Get("Fill").ToString();
+            switch (value)
+            {
+                case "0": Select2();
+                    break;
+                case "1": CalcularPVSS_F();
+                    break;
+                default: Response.Write("Error en fillingcallback");
+                    break;
+            }
+        }
         #endregion
-
 
         #region CRUD
         protected void Select()
@@ -69,7 +87,7 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C29_G,C29_T,C29_V from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C29_G,C29_T,C29_V from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
                 cmd.Parameters.AddWithValue("@Codigo", txtId.Text);
 
                
@@ -111,7 +129,7 @@ namespace SisLIJAD.Pruebas
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C29_G,C29_T,C29_V," +
-               "C29_M_Result) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C29_G,@C29_T,@C29_V,@C29_M_Result)", con);
+               "C29_M_Result,Variante) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C29_G,@C29_T,@C29_V,@C29_M_Result,@Variante)", con);
               
                 cmd.Parameters.AddWithValue("@IdSolicPrueba", Sol);
                 cmd.Parameters.AddWithValue("@IdPrueba", Pr);
@@ -120,6 +138,7 @@ namespace SisLIJAD.Pruebas
                 cmd.Parameters.AddWithValue("@C29_T", sT.Value);
                 cmd.Parameters.AddWithValue("@C29_V", sV.Value);
                 cmd.Parameters.AddWithValue("@C29_M_Result", txtResult.Text);
+                cmd.Parameters.AddWithValue("@Variante", 1);
                 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
@@ -204,38 +223,171 @@ namespace SisLIJAD.Pruebas
         }
         #endregion
 
+        #region SubCRUD
+        protected void Select2()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C29_G,C29_T,C29_F from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
+                cmd.Parameters.AddWithValue("@Codigo", txtId2.Text);
+
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    // display data in textboxes
+                    txtId2.Text = dr["Codigo"].ToString();
+                    sG2.Text = dr["C29_G"].ToString();
+                    sT2.Text = dr["C29_T"].ToString();
+                    sF.Text = dr["C29_F"].ToString();
+
+                }
+                else
+                {
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+
+
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void Insert2()
+        {
+            string Sol = Request.QueryString["Sol"];
+            string Pr = Request.QueryString["Pr"];
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C29_G,C29_T,C29_F," +
+               "C29_M_Result,Variante) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C29_G,@C29_T,@C29_F,@C29_M_Result,@Variante)", con);
+
+                cmd.Parameters.AddWithValue("@IdSolicPrueba", Sol);
+                cmd.Parameters.AddWithValue("@IdPrueba", Pr);
+                cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
+                cmd.Parameters.AddWithValue("@C29_G", sG2.Value);
+                cmd.Parameters.AddWithValue("@C29_T", sT2.Value);
+                cmd.Parameters.AddWithValue("@C29_F", sF.Value);
+                cmd.Parameters.AddWithValue("@C29_M_Result", txtResult2.Text);
+                cmd.Parameters.AddWithValue("@Variante", 2);
+
+                int count = cmd.ExecuteNonQuery();
+                if (count == 1)
+                {
+                    // Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
+                }
+                else
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+
+        }
+        protected void Update2()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("update MPR_Det_Result_Prueba set FechaEmisionIndiv=@FechaEmisionIndiv,C29_G=@C29_G,C29_T=@C29_T,C29_F=@C29_F,C29_M_Result=@C29_M_Result where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
+                cmd.Parameters.AddWithValue("@Codigo", txtId2.Text);
+                cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
+                cmd.Parameters.AddWithValue("@C29_G", sG2.Value);
+                cmd.Parameters.AddWithValue("@C29_T", sT2.Value);
+                cmd.Parameters.AddWithValue("@C29_F", sF.Value);
+                cmd.Parameters.AddWithValue("@C29_M_Result", txtResult2.Text);
+
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void Delete2()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                cmd.Parameters.AddWithValue("@codigo", txtIdD.Text);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+        #endregion
 
         #region formulas
         protected void CalcularPVSS_V() 
         {
             float G = Convert.ToInt32(sG.Text);
-            float S = Convert.ToInt32(sT.Text);
+            float T = Convert.ToInt32(sT.Text);
             float V = Convert.ToInt32(sV.Text);
-            float suma = G - S;
-            float division = suma / V;
+            float resta = G - T;
+            float division = resta / V;
             txtResult.Text = Convert.ToString(division);
         }
         protected void CalcularPVSS_F()
         {
-            float G = Convert.ToInt32(sG.Text);
-            float S = Convert.ToInt32(sT.Text);
-            float V = Convert.ToInt32(sV.Text);
-            float suma = G - S;
-            float division = suma / V;
-            txtResult.Text = Convert.ToString(division);
+            float G = Convert.ToInt32(sG2.Text);
+            float T = Convert.ToInt32(sT2.Text);
+            float F = Convert.ToInt32(sF.Text);
+            float resta = G - T;
+            float multiplicacion = resta*F;
+            txtResult2.Text = Convert.ToString(multiplicacion);
         }
         #endregion
 
-        protected void FillingCallback2_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
 
-        }
-
-        protected void GridResultados2_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
-        {
-            GridResultados2.DataBind();
-            GridResultados2.Focus();
-        }
 
     
     }

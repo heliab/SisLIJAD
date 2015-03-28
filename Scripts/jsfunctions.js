@@ -451,7 +451,7 @@ function fn_NewMainTest() {
 
 //Funciones 2
 function fn_NewMainTest2() {
-    txtId.SetText('Nuevo Calculo');
+    txtId2.SetText('Nuevo Calculo');
     HiddenV.Set('Fill', 1); //0 es para editar //El resto para pruebas
     HiddenV.Set('Nuevo', 3)
     FormPopup2.Show();
@@ -490,13 +490,13 @@ function fn_CleanTestPopup(e) {
     }
 }
 
-function fn_EditTestJS() {
+function fn_EditTestJS2() {
 
     if (fn_GetGridResIdValue2() == null) {
         alert('Debe seleciconar un registro');
     }
     else {
-        HiddenV.Set('Nuevo', 1);
+        HiddenV.Set('Nuevo', 4);
         HiddenV.Set('Fill', 0);
         FillingCallback2.PerformCallback();
         FormPopup.Show();
@@ -508,12 +508,13 @@ function fn_CancelTestJS() {
     fn_CleanGroup(0);
     FormPopup.Hide();
 }
-function fn_DeleteTestJS() {
-    HiddenV.Set('Nuevo', 2);
+function fn_DeleteTestJS2() {
+    HiddenV.Set('Nuevo', 5);
     fn_ShowDeleteTestJS();
 }
-function fn_ConfirmDJS() {
+function fn_ConfirmDJS2() {
     NewCallback.PerformCallback();
-    GridResultados.PerformCalback();
+    GridResultados2.PerformCalback();
+    GridResultados.PerformCalback()
     fn_ClosePopup(2);
 }
