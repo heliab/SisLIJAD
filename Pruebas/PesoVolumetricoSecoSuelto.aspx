@@ -384,9 +384,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
-                                                <ClientSideEvents ValueChanged="function(s, e) {
-	                                                    ASPxClientEdit.ClearGroup('ControlGroupR');
-                                                    }" />
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	                                                                                 ASPxClientEdit.ClearGroup('ControlGroupR');
+                                                                                }" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -405,6 +405,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                 <ClientSideEvents NumberChanged="function(s, e) {
+	                                                                                 ASPxClientEdit.ClearGroup('ControlGroupR');
+                                                                                }" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -423,6 +426,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                 <ClientSideEvents NumberChanged="function(s, e) {
+	                                                            ASPxClientEdit.ClearGroup('ControlGroupR');
+                                                        }" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -516,6 +522,8 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {ASPxClientEdit.ClearGroup('ControlGroupR');}
+                                      " />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -534,6 +542,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -552,6 +563,9 @@ fn_CleanGroup(-1);
                                                     Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                     <spinbuttons showlargeincrementbuttons="True">
                                                  </spinbuttons>
+                                                    <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                     <validationsettings enablecustomvalidation="True" errordisplaymode="Text" setfocusonerror="True"
                                                         validationgroup="ControlGroup1" errortextposition="Bottom">
                                                      <RegularExpression ErrorText="Informacion Requerida" />

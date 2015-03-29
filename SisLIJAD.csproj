@@ -110,7 +110,8 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
-    <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx" />
+    <Content Include="Pruebas\HumedadAridos.aspx" />
+    <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
     <Content Include="Scripts\jsfunctions.js" />
@@ -423,11 +424,19 @@
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx.cs">
-      <DependentUpon>PesoVolumetricoSecoCompacto.aspx.aspx</DependentUpon>
+    <Compile Include="Pruebas\HumedadAridos.aspx.cs">
+      <DependentUpon>HumedadAridos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx.designer.cs">
-      <DependentUpon>PesoVolumetricoSecoCompacto.aspx.aspx</DependentUpon>
+    <Compile Include="Pruebas\HumedadAridos.aspx.designer.cs">
+      <DependentUpon>HumedadAridos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.cs">
+      <DependentUpon>PesoVolumetricoSecoCompacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.designer.cs">
+      <DependentUpon>PesoVolumetricoSecoCompacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pruebas\PesoVolumetricoSecoSuelto.aspx.cs">
       <DependentUpon>PesoVolumetricoSecoSuelto.aspx</DependentUpon>

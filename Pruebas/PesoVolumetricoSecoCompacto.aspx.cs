@@ -7,20 +7,21 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 
+
 namespace SisLIJAD.Pruebas
 {
-    public partial class PesoVolumetricoSecoSuelto : System.Web.UI.Page
+    public partial class PesoVolumetricoSecoCompacto : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
         #region Callbacks
         protected void GridResultados_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridResultados.DataBind();
             GridResultados.Focus();
-         }
+        }
         protected void GridResultados2_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridResultados2.DataBind();
@@ -33,17 +34,17 @@ namespace SisLIJAD.Pruebas
             switch (valNuevo)
             {
                 case "0": Insert();
-                       break;
+                    break;
                 case "1": Update();
-                       break;
+                    break;
                 case "2": Delete();
-                       break;
+                    break;
                 case "3": Insert2();
-                       break;
+                    break;
                 case "4": Update2();
-                       break;
+                    break;
                 case "5": Delete2();
-                       break;
+                    break;
                 default: Response.Write("Error con valor de crud");
                     break;
 
@@ -58,7 +59,7 @@ namespace SisLIJAD.Pruebas
             {
                 case "0": Select();
                     break;
-                case "1": CalcularPVSS_V();
+                case "1": CalcularPVSC_V();
                     break;
                 default: Response.Write("Error en fillingcallback");
                     break;
@@ -72,7 +73,7 @@ namespace SisLIJAD.Pruebas
             {
                 case "0": Select2();
                     break;
-                case "1": CalcularPVSS_F();
+                case "1": CalcularPVSC_F();
                     break;
                 default: Response.Write("Error en fillingcallback");
                     break;
@@ -90,7 +91,7 @@ namespace SisLIJAD.Pruebas
                 SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C29_G,C29_T,C29_V from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
                 cmd.Parameters.AddWithValue("@Codigo", txtId.Text);
 
-               
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -122,7 +123,7 @@ namespace SisLIJAD.Pruebas
         }
         protected void Insert()
         {
-            string Sol=Request.QueryString["Sol"];
+            string Sol = Request.QueryString["Sol"];
             string Pr = Request.QueryString["Pr"];
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
@@ -130,7 +131,7 @@ namespace SisLIJAD.Pruebas
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C29_G,C29_T,C29_V," +
                "C29_M_Result,Variante) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C29_G,@C29_T,@C29_V,@C29_M_Result,@Variante)", con);
-              
+
                 cmd.Parameters.AddWithValue("@IdSolicPrueba", Sol);
                 cmd.Parameters.AddWithValue("@IdPrueba", Pr);
                 cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
@@ -138,12 +139,12 @@ namespace SisLIJAD.Pruebas
                 cmd.Parameters.AddWithValue("@C29_T", sT.Value);
                 cmd.Parameters.AddWithValue("@C29_V", sV.Value);
                 cmd.Parameters.AddWithValue("@C29_M_Result", txtResult.Text);
-                cmd.Parameters.AddWithValue("@Variante", 1);
-                
+                cmd.Parameters.AddWithValue("@Variante", 3);
+
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                   // Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
+                    // Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
                 }
                 else
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
@@ -265,7 +266,7 @@ namespace SisLIJAD.Pruebas
         }
         protected void Insert2()
         {
- 
+
             string Sol = Request.QueryString["Sol"];
             string Pr = Request.QueryString["Pr"];
             SqlConnection con = new SqlConnection(Database.ConnectionString);
@@ -282,7 +283,7 @@ namespace SisLIJAD.Pruebas
                 cmd.Parameters.AddWithValue("@C29_T", sT2.Value);
                 cmd.Parameters.AddWithValue("@C29_F", sF.Value);
                 cmd.Parameters.AddWithValue("@C29_M_Result", txtResult2.Text);
-                cmd.Parameters.AddWithValue("@Variante", 2);
+                cmd.Parameters.AddWithValue("@Variante", 4);
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
@@ -368,7 +369,7 @@ namespace SisLIJAD.Pruebas
         #endregion
 
         #region formulas
-        protected void CalcularPVSS_V() 
+        protected void CalcularPVSC_V()
         {
             double G = Convert.ToDouble(sG.Text);
             double T = Convert.ToDouble(sT.Text);
@@ -377,7 +378,7 @@ namespace SisLIJAD.Pruebas
             double division = resta / V;
             txtResult.Text = Convert.ToString(division);
         }
-        protected void CalcularPVSS_F()
+        protected void CalcularPVSC_F()
         {
             double G = Convert.ToDouble(sG2.Text);
             double T = Convert.ToDouble(sT2.Text);
@@ -387,9 +388,5 @@ namespace SisLIJAD.Pruebas
             txtResult2.Text = Convert.ToString(multiplicacion);
         }
         #endregion
-
-
-
-    
     }
 }

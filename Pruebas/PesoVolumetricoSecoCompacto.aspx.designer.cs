@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.Pruebas.PesoVolumetricoSecoCompacto {
+namespace SisLIJAD.Pruebas {
     
     
-    public partial class aspx {
+    public partial class PesoVolumetricoSecoCompacto {
         
         /// <summary>
         /// Control ASPxRoundPanel1.

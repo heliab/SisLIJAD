@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="PesoVolumetricoSecoCompacto.aspx.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumetricoSecoCompacto.aspx" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="PesoVolumetricoSecoCompacto.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumetricoSecoCompacto" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -28,11 +28,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-   <div class="BaseForm wraptitle">
+
+ <div class="BaseForm wraptitle">
         <div class="row">
             <div class="first">
                 <div class="Titulo2">
-                    PVSS
+                    PVSC
                 </div>
             </div>
             <div class="Second">
@@ -111,34 +112,6 @@
         </LeftEdge>
         <PanelCollection>
             <dx:PanelContent ID="PanelContent1" runat="server" SupportsDisabledAttribute="True">
-                <%--<div class="BaseForm">
-                    <div class="row">
-                        <div class="first">
-                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Id Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblIdSol" runat="server" Text='<%# Eval("IdDetalle")%>' Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                        <div class="Second">
-                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Id Ensaye" >
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblIdEnsaye" runat="server" Text="" Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                        <div class="third">
-                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Descripción Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblDescSol" runat="server" Text=""  Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripción Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblDesc" runat="server" Text=""  Font-Bold="True">
-                            </dx:ASPxLabel>
-                    </div>
-                </div>--%>
                 <dx:ASPxGridView ID="GridFicha" runat="server" ClientInstanceName="GridFicha" AutoGenerateColumns="False"
                     DataSourceID="SDSPruebaFicha" Width="100%" KeyFieldName="IdDetalle">
                     <Columns>
@@ -186,7 +159,7 @@
 fn_EndCallbackForTest();
 }" />
     </dx:ASPxCallback>
-    <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
+     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
@@ -198,46 +171,18 @@ fn_EndCallbackForTest();
                     Resultados
                 </div>
             </div>
-            <%--<div class="BaseForm">
-                    <div class="row">
-                        <div class="first">
-                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Id Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblIdSol" runat="server" Text='<%# Eval("IdDetalle")%>' Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                        <div class="Second">
-                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Id Ensaye" >
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblIdEnsaye" runat="server" Text="" Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                        <div class="third">
-                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Descripción Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblDescSol" runat="server" Text=""  Font-Bold="True">
-                            </dx:ASPxLabel>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripción Solicitud">
-                            </dx:ASPxLabel>
-                            <dx:ASPxLabel ID="lblDesc" runat="server" Text=""  Font-Bold="True">
-                            </dx:ASPxLabel>
-                    </div>
-                </div>--%>
         </div>
     </div>
-    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
+    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" ClientIDMode="AutoID"
         Width="100%">
         <TabPages>
-            <dx:TabPage Text="PVSS/Vol.">
+            <dx:TabPage Text="PVSC/Vol.">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
                         <div class="wrapctrl">
                             <ul class="ctrlist">
                                 <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                                    <i class="fa fa-plus"></i>PVSS/Vol.</a></li>
+                                    <i class="fa fa-plus"></i>PVSC/Vol.</a></li>
                                 <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
                                     <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                                 <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
@@ -275,13 +220,13 @@ fn_EndCallbackForTest();
                     </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
-            <dx:TabPage Text="PVSS/FC">
+            <dx:TabPage Text="PVSC/FC">
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
                         <div class="wrapctrl">
                             <ul class="ctrlist">
                                 <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest2();" title="Peso seco unitario suelto con Factor de medida">
-                                    <i class="fa fa-plus"></i>PVSS/FC</a></li>
+                                    <i class="fa fa-plus"></i>PVSC/FC</a></li>
                                 <li><a class="pure-button green-font" href="javascript:fn_EditTestJS2();" title="Editar">
                                     <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                                 <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS2();" title="Borrar">
@@ -322,20 +267,23 @@ fn_EndCallbackForTest();
         </TabPages>
     </dx:ASPxPageControl>
     <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_V, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=1)">
+        
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_V, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=3)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSEnsayes2" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_F, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=2)">
+        
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_F, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=4)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
         </SelectParameters>
     </asp:SqlDataSource>
     </div>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
 <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
@@ -384,9 +332,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
-                                                <ClientSideEvents ValueChanged="function(s, e) {
-	                                                    ASPxClientEdit.ClearGroup('ControlGroupR');
-                                                    }" />
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -405,6 +353,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -423,6 +374,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -451,8 +405,7 @@ fn_CleanGroup(-1);
                                 </div>
                             </div>
                             <br />
-                            <%--<hr noshade="noshade" />--%>
-                            <div>
+                              <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button button-green white-font" href="javascript:fn_CalcJS()"
                                         title="Guardar"><i class="fa fa-calculator"></i>Calcular</a></li>
@@ -516,6 +469,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -534,6 +490,9 @@ fn_CleanGroup(-1);
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
+                                                <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -552,6 +511,9 @@ fn_CleanGroup(-1);
                                                     Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                     <spinbuttons showlargeincrementbuttons="True">
                                                  </spinbuttons>
+                                                    <ClientSideEvents NumberChanged="function(s, e) {
+	ASPxClientEdit.ClearGroup('ControlGroupR');
+}" />
                                                     <validationsettings enablecustomvalidation="True" errordisplaymode="Text" setfocusonerror="True"
                                                         validationgroup="ControlGroup1" errortextposition="Bottom">
                                                      <RegularExpression ErrorText="Informacion Requerida" />
