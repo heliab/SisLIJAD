@@ -110,6 +110,7 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
+    <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
     <Content Include="Scripts\jsfunctions.js" />
@@ -118,6 +119,8 @@
     <Content Include="SICOM\Proveedores.aspx" />
     <Content Include="SICOM\TipoMoneda.aspx" />
     <Content Include="SICOM\TipoServicio.aspx" />
+    <Content Include="Styles\buttons-core.css" />
+    <Content Include="Styles\buttons.css" />
     <Content Include="Styles\font-awesome.min.css" />
     <Content Include="Styles\font-awesome\css\font-awesome.css" />
     <Content Include="Styles\font-awesome\css\font-awesome.min.css" />
@@ -420,6 +423,12 @@
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx.cs">
+      <DependentUpon>PesoVolumetricoSecoCompacto.aspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\PesoVolumetricoSecoCompacto.aspx.aspx.designer.cs">
+      <DependentUpon>PesoVolumetricoSecoCompacto.aspx.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pruebas\PesoVolumetricoSecoSuelto.aspx.cs">
       <DependentUpon>PesoVolumetricoSecoSuelto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

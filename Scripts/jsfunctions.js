@@ -299,7 +299,17 @@ function fn_ShowDeleteTestJS() {
         txtIdD.SetText(ResGridId);
         DeleteForm.Show();
     }
- }
+}
+function fn_ShowDeleteTestJS2() {
+    if (fn_GetGridResIdValue2() == null) {
+        alert('Debe seleciconar un registro!');
+    }
+    else {
+        ResGridId2 = GridResultados2.GetRowKey(GridResultados2.GetFocusedRowIndex());
+        txtIdD.SetText(ResGridId2);
+        DeleteForm.Show();
+    }
+}
 /* **************************************Funciones popup **************************************   */
 function fn_ClosePopup(e) {
     //0 Valida el formy}ulario cuando se cierra el popup con cancelar
@@ -465,11 +475,10 @@ function fn_SaveTestJS2() {
     if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
         retutn;
     }
-
     NewCallback.PerformCallback();
-    fn_CleanGroup(1);
     GridResultados2.PerformCallback();
-    FormPopup.Hide();
+    fn_CleanTestPopup(1);
+    FormPopup2.Hide();
 }
 function fn_CalcJS2() {
     if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
@@ -499,7 +508,7 @@ function fn_EditTestJS2() {
         HiddenV.Set('Nuevo', 4);
         HiddenV.Set('Fill', 0);
         FillingCallback2.PerformCallback();
-        FormPopup.Show();
+        FormPopup2.Show();
     }
 
 }
@@ -510,11 +519,21 @@ function fn_CancelTestJS() {
 }
 function fn_DeleteTestJS2() {
     HiddenV.Set('Nuevo', 5);
-    fn_ShowDeleteTestJS();
+    fn_ShowDeleteTestJS2();
 }
 function fn_ConfirmDJS2() {
     NewCallback.PerformCallback();
-    GridResultados2.PerformCalback();
-    GridResultados.PerformCalback()
+    GridResultados2.PerformCallback();
+    GridResultados.PerformCallback();
     fn_ClosePopup(2);
 }
+function fn_CancelTest2JS() {
+
+    fn_CleanGroup(-1);
+    fn_CleanGroup(0);
+    FormPopup2.Hide();
+}
+
+function fn_EndCallbackForTest() {
+    GridResultados.PerformCallback();
+ }

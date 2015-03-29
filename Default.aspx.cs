@@ -22,10 +22,10 @@ namespace SisLIJAD
                 {
                     Response.Redirect("~/Tecnicos/SolicitudesAsignadas.aspx");
                 }
-                if (Roles.IsUserInRole("Administrador"))
-                {
-                    Response.Redirect("~/Default.aspx");
-                }
+                //if (Roles.IsUserInRole("Administrador"))
+                //{
+                //    Response.Redirect("~/Default.aspx");
+                //}
             }
         }
     }

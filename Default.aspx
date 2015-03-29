@@ -18,7 +18,7 @@
             title="Documentación de ASP.NET en MSDN">documentación sobre ASP.NET en MSDN</a>.
     </p>
     
-
+    <asp:LoginStatus ID="LoginStatus2" runat="server" />
     <asp:LoginView ID="LoginView1" runat="server">
         <AnonymousTemplate>
         <p>Por favor inicie sesion</p>

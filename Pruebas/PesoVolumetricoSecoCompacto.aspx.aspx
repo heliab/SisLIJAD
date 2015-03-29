@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
-    CodeBehind="PesoVolumetricoSecoSuelto.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumetricoSecoSuelto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="PesoVolumetricoSecoCompacto.aspx.aspx.cs" Inherits="SisLIJAD.Pruebas.PesoVolumetricoSecoCompacto.aspx" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -25,10 +24,11 @@
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxClasses" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-    <div class="BaseForm wraptitle">
+   <div class="BaseForm wraptitle">
         <div class="row">
             <div class="first">
                 <div class="Titulo2">
@@ -110,7 +110,7 @@
             <BackgroundImage ImageUrl="~/App_Themes/RedLine/Web/rpLeftEdge.png"></BackgroundImage>
         </LeftEdge>
         <PanelCollection>
-            <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+            <dx:PanelContent ID="PanelContent1" runat="server" SupportsDisabledAttribute="True">
                 <%--<div class="BaseForm">
                     <div class="row">
                         <div class="first">
@@ -233,7 +233,7 @@ fn_EndCallbackForTest();
         <TabPages>
             <dx:TabPage Text="PVSS/Vol.">
                 <ContentCollection>
-                    <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                    <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
                         <div class="wrapctrl">
                             <ul class="ctrlist">
                                 <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
@@ -277,7 +277,7 @@ fn_EndCallbackForTest();
             </dx:TabPage>
             <dx:TabPage Text="PVSS/FC">
                 <ContentCollection>
-                    <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                    <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
                         <div class="wrapctrl">
                             <ul class="ctrlist">
                                 <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest2();" title="Peso seco unitario suelto con Factor de medida">
@@ -338,7 +338,7 @@ fn_EndCallbackForTest();
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
+<dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario de calculo" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
@@ -361,7 +361,7 @@ fn_CleanGroup(-1);
                     <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
                     </LoadingPanelImage>
                     <PanelCollection>
-                        <dx:PanelContent ID="PanelContent1" runat="server">
+                        <dx:PanelContent ID="PanelContent2" runat="server">
                             <div class="form">
                                 <div class="BaseForm">
                                     <div class="row">
@@ -493,7 +493,7 @@ fn_CleanGroup(-1);
                     <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
                     </LoadingPanelImage>
                     <PanelCollection>
-                        <dx:PanelContent ID="PanelContent2" runat="server">
+                        <dx:PanelContent ID="PanelContent3" runat="server">
                             <div class="form">
                                 <div class="BaseForm">
                                     <div class="row">

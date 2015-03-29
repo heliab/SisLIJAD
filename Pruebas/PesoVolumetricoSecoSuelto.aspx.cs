@@ -265,6 +265,7 @@ namespace SisLIJAD.Pruebas
         }
         protected void Insert2()
         {
+ 
             string Sol = Request.QueryString["Sol"];
             string Pr = Request.QueryString["Pr"];
             SqlConnection con = new SqlConnection(Database.ConnectionString);
