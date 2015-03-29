@@ -406,9 +406,9 @@ function fn_NewMainTest() {
       if (!ASPxClientEdit.ValidateGroup('ControlGroup1')) {
           retutn;
       }
-              
+           
         NewCallback.PerformCallback();
-        fn_CleanGroup(1);
+        fn_CleanTestPopup(1);
         GridResultados.PerformCallback();
         FormPopup.Hide();
   }
@@ -455,7 +455,7 @@ function fn_NewMainTest() {
   }
  function fn_ConfirmDJS() {
   NewCallback.PerformCallback();
-  GridResultados.PerformCalback();
+  GridResultados.PerformCallback();
   fn_ClosePopup(2);
 }
 
@@ -536,4 +536,9 @@ function fn_CancelTest2JS() {
 
 function fn_EndCallbackForTest() {
     GridResultados.PerformCallback();
+}
+function fn_ConfirmTestDJS() {
+    NewCallback.PerformCallback();
+    GridResultados.PerformCallback();
+    fn_ClosePopup(2);
  }

@@ -35,7 +35,7 @@
                     PVSS
                 </div>
             </div>
-            <div class="Second">
+            <div>
                 <ul class="ctrlist2 ctrleft">
                     <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                         class="fa fa-list"></i>Checklist</a></li>
