@@ -38,9 +38,9 @@
                     break;
                 case 3: window.location.href = "/Pruebas/HumedadAridos.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 4: window.location.href = "/Pruebas/?Id=" + val[0];
+                case 5: window.location.href = "/Pruebas/GeFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 5: window.location.href = "/Pruebas/?Id=" + val[0];
+                case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 6: window.location.href = "/Pruebas/?Id=" + val[0];
                     break;

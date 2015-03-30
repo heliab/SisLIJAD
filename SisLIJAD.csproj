@@ -110,6 +110,9 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
+    <Content Include="Pruebas\GeFino.aspx" />
+    <Content Include="Pruebas\GeaGrueso.aspx" />
+    <Content Include="Pruebas\GEGrueso.aspx" />
     <Content Include="Pruebas\HumedadAridos.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
@@ -424,6 +427,27 @@
       <DependentUpon>TiposPrueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pruebas\GeFino.aspx.cs">
+      <DependentUpon>GeFino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\GeFino.aspx.designer.cs">
+      <DependentUpon>GeFino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\GeaGrueso.aspx.cs">
+      <DependentUpon>GeaGrueso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\GeaGrueso.aspx.designer.cs">
+      <DependentUpon>GeaGrueso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\GEGrueso.aspx.cs">
+      <DependentUpon>GEGrueso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\GEGrueso.aspx.designer.cs">
+      <DependentUpon>GEGrueso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pruebas\HumedadAridos.aspx.cs">
       <DependentUpon>HumedadAridos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
