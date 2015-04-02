@@ -404,7 +404,7 @@ fn_CleanGroup(-1);
                 </div>
                 <div>
                     <ul class="frmctrl">
-                        <li><a class="pure-button" href="javascript:fn_ConfirmDJS()" title="Borrar"><i class="fa fa-trash-o">
+                        <li><a class="pure-button" href="javascript:fn_ConfirmResDJS()" title="Borrar"><i class="fa fa-trash-o">
                         </i>Borrar</a></li>
                         <li><a class="pure-button" href="javascript:fn_CancelDJS()" title="Cancelar"><i class="fa fa-times">
                         </i>Cancelar</a></li>

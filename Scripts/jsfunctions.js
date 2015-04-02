@@ -453,7 +453,7 @@ function fn_NewMainTest() {
       HiddenV.Set('Nuevo', 2);
       fn_ShowDeleteTestJS();
   }
- function fn_ConfirmDJS() {
+ function fn_ConfirmResDJS() {
   NewCallback.PerformCallback();
   GridResultados.PerformCallback();
   fn_ClosePopup(2);

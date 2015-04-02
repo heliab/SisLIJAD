@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.MPR {
+namespace SisLIJAD.PEUCA {
     
     
     public partial class MasterPREUCA {

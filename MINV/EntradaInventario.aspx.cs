@@ -67,7 +67,6 @@ namespace SisLIJAD.MINV
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MINV_Entradas(EntryHeader,IdEntidad,FechaEntrada,HoraRecep,RecepcionadoPor,Observacion) values(@EntryHeader,@IdEntidad,@FechaEntrada,@HoraRecep,@RecepcionadoPor,@Observacion)", con);
-                //  SqlCommand cmd = new SqlCommand("insert into MINV_Entradas(EntryHeader,IdEntidad,RecepcionadoPor,Observacion) values(@EntryHeader,@IdEntidad,@RecepcionadoPor,@Observacion)", con);
                 cmd.Parameters.AddWithValue("@EntryHeader", memoEntra.Text);
                 cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
                 cmd.Parameters.AddWithValue("@FechaEntrada", deFecha.Value);

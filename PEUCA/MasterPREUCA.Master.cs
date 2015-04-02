@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SisLIJAD.MPR
+namespace SisLIJAD.PEUCA
 {
     public partial class MasterPREUCA : System.Web.UI.MasterPage
     {

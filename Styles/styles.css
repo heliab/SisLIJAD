@@ -545,7 +545,20 @@ height:auto;
 height:400px;   
              }    
              
-             
+             .scrollfooter {
+   /*background-color: rgba(80, 108, 110, 0.8);*/
+    color: #ececec;
+    font-family: Verdana;
+    font-weight: 500;
+    height: 70px;
+    text-align: center;
+    width: 100%;
+	position:relative;
+	bottom:0;
+	left:0;
+	float:left;
+    margin-top:1em;
+}
              
              
              
