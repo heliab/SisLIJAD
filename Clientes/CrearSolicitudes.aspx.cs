@@ -53,7 +53,6 @@ namespace SisLIJAD.Clientes
                 con.Close();
             }
         }
-
         protected void Insert()
         {
             string username = User.Identity.Name;

@@ -159,7 +159,7 @@ namespace SisLIJAD.PEUCA
 
         }
         protected void EnviarSol() {
-            string val = HiddenV.Get("Aprobar").ToString();
+            string val = HiddenV.Get("Enviar").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
@@ -204,10 +204,9 @@ namespace SisLIJAD.PEUCA
                 {
                     // display data in textboxes
                     txtSubId.Text = dr["CodDetalle"].ToString();
-                    cmbMaterial.Value = dr["IdMaterial"].ToString();
-                    memoOb.Text = dr["Cantidad"].ToString();
-                    cmbEstado.Value = dr["IdEstado"].ToString();
-                    sCant.Text = dr["Cantidad"].ToString();
+                    cmbMateriales.Text = dr["IdMaterial"].ToString();
+                   sCant.Value= dr["Cantidad"].ToString();
+                  
 
                 }
                 else
@@ -231,7 +230,7 @@ namespace SisLIJAD.PEUCA
 
         protected void SubInsert()
         {
-            string IdPrestamo = GridPrVal.Get("SessionId").ToString();
+            string IdPrestamo = HiddenGridPr.Get("SessionId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
@@ -268,9 +267,9 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle= @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales);
+                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
                 
 
@@ -408,5 +407,16 @@ namespace SisLIJAD.PEUCA
             Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         #endregion
+
+        protected void cmbMateriales_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            Session["IdPrestamo"] = HiddenGridPr.Get("SessionId").ToString();
+            cmbMateriales.DataBind();
+        }
+
+        protected void SubFillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            SubSelect();
+        }
     }
 }
