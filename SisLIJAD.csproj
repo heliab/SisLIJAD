@@ -63,6 +63,7 @@
     <Content Include="Account\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Clientes\CrearSolicitudes.aspx" />
+    <Content Include="Clientes\Resultados.aspx" />
     <Content Include="Clientes\SolicitudesEnviadas.aspx" />
     <Content Include="Clientes\welcome.aspx" />
     <Content Include="Cuenta\ManageUser.aspx" />
@@ -139,6 +140,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\styles.css" />
     <Content Include="Tecnicos\Bienvenidos.aspx" />
+    <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
     <Content Include="Tecnicos\SolicitudesAsignadas.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -214,6 +216,13 @@
     </Compile>
     <Compile Include="Clientes\CrearSolicitudes.aspx.designer.cs">
       <DependentUpon>CrearSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Resultados.aspx.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Resultados.aspx.designer.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\SolicitudesEnviadas.aspx.cs">
       <DependentUpon>SolicitudesEnviadas.aspx</DependentUpon>
@@ -540,6 +549,13 @@
     </Compile>
     <Compile Include="Tecnicos\Bienvenidos.aspx.designer.cs">
       <DependentUpon>Bienvenidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.cs">
+      <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.designer.cs">
+      <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\SolicitudesAsignadas.aspx.cs">
       <DependentUpon>SolicitudesAsignadas.aspx</DependentUpon>

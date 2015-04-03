@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 using System.Web.Security;
+using System.Net.Mail;
 
 namespace SisLIJAD.Clientes
 {
@@ -144,7 +145,6 @@ namespace SisLIJAD.Clientes
             }
 
         }
-
         protected void EnviarSol()
         {
             string val = HiddenV.Get("Enviar").ToString();
@@ -158,6 +158,7 @@ namespace SisLIJAD.Clientes
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
+                    EnviarMensaje();
                 }
                 else
                 {
@@ -175,7 +176,39 @@ namespace SisLIJAD.Clientes
 
         }
         #endregion
+        #region Mensaje
+        protected void EnviarMensaje()
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
+                mail.From = new MailAddress("sislijad@gmail.com", "Alerta del sistema");
+                mail.To.Add("sislijad@gmail.com");
+                mail.To.Add("browonfire@yandex.com");
+                mail.Subject = "Solicitud de Materiales pendiente";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos <b>Administrador</b>, usted tiene una solicitud de ensayes en el sistema.</p><p>Favor revisar,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        #endregion
         #region Callbacks
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
@@ -218,8 +251,6 @@ namespace SisLIJAD.Clientes
         }
 
         #endregion
-
-        
         #region Subcallbacks
         protected void SubFillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
@@ -236,7 +267,6 @@ namespace SisLIJAD.Clientes
         }
 
         #endregion
-
         #region SubDRUD
         protected void SubSelect()
         {
@@ -373,7 +403,5 @@ namespace SisLIJAD.Clientes
         }
         #endregion
 
-       
-       
     }
 }
