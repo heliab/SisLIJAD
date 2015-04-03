@@ -90,6 +90,7 @@
     <Content Include="Images\swirl_pattern.png" />
     <Content Include="Images\back_white_wall_hash.png" />
     <Content Include="MINV\AjustesInventario.aspx" />
+    <Content Include="MINV\AutSolicitudesMateriales.aspx" />
     <Content Include="MINV\DefaultMINV.aspx" />
     <Content Include="MINV\EntradaInventario.aspx" />
     <Content Include="MINV\EstadoMateriales.aspx" />
@@ -272,6 +273,13 @@
     </Compile>
     <Compile Include="MINV\AjustesInventario.aspx.designer.cs">
       <DependentUpon>AjustesInventario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\AutSolicitudesMateriales.aspx.cs">
+      <DependentUpon>AutSolicitudesMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\AutSolicitudesMateriales.aspx.designer.cs">
+      <DependentUpon>AutSolicitudesMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\DefaultMINV.aspx.cs">
       <DependentUpon>DefaultMINV.aspx</DependentUpon>

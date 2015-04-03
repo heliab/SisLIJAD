@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PEUCA/MasterPREUCA.Master" AutoEventWireup="true" CodeBehind="SolicitudMateriales.aspx.cs" Inherits="SisLIJAD.PEUCA.SolicitudMateriales" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="AutSolicitudesMateriales.aspx.cs" Inherits="SisLIJAD.MINV.AutSolicitudesMateriales" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -22,105 +22,106 @@
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function fn_NewDetSolJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
-            function SetEnv(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido aprobado y no puede realizar cambios');
-                    return
-                }
-                else {
-                    fn_GetValOnHid();
-                    cmbMateriales.PerformCallback();
-                    fn_SubNewJS();
-                }
+<script type="text/javascript">
+    function fn_NewDetSolJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
+        function SetEnv(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_GetValOnHid();
+                cmbMateriales.PerformCallback();
+                fn_SubNewJS();
             }
         }
-        function fn_EditSolJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
-            function SetEnv(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
-                    return
-                }
-                else {
-                    fn_GetValOnHid();
-                    cmbMateriales.PerformCallback();
-                    fn_SubEditJS();
-                }
+    }
+    function fn_EditSolJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
+        function SetApr(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_GetValOnHid();
+                cmbMateriales.PerformCallback();
+                fn_SubEditJS();
             }
         }
-        function fn_EditSolicJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
-            function SetEnv(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
-                    return
-                }
-                else {
-                    fn_GetValOnHid();
-                    cmbMateriales.PerformCallback();
-                    fn_EditJS();
-                }
+    }
+    function fn_EditSolicJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
+        function SetApr(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_GetValOnHid();
+                cmbMateriales.PerformCallback();
+                fn_EditJS();
             }
         }
-        function fn_DeleteSolicJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
-            function SetAprob(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido aprobado y no puede realizar cambios');
-                    return
-                }
-                else {
-                    fn_DeleteJS();
-                }
+    }
+    function fn_DeleteSolicJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
+        function SetAprob(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_DeleteJS();
             }
         }
-        function fn_DeleteDetSolJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
-            function SetEnv(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
-                    return
-                }
-                else {
-                    fn_SubDeleteJS();
-                }
+    }
+    function fn_DeleteDetSolJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
+        function SetEnv(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_SubDeleteJS();
             }
         }
-        function fn_GetSendJS() {
-            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
-            function SetEnv(Value) {
-                if (Value == 1) {
-                    alert('El registro ya ha sido enviado');
-                    return
-                }
-                else {
-                    fn_SendJS();
-                }
+    }
+    function fn_GetAproJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
+        function SetApr(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido autorizado');
+                return
             }
-         }
-     function fn_SendJS() {
-         if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
-             HiddenV.Set('Nuevo', 6);
-             HiddenV.Set('Enviar', fn_GetIdValue());
-             NewCallback.PerformCallback();
-             fn_EndCallback();
-             alert('Su solicitud fue enviada con exito');
-         }
-     }
+            else {
+                fn_AproJS();
+            }
+        }
+    }
+    function fn_AproJS() {
+        if (confirm("¿Desea aprobar la solicitud?")) {
+            HiddenV.Set('Nuevo', 6);
+            HiddenV.Set('Aprobar', fn_GetIdValue());
+            NewCallback.PerformCallback();
+            fn_EndCallback();
+            alert('Solicitud Aprobada');
+        }
+    }
 
-     function fn_SubAddSol() {
-         fn_GetValOnHid();
-         fn_SubAdd();
-         cmbMateriales.PerformCallback();
+    function fn_SubAddSol() {
+        fn_GetValOnHid();
+        fn_SubAdd();
+        cmbMateriales.PerformCallback();
 
-     }
-     function fn_GetValOnHid() {
-         HiddenGridPr.Set("SessionId", GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
-     }
+    }
+    function fn_GetValOnHid() {
+        HiddenGridPr.Set("SessionId", GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
+    }
  </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -132,8 +133,8 @@
                             <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                         <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
                             <i class="fa fa-trash"></i>Borrar</a></li>
-                 <li><a class="pure-button green-font" href="javascript:fn_GetSendJS();" title="Enviar solicitud">
-                            <i class="fa fa-paper-plane-o"></i>Enviar</a></li>
+                 <li><a class="pure-button green-font" href="javascript:fn_GetAproJS();" title="Aprobar solicitud">
+                            <i class="fa fa-check"></i>Aprobar</a></li>
         </ul>
     </div>
         <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
@@ -155,22 +156,25 @@ fn_EndCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
-                Width="7%">
+                Width="9%" ToolTip="Cod Prestamo">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn FieldName="FechaPrestamo" ReadOnly="True" 
-                VisibleIndex="2" Width="10%">
+                VisibleIndex="2" Width="16%">
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataDateColumn FieldName="FechaDevolucion" ReadOnly="True" 
-                VisibleIndex="3" Width="10%">
+                VisibleIndex="3" Width="16%">
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataTextColumn FieldName="SolicitadoPor" VisibleIndex="4" 
-                Width="15%">
+                Width="12%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Enviado" VisibleIndex="5" Width="7%">
-            </dx:GridViewDataCheckColumn>
+            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="5" 
+                Width="10%">
+            </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn FieldName="Aprobado" VisibleIndex="6" Width="7%">
             </dx:GridViewDataCheckColumn>
             <dx:GridViewCommandColumn VisibleIndex="7" Width="0%">
@@ -198,7 +202,7 @@ fn_EndCallback();
                     <TabPages>
                         <dx:TabPage Text="Materiales">
                             <ContentCollection>
-                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                                <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
                                 <div class="wrapctrl">
                     <ul class="ctrlist">
                         <li><a class="pure-button blue-font" href="javascript:fn_NewDetSolJS();" title="Nuevo">
@@ -253,7 +257,7 @@ fn_EndCallback();
                         </dx:TabPage>
                         <dx:TabPage Text="D. Personales">
                             <ContentCollection>
-                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                                <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
                                     <dx:ASPxGridView ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" 
                                         Width="100%" AutoGenerateColumns="False" DataSourceID="SDSDatosPersonales" 
                                         OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect">
@@ -274,7 +278,7 @@ fn_EndCallback();
                         </dx:TabPage>
                         <dx:TabPage Text="D.Academicos">
                             <ContentCollection>
-                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                                <dx:ContentControl ID="ContentControl3" runat="server" SupportsDisabledAttribute="True">
 
                                     <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" 
                                         ClientIDMode="AutoID" DataSourceID="SDSDatosAcademicos" 
@@ -298,10 +302,8 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT(Date,FechaPrestar)as FechaPrestamo, CONVERT(Date,FechaDevolver) as FechaDevolucion, SolicitadoPor, Enviado,Aprobado FROM MINV_Prestamos WHERE (SolicitadoPor = @username) ORDER BY IdPrestamo DESC">
-        <SelectParameters>
-            <asp:SessionParameter Name="username" SessionField="username" />
-        </SelectParameters>
+        
+        SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT (Date, FechaPrestar) AS FechaPrestamo, CONVERT (Date, FechaDevolver) AS FechaDevolucion, SolicitadoPor, FechaRegistro, Aprobado FROM MINV_Prestamos WHERE (Enviado = 1) ORDER BY IdPrestamo DESC">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle, MINV_Materiales.NomMaterial, MINV_Materiales.CodUCA, MINV_Materiales.Marca, MINV_Det_Prestamo.Cantidad FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MINV_Materiales ON MINV_Det_Prestamo.IdMaterial = MINV_Materiales.IdMaterial WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">

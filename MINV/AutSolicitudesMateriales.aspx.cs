@@ -7,10 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 using System.Net.Mail;
-
-namespace SisLIJAD.PEUCA
+namespace SisLIJAD.MINV
 {
-    public partial class SolicitudMateriales : System.Web.UI.Page
+    public partial class AutSolicitudesMateriales : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,9 +35,9 @@ namespace SisLIJAD.PEUCA
                     deFeIni.Value = dr["FechaPrestar"];
                     deFefin.Value = dr["FechaDevolver"];
                     txtNom.Text = dr["NombCompleto"].ToString();
-                    txtAsig.Text= dr["Asignatura"].ToString();
+                    txtAsig.Text = dr["Asignatura"].ToString();
                     txtCod.Text = dr["CodigoAsignatura"].ToString();
-                    txtCed.Text= dr["Cedula"].ToString();
+                    txtCed.Text = dr["Cedula"].ToString();
                 }
                 else
                 {
@@ -61,12 +60,12 @@ namespace SisLIJAD.PEUCA
         protected void Insert()
         {
             string username = User.Identity.Name;
-             DateTime serverTime = DateTime.Today;
+            DateTime serverTime = DateTime.Today;
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula,Enviado) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula,@Enviado)", con);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
                 cmd.Parameters.AddWithValue("@FechaRegistro", serverTime);
                 cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
@@ -76,6 +75,7 @@ namespace SisLIJAD.PEUCA
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
+                cmd.Parameters.AddWithValue("@Enviado", 1);
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -112,7 +112,7 @@ namespace SisLIJAD.PEUCA
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
-                
+
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
@@ -158,19 +158,19 @@ namespace SisLIJAD.PEUCA
             }
 
         }
-        protected void EnviarSol() {
-            string val = HiddenV.Get("Enviar").ToString();
+        protected void Aprobar()
+        {
+            string val = HiddenV.Get("Aprobar").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE MINV_Prestamos set Enviado=@Enviado where IdPrestamo=@IdPrestamo", con);
+                SqlCommand cmd = new SqlCommand("UPDATE MINV_Prestamos set Aprobado=@Aprobado where IdPrestamo=@IdPrestamo", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", val);
-                cmd.Parameters.Add("@Enviado", SqlDbType.Bit).Value = 1;
+                cmd.Parameters.Add("@Aprobado", SqlDbType.Bit).Value = 1;
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
-                    EnviarMensaje();
                 }
                 else
                 {
@@ -205,8 +205,8 @@ namespace SisLIJAD.PEUCA
                     // display data in textboxes
                     txtSubId.Text = dr["CodDetalle"].ToString();
                     cmbMateriales.Text = dr["IdMaterial"].ToString();
-                   sCant.Value= dr["Cantidad"].ToString();
-                  
+                    sCant.Value = dr["Cantidad"].ToString();
+
 
                 }
                 else
@@ -227,7 +227,6 @@ namespace SisLIJAD.PEUCA
                 con.Close();
             }
         }
-
         protected void SubInsert()
         {
             string IdPrestamo = HiddenGridPr.Get("SessionId").ToString();
@@ -239,7 +238,7 @@ namespace SisLIJAD.PEUCA
                 cmd.Parameters.AddWithValue("@IdPrestamo", IdPrestamo);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
-            
+
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -271,7 +270,7 @@ namespace SisLIJAD.PEUCA
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
-                
+
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -319,38 +318,6 @@ namespace SisLIJAD.PEUCA
 
         }
         #endregion
-        #region Mensaje
-        protected void EnviarMensaje() {
-            try
-            {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("sislijad@gmail.com","Alerta del sistema");
-                mail.To.Add("sislijad@gmail.com");
-                mail.To.Add("browonfire@yandex.com");
-                mail.Subject = "Solicitud de Materiales pendiente";
-                
-                mail.IsBodyHtml = true;
-                string htmlBody;
-
-                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos <b>Administrador</b>, usted tiene una solicitud de materiales pendiente en el sistema.</p><p>Favor revisar,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
-
-                mail.Body = htmlBody;
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-        #endregion
         #region Callbacks
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
@@ -372,7 +339,7 @@ namespace SisLIJAD.PEUCA
                     break;
                 case "5": SubDelete();
                     break;
-                case "6": EnviarSol();
+                case "6": Aprobar();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -413,7 +380,6 @@ namespace SisLIJAD.PEUCA
             Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         #endregion
-
 
     }
 }
