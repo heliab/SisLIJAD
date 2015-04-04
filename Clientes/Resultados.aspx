@@ -24,8 +24,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
+    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+        OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
+        <ClientSideEvents EndCallback="function(s, e) {
+fn_EndCallback();
+}" />
+    </dx:ASPxCallback>
+    <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
+    </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
 </asp:Content>

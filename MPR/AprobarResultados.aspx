@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesAsignadas.aspx.cs" Inherits="SisLIJAD.Tecnicos.SolicitudesAsignadas" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="AprobarResultados.aspx.cs" Inherits="SisLIJAD.MPR.AprobarResultados" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -24,37 +23,25 @@
 <%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
 <script type="text/javascript">
-
-    function fn_IrCalculo(e) {
-        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle;IdPrueba', fn_GetValues);
-        function fn_GetValues(val) {
-            switch (val[1]) {
-                case 1:
-                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() +"&Pr="+val[1] ;
-                    break;
-                case 2: window.location.href = "/Pruebas/PesoVolumetricoSecoCompacto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
-                    break;
-                case 3: window.location.href = "/Pruebas/HumedadAridos.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
-                    break;
-                case 5: window.location.href = "/Pruebas/GeFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
-                    break;
-                case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
-                    break;
-                case 6: window.location.href = "/Pruebas/?Id=" + val[0];
-                    break;
-                case 7: window.location.href = "/Pruebas/?Id=" + val[0];
-                    break;
-            }
-           
+    function fn_PublishJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Email', fn_GetSend);
+         function fn_GetSend(Value) {
+           if (Value == 1) {
+            HiddenV.Set('Enviado', 1);
+            
         }
-    }
+           else {
+               HiddenV.Set('Enviado', 0);
+           }
+            HiddenV.Set('GridId', fn_GetIdPrValue());
+            HiddenV.Set('Nuevo', 7);
+            fn_GetMail();
+          }
     function fn_GetIdPrValue() {
         GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         return GridId;
-     }
- 
+    }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -78,16 +65,30 @@ fn_EndCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" 
-                VisibleIndex="0" Width="13%">
+                VisibleIndex="0" Width="10%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" 
-                Caption="Descrip. Solicitud" Width="48%">
+                Caption="Descripción Solicitud" Width="35%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Autorizado" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="FechaAprobación" VisibleIndex="2">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="3">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Usuario" FieldName="username" 
+                VisibleIndex="4" Width="13%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Email" VisibleIndex="5" Width="13%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataCheckColumn FieldName="Publicada" VisibleIndex="6" Width="8%">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaAprobación" VisibleIndex="3">
-            </dx:GridViewDataTextColumn>
+            <dx:GridViewCommandColumn VisibleIndex="7" Width="0%">
+                <ClearFilterButton Text="Limpiar" Visible="True">
+                </ClearFilterButton>
+            </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
@@ -191,8 +192,10 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-          SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, Autorizado, FechaAprobación FROM MPR_Solic_Pruebas WHERE (Autorizado = 1) ORDER BY IdSolicPrueba DESC">
+          
+        SelectCommand="SELECT DISTINCT MPR_Solic_Pruebas.IdSolicPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba, MPR_Solic_Pruebas.FechaAprobación, MPR_Solic_Pruebas.FechaRegistro, MPR_Solic_Pruebas.username, MPR_Solic_Pruebas.Publicada, aspnet_Membership.Email FROM aspnet_Users INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId INNER JOIN MPR_Solic_Pruebas ON aspnet_Users.UserName = MPR_Solic_Pruebas.username WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.Pagado = 1) ORDER BY MPR_Solic_Pruebas.IdSolicPrueba DESC">
     </asp:SqlDataSource>
+     
      <asp:SqlDataSource ID="SDSTecnicos" runat="server" 
          ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
          

@@ -87,6 +87,12 @@ function fn_AprobarJS() {
         NewCallback.PerformCallback();
         fn_EndCallback();
     }
+}
+function fn_GetMail() {
+    GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Email', SetEmail);
+    function SetMail(Value) {
+        HiddenV.Set('Email', Value);
+    }
  }
 /****** Sub Functions for Subforms***/
 function fn_SubNewJS() {

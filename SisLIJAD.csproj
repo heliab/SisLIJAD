@@ -106,6 +106,7 @@
     <Content Include="MINV\Transferencias.aspx" />
     <Content Include="MINV\Ubicaciones.aspx" />
     <Content Include="MINV\UnidadesMedida.aspx" />
+    <Content Include="MPR\AprobarResultados.aspx" />
     <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\PesoSecoSuelto.aspx" />
@@ -394,6 +395,13 @@
     </Compile>
     <Compile Include="MINV\UnidadesMedida.aspx.designer.cs">
       <DependentUpon>UnidadesMedida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\AprobarResultados.aspx.cs">
+      <DependentUpon>AprobarResultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\AprobarResultados.aspx.designer.cs">
+      <DependentUpon>AprobarResultados.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\DefaultMPR.aspx.cs">
       <DependentUpon>DefaultMPR.aspx</DependentUpon>

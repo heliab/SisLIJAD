@@ -25,15 +25,15 @@ namespace SisLIJAD.Tecnicos
 
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
-            Session["IdDetalle"] = HiddenV.Get("IdDetalle").ToString();
-            Session["IdPrueba"] = HiddenV.Get("IdPrueba").ToString();
-            string IdPrueba= HiddenV.Get("IdPrueba").ToString();
-            switch (IdPrueba) {
-                case "1": Response.Redirect("~/Pruebas/PesoVolumétricoSecoSuelto.aspx");
-                      break;
-                default: Response.Write("Error con ID PRueba");
-                    break;
-            }
+            //Session["IdDetalle"] = HiddenV.Get("IdDetalle").ToString();
+            //Session["IdPrueba"] = HiddenV.Get("IdPrueba").ToString();
+            //string IdPrueba= HiddenV.Get("IdPrueba").ToString();
+            //switch (IdPrueba) {
+            //    case "1": Response.Redirect("~/Pruebas/PesoVolumétricoSecoSuelto.aspx");
+            //          break;
+            //    default: Response.Write("Error con ID PRueba");
+            //        break;
+            //}
 
           
         }

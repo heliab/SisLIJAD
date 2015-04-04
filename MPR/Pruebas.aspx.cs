@@ -154,10 +154,7 @@ namespace SisLIJAD.MPR
             }
 
         }
-       
         #endregion
-
-
         #region Callbacks
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
