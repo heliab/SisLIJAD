@@ -90,8 +90,8 @@ function fn_AprobarJS() {
 }
 function fn_GetMail() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Email', SetEmail);
-    function SetMail(Value) {
-        HiddenV.Set('Email', Value);
+    function SetEmail(Value) {
+        txtMail.SetText(Value);
     }
  }
 /****** Sub Functions for Subforms***/

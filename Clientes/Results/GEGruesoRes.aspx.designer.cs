@@ -7,19 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.Clientes {
+namespace SisLIJAD.Clientes.Results {
     
     
-    public partial class Resultados {
-        
-        /// <summary>
-        /// Control NewCallback.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
+    public partial class GEGruesoRes {
         
         /// <summary>
         /// Control HiddenV.
@@ -31,30 +22,21 @@ namespace SisLIJAD.Clientes {
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
         
         /// <summary>
-        /// Control GridPrincipal.
+        /// Control GridResultados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridResultados;
         
         /// <summary>
-        /// Control SDSSolicitudes.
+        /// Control SDSEnsayes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSSolicitudes;
-        
-        /// <summary>
-        /// Control SDSDetSol.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSDetSol;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSEnsayes;
     }
 }

@@ -190,7 +190,6 @@ fn_EndCallbackForTest();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-<div class="scroll">
     <div class="BaseForm wraptitle">
         <div class="row">
             <div class="first">
@@ -335,7 +334,6 @@ fn_EndCallbackForTest();
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
         </SelectParameters>
     </asp:SqlDataSource>
-    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"

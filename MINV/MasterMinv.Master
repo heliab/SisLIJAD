@@ -45,6 +45,7 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
+     <div class="scrollfooter"></div>
     <div class="footer"></div>
     </form>
 </body>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="GeaGrueso.aspx.cs" Inherits="SisLIJAD.Pruebas.GeaGrueso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="GeaGruesoRes.aspx.cs" Inherits="SisLIJAD.Clientes.Results.GeaGruesoRes" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -24,7 +24,6 @@
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxClasses" TagPrefix="dx" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -161,26 +160,18 @@ fn_EndCallbackForTest();
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-        <div class="BaseForm wraptitle">
+<div class="wraptitle">
             <div class="row">
                 <div class="first">
                     <div class="Titulo2">
                         Resultados
                     </div>
                 </div>
-                <div class="second">
-                    <ul class="ctrlist2">
-                        <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                            <i class="fa fa-plus"></i>Hum.Vap(p)</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
-                </div>
-            </div>
+              </div>
         </div>
+
         <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
             OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
@@ -215,153 +206,6 @@ fn_EndCallbackForTest();
                 <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
             </SelectParameters>
         </asp:SqlDataSource>
- </asp:Content>
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
-        AllowDragging="True" AllowResize="True" HeaderText="Formulario de calculo" Modal="True"
-        PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
-        FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="200px" Width="420px" CloseAction="CloseButton">
-        <ClientSideEvents CloseUp="function(s, e) {
-fn_CleanGroup(1);
-fn_CleanGroup(-1);
-}" />
-        <ClientSideEvents CloseUp="function(s, e) {
-fn_CleanGroup(1);
-fn_CleanGroup(-1);
-}"></ClientSideEvents>
-        <ContentStyle BackColor="#F9F9F9">
-        </ContentStyle>
-        <ContentCollection>
-            <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server">
-                <dx:ASPxCallbackPanel ID="FillingCallback" runat="server" ClientInstanceName="FillingCallback"
-                    Width="100%" OnCallback="FillingCallback_Callback" CssFilePath="~/App_Themes/Aqua/{0}/styles.css"
-                    CssPostfix="Aqua" LoadingPanelImagePosition="Top" LoadingPanelText="Cargando&amp;hellip;">
-                    <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
-                    </LoadingPanelImage>
-                    <PanelCollection>
-                        <dx:PanelContent ID="PanelContent2" runat="server">
-                            <div class="form">
-                                <div class="BaseForm">
-                                    <div class="row">
-                                        <div class="first">
-                                            <div>
-                                                <dx:ASPxLabel ID="lblId" runat="server" Text="Id">
-                                                </dx:ASPxLabel>
-                                                <dx:ASPxTextBox ID="txtId" runat="server" Width="100px" ClientInstanceName="txtId"
-                                                    ClientEnabled="true" ReadOnly="True">
-                                                </dx:ASPxTextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Muestra de masa original">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sW" ClientInstanceName="sW" runat="server" Number="0.0" LargeIncrement="1"
-                                                Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
-                                                <SpinButtons ShowLargeIncrementButtons="True">
-                                                </SpinButtons>
-                                                <ClientSideEvents NumberChanged="function(s, e) {
-	                                                                                 ASPxClientEdit.ClearGroup('ControlGroupR');
-                                                                                }" />
-                                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                            </dx:ASPxSpinEdit>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa de muestra seca">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sD" ClientInstanceName="sD" runat="server" Number="0.0" LargeIncrement="1"
-                                                Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
-                                                <SpinButtons ShowLargeIncrementButtons="True">
-                                                </SpinButtons>
-                                                <ClientSideEvents NumberChanged="function(s, e) {
-	                                                                                 ASPxClientEdit.ClearGroup('ControlGroupR');
-                                                                                }" />
-                                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                            </dx:ASPxSpinEdit>
-                                        </div>
-                                        <div class="second">
-                                            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxTextBox ID="txtResult" runat="server" Width="125px" ClientInstanceName="txtResult"
-                                                ReadOnly="True">
-                                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroupR" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                                <Border BorderWidth="1px" />
-                                            </dx:ASPxTextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
-                            <div>
-                                <ul class="frmctrl">
-                                    <li><a class="pure-button button-green white-font" href="javascript:fn_CalcJS()"
-                                        title="Guardar"><i class="fa fa-calculator"></i>Calcular</a></li>
-                                    <li><a class="pure-button green-font" href="javascript:fn_SaveTestJS()" title="Guardar">
-                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
-                                    <li><a class="pure-button red-font" href="javascript:fn_CancelTestJS()" title="Cancelar">
-                                        <i class="fa fa-times"></i>Cancelar</a></li>
-                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanTestPopup(1);" title="Limpiar">
-                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
-                                </ul>
-                            </div>
-                        </dx:PanelContent>
-                    </PanelCollection>
-                </dx:ASPxCallbackPanel>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-    </dx:ASPxPopupControl>
-    <dx:ASPxPopupControl ID="DeleteForm" runat="server" ClientInstanceName="DeleteForm"
-        AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
-        PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
-        FooterText="Formulario borrar" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Width="240px">
-        <ContentStyle BackColor="#FFFDFD">
-        </ContentStyle>
-        <ModalBackgroundStyle BackColor="#E4EFE9">
-        </ModalBackgroundStyle>
-        <ContentCollection>
-            <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server">
-                <div class="form">
-                    <div>
-                        <p>
-                            <strong>¿Seguro que quiere eliminar el siguiente registro?</strong></p>
-                        <dx:ASPxTextBox ID="txtIdD" runat="server" Width="170px" ClientInstanceName="txtIdD"
-                            ClientEnabled="true" ReadOnly="True" Font-Bold="True" HorizontalAlign="Center">
-                        </dx:ASPxTextBox>
-                    </div>
-                </div>
-                <div>
-                    <ul class="frmctrl">
-                        <li><a class="pure-button" href="javascript:fn_ConfirmResDJS()" title="Borrar"><i class="fa fa-trash-o">
-                        </i>Borrar</a></li>
-                        <li><a class="pure-button" href="javascript:fn_CancelDJS()" title="Cancelar"><i class="fa fa-times">
-                        </i>Cancelar</a></li>
-                    </ul>
-                </div>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-    </dx:ASPxPopupControl>
 </asp:Content>

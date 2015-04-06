@@ -64,6 +64,12 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Clientes\CrearSolicitudes.aspx" />
     <Content Include="Clientes\Resultados.aspx" />
+    <Content Include="Clientes\Results\GeaGruesoRes.aspx" />
+    <Content Include="Clientes\Results\GeFinoRes.aspx" />
+    <Content Include="Clientes\Results\GEGruesoRes.aspx" />
+    <Content Include="Clientes\Results\HumedadAridosRes.aspx" />
+    <Content Include="Clientes\Results\PesoVolumetricoSecoCompactoRes.aspx" />
+    <Content Include="Clientes\Results\PesoVolumetricoSecoSueltoRes.aspx" />
     <Content Include="Clientes\SolicitudesEnviadas.aspx" />
     <Content Include="Clientes\welcome.aspx" />
     <Content Include="Cuenta\ManageUser.aspx" />
@@ -109,6 +115,8 @@
     <Content Include="MPR\AprobarResultados.aspx" />
     <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
+    <Content Include="MPR\Formulario web1.aspx" />
+    <Content Include="MPR\MasterMPR.Master" />
     <Content Include="MPR\PesoSecoSuelto.aspx" />
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
@@ -224,6 +232,48 @@
     </Compile>
     <Compile Include="Clientes\Resultados.aspx.designer.cs">
       <DependentUpon>Resultados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\GeaGruesoRes.aspx.cs">
+      <DependentUpon>GeaGruesoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\GeaGruesoRes.aspx.designer.cs">
+      <DependentUpon>GeaGruesoRes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\GeFinoRes.aspx.cs">
+      <DependentUpon>GeFinoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\GeFinoRes.aspx.designer.cs">
+      <DependentUpon>GeFinoRes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\GEGruesoRes.aspx.cs">
+      <DependentUpon>GEGruesoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\GEGruesoRes.aspx.designer.cs">
+      <DependentUpon>GEGruesoRes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\HumedadAridosRes.aspx.cs">
+      <DependentUpon>HumedadAridosRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\HumedadAridosRes.aspx.designer.cs">
+      <DependentUpon>HumedadAridosRes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\PesoVolumetricoSecoCompactoRes.aspx.cs">
+      <DependentUpon>PesoVolumetricoSecoCompactoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\PesoVolumetricoSecoCompactoRes.aspx.designer.cs">
+      <DependentUpon>PesoVolumetricoSecoCompactoRes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\Results\PesoVolumetricoSecoSueltoRes.aspx.cs">
+      <DependentUpon>PesoVolumetricoSecoSueltoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\PesoVolumetricoSecoSueltoRes.aspx.designer.cs">
+      <DependentUpon>PesoVolumetricoSecoSueltoRes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\SolicitudesEnviadas.aspx.cs">
       <DependentUpon>SolicitudesEnviadas.aspx</DependentUpon>
@@ -417,6 +467,13 @@
     <Compile Include="MPR\EquiposMaquinarias.aspx.designer.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MPR\Formulario web1.aspx.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\Formulario web1.aspx.designer.cs">
+      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MPR\MasterMPR.Master.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,9 +653,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SICOM\MasterSICOM.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MPR\MasterMPR.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cuenta\AccountMASTER.Master" />

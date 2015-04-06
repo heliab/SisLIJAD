@@ -10,7 +10,7 @@
 namespace SisLIJAD.MPR {
     
     
-    public partial class MasterPREUCA {
+    public partial class MasterMPR {
         
         /// <summary>
         /// Control Head1.

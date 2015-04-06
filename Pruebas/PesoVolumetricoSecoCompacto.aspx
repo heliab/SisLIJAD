@@ -275,8 +275,7 @@ fn_EndCallbackForTest();
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSEnsayes2" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_F, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=4)">
+         SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_F, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=4)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />

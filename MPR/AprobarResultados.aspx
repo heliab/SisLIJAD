@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="AprobarResultados.aspx.cs" Inherits="SisLIJAD.MPR.AprobarResultados" %>
+
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -25,26 +26,36 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     function fn_PublishJS() {
-        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Email', fn_GetSend);
-         function fn_GetSend(Value) {
-           if (Value == 1) {
-            HiddenV.Set('Enviado', 1);
-            
-        }
-           else {
-               HiddenV.Set('Enviado', 0);
-           }
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Publicada', fn_GetSend);
+        function fn_GetSend(Value) {
+            if (Value == 1) {
+                HiddenV.Set('Enviado', 1);
+
+            }
+            else {
+                HiddenV.Set('Enviado', 0);
+            }
             HiddenV.Set('GridId', fn_GetIdPrValue());
             HiddenV.Set('Nuevo', 7);
             fn_GetMail();
-          }
+            NewCallback.PerformCallback();
+        } 
+    }
     function fn_GetIdPrValue() {
         GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         return GridId;
     }
+  
+   
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
+ <div class="wrapctrl">
+        <ul class="ctrlist">
+            <li><a class="pure-button green-font" href="javascript:fn_PublishJS();" title="Publicar">
+                <i class="fa fa-check"></i>Publicar</a></li>
+        </ul>
+    </div>
  <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
@@ -53,6 +64,8 @@ fn_EndCallback();
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
+    <dx:ASPxTextBox ID="txtMail" runat="server" ClientInstanceName="txtMail" Width="170px" ClientVisible="False">
+    </dx:ASPxTextBox>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     

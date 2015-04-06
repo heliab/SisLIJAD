@@ -63,10 +63,11 @@ namespace SisLIJAD.Clientes
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Solic_Pruebas (HeaderSolicPrueba,FechaRegistro,username) values(@HeaderSolicPrueba,@FechaRegistro,@username)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Solic_Pruebas (HeaderSolicPrueba,FechaRegistro,username,Enviada) values(@HeaderSolicPrueba,@FechaRegistro,@username,@Enviada)", con);
                 cmd.Parameters.AddWithValue("@HeaderSolicPrueba", memoDesc.Text);
                 cmd.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
                 cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.Add("@Enviada", SqlDbType.Bit).Value = 0;
                 
 
                 int count = cmd.ExecuteNonQuery();

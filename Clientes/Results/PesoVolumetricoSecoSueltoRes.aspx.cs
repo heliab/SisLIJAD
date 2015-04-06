@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SisLIJAD.MPR
+namespace SisLIJAD.Clientes.Results
 {
-    public partial class MasterMPR : System.Web.UI.MasterPage
+    public partial class PesoVolumetricoSecoSueltoRes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
