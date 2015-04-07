@@ -121,6 +121,7 @@
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
+    <Content Include="PEUCA\SolicitudLaboratorios.aspx" />
     <Content Include="PEUCA\SolicitudMateriales.aspx" />
     <Content Include="Pruebas\GeFino.aspx" />
     <Content Include="Pruebas\GeaGrueso.aspx" />
@@ -515,6 +516,13 @@
     </Compile>
     <Compile Include="PEUCA\MasterPREUCA.Master.designer.cs">
       <DependentUpon>MasterPREUCA.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PEUCA\SolicitudLaboratorios.aspx.cs">
+      <DependentUpon>SolicitudLaboratorios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PEUCA\SolicitudLaboratorios.aspx.designer.cs">
+      <DependentUpon>SolicitudLaboratorios.aspx</DependentUpon>
     </Compile>
     <Compile Include="PEUCA\SolicitudMateriales.aspx.cs">
       <DependentUpon>SolicitudMateriales.aspx</DependentUpon>
