@@ -113,6 +113,7 @@
     <Content Include="MINV\Ubicaciones.aspx" />
     <Content Include="MINV\UnidadesMedida.aspx" />
     <Content Include="MPR\AprobarResultados.aspx" />
+    <Content Include="MPR\AutPrestaLabs.aspx" />
     <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\Formulario web1.aspx" />
@@ -453,6 +454,13 @@
     </Compile>
     <Compile Include="MPR\AprobarResultados.aspx.designer.cs">
       <DependentUpon>AprobarResultados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\AutPrestaLabs.aspx.cs">
+      <DependentUpon>AutPrestaLabs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\AutPrestaLabs.aspx.designer.cs">
+      <DependentUpon>AutPrestaLabs.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\DefaultMPR.aspx.cs">
       <DependentUpon>DefaultMPR.aspx</DependentUpon>

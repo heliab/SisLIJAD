@@ -93,6 +93,12 @@ function fn_GetMail() {
     function SetEmail(Value) {
         txtMail.SetText(Value);
     }
+}
+function fn_SendSolJS() {
+    HiddenV.Set('Nuevo', 7);
+    HiddenV.Set('EnvioId', fn_GetIdValue());
+    NewCallback.PerformCallback();
+    fn_EndCallback();
  }
 /****** Sub Functions for Subforms***/
 function fn_SubNewJS() {

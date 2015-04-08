@@ -23,21 +23,26 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[NombCompleto],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
+                SqlCommand cmd = new SqlCommand("SELECT  IdPrestLab,Procedimiento,Cedula,Nombre,Asignatura,CodAsignatura,CONVERT(DATE,FechaReq) as FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion,Enviada,Aprobada,Cancelada FROM  [MPR_Solic_Lab]", con);
+                cmd.Parameters.AddWithValue("@IdPrestLab", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdPrestamo"].ToString();
+                    txtId.Text = dr["IdPrestLab"].ToString();
                     mProc.Text = dr["Procedimiento"].ToString();
-                    deFeIni.Value = dr["FechaPrestar"];
-                    deFefin.Value = dr["FechaDevolver"];
-                    txtNom.Text = dr["NombCompleto"].ToString();
-                    txtAsig.Text = dr["Asignatura"].ToString();
-                    txtCod.Text = dr["CodigoAsignatura"].ToString();
                     txtCed.Text = dr["Cedula"].ToString();
+                    txtNom.Text = dr["Nombre"].ToString();
+                    txtAsig.Text = dr["Asignatura"].ToString();
+                    txtCodAsig.Text = dr["CodAsignatura"].ToString();
+                    deFeReq.Value = dr["FechaReq"].ToString();
+                    teHora.Text = dr["Horaini"].ToString();
+                    teHoraFin.Text = dr["HoraFin"].ToString();
+                    sGrup.Value= dr["NoGrupos"].ToString();
+                    seEstGrup.Value= dr["NoEstudiantesGrup"].ToString();
+                    cmbLabs.Value = dr["IdUbicacion"].ToString();
+                   
                 }
                 else
                 {
@@ -65,16 +70,21 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Solic_Lab (Procedimiento,username,Cedula,Nombre,Asignatura,CodAsignatura,FechaReg,FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion) values(@Procedimiento,@username,@Cedula,@Nombre,@Asignatura,@CodAsignatura,@FechaReg,@FechaReq,@Horaini,@HoraFin,@NoGrupos,@NoEstudiantesGrup,@IdUbicacion)", con);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
-                cmd.Parameters.AddWithValue("@FechaRegistro", serverTime);
-                cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
-                cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
-                cmd.Parameters.AddWithValue("@SolicitadoPor", username);
-                cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
-                cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
-                cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
+                cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
+                cmd.Parameters.AddWithValue("@Nombre", txtNom.Text);
+                cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
+                cmd.Parameters.AddWithValue("@CodAsignatura", txtCodAsig.Text);
+                cmd.Parameters.AddWithValue("@FechaReg", serverTime);
+                cmd.Parameters.AddWithValue("@FechaReq", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@Horaini", teHora.Text);
+                cmd.Parameters.AddWithValue("@HoraFin", teHoraFin.Text);
+                cmd.Parameters.AddWithValue("@NoGrupos", sGrup.Text);
+                cmd.Parameters.AddWithValue("@NoEstudiantesGrup", seEstGrup.Text);
+                cmd.Parameters.AddWithValue("@IdUbicacion", cmbLabs.Value);
+
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -93,8 +103,6 @@ namespace SisLIJAD.PEUCA
                 con.Close();
             }
 
-
-
         }
         protected void Update()
         {
@@ -102,15 +110,19 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Prestamos set Procedimiento=@Procedimiento,FechaPrestar=@FechaPrestar,FechaDevolver=@FechaDevolver,NombCompleto=@NombCompleto,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdPrestamo = @IdPrestamo", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
+                SqlCommand cmd = new SqlCommand("update MPR_Solic_Lab set Procedimiento=@Procedimiento,Cedula=@Cedula,Nombre=@Nombre,Asignatura=@Asignatura,CodAsignatura=@CodAsignatura,FechaReq=@FechaReq,Horaini=@Horaini,HoraFin=@HoraFin,NoGrupos=@NoGrupos,NoEstudiantesGrup=@NoEstudiantesGrup,IdUbicacion=@IdUbicacion where IdPrestLab = @IdPrestLab", con);
+                cmd.Parameters.AddWithValue("@IdPrestLab", txtId.Text);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
-                cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
-                cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
-                cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
-                cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
-                cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
+                cmd.Parameters.AddWithValue("@Nombre", txtNom.Text);
+                cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
+                cmd.Parameters.AddWithValue("@CodAsignatura", txtCodAsig.Text);
+                cmd.Parameters.AddWithValue("@FechaReq", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@Horaini", teHora.Text);
+                cmd.Parameters.AddWithValue("@HoraFin", teHoraFin.Text);
+                cmd.Parameters.AddWithValue("@NoGrupos", sGrup.Text);
+                cmd.Parameters.AddWithValue("@NoEstudiantesGrup", seEstGrup.Text);
+                cmd.Parameters.AddWithValue("@IdUbicacion", cmbLabs.Value);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -136,8 +148,8 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Prestamos where IdPrestamo = @IdPrestamo", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MPR_Solic_Lab where IdPrestLab = @IdPrestLab", con);
+                cmd.Parameters.AddWithValue("@IdPrestLab", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -159,18 +171,18 @@ namespace SisLIJAD.PEUCA
         }
         protected void EnviarSol()
         {
-            string val = HiddenV.Get("Enviar").ToString();
+            string val = HiddenV.Get("EnvioId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE MINV_Prestamos set Enviado=@Enviado where IdPrestamo=@IdPrestamo", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", val);
-                cmd.Parameters.Add("@Enviado", SqlDbType.Bit).Value = 1;
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Solic_Lab set Enviada=@Enviada where IdPrestLab=@IdPrestLab", con);
+                cmd.Parameters.AddWithValue("@IdPrestLab", val);
+                cmd.Parameters.Add("@Enviada", SqlDbType.Bit).Value = 1;
                 if (cmd.ExecuteNonQuery() == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
                     EnviarMensaje();
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
                 }
                 else
                 {
@@ -187,138 +199,7 @@ namespace SisLIJAD.PEUCA
             }
         }
         #endregion
-        #region SubCrud
-        protected void SubSelect()
-        {
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle,IdMaterial,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
-
-
-                //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    // display data in textboxes
-                    txtSubId.Text = dr["CodDetalle"].ToString();
-                    cmbMateriales.Text = dr["IdMaterial"].ToString();
-                    sCant.Value = dr["Cantidad"].ToString();
-
-
-                }
-                else
-                {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-
-
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
-        protected void SubInsert()
-        {
-            string IdPrestamo = HiddenGridPr.Get("SessionId").ToString();
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdPrestamo,IdMaterial,Cantidad) values(@IdPrestamo,@IdMaterial,@Cantidad)", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", IdPrestamo);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
-                cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
-
-                int count = cmd.ExecuteNonQuery();
-                if (count == 1)
-                {
-                    //Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
-
-                }
-                else
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-
-
-
-        }
-        protected void SubUpdate()
-        {
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
-                cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
-
-
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Los datos no se han actalizado") + "')</script>");
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        protected void SubDelete()
-        {
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtIdD.Text);
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
-                }
-                else
-                {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-
-        }
-        #endregion
+        
         #region Mensaje
         protected void EnviarMensaje()
         {
@@ -330,12 +211,12 @@ namespace SisLIJAD.PEUCA
                 mail.From = new MailAddress("sislijad@gmail.com", "Alerta del sistema");
                 mail.To.Add("sislijad@gmail.com");
                 mail.To.Add("browonfire@yandex.com");
-                mail.Subject = "Solicitud de Materiales pendiente";
+                mail.Subject = "Solicitud de Laboratorios pendiente";
 
                 mail.IsBodyHtml = true;
                 string htmlBody;
 
-                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos <b>Administrador</b>, usted tiene una solicitud de materiales pendiente en el sistema.</p><p>Favor revisar,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
+                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos <b>Administrador</b>, usted tiene una solicitud de prestamo de laboratorios pendiente en el sistema.</p><p>Favor revisar,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
 
                 mail.Body = htmlBody;
 
@@ -367,13 +248,7 @@ namespace SisLIJAD.PEUCA
                     break;
                 case "2": Delete();
                     break;
-                case "3": SubInsert();
-                    break;
-                case "4": SubUpdate();
-                    break;
-                case "5": SubDelete();
-                    break;
-                case "6": EnviarSol();
+              case "7": EnviarSol();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -390,30 +265,15 @@ namespace SisLIJAD.PEUCA
         {
             Select();
         }
-        protected void cmbMateriales_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            Session["IdPrestamo"] = HiddenGridPr.Get("SessionId").ToString();
-            cmbMateriales.DataBind();
-        }
-        #endregion
-        #region Subcallbacks
-        protected void SubFillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            SubSelect();
-        }
-        protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
-        }
         protected void ASPxGridView1_BeforePerformDataSelect(object sender, EventArgs e)
         {
-            Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+            Session["IdPrestLab"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
         {
-            Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+            Session["IdPrestLab"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         #endregion
-
-    }
+        
+     }
 }

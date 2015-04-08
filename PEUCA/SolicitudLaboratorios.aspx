@@ -24,15 +24,58 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+    function fn_EditSolJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
+        function SetEnv(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_EditJS();
+                fn_EndCallback();
+            }
+        } 
+    }
+    function fn_DeleteSolJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
+        function SetEnv(Value) {
+            if (Value == 1) {
+                alert('La solicitud ya ha sido enviada y no puede realizar cambios');
+                return
+            }
+            else {
+                fn_DeleteJS();
+                fn_EndCallback();
+            }
+        } 
+    }
+    function fn_GetSendJS() {
+        GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
+        function SetEnv(Value) {
+            if (Value == 1) {
+                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                return
+            }
+            else {
+                if (confirm("Desear enviar la solicitud?.")) {
+                    fn_SendSolJS();
+                } 
+            }
+        } 
+    }
+
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
     <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                 class="fa fa-plus"></i>Agregar</a></li>
-            <li><a class="pure-button green-font" href="javascript:fn_EditSolicJS();" title="Editar">
+            <li><a class="pure-button green-font" href="javascript:fn_EditSolJS();" title="Editar">
                 <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-            <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
+            <li><a class="pure-button red-font" href="javascript:fn_DeleteSolJS();" title="Borrar">
                 <i class="fa fa-trash"></i>Borrar</a></li>
             <li><a class="pure-button green-font" href="javascript:fn_GetSendJS();" title="Enviar solicitud">
                 <i class="fa fa-paper-plane-o"></i>Enviar</a></li>
@@ -49,39 +92,52 @@ fn_EndCallback();
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSPrestamos" KeyFieldName="IdPrestamo" SettingsBehavior-AllowFocusedRow="True"
+        DataSourceID="SDSPrestamos" KeyFieldName="IdPrestLab" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
         OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents DetailRowExpanding="function(s, e) {
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
-                Width="7%">
+            <dx:GridViewDataTextColumn FieldName="IdPrestLab" ReadOnly="True" 
+                VisibleIndex="0" Caption="Id Prestamo" Width="7%">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="FechaPrestamo" ReadOnly="True" 
-                VisibleIndex="2" Width="10%">
-            </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="FechaDevolucion" ReadOnly="True" 
+            <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="2" 
+                Caption="Usuario">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="Registrado" ReadOnly="True" 
                 VisibleIndex="3" Width="10%">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="SolicitadoPor" VisibleIndex="4" 
-                Width="15%">
+            <dx:GridViewDataDateColumn FieldName="Requerido" ReadOnly="True" 
+                VisibleIndex="4" Width="10%">
+            </dx:GridViewDataDateColumn>
+            <dx:GridViewDataTextColumn FieldName="Horaini" VisibleIndex="5" 
+                Caption="H.Inicio" Width="6%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Enviado" VisibleIndex="5" Width="7%">
+            <dx:GridViewDataTextColumn FieldName="HoraFin" VisibleIndex="6" Caption="H.Fin" 
+                Width="6%">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="DescUbicacion" VisibleIndex="7" 
+                Caption="Laboratorio" Width="10%">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="8" Width="7%">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewDataCheckColumn FieldName="Aprobado" VisibleIndex="6" Width="7%">
+            <dx:GridViewDataCheckColumn FieldName="Aprobada" VisibleIndex="9" Width="7%">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="7" Width="0%">
+            <dx:GridViewDataCheckColumn FieldName="Cancelada" VisibleIndex="10" Width="7%">
+            </dx:GridViewDataCheckColumn>
+            <dx:GridViewCommandColumn VisibleIndex="11" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
-        <SettingsPager AlwaysShowPager="True" PageSize="15">
+        <SettingsPager AlwaysShowPager="True" PageSize="7">
             <Summary AllPagesText="Paginas: {0} - {1} ({2} items)" 
                 Text="Pagina {0} of {1} ({2} items)" />
         </SettingsPager>
@@ -106,10 +162,10 @@ fn_EndCallback();
                                         OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect">
                                         <Columns>
                                             <dx:GridViewDataTextColumn FieldName="Cedula" ShowInCustomizationForm="True" 
-                                                VisibleIndex="0" Width="20%">
+                                                VisibleIndex="0">
                                             </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn Caption="Nombre Solicitante" 
-                                                FieldName="NombCompleto" ShowInCustomizationForm="True" VisibleIndex="1">
+                                            <dx:GridViewDataTextColumn 
+                                                FieldName="Nombre" ShowInCustomizationForm="True" VisibleIndex="1">
                                             </dx:GridViewDataTextColumn>
                                         </Columns>
                                         <SettingsPager Visible="False">
@@ -127,11 +183,17 @@ fn_EndCallback();
                                         ClientIDMode="AutoID" DataSourceID="SDSDatosAcademicos" 
                                         OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Width="100%">
                                         <Columns>
-                                            <dx:GridViewDataTextColumn FieldName="CodigoAsignatura" 
-                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="25%">
+                                            <dx:GridViewDataTextColumn FieldName="CodAsignatura" 
+                                                ShowInCustomizationForm="True" VisibleIndex="0">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataTextColumn FieldName="Asignatura" 
                                                 ShowInCustomizationForm="True" VisibleIndex="1">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn FieldName="NoGrupos" ShowInCustomizationForm="True" 
+                                                VisibleIndex="2">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn FieldName="NoEstudiantesGrup" 
+                                                ShowInCustomizationForm="True" VisibleIndex="3">
                                             </dx:GridViewDataTextColumn>
                                         </Columns>
                                     </dx:ASPxGridView>
@@ -145,27 +207,22 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT(Date,FechaPrestar)as FechaPrestamo, CONVERT(Date,FechaDevolver) as FechaDevolucion, SolicitadoPor, Enviado,Aprobado FROM MINV_Prestamos WHERE (SolicitadoPor = @username) ORDER BY IdPrestamo DESC">
+        SelectCommand="SELECT MPR_Solic_Lab.IdPrestLab, MPR_Solic_Lab.Procedimiento, MPR_Solic_Lab.username, CONVERT (Date, MPR_Solic_Lab.FechaReg) AS Registrado, CONVERT (DATE, MPR_Solic_Lab.FechaReq) AS Requerido, MPR_Solic_Lab.Horaini, MPR_Solic_Lab.HoraFin, MINV_Ubicaciones.DescUbicacion, MPR_Solic_Lab.Enviada, MPR_Solic_Lab.Aprobada, MPR_Solic_Lab.Cancelada FROM MPR_Solic_Lab INNER JOIN MINV_Ubicaciones ON MPR_Solic_Lab.IdUbicacion = MINV_Ubicaciones.IdUbicacion WHERE (MPR_Solic_Lab.username = @username) ORDER BY MPR_Solic_Lab.IdPrestLab DESC">
         <SelectParameters>
             <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle, MINV_Materiales.NomMaterial, MINV_Materiales.CodUCA, MINV_Materiales.Marca, MINV_Det_Prestamo.Cantidad FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MINV_Materiales ON MINV_Det_Prestamo.IdMaterial = MINV_Materiales.IdMaterial WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
-        <SelectParameters>
-            <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
-        </SelectParameters>
-    </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDatosPersonales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-    SelectCommand="SELECT NombCompleto, Cedula FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+        SelectCommand="SELECT Cedula, Nombre FROM MPR_Solic_Lab WHERE (IdPrestLab = @IdPrestLab)">
         <SelectParameters>
-            <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
+            <asp:SessionParameter Name="IdPrestLab" SessionField="IdPrestLab" />
         </SelectParameters>
     </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDSDatosAcademicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-            SelectCommand="SELECT CodigoAsignatura, Asignatura FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+            
+        SelectCommand="SELECT CodAsignatura, Asignatura, NoGrupos, NoEstudiantesGrup FROM MPR_Solic_Lab WHERE (IdPrestLab = @IdPrestLab)">
         <SelectParameters>
-            <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
+            <asp:SessionParameter Name="IdPrestLab" SessionField="IdPrestLab" />
         </SelectParameters>
         </asp:SqlDataSource>
 </asp:Content>
@@ -176,7 +233,7 @@ fn_EndCallback();
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="449px" Width="428px" CloseAction="CloseButton">
+        Height="430px" Width="410px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
@@ -189,7 +246,7 @@ fn_CleanGroup(1);
                     <PanelCollection>
                         <dx:PanelContent ID="PanelContent1" runat="server">
                             <div class="form">
-                                <div class="BaseForm">
+                               
                                     <div class="row">
                                         <div class="first">
                                             <div>
@@ -202,11 +259,12 @@ fn_CleanGroup(1);
                                         </div>
                                     </div>
                                     <br />
-                                    <div>
+                                   
                                         <div>
                                             <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Describa el procedimiento a realizar">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxMemo ID="mProc" runat="server" Height="71px" Width="100%" ClientInstanceName="mProc">
+                                            <dx:ASPxMemo ID="mProc" runat="server" Height="68px" Width="90%" 
+                                                ClientInstanceName="mProc">
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -216,12 +274,14 @@ fn_CleanGroup(1);
                                                 </ValidationSettings>
                                             </dx:ASPxMemo>
                                         </div>
-                                    </div>
+                                    
+                                     <div class="BaseForm">
                                     <div class="row">
-                                        <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha que requerirá los materiales">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxDateEdit ID="deFeIni" runat="server" ClientInstanceName="deFeIni">
+                                    <div class="first">
+                                        <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Cod. Asignatura">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxTextBox ID="txtCodAsig" runat="server" Width="170px" 
+                                            ClientInstanceName="txtCodAsig">
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -229,12 +289,30 @@ fn_CleanGroup(1);
                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
-                                            </dx:ASPxDateEdit>
-                                        </div>
-                                        <div class="second">
-                                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Fecha de devolución">
+                                        </dx:ASPxTextBox>
+                                    </div>
+                                    <div class="second">
+                                        <dx:ASPxLabel ID="ASPxLabel11" runat="server" Text="Nombre de la asignatura">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxTextBox ID="txtAsig" runat="server" Width="170px" ClientInstanceName="txtAsig">
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
+                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                    <RegularExpression ErrorText="Informacion Requerida" />
+                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                                </ValidationSettings>
+                                        </dx:ASPxTextBox>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="first">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha que requeriere el laboratorio">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxDateEdit ID="deFefin" runat="server" ClientInstanceName="deFefin">
+                                            <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq" 
+                                                Width="170px">
+                                                <CalendarProperties TodayButtonText="Hoy">
+                                                </CalendarProperties>
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -245,11 +323,72 @@ fn_CleanGroup(1);
                                             </dx:ASPxDateEdit>
                                         </div>
                                       </div>
+
+                                      <div class="row">
+                                      <div class="first">
+                                          <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Hora de inicio de la actividad">
+                                          </dx:ASPxLabel>
+                                      <dx:ASPxTimeEdit ID="teHora" runat="server" ClientIDMode="AutoID" ClientInstanceName="teHora"
+                                        ValidationSettings-ValidationGroup="ControlGroup1" Height="0px" Width="170px">
+                                        <ValidationSettings ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                    </dx:ASPxTimeEdit>
+                                      </div>
+                                      <div class="second">
+                                          <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Hora fin">
+                                          </dx:ASPxLabel>
+                                      <dx:ASPxTimeEdit ID="teHoraFin" runat="server" ClientIDMode="AutoID" ClientInstanceName="teHoraFin"
+                                        ValidationSettings-ValidationGroup="ControlGroup1" Height="0px" Width="170px">
+                                        <ValidationSettings ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                    </dx:ASPxTimeEdit>
+                                      </div>
+                                      </div>
+
+                                      <div class="row">
+                                      <div class="first">
+                                          <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="No Grupos">
+                                          </dx:ASPxLabel>
+                                          <dx:ASPxSpinEdit ID="sGrup" runat="server" Number="0" LargeIncrement="1"
+                                                Increment="1" NullText="0" Width="170px" MaxValue="2147483647" 
+                                              ClientInstanceName="sGrup">
+                                           <ValidationSettings ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                          </dx:ASPxSpinEdit>
+                                      </div>
+                                      <div class="second">
+                                          <dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Estudiantes por grupo">
+                                          </dx:ASPxLabel>
+                                          <dx:ASPxSpinEdit ID="seEstGrup" runat="server" Number="0" LargeIncrement="1"
+                                                Increment="1" NullText="0" Width="170px" MaxValue="2147483647" 
+                                              ClientInstanceName="seEstGrup">
+                                           <ValidationSettings ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                          </dx:ASPxSpinEdit>
+                                      </div>
+                                      </div>
+
                                       <div class="row">
                                         <div class="first">
                                             <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Ingrese su nombre completo">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxTextBox ID="txtNom" runat="server" Width="100%" ClientSideName="txtNom">
+                                            <dx:ASPxTextBox ID="txtNom" runat="server" Width="90%" ClientSideName="txtNom">
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -258,10 +397,7 @@ fn_CleanGroup(1);
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
                                            </dx:ASPxTextBox>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="first">
+                                        </div><div class="second">
                                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Ingrese Cedula Identidad">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtCed" runat="server" Width="170px" ClientSideName="txtCed">
@@ -277,33 +413,29 @@ fn_CleanGroup(1);
                                     </div>
                                     <div class="row">
                                     <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Código de la asignatura">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxTextBox ID="txtCod" runat="server" Width="170px" ClientSideName="txtCod">
-                                            <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
+                                        <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Seleccione el laboratorio">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxComboBox ID="cmbLabs" runat="server" ClientInstanceName="cmbLabs" 
+                                            DataSourceID="SDSLabs" TextField="Laboratotio" ValueField="IdLaboratorio" 
+                                            Width="170px">
+                                            <Columns>
+                                                <dx:ListBoxColumn Caption="Id" FieldName="IdLaboratorio" />
+                                                <dx:ListBoxColumn Caption="Laboratorio" FieldName="Laboratotio" />
+                                            </Columns>
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
-                                           </dx:ASPxTextBox>
-                                        </div>
-                                        <div class="second">
-                                            <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Nombre de la asignatura">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxTextBox ID="txtAsig" runat="server" Width="180px" ClientSideName="txtAsig">
-                                            <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                           </dx:ASPxTextBox>
-                                        </div>
+                                        </dx:ASPxComboBox>
+                                        <asp:SqlDataSource ID="SDSLabs" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                            SelectCommand="SELECT IdUbicacion AS IdLaboratorio, DescUbicacion AS Laboratotio FROM MINV_Ubicaciones WHERE (IdTipoUb = 1)"></asp:SqlDataSource>
                                     </div>
-                                                                  </div>
+                                    </div>
+                                     </div>
                             </div>
                             <div>
                                 <ul class="frmctrl">
@@ -321,109 +453,7 @@ fn_CleanGroup(1);
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
-    <dx:ASPxPopupControl ID="SubFormPopup" runat="server" ClientInstanceName="SubFormPopup"
-        AllowDragging="True" AllowResize="True" HeaderText="Formulario de sub registro"
-        Modal="True" PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True"
-        ShowFooter="True" FooterText="Formulario de sub registro" PopupVerticalAlign="WindowCenter"
-        ClientIDMode="AutoID" Height="186px" Width="380px" CloseAction="CloseButton">
-        <ClientSideEvents CloseUp="function(s, e) {
-	
-fn_CleanGroup(2);
-}" CloseButtonClick="function(s, e) {
-	fn_CleanGroup(2);
-}" />
-        <ClientSideEvents CloseButtonClick="function(s, e) {
-	fn_CleanGroup(2);
-}" CloseUp="function(s, e) {
-	
-fn_CleanGroup(2);
-}"></ClientSideEvents>
-        <ContentStyle BackColor="#F9F9F9">
-        </ContentStyle>
-        <ContentCollection>
-            <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
-                <dx:ASPxCallbackPanel ID="SubFillingCallback" runat="server" ClientInstanceName="SubFillingCallback"
-                    Width="100%" OnCallback="SubFillingCallback_Callback">
-                    <ClientSideEvents EndCallback="function(s, e) {
-fn_EndCallback();
-}" />
-                    <ClientSideEvents EndCallback="function(s, e) {
-fn_EndCallback();
-}"></ClientSideEvents>
-                    <PanelCollection>
-                        <dx:PanelContent ID="PanelContent2" runat="server">
-                            <div class="form">
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Id">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtSubId" runat="server" Width="170px" ClientInstanceName="txtSubId"
-                                        ClientEnabled="true" ReadOnly="True">
-                                    </dx:ASPxTextBox>
-                                    </div>
-                                <dx:ASPxHiddenField ID="HiddenGridPr" runat="server" ClientInstanceName="HiddenGridPr">
-                                </dx:ASPxHiddenField>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Seleccione Material">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbMateriales" runat="server" ClientInstanceName="cmbMateriales" 
-                                        Width="95%" DataSourceID="SDSMateriales" TextField="NomMaterial" 
-                                        ValueField="IdMaterial" OnCallback="cmbMateriales_Callback">
-                                        
-                                        <Columns>
-                                            <dx:ListBoxColumn Caption="Material" FieldName="NomMaterial" />
-                                        </Columns>
-                                        
-                                     <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                        </ValidationSettings>
-                                    </dx:ASPxComboBox>
-                                    <asp:SqlDataSource ID="SDSMateriales" runat="server" 
-                                        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
-                                        <SelectParameters>
-                                            <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
-                                        </SelectParameters>
-                                    </asp:SqlDataSource>
-                                </div>
-                                <div>
-                                    <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Cantidad requerida">
-                                    </dx:ASPxLabel>
-                                    <dx:ASPxSpinEdit ID="sCant" ClientInstanceName="sCant" runat="server" Height="22px"
-                                        Number="0" LargeIncrement="1" Increment="1" NullText="0" Width="114px"
-                                        MaxValue="2147483647">
-                                        
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
-                                            <RegularExpression ErrorText="Informacion Requerida" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                        </ValidationSettings>
-                                    </dx:ASPxSpinEdit>
-                                </div>
-                            </div>
-                            <div>
-                                <ul class="frmctrl">
-                                    <li><a class="pure-button button-green white-font" href="javascript:fn_SubAddSol();" title="Guardar">
-                                        <i class="fa fa-plus-square"></i>Nuevo</a></li>
-                                    <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
-                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
-                                    <li><a class="pure-button red-font" href="javascript:fn_SubCancelJS()" title="Cancelar">
-                                        <i class="fa fa-times"></i>Cancelar</a></li>
-                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(2);" title="Limpiar">
-                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
-                                </ul>
-                            </div>
-                        </dx:PanelContent>
-                    </PanelCollection>
-                </dx:ASPxCallbackPanel>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-    </dx:ASPxPopupControl>
+    
     <dx:ASPxPopupControl ID="DeleteForm" runat="server" ClientInstanceName="DeleteForm"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
