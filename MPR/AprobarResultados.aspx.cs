@@ -24,7 +24,6 @@ namespace SisLIJAD.MPR
         {
             GridPrincipal.DataBind();
         }
-
         protected void SubGrid2_BeforePerformDataSelect(object sender, EventArgs e)
         {
             Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
@@ -34,19 +33,16 @@ namespace SisLIJAD.MPR
             Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         #endregion
-
         #region Callback
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
             string valNuevo = HiddenV.Get("Nuevo").ToString();
-
             switch (valNuevo)
             {
                 case "7": Publish();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
-
             }
             HiddenV.Clear();
         }

@@ -116,7 +116,6 @@
     <Content Include="MPR\AutPrestaLabs.aspx" />
     <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
-    <Content Include="MPR\Formulario web1.aspx" />
     <Content Include="MPR\MasterMPR.Master" />
     <Content Include="MPR\PesoSecoSuelto.aspx" />
     <Content Include="MPR\Pruebas.aspx" />
@@ -475,13 +474,6 @@
     </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.designer.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\Formulario web1.aspx.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\Formulario web1.aspx.designer.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\MasterMPR.Master.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
