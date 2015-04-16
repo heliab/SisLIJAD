@@ -9,12 +9,51 @@ using DevExpress.Web.ASPxGridView;
 
 namespace SisLIJAD.SICOM
 {
-    public partial class Tiposervicio : System.Web.UI.Page
+    public partial class TipoServicio : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        #region Buttons
+
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string value = HiddenV.Get("Nuevo").ToString();
+            string real = "0";
+            if (value == real)
+            {
+                Insert();
+                GridPrincipal.DataBind();
+            }
+            else
+            {
+                Update();
+                GridPrincipal.DataBind();
+            }
+            HiddenV.Clear();
+        }
+
+
+        protected void btnConfirmD_Click(object sender, EventArgs e)
+        {
+            Delete();
+            GridPrincipal.DataBind();
+
+        }
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "show", "FormPopup.Show();", true);
+            HiddenV.Set("Nuevo", 1);
+            Select();
+        }
+
+
+
+        #endregion
+
+
         #region CRUD
         protected void Select()
         {
@@ -22,7 +61,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MSCOMP_TipoServicio where IdServicio= @IdServicio", con);
+                SqlCommand cmd = new SqlCommand("Select * from MSCOMP_TipoServicio where IdServicio = @IdServicio", con);
                 cmd.Parameters.AddWithValue("@IdServicio", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -30,7 +69,7 @@ namespace SisLIJAD.SICOM
                 {
                     // display data in textboxes
                     txtId.Text = dr["IdServicio"].ToString();
-                    txtDesc.Text = dr["NomServicio"].ToString();
+                    txtServ.Text = dr["NomServicio"].ToString();
                 }
                 else
                 {
@@ -50,6 +89,7 @@ namespace SisLIJAD.SICOM
                 con.Close();
             }
         }
+
         protected void Insert()
         {
 
@@ -58,13 +98,13 @@ namespace SisLIJAD.SICOM
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MSCOMP_TipoServicio(NomServicio) values(@NomServicio)", con);
-                cmd.Parameters.AddWithValue("@NomServicio", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@NomServicio", txtServ.Text);
 
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El servicio " + txtServ.Text + " se ha guardado correctamente") + "')</script>");
 
                 }
                 else
@@ -90,12 +130,12 @@ namespace SisLIJAD.SICOM
                 con.Open();
                 SqlCommand cmd = new SqlCommand("update MSCOMP_TipoServicio set NomServicio=@NomServicio where IdServicio = @IdServicio", con);
                 cmd.Parameters.AddWithValue("@IdServicio", txtId.Text);
-                cmd.Parameters.AddWithValue("@NomServicio", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@NomServicio", txtServ.Text);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El servicio se ha actualizado correctamente") + "')</script>");
                 }
                 else
                 {
@@ -140,37 +180,6 @@ namespace SisLIJAD.SICOM
         }
         #endregion
 
-        #region Callbacks
-        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            string valNuevo = HiddenV.Get("Nuevo").ToString();
 
-            switch (valNuevo)
-            {
-                case "0": Insert();
-                    GridPrincipal.DataBind();
-                    break;
-                case "1": Update();
-                    GridPrincipal.DataBind();
-                    break;
-                case "2": Delete();
-                    GridPrincipal.DataBind();
-                    break;
-                default: Response.Write("Error con valor de crud");
-                    break;
-
-            }
-            HiddenV.Clear();
-        }
-        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
-        {
-            GridPrincipal.DataBind();
-            GridPrincipal.Focus();
-        }
-        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            Select();
-        }
-        #endregion
     }
 }

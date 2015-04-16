@@ -5,5 +5,3 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-</asp:Content>

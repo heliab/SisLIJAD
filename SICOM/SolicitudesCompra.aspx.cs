@@ -6,17 +6,14 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
-
-namespace SisLIJAD.MINV
+namespace SisLIJAD.SICOM
 {
-    public partial class Materiales : System.Web.UI.Page
+    public partial class SolicitudesCompra : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-
         #region CRUD
         protected void Select()
         {
@@ -24,20 +21,15 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                //SqlCommand cmd = new SqlCommand("Select * from MPR_EquipMaquin where IdMaterial= @IdMaterial", con);
-                SqlCommand cmd = new SqlCommand("SELECT  IdMaterial, CodUCA, NomMaterial, IdUnidad, Marca, Prestamo FROM dbo.MINV_Materiales WHERE (IdMaterial = @IdMaterial)", con);
-                cmd.Parameters.AddWithValue("@IdMaterial", txtId.Text);
+                SqlCommand cmd = new SqlCommand("Select * from MSCOMP_TipoServicio where IdServicio= @IdServicio", con);
+                cmd.Parameters.AddWithValue("@IdServicio", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdMaterial"].ToString();
-                    txtCodUCA.Text = dr["CodUCA"].ToString();
-                    txtNomMat.Text = dr["NomMaterial"].ToString();
-                    cmbUdM.Value = dr["IdUnidad"].ToString();
-                    txtMarca.Text = dr["Marca"].ToString();
-                    chkPrest.Checked= Convert.ToBoolean(dr["Prestamo"]);
+                    txtId.Text = dr["IdServicio"].ToString();
+                    txtDesc.Text = dr["NomServicio"].ToString();
                 }
                 else
                 {
@@ -57,7 +49,6 @@ namespace SisLIJAD.MINV
                 con.Close();
             }
         }
-
         protected void Insert()
         {
 
@@ -65,18 +56,14 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Materiales (CodUCA, NomMaterial, IdUnidad, Marca, Prestamo) values(@CodUCA, @NomMaterial, @IdUnidad, @Marca, @Prestamo)", con);
-                cmd.Parameters.AddWithValue("@CodUCA", txtCodUCA.Text);
-                cmd.Parameters.AddWithValue("@NomMaterial", txtNomMat.Text);
-                cmd.Parameters.AddWithValue("@IdUnidad", cmbUdM.Value);
-                cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
-                cmd.Parameters.AddWithValue("@Prestamo", chkPrest.Checked ? 1 : 0);
-                //cmd.Parameters["@Prestamo"].Value = chkPrest.Checked ? 1 : 0;
-                
+                SqlCommand cmd = new SqlCommand("insert into MSCOMP_TipoServicio(NomServicio) values(@NomServicio)", con);
+                cmd.Parameters.AddWithValue("@NomServicio", txtDesc.Text);
+
+
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    //Response.Write("<script>alert('" + Server.HtmlEncode("El equipo " + + " se ha guardado correctamente") + "')</script>");
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
 
                 }
                 else
@@ -100,13 +87,9 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Materiales set CodUCA=@CodUCA,NomMaterial=@NomMaterial,IdUnidad=@IdUnidad,Marca=@Marca,Prestamo=@Prestamo where IdMaterial = @IdMaterial", con);
-                cmd.Parameters.AddWithValue("@IdMaterial", txtId.Text);
-                cmd.Parameters.AddWithValue("@CodUCA", txtCodUCA.Text);
-                cmd.Parameters.AddWithValue("@NomMaterial", txtNomMat.Text);
-                cmd.Parameters.AddWithValue("@IdUnidad", cmbUdM.Value);
-                cmd.Parameters.AddWithValue("@Marca", txtMarca.Text);
-                cmd.Parameters.AddWithValue("@Prestamo", chkPrest.Checked ? 1 : 0);
+                SqlCommand cmd = new SqlCommand("update MSCOMP_TipoServicio set NomServicio=@NomServicio where IdServicio = @IdServicio", con);
+                cmd.Parameters.AddWithValue("@IdServicio", txtId.Text);
+                cmd.Parameters.AddWithValue("@NomServicio", txtDesc.Text);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
@@ -133,8 +116,8 @@ namespace SisLIJAD.MINV
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Materiales where IdMaterial = @IdMaterial", con);
-                cmd.Parameters.AddWithValue("@IdMaterial", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MSCOMP_TipoServicio where IdServicio = @IdServicio", con);
+                cmd.Parameters.AddWithValue("@IdServicio", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -170,6 +153,7 @@ namespace SisLIJAD.MINV
                     GridPrincipal.DataBind();
                     break;
                 case "2": Delete();
+                    GridPrincipal.DataBind();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -177,41 +161,14 @@ namespace SisLIJAD.MINV
             }
             HiddenV.Clear();
         }
-
         protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridPrincipal.DataBind();
             GridPrincipal.Focus();
         }
-
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             Select();
-        }
-        #endregion
-        #region Reporte
-        protected void Reporte() {
-            string rpt = "storeMATERIALES";
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            SqlCommand cmd = new SqlCommand(rpt, con);
-            SqlDataAdapter AdP = new SqlDataAdapter();
-            DataSet DSMateriales=new DataSet();
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                con.Open();
-                cmd.Parameters.Add("@IdMateriales", SqlDbType.Int).Value = txtId.Text;
-                AdP = new SqlDataAdapter(cmd);
-                AdP.Fill(DSMateriales, "View_Materiales");
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-
-
-            }
-            finally { con.Close(); }
-        
         }
         #endregion
     }

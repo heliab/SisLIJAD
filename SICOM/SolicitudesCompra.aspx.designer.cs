@@ -10,7 +10,7 @@
 namespace SisLIJAD.SICOM {
     
     
-    public partial class Tiposervicio {
+    public partial class SolicitudesCompra {
         
         /// <summary>
         /// Control NewCallback.
