@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="DevExpress.Data.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxGridView.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -136,7 +130,6 @@
     <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
-    <Content Include="REPORTES\ReportMaterial.aspx" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
@@ -581,19 +574,6 @@
     <Compile Include="Pruebas\PesoVolumetricoSecoSuelto.aspx.designer.cs">
       <DependentUpon>PesoVolumetricoSecoSuelto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="REPORTES\ReportMaterial.aspx.cs">
-      <DependentUpon>ReportMaterial.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="REPORTES\ReportMaterial.aspx.designer.cs">
-      <DependentUpon>ReportMaterial.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="REPORTES\RptMateriales.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RptMateriales.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="SICOM\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -675,10 +655,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="REPORTES\RptMateriales.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RptMateriales.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MINV\MasterMinv.Master" />
