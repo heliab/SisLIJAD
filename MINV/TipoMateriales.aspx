@@ -123,7 +123,7 @@ fn_EndCallback();
         Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
             <dx:GridViewDataTextColumn Caption="Id" FieldName="IdTipoMat" ReadOnly="True" VisibleIndex="0"
-                Width="4%">
+                Width="4%" SortIndex="0" SortOrder="Descending">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Tipo Material" FieldName="DescTipoMat" VisibleIndex="1">

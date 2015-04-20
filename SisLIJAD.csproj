@@ -133,9 +133,9 @@
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
-    <Content Include="SICOM\SolicitudesCompra.aspx" />
-    <Content Include="SICOM\Tiposervicio.aspx" />
-    <Content Include="SICOM\TiposMoneda.aspx" />
+    <Content Include="SICOM\Proveedores.aspx" />
+    <Content Include="SICOM\TipoMoneda.aspx" />
+    <Content Include="SICOM\TipoServicio.aspx" />
     <Content Include="Styles\buttons-core.css" />
     <Content Include="Styles\buttons.css" />
     <Content Include="Styles\font-awesome\css\font-awesome.css" />
@@ -588,26 +588,26 @@
     <Compile Include="SICOM\MasterSICOM.Master.designer.cs">
       <DependentUpon>MasterSICOM.Master</DependentUpon>
     </Compile>
-    <Compile Include="SICOM\SolicitudesCompra.aspx.cs">
-      <DependentUpon>SolicitudesCompra.aspx</DependentUpon>
+    <Compile Include="SICOM\Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SICOM\SolicitudesCompra.aspx.designer.cs">
-      <DependentUpon>SolicitudesCompra.aspx</DependentUpon>
+    <Compile Include="SICOM\Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SICOM\Tiposervicio.aspx.cs">
-      <DependentUpon>Tiposervicio.aspx</DependentUpon>
+    <Compile Include="SICOM\TipoMoneda.aspx.cs">
+      <DependentUpon>TipoMoneda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SICOM\Tiposervicio.aspx.designer.cs">
-      <DependentUpon>Tiposervicio.aspx</DependentUpon>
+    <Compile Include="SICOM\TipoMoneda.aspx.designer.cs">
+      <DependentUpon>TipoMoneda.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SICOM\TiposMoneda.aspx.cs">
-      <DependentUpon>TiposMoneda.aspx</DependentUpon>
+    <Compile Include="SICOM\TipoServicio.aspx.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SICOM\TiposMoneda.aspx.designer.cs">
-      <DependentUpon>TiposMoneda.aspx</DependentUpon>
+    <Compile Include="SICOM\TipoServicio.aspx.designer.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -702,9 +702,6 @@
     <None Include="Styles\font-awesome\scss\_rotated-flipped.scss" />
     <None Include="Styles\font-awesome\scss\_stacked.scss" />
     <None Include="Styles\font-awesome\scss\_variables.scss" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

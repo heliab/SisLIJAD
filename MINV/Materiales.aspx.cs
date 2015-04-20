@@ -189,30 +189,6 @@ namespace SisLIJAD.MINV
             Select();
         }
         #endregion
-        #region Reporte
-        protected void Reporte() {
-            string rpt = "storeMATERIALES";
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            SqlCommand cmd = new SqlCommand(rpt, con);
-            SqlDataAdapter AdP = new SqlDataAdapter();
-            DataSet DSMateriales=new DataSet();
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                con.Open();
-                cmd.Parameters.Add("@IdMateriales", SqlDbType.Int).Value = txtId.Text;
-                AdP = new SqlDataAdapter(cmd);
-                AdP.Fill(DSMateriales, "View_Materiales");
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
 
-
-            }
-            finally { con.Close(); }
-        
-        }
-        #endregion
     }
 }
