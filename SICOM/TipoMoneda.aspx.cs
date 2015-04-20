@@ -11,6 +11,7 @@ namespace SisLIJAD.SICOM
 {
     public partial class TipoMoneda : System.Web.UI.Page
     {
+        string mens;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -51,7 +52,7 @@ namespace SisLIJAD.SICOM
                 con.Close();
             }
         }
-        protected void Insert()
+        protected string Insert()
         {
 
             SqlConnection con = new SqlConnection(Database.ConnectionString);
@@ -65,8 +66,8 @@ namespace SisLIJAD.SICOM
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
-
+                    //Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
+                    mens = "Exito";
                 }
                 else
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
@@ -79,7 +80,7 @@ namespace SisLIJAD.SICOM
             {
                 con.Close();
             }
-
+            return mens;
         }
         protected void Update()
         {
@@ -170,5 +171,6 @@ namespace SisLIJAD.SICOM
             Select();
         }
         #endregion
-    }
+
+          }
 }

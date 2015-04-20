@@ -67,7 +67,7 @@ function fn_CancelJS() {
     fn_ClosePopup(0);
 }
 function fn_EndCallback(s, e) {
-    GridPrincipal.PerformCallback();
+     GridPrincipal.PerformCallback();
 }
 function GetAprobRow() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
