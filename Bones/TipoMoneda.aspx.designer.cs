@@ -13,13 +13,31 @@ namespace SisLIJAD.SICOM {
     public partial class TipoMoneda {
         
         /// <summary>
-        /// Control NewCallback.
+        /// Control btnNew.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnNew;
+        
+        /// <summary>
+        /// Control btnSelect.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSelect;
+        
+        /// <summary>
+        /// Control btnDelete.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnDelete;
         
         /// <summary>
         /// Control HiddenV.
@@ -112,13 +130,31 @@ namespace SisLIJAD.SICOM {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel4;
         
         /// <summary>
-        /// Control txtDesc.
+        /// Control txtNombTM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtDesc;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtNombTM;
+        
+        /// <summary>
+        /// Control btnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnGuardar;
+        
+        /// <summary>
+        /// Control btnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelar;
         
         /// <summary>
         /// Control DeleteForm.
@@ -139,6 +175,24 @@ namespace SisLIJAD.SICOM {
         protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl4;
         
         /// <summary>
+        /// Control DeleteCallback.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel DeleteCallback;
+        
+        /// <summary>
+        /// Control PanelContent4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent4;
+        
+        /// <summary>
         /// Control txtIdD.
         /// </summary>
         /// <remarks>
@@ -146,5 +200,23 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtIdD;
+        
+        /// <summary>
+        /// Control btnConfirmD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnConfirmD;
+        
+        /// <summary>
+        /// Control btnCancelarD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancelarD;
     }
 }

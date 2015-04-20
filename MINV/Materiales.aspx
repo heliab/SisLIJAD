@@ -19,7 +19,6 @@
     <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -158,10 +157,6 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-        
-        
-        
         SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca, MINV_Materiales.Prestamo FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
     </asp:SqlDataSource>
 </asp:Content>

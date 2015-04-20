@@ -10,7 +10,7 @@
 namespace SisLIJAD.SICOM {
     
     
-    public partial class TipoMoneda {
+    public partial class SolCompMat {
         
         /// <summary>
         /// Control NewCallback.
@@ -40,13 +40,13 @@ namespace SisLIJAD.SICOM {
         protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
         
         /// <summary>
-        /// Control SDSTipoMoneda.
+        /// Control SDSTipoServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSTipoMoneda;
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSTipoServicio;
         
         /// <summary>
         /// Control FormPopup.

@@ -13,8 +13,46 @@ namespace SisLIJAD.SICOM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+        #region Buttons
+
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string value = HiddenV.Get("Nuevo").ToString();
+            string real = "0";
+            if (value == real)
+            {
+                Insert();
+                GridPrincipal.DataBind();
+            }
+            else
+            {
+                Update();
+                GridPrincipal.DataBind();
+            }
+            HiddenV.Clear();
+        }
+
+
+        protected void btnConfirmD_Click(object sender, EventArgs e)
+        {
+            Delete();
+            GridPrincipal.DataBind();
 
         }
+        protected void btnSelect_Click(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(GetType(), "show", "FormPopup.Show();", true);
+            HiddenV.Set("Nuevo", 1);
+            Select();
+        }
+
+
+
+        #endregion
+
 
         #region CRUD
         protected void Select()
@@ -23,7 +61,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from MSCOMP_Tipo_Moneda where IdTipoMoneda= @IdTipoMoneda", con);
+                SqlCommand cmd = new SqlCommand("Select * from MSCOMP_Tipo_Moneda where IdTipoMoneda = @IdTipoMoneda", con);
                 cmd.Parameters.AddWithValue("@IdTipoMoneda", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -31,7 +69,7 @@ namespace SisLIJAD.SICOM
                 {
                     // display data in textboxes
                     txtId.Text = dr["IdTipoMoneda"].ToString();
-                    txtDesc.Text = dr["DescTipoM"].ToString();
+                    txtNombTM.Text = dr["DescTipoM"].ToString();
                 }
                 else
                 {
@@ -51,6 +89,7 @@ namespace SisLIJAD.SICOM
                 con.Close();
             }
         }
+
         protected void Insert()
         {
 
@@ -59,27 +98,25 @@ namespace SisLIJAD.SICOM
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MSCOMP_Tipo_Moneda(DescTipoM) values(@DescTipoM)", con);
-                cmd.Parameters.AddWithValue("@DescTipoM", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@DescTipoM", txtNombTM.Text);
 
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El tipo " + txtDesc.Text + " se ha guardado correctamente") + "')</script>");
-
+                    Response.Write("<script>alert('" + Server.HtmlEncode("La moneda " + txtNombTM.Text + " se ha guardado correctamente") + "')</script>");
                 }
                 else
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "';)</script>");
             }
             finally
             {
                 con.Close();
             }
-
         }
         protected void Update()
         {
@@ -89,7 +126,7 @@ namespace SisLIJAD.SICOM
                 con.Open();
                 SqlCommand cmd = new SqlCommand("update MSCOMP_Tipo_Moneda set DescTipoM=@DescTipoM where IdTipoMoneda = @IdTipoMoneda", con);
                 cmd.Parameters.AddWithValue("@IdTipoMoneda", txtId.Text);
-                cmd.Parameters.AddWithValue("@DescTipoM", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@DescTipoM", txtNombTM.Text);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
@@ -116,8 +153,8 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MSCOMP_Tipo_Moneda where IdTipoMoneda = @IdTipoMoneda", con);
-                cmd.Parameters.AddWithValue("@IdTipoMoneda", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MSCOMP_TipoServicio where IdServicio = @IdServicio", con);
+                cmd.Parameters.AddWithValue("@IdServicio", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -139,36 +176,6 @@ namespace SisLIJAD.SICOM
         }
         #endregion
 
-        #region Callbacks
-        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            string valNuevo = HiddenV.Get("Nuevo").ToString();
 
-            switch (valNuevo)
-            {
-                case "0": Insert();
-                    GridPrincipal.DataBind();
-                    break;
-                case "1": Update();
-                    GridPrincipal.DataBind();
-                    break;
-                case "2": Delete();
-                    break;
-                default: Response.Write("Error con valor de crud");
-                    break;
-
-            }
-            HiddenV.Clear();
-        }
-        protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
-        {
-            GridPrincipal.DataBind();
-            GridPrincipal.Focus();
-        }
-        protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
-        {
-            Select();
-        }
-        #endregion
     }
 }
