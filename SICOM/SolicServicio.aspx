@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="SolicServicio.aspx.cs" Inherits="SisLIJAD.SICOM.SolicServicio" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="SolicServicio.aspx.cs" Inherits="SisLIJAD.SICOM.SolicServicio" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -43,28 +43,30 @@ fn_EndCallback();
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
 <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSTipoServicio" KeyFieldName="IdSolic_Comp" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal"
+        Width="100%" ClientInstanceName="GridPrincipal" 
         OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolic_Comp"
-                ReadOnly="True" VisibleIndex="0" Caption="Id Soliucitud" Width="12%">
+            <dx:GridViewDataTextColumn FieldName="IdSolic_Comp" 
+                ReadOnly="True" VisibleIndex="0" Caption="Id Solicitud" Width="12%">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DescContrat"
-                VisibleIndex="1" Caption="Servicio Solicitado">
+            <dx:GridViewDataTextColumn FieldName="DescContrat" 
+                VisibleIndex="1" Caption="Descripción Servicio" Width="40%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Precio" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="Precio" VisibleIndex="2" ReadOnly="True" 
+                Width="125px">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="FechaReq" ReadOnly="True"
-                VisibleIndex="3">
+            <dx:GridViewDataDateColumn FieldName="FechaReq" ReadOnly="True" 
+                VisibleIndex="3" Width="15%">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="Proveedor"
-                VisibleIndex="4" ReadOnly="True">
+            <dx:GridViewDataTextColumn FieldName="Proveedor" 
+                VisibleIndex="4">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DescTipoM" VisibleIndex="5"
-                Caption="Moneda">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
+            <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -72,7 +74,7 @@ fn_EndCallback();
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
         </SettingsPager>
-        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True"
+        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" 
             ShowGroupPanel="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
         <Styles>
@@ -81,19 +83,20 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSTipoServicio" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-
-
-        SelectCommand="SELECT MSCOMP_Det_Solicitud_Serv.IdSolic_Comp, MSCOMP_Det_Solicitud_Serv.DescContrat, MSCOMP_Det_Solicitud_Serv.Precio, CONVERT (DATE, MSCOMP_Det_Solicitud_Serv.FechaReq) AS FechaReq, USER_Entidad.PNombre + ' ' + USER_Entidad.PApellido AS Proveedor, MSCOMP_Tipo_Moneda.DescTipoM FROM MSCOMP_Det_Solicitud_Serv INNER JOIN USER_Entidad ON MSCOMP_Det_Solicitud_Serv.IdEntidad = USER_Entidad.IdEntidad INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Det_Solicitud_Serv.IdTipoMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda">
+        
+        
+        
+        SelectCommand="SELECT MSCOMP_Det_Solicitud_Serv.IdSolic_Comp, MSCOMP_Det_Solicitud_Serv.DescContrat, CAST(MSCOMP_Det_Solicitud_Serv.Precio as NVARCHAR) + '  ' +CAST(MSCOMP_Tipo_Moneda.DescTipoM as NVARCHAR) as Precio, CONVERT (DATE, MSCOMP_Det_Solicitud_Serv.FechaReq) AS FechaReq, USER_Entidad.Empresa AS Proveedor  FROM MSCOMP_Det_Solicitud_Serv INNER JOIN USER_Entidad ON MSCOMP_Det_Solicitud_Serv.IdEntidad = USER_Entidad.IdEntidad INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Det_Solicitud_Serv.IdTipoMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda">
     </asp:SqlDataSource>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
 <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
-        AllowDragging="True" AllowResize="True"
+        AllowDragging="True" AllowResize="True" 
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="186px" Width="360px" CloseAction="CloseButton">
+        Height="197px" Width="360px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
@@ -117,7 +120,7 @@ fn_CleanGroup(1);
                                     <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Descripción Servicio">
                                     </dx:ASPxLabel>
                                     <dx:ASPxMemo ID="memoServ" runat="server" ClientInstanceName="memoServ" Height="78px"
-                                        Width="90%">
+                                        Width="97%">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
@@ -146,8 +149,9 @@ fn_CleanGroup(1);
                                         <div class="second">
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Moneda">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxComboBox ID="cmbTipoMo" runat="server" ClientInstanceName="cmbTipoMo"
-                                                DataSourceID="SDSCurrency" TextField="DescTipoM" Width="90px">
+                                            <dx:ASPxComboBox ID="cmbTipoMo" runat="server" ClientInstanceName="cmbTipoMo" 
+                                                DataSourceID="SDSCurrency" TextField="DescTipoM" Width="90px" 
+                                                ValueField="IdTipoMoneda">
                                              <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                                     SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -156,22 +160,22 @@ fn_CleanGroup(1);
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
                                             </dx:ASPxComboBox>
-                                            <asp:SqlDataSource ID="SDSCurrency" runat="server"
-                                                ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                            <asp:SqlDataSource ID="SDSCurrency" runat="server" 
+                                                ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
                                                 SelectCommand="SELECT [IdTipoMoneda], [DescTipoM] FROM [MSCOMP_Tipo_Moneda]"></asp:SqlDataSource>
 
                                         </div>
                                     </div>
                                     <div class="row">
-
+                                    
                                     </div>
-
+                                   
                                     <div class="first">
                                      <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione proveedor">
                                             </dx:ASPxLabel>
-                                        <dx:ASPxComboBox ID="cmbProveedor" runat="server"
-                                            ClientInstanceName="cmbProveedor" DataSourceID="SDSProveedor"
-                                            TextField="IdEntidad" ValueField="Empresa">
+                                        <dx:ASPxComboBox ID="cmbProveedor" runat="server" 
+                                            ClientInstanceName="cmbProveedor" DataSourceID="SDSProveedor" 
+                                            TextField="Empresa" ValueField="IdEntidad">
                                          <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -180,8 +184,8 @@ fn_CleanGroup(1);
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
                                         </dx:ASPxComboBox>
-                                        <asp:SqlDataSource ID="SDSProveedor" runat="server"
-                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                        <asp:SqlDataSource ID="SDSProveedor" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
                                             SelectCommand="SELECT IdEntidad, Empresa FROM USER_Entidad WHERE (IdTipo = 2)"></asp:SqlDataSource>
 
                                     </div>
@@ -198,7 +202,7 @@ fn_CleanGroup(1);
                                                 </ValidationSettings>
                                             </dx:ASPxDateEdit>
                                             </div>
-
+                                   
                                 </div>
                                 </div>
 
@@ -222,7 +226,7 @@ fn_CleanGroup(1);
         AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario borrar" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Width="337px">
+        Width="238px">
         <ContentStyle BackColor="#FFFDFD">
         </ContentStyle>
         <ModalBackgroundStyle BackColor="#E4EFE9">

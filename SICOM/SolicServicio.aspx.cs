@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -63,7 +63,11 @@ namespace SisLIJAD.SICOM
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into MSCOMP_Det_Solicitud_Serv (DescContrat,Precio,FechaReq,IdTipoMoneda,IdEntidad) values(@DescContrat,@Precio,@FechaReq,@IdTipoMoneda,@IdEntidad)", con);
-                //cmd.Parameters.AddWithValue("@DescTipoM", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@DescContrat", memoServ.Text);
+                cmd.Parameters.AddWithValue("@Precio", sCant.Value);
+                cmd.Parameters.AddWithValue("@FechaReq", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@IdTipoMoneda", cmbTipoMo.Value);
+                cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
 
 
                 int count = cmd.ExecuteNonQuery();
@@ -91,7 +95,11 @@ namespace SisLIJAD.SICOM
                 con.Open();
                 SqlCommand cmd = new SqlCommand("update MSCOMP_Det_Solicitud_Serv set DescContrat=@DescContrat,Precio=@Precio,FechaReq=@FechaReq,IdTipoMoneda=@IdTipoMoneda ,IdEntidad=@IdEntidad where IdSolic_Comp = @IdSolic_Comp", con);
                 cmd.Parameters.AddWithValue("@IdSolic_Comp", txtId.Text);
-                //cmd.Parameters.AddWithValue("@DescTipoM", txtDesc.Text);
+                cmd.Parameters.AddWithValue("@DescContrat", memoServ.Text);
+                cmd.Parameters.AddWithValue("@Precio", sCant.Value);
+                cmd.Parameters.AddWithValue("@FechaReq", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@IdTipoMoneda", cmbTipoMo.Value);
+                cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
