@@ -133,8 +133,9 @@
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
-    <Content Include="SICOM\SolCompMat.aspx" />
+    <Content Include="SICOM\SolicServicio.aspx" />
     <Content Include="SICOM\TipoMoneda.aspx" />
+    <Content Include="SICOM\TipoServicio.aspx" />
     <Content Include="Styles\buttons-core.css" />
     <Content Include="Styles\buttons.css" />
     <Content Include="Styles\font-awesome\css\font-awesome.css" />
@@ -587,12 +588,12 @@
     <Compile Include="SICOM\MasterSICOM.Master.designer.cs">
       <DependentUpon>MasterSICOM.Master</DependentUpon>
     </Compile>
-    <Compile Include="SICOM\SolCompMat.aspx.cs">
-      <DependentUpon>SolCompMat.aspx</DependentUpon>
+    <Compile Include="SICOM\SolicServicio.aspx.cs">
+      <DependentUpon>SolicServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SICOM\SolCompMat.aspx.designer.cs">
-      <DependentUpon>SolCompMat.aspx</DependentUpon>
+    <Compile Include="SICOM\SolicServicio.aspx.designer.cs">
+      <DependentUpon>SolicServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="SICOM\TipoMoneda.aspx.cs">
       <DependentUpon>TipoMoneda.aspx</DependentUpon>
@@ -600,6 +601,13 @@
     </Compile>
     <Compile Include="SICOM\TipoMoneda.aspx.designer.cs">
       <DependentUpon>TipoMoneda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SICOM\TipoServicio.aspx.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SICOM\TipoServicio.aspx.designer.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="SolCompMat.aspx.cs" Inherits="SisLIJAD.SICOM.SolCompMat" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="TipoServicio.aspx.cs" Inherits="SisLIJAD.SICOM.TipoServicio" %>
+
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -41,18 +42,17 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-<dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+    <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSTipoServicio" KeyFieldName="IdServicio" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" 
+        Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdServicio" 
-                ReadOnly="True" VisibleIndex="0">
+            <dx:GridViewDataTextColumn FieldName="IdServicio"
+                ReadOnly="True" VisibleIndex="0" Width="15%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Descripción Servicio" FieldName="NomServicio" 
-                VisibleIndex="1" Width="80%">
-                <Settings AutoFilterCondition="Contains" />
+            <dx:GridViewDataTextColumn Caption="Nombre servicio" FieldName="NomServicio"
+                VisibleIndex="1">
             </dx:GridViewDataTextColumn>
             <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
@@ -70,12 +70,14 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSTipoServicio" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT [IdServicio], [NomServicio] FROM [MSCOMP_TipoServicio]">
+
+
+        SelectCommand="SELECT [IdServicio], [NomServicio] FROM [MSCOMP_TipoServicio] ORDER BY [IdServicio] DESC">
     </asp:SqlDataSource>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-<dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
+    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
@@ -100,9 +102,9 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Tipo Servicio">
+                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre Servicio">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtDesc" runat="server" Width="98%" ClientInstanceName="txtDesc"
+                                    <dx:ASPxTextBox ID="txtDesc" runat="server" Width="199px" ClientInstanceName="txtDesc"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
