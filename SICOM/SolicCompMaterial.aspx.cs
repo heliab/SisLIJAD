@@ -55,22 +55,16 @@ namespace SisLIJAD.SICOM
         }
         protected void Insert()
         {
-            string username = User.Identity.Name;
-            DateTime serverTime = DateTime.Today;
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MSCOMP_Solic_Compras (FechARecibir,HeaderSolic,IdEntidad,IdMoneda,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@FechARecibir,@HeaderSolic,@IdEntidad,@IdMoneda,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
-                //cmd.Parameters.AddWithValue("@FechARecibir", mProc.Text);
-                //cmd.Parameters.AddWithValue("@HeaderSolic", serverTime);
-                //cmd.Parameters.AddWithValue("@IdEntidad", deFeIni.Value);
-                //cmd.Parameters.AddWithValue("@IdMoneda", deFefin.Value);
-                //cmd.Parameters.AddWithValue("@SolicitadoPor", username);
-                //cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
-                //cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
-                //cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
-                //cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
+                SqlCommand cmd = new SqlCommand("insert into MSCOMP_Solic_Compras (FechARecibir,HeaderSolic,IdEntidad,IdMoneda) values(@FechARecibir,@HeaderSolic,@IdEntidad,@IdMoneda)", con);
+                cmd.Parameters.AddWithValue("@FechARecibir", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@HeaderSolic", memoServ.Text);
+                cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
+                cmd.Parameters.AddWithValue("@IdMoneda", cmbTipoMo.Value);
+               
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -98,15 +92,12 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MSCOMP_Solic_Compras set FechARecibir=@FechARecibir,IdEntidad=@IdEntidad,IdMoneda=@IdMoneda,NombCompleto=@NombCompleto,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdSolic_Comp = @IdSolic_Comp", con);
+                SqlCommand cmd = new SqlCommand("update MSCOMP_Solic_Compras set FechARecibir=@FechARecibir,HeaderSolic=@HeaderSolic,IdEntidad=@IdEntidad,IdMoneda=@IdMoneda where IdSolic_Comp = @IdSolic_Comp", con);
                 cmd.Parameters.AddWithValue("@IdSolic_Comp", txtId.Text);
-                //cmd.Parameters.AddWithValue("@FechARecibir", mProc.Text);
-                //cmd.Parameters.AddWithValue("@IdEntidad", deFeIni.Value);
-                //cmd.Parameters.AddWithValue("@IdMoneda", deFefin.Value);
-                //cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
-                //cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
-                //cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
-                //cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
+                cmd.Parameters.AddWithValue("@FechARecibir", deFeReq.Value);
+                cmd.Parameters.AddWithValue("@HeaderSolic", memoServ.Text);
+                cmd.Parameters.AddWithValue("@IdEntidad", cmbProveedor.Value);
+                cmd.Parameters.AddWithValue("@IdMoneda", cmbTipoMo.Value);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -161,20 +152,17 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle,IdMaterial,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
-
-
+                SqlCommand cmd = new SqlCommand("SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle,IdMaterial,Cantidad,Precio from MSCOMP_Solicitud_Mat WHERE CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle = @IdDetalle", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtSubId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtSubId.Text = dr["CodDetalle"].ToString();
+                    txtSubId.Text = dr["IdDetalle"].ToString();
                     cmbMateriales.Text = dr["IdMaterial"].ToString();
                     sCant.Value = dr["Cantidad"].ToString();
-
-
+                    sCosto.Value = dr["Precio"].ToString();
                 }
                 else
                 {
@@ -201,10 +189,11 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdSolic_Comp,IdMaterial,Cantidad) values(@IdSolic_Comp,@IdMaterial,@Cantidad)", con);
+                SqlCommand cmd = new SqlCommand("insert into MSCOMP_Solicitud_Mat(IdSolic_Comp,IdMaterial,Cantidad,Precio) values(@IdSolic_Comp,@IdMaterial,@Cantidad,@Precio)", con);
                 cmd.Parameters.AddWithValue("@IdSolic_Comp", IdSolic_Comp);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
+                cmd.Parameters.AddWithValue("@Precio",sCosto.Value);
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
@@ -233,10 +222,11 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
+                SqlCommand cmd = new SqlCommand("update MSCOMP_Solicitud_Mat set IdMaterial=@IdMaterial,Cantidad=@Cantidad,Precio=@Precio where CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) = @IdDetalle", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtSubId.Text);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
+                cmd.Parameters.AddWithValue("@Precio", sCosto.Value);
 
 
                 if (cmd.ExecuteNonQuery() == 1)
@@ -263,8 +253,8 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
-                cmd.Parameters.AddWithValue("@CodDetalle", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MSCOMP_Solicitud_Mat where CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) = @IdDetalle", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");

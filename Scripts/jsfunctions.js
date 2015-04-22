@@ -136,6 +136,7 @@ function fn_SubAdd() {
     if (!ASPxClientEdit.ValidateGroup('ControlGroup2')) {
         retutn;
     }
+    HiddenV.Set('Nuevo', 3);
     NewCallback.PerformCallback();
     fn_CleanGroup(2);
     GridPrincipal.PerformCallback();

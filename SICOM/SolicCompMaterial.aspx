@@ -22,20 +22,32 @@
 <%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="text/javascript">
-    function fn_SubAddSol() {
+    <script type="text/javascript">
+        function fn_SubAddMat() {
         fn_GetValOnHid();
         fn_SubAdd();
         cmbMateriales.PerformCallback();
 
     }
-    function fn_GetValOnHid() {
+    function fn_NewDetSolJS() {
+                fn_GetValOnHid();
+                cmbMateriales.PerformCallback();
+                fn_SubNewJS();
+            }
+            function fn_EditSolJS() {
+                GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
+                fn_GetValOnHid();
+                cmbMateriales.PerformCallback();
+                fn_SubEditJS();
+
+            }
+              function fn_GetValOnHid() {
         HiddenGridPr.Set("SessionId", GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
     }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<div class="wrapctrl">
+    <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo">
                             <i class="fa fa-plus"></i>Agregar</a></li>
@@ -55,7 +67,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-  <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+    <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudMateriales" KeyFieldName="IdSolic_Comp" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal"
         OnCustomCallback="GridPrincipal_CustomCallback">
@@ -65,22 +77,26 @@ fn_EndCallback();
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdSolic_Comp" ReadOnly="True"
                 VisibleIndex="0" Caption="Id Solicitud" Width="12%">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="HeaderSolic" VisibleIndex="1"
                 Caption="Descripción Solicitud">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn FieldName="FechARecibir"
-                VisibleIndex="2" Caption="Fecha requerida" Width="15%">
+                VisibleIndex="2" Caption="Fecha requerida" Width="13%">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="IdEntidad" VisibleIndex="3"
-                Caption="Proveedor" Width="15%">
+            <dx:GridViewDataTextColumn FieldName="Empresa" VisibleIndex="3"
+                Caption="Proveedor">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Moneda" FieldName="DescTipoM"
                 VisibleIndex="4" Width="8%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
-                <ClearFilterButton Visible="True">
+                <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
         </Columns>
@@ -105,7 +121,7 @@ fn_EndCallback();
                             <i class="fa fa-plus"></i>Agregar</a></li>
                         <li><a class="pure-button green-font" href="javascript:fn_EditSolJS();" title="Editar">
                             <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteDetSolJS();" title="Borrar">
+                        <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
                             <i class="fa fa-trash"></i>Borrar</a></li>
                     </ul>
                 </div>
@@ -119,33 +135,20 @@ fn_EndCallback();
                             ShowInColumn="Precio Total" SummaryType="Sum" />
                     </TotalSummary>
                     <Columns>
-                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True"
-                            ShowInCustomizationForm="True" VisibleIndex="0" Width="11%">
-                            <Settings AutoFilterCondition="Contains" />
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                            VisibleIndex="0">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial"
-                            ShowInCustomizationForm="True" VisibleIndex="1">
-                            <Settings AutoFilterCondition="Contains" />
+                        <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" 
+                            VisibleIndex="1">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Cantidad"
-                            ShowInCustomizationForm="True" VisibleIndex="2" Width="16%">
-                            <Settings AutoFilterCondition="Contains" />
+                        <dx:GridViewDataTextColumn FieldName="Cantidad" VisibleIndex="2">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="Precio"
+                            VisibleIndex="3">
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="PrecioIndividual"
-                            VisibleIndex="3" ReadOnly="True" Width="15%">
-                            <Settings AutoFilterCondition="Contains" />
+                            VisibleIndex="4" ReadOnly="True">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Precio" ShowInCustomizationForm="True"
-                            VisibleIndex="4" Width="15%" Caption="Precio Total">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="DescTipoM" ShowInCustomizationForm="True"
-                            VisibleIndex="5" Width="15%" Caption="Moneda">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5"
-                            Width="0%">
-                            <ClearFilterButton Text="Limpiar" Visible="True">
-                            </ClearFilterButton>
-                        </dx:GridViewCommandColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
                     <SettingsPager>
@@ -160,19 +163,14 @@ fn_EndCallback();
                         </FocusedRow>
                     </Styles>
                 </dx:ASPxGridView>
-
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSSolicitudMateriales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-
-
-        SelectCommand="SELECT MSCOMP_Solic_Compras.IdSolic_Comp, MSCOMP_Solic_Compras.HeaderSolic, MSCOMP_Solic_Compras.FechARecibir, MSCOMP_Solic_Compras.IdEntidad, MSCOMP_Tipo_Moneda.DescTipoM FROM MSCOMP_Solic_Compras INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Solic_Compras.IdMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda ORDER BY MSCOMP_Solic_Compras.IdSolic_Comp DESC">
+        
+        SelectCommand="SELECT MSCOMP_Solic_Compras.IdSolic_Comp, MSCOMP_Solic_Compras.HeaderSolic, MSCOMP_Solic_Compras.FechARecibir, MSCOMP_Tipo_Moneda.DescTipoM, USER_Entidad.Empresa FROM MSCOMP_Solic_Compras INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Solic_Compras.IdMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda INNER JOIN USER_Entidad ON MSCOMP_Solic_Compras.IdEntidad = USER_Entidad.IdEntidad ORDER BY MSCOMP_Solic_Compras.IdSolic_Comp DESC">
             </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetCompra" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-
-
-
         SelectCommand="SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, MSCOMP_Solicitud_Mat.Cantidad, MSCOMP_Solicitud_Mat.Precio, MSCOMP_Solicitud_Mat.Precio / MSCOMP_Solicitud_Mat.Cantidad AS PrecioIndividual FROM MINV_Materiales INNER JOIN MSCOMP_Solicitud_Mat ON MINV_Materiales.IdMaterial = MSCOMP_Solicitud_Mat.IdMaterial WHERE (MSCOMP_Solicitud_Mat.IdSolic_Comp = @IdSolic_Comp) ORDER BY IdDetalle DESC">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolic_Comp" SessionField="IdSolic_Comp" />
@@ -180,7 +178,7 @@ fn_EndCallback();
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
- <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
+    <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
         AllowDragging="True" AllowResize="True"
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
@@ -299,7 +297,6 @@ fn_CleanGroup(1);
         ShowFooter="True" FooterText="Formulario de sub registro" PopupVerticalAlign="WindowCenter"
         ClientIDMode="AutoID" Height="186px" Width="380px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
-
 fn_CleanGroup(2);
 }" CloseButtonClick="function(s, e) {
 	fn_CleanGroup(2);
@@ -339,7 +336,8 @@ fn_EndCallback();
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbMateriales" runat="server" ClientInstanceName="cmbMateriales"
                                         Width="95%" DataSourceID="SDSMateriales" TextField="NomMaterial"
-                                        ValueField="IdMaterial" OnCallback="cmbMateriales_Callback">
+                                        ValueField="IdMaterial" OnCallback="cmbMateriales_Callback" 
+                                        EnableIncrementalFiltering="True">
 
                                         <Columns>
                                             <dx:ListBoxColumn Caption="Material" FieldName="NomMaterial" />
@@ -355,9 +353,9 @@ fn_EndCallback();
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="SDSMateriales" runat="server"
                                         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
+                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MSCOMP_Solicitud_Mat WHERE (IdSolic_Comp = @IdSolic_Comp)))">
                                         <SelectParameters>
-                                            <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
+                                            <asp:SessionParameter Name="IdSolic_Comp" SessionField="IdSolic_Comp" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
@@ -365,9 +363,23 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Cantidad requerida">
                                     </dx:ASPxLabel>
                                     <dx:ASPxSpinEdit ID="sCant" ClientInstanceName="sCant" runat="server" Height="22px"
-                                        Number="0" LargeIncrement="1" Increment="1" NullText="0" Width="114px"
+                                        Number="0.0" LargeIncrement="1" Increment="0.1" NullText="0,0" Width="114px"
                                         MaxValue="2147483647">
 
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                    </dx:ASPxSpinEdit>
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Costo Total"></dx:ASPxLabel>
+                                    <dx:ASPxSpinEdit ID="sCosto" ClientInstanceName="sCosto" runat="server" Height="22px"
+                                        Number="0.0" LargeIncrement="1" Increment="0.1" NullText="0,0" Width="114px"
+                                        MaxValue="2147483647">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
@@ -380,7 +392,7 @@ fn_EndCallback();
                             </div>
                             <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button button-green white-font" href="javascript:fn_SubAddSol();" title="Guardar">
+                                    <li><a class="pure-button button-green white-font" href="javascript:fn_SubAddMat();" title="Guardar">
                                         <i class="fa fa-plus-square"></i>Nuevo</a></li>
                                     <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>

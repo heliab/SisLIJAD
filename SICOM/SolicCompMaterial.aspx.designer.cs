@@ -3,15 +3,15 @@
 //     Este código fue generado por una herramienta.
 //
 //     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
-//     se vuelve a generar el código.
+//     se vuelve a generar el código. 
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
 namespace SisLIJAD.SICOM {
-
-
+    
+    
     public partial class SolicCompMaterial {
-
+        
         /// <summary>
         /// Control NewCallback.
         /// </summary>
@@ -20,7 +20,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallback.ASPxCallback NewCallback;
-
+        
         /// <summary>
         /// Control HiddenV.
         /// </summary>
@@ -29,7 +29,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
-
+        
         /// <summary>
         /// Control GridPrincipal.
         /// </summary>
@@ -38,7 +38,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView.ASPxGridView GridPrincipal;
-
+        
         /// <summary>
         /// Control SDSSolicitudMateriales.
         /// </summary>
@@ -47,7 +47,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSSolicitudMateriales;
-
+        
         /// <summary>
         /// Control SDSDetCompra.
         /// </summary>
@@ -56,7 +56,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSDetCompra;
-
+        
         /// <summary>
         /// Control FormPopup.
         /// </summary>
@@ -65,7 +65,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl FormPopup;
-
+        
         /// <summary>
         /// Control PopupControlContentControl1.
         /// </summary>
@@ -74,7 +74,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl1;
-
+        
         /// <summary>
         /// Control FillingCallback.
         /// </summary>
@@ -83,7 +83,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel FillingCallback;
-
+        
         /// <summary>
         /// Control PanelContent1.
         /// </summary>
@@ -92,7 +92,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent1;
-
+        
         /// <summary>
         /// Control lblId.
         /// </summary>
@@ -101,7 +101,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblId;
-
+        
         /// <summary>
         /// Control txtId.
         /// </summary>
@@ -110,7 +110,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtId;
-
+        
         /// <summary>
         /// Control ASPxLabel4.
         /// </summary>
@@ -119,7 +119,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel4;
-
+        
         /// <summary>
         /// Control memoServ.
         /// </summary>
@@ -128,7 +128,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxMemo memoServ;
-
+        
         /// <summary>
         /// Control ASPxLabel3.
         /// </summary>
@@ -137,7 +137,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
-
+        
         /// <summary>
         /// Control cmbProveedor.
         /// </summary>
@@ -146,7 +146,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbProveedor;
-
+        
         /// <summary>
         /// Control SDSProveedor.
         /// </summary>
@@ -155,7 +155,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSProveedor;
-
+        
         /// <summary>
         /// Control ASPxLabel80.
         /// </summary>
@@ -164,7 +164,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel80;
-
+        
         /// <summary>
         /// Control deFeReq.
         /// </summary>
@@ -173,7 +173,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit deFeReq;
-
+        
         /// <summary>
         /// Control ASPxLabel1.
         /// </summary>
@@ -182,7 +182,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
-
+        
         /// <summary>
         /// Control cmbTipoMo.
         /// </summary>
@@ -191,7 +191,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbTipoMo;
-
+        
         /// <summary>
         /// Control SDSCurrency.
         /// </summary>
@@ -200,7 +200,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSCurrency;
-
+        
         /// <summary>
         /// Control SubFormPopup.
         /// </summary>
@@ -209,7 +209,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl SubFormPopup;
-
+        
         /// <summary>
         /// Control PopupControlContentControl2.
         /// </summary>
@@ -218,7 +218,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl2;
-
+        
         /// <summary>
         /// Control SubFillingCallback.
         /// </summary>
@@ -227,7 +227,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel SubFillingCallback;
-
+        
         /// <summary>
         /// Control PanelContent2.
         /// </summary>
@@ -236,7 +236,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel.PanelContent PanelContent2;
-
+        
         /// <summary>
         /// Control ASPxLabel8.
         /// </summary>
@@ -245,7 +245,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel8;
-
+        
         /// <summary>
         /// Control txtSubId.
         /// </summary>
@@ -254,7 +254,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtSubId;
-
+        
         /// <summary>
         /// Control HiddenGridPr.
         /// </summary>
@@ -263,7 +263,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenGridPr;
-
+        
         /// <summary>
         /// Control ASPxLabel9.
         /// </summary>
@@ -272,7 +272,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel9;
-
+        
         /// <summary>
         /// Control cmbMateriales.
         /// </summary>
@@ -281,7 +281,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbMateriales;
-
+        
         /// <summary>
         /// Control SDSMateriales.
         /// </summary>
@@ -290,7 +290,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SDSMateriales;
-
+        
         /// <summary>
         /// Control ASPxLabel10.
         /// </summary>
@@ -299,7 +299,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel10;
-
+        
         /// <summary>
         /// Control sCant.
         /// </summary>
@@ -308,7 +308,25 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sCant;
-
+        
+        /// <summary>
+        /// Control ASPxLabel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel2;
+        
+        /// <summary>
+        /// Control sCosto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sCosto;
+        
         /// <summary>
         /// Control DeleteForm.
         /// </summary>
@@ -317,7 +335,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.ASPxPopupControl DeleteForm;
-
+        
         /// <summary>
         /// Control PopupControlContentControl4.
         /// </summary>
@@ -326,7 +344,7 @@ namespace SisLIJAD.SICOM {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPopupControl.PopupControlContentControl PopupControlContentControl4;
-
+        
         /// <summary>
         /// Control txtIdD.
         /// </summary>
