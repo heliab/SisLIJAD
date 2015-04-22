@@ -152,7 +152,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle,IdMaterial,Cantidad,Precio from MSCOMP_Solicitud_Mat WHERE CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle = @IdDetalle", con);
+                SqlCommand cmd = new SqlCommand("SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle,IdMaterial,Cantidad,Precio from MSCOMP_Solicitud_Mat WHERE CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR)= @IdDetalle", con);
                 cmd.Parameters.AddWithValue("@IdDetalle", txtSubId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -160,7 +160,7 @@ namespace SisLIJAD.SICOM
                 {
                     // display data in textboxes
                     txtSubId.Text = dr["IdDetalle"].ToString();
-                    cmbMateriales.Text = dr["IdMaterial"].ToString();
+                    cmbMateriales.Value = dr["IdMaterial"].ToString();
                     sCant.Value = dr["Cantidad"].ToString();
                     sCosto.Value = dr["Precio"].ToString();
                 }
@@ -314,6 +314,7 @@ namespace SisLIJAD.SICOM
         protected void cmbMateriales_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             Session["IdSolic_Comp"] = HiddenGridPr.Get("SessionId").ToString();
+            string test = Session["IdSolic_Comp"].ToString();
             cmbMateriales.DataBind();
         }
         #endregion

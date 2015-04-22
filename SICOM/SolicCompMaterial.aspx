@@ -35,7 +35,6 @@
                 fn_SubNewJS();
             }
             function fn_EditSolJS() {
-                GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
                 fn_GetValOnHid();
                 cmbMateriales.PerformCallback();
                 fn_SubEditJS();
@@ -144,7 +143,7 @@ fn_EndCallback();
                         <dx:GridViewDataTextColumn FieldName="Cantidad" VisibleIndex="2">
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="Precio"
-                            VisibleIndex="3">
+                            VisibleIndex="3" Caption="Precio Total">
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="PrecioIndividual"
                             VisibleIndex="4" ReadOnly="True">
@@ -366,6 +365,9 @@ fn_EndCallback();
                                         Number="0.0" LargeIncrement="1" Increment="0.1" NullText="0,0" Width="114px"
                                         MaxValue="2147483647">
 
+                                        <SpinButtons ShowLargeIncrementButtons="True">
+                                        </SpinButtons>
+
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
@@ -380,6 +382,8 @@ fn_EndCallback();
                                     <dx:ASPxSpinEdit ID="sCosto" ClientInstanceName="sCosto" runat="server" Height="22px"
                                         Number="0.0" LargeIncrement="1" Increment="0.1" NullText="0,0" Width="114px"
                                         MaxValue="2147483647">
+                                        <SpinButtons ShowLargeIncrementButtons="True">
+                                        </SpinButtons>
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
