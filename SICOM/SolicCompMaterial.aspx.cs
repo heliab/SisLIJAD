@@ -22,22 +22,18 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
-                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[NombCompleto],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
+                SqlCommand cmd = new SqlCommand("SELECT  [IdSolic_Comp],[FechARecibir],[HeaderSolic],[IdEntidad],[IdMoneda] FROM  [MSCOMP_Solic_Compras]", con);
+                cmd.Parameters.AddWithValue("@IdSolic_Comp", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtId.Text = dr["IdPrestamo"].ToString();
-                    //mProc.Text = dr["Procedimiento"].ToString();
-                    //deFeIni.Value = dr["FechaPrestar"];
-                    //deFefin.Value = dr["FechaDevolver"];
-                    //txtNom.Text = dr["NombCompleto"].ToString();
-                    //txtAsig.Text = dr["Asignatura"].ToString();
-                    //txtCod.Text = dr["CodigoAsignatura"].ToString();
-                    //txtCed.Text = dr["Cedula"].ToString();
+                    txtId.Text = dr["IdSolic_Comp"].ToString();
+                    deFeReq.Value = dr["FechARecibir"];
+                    memoServ.Text = dr["HeaderSolic"].ToString();
+                    cmbProveedor.Value = dr["IdEntidad"].ToString();
+                    cmbTipoMo.Value = dr["IdMoneda"].ToString();
                 }
                 else
                 {
@@ -65,11 +61,11 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
-                //cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
-                //cmd.Parameters.AddWithValue("@FechaRegistro", serverTime);
-                //cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
-                //cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
+                SqlCommand cmd = new SqlCommand("insert into MSCOMP_Solic_Compras (FechARecibir,HeaderSolic,IdEntidad,IdMoneda,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@FechARecibir,@HeaderSolic,@IdEntidad,@IdMoneda,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
+                //cmd.Parameters.AddWithValue("@FechARecibir", mProc.Text);
+                //cmd.Parameters.AddWithValue("@HeaderSolic", serverTime);
+                //cmd.Parameters.AddWithValue("@IdEntidad", deFeIni.Value);
+                //cmd.Parameters.AddWithValue("@IdMoneda", deFefin.Value);
                 //cmd.Parameters.AddWithValue("@SolicitadoPor", username);
                 //cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
                 //cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
@@ -102,11 +98,11 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Prestamos set Procedimiento=@Procedimiento,FechaPrestar=@FechaPrestar,FechaDevolver=@FechaDevolver,NombCompleto=@NombCompleto,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdPrestamo = @IdPrestamo", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
-                //cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
-                //cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
-                //cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
+                SqlCommand cmd = new SqlCommand("update MSCOMP_Solic_Compras set FechARecibir=@FechARecibir,IdEntidad=@IdEntidad,IdMoneda=@IdMoneda,NombCompleto=@NombCompleto,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdSolic_Comp = @IdSolic_Comp", con);
+                cmd.Parameters.AddWithValue("@IdSolic_Comp", txtId.Text);
+                //cmd.Parameters.AddWithValue("@FechARecibir", mProc.Text);
+                //cmd.Parameters.AddWithValue("@IdEntidad", deFeIni.Value);
+                //cmd.Parameters.AddWithValue("@IdMoneda", deFefin.Value);
                 //cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
                 //cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 //cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
@@ -136,8 +132,8 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Prestamos where IdPrestamo = @IdPrestamo", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MSCOMP_Solic_Compras where IdSolic_Comp = @IdSolic_Comp", con);
+                cmd.Parameters.AddWithValue("@IdSolic_Comp", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -165,7 +161,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle,IdMaterial,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle,IdMaterial,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
 
 
@@ -200,13 +196,13 @@ namespace SisLIJAD.SICOM
         }
         protected void SubInsert()
         {
-            string IdPrestamo = HiddenGridPr.Get("SessionId").ToString();
+            string IdSolic_Comp = HiddenGridPr.Get("SessionId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdPrestamo,IdMaterial,Cantidad) values(@IdPrestamo,@IdMaterial,@Cantidad)", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", IdPrestamo);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdSolic_Comp,IdMaterial,Cantidad) values(@IdSolic_Comp,@IdMaterial,@Cantidad)", con);
+                cmd.Parameters.AddWithValue("@IdSolic_Comp", IdSolic_Comp);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
 
@@ -237,7 +233,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
                 cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
@@ -267,7 +263,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -327,7 +323,7 @@ namespace SisLIJAD.SICOM
         }
         protected void cmbMateriales_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
-            Session["IdPrestamo"] = HiddenGridPr.Get("SessionId").ToString();
+            Session["IdSolic_Comp"] = HiddenGridPr.Get("SessionId").ToString();
             cmbMateriales.DataBind();
         }
         #endregion
