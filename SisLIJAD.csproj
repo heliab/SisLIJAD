@@ -133,6 +133,7 @@
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
+    <Content Include="SICOM\SolicCompMaterial.aspx" />
     <Content Include="SICOM\SolicServicio.aspx" />
     <Content Include="SICOM\TipoMoneda.aspx" />
     <Content Include="SICOM\TipoServicio.aspx" />
@@ -587,6 +588,13 @@
     </Compile>
     <Compile Include="SICOM\MasterSICOM.Master.designer.cs">
       <DependentUpon>MasterSICOM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SICOM\SolicCompMaterial.aspx.cs">
+      <DependentUpon>SolicCompMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SICOM\SolicCompMaterial.aspx.designer.cs">
+      <DependentUpon>SolicCompMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="SICOM\SolicServicio.aspx.cs">
       <DependentUpon>SolicServicio.aspx</DependentUpon>
