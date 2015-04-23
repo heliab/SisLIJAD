@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="EstadoMateriales.aspx.cs" Inherits="SisLIJAD.MINV.EstadoMateriales" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="RegistroProveedores.aspx.cs" Inherits="SisLIJAD.SICOM.RegistroProveedores" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -25,114 +25,53 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-    <div class="menumodulo">
-    <dx:ASPxMenu ID="ASPxMenu1" runat="server" AutoSeparators="RootOnly" 
-        BorderBetweenItemAndSubMenu="HideRootOnly" ClientIDMode="AutoID" 
-        CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" CssPostfix="SoftOrange" 
-        GutterWidth="0px" ItemSpacing="1px" 
-        SeparatorHeight="1px" SeparatorWidth="1px" ShowPopOutImages="True" 
-        SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css" 
-        Font-Bold="True" Font-Size="Small" Width="100%" ForeColor="#333333" >
-        <SeparatorPaddings Padding="0px" />
-        <Items>
-<dx:MenuItem Text=""></dx:MenuItem>
-            <dx:MenuItem Text="Inicio" NavigateUrl="~/MINV/DefaultMINV.aspx">
-            </dx:MenuItem>
-            <dx:MenuItem BeginGroup="True" Text="Solicitudes">
-                <Items>
-                    <dx:MenuItem Text="Solicitud Materiales" 
-                        NavigateUrl="~/MINV/SolicitudesMateriales.aspx">
-                    </dx:MenuItem>
-                </Items>
-            </dx:MenuItem>
-            <dx:MenuItem Text="Registros">
-                <Items>
-                    <dx:MenuItem Text="Entradas" NavigateUrl="~/MINV/EntradaInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Salidas" NavigateUrl="~/MINV/Salidas.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Transferencias" NavigateUrl="~/MINV/Transferencias.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Ajustes Inventario" 
-                        NavigateUrl="~/MINV/AjustesInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/MaterialesDañados.aspx" 
-                        Text="Materiales Dañados">
-                    </dx:MenuItem>
-                </Items>
-            </dx:MenuItem>
-            <dx:MenuItem Text="Reportes">
-            </dx:MenuItem>
-            <dx:MenuItem Text="Mantenimiento">
-                <Items>
-<dx:MenuItem Text="Materiales" NavigateUrl="~/MINV/Materiales.aspx"></dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/Existencias.aspx" Text="Existencias">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Estado de Materiales" 
-                        NavigateUrl="~/MINV/EstadoMateriales.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/TipoMateriales.aspx" Text="Tipo Materiales">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/UnidadesMedida.aspx" Text="Unidades de Medida">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Tipo Ubicaciones" NavigateUrl="~/MINV/TipoUbicaciones.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Ubicaciones Especificas" 
-                        NavigateUrl="~/MINV/TipoUbicaciones.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/TipoMovimiento.aspx" 
-                        Text="Tipo de movimientos">
-                    </dx:MenuItem>
-                </Items>
-            </dx:MenuItem>
-            <dx:MenuItem Text="">
-            </dx:MenuItem>
-        </Items>
-        <LoadingPanelImage Url="~/App_Themes/SoftOrange/Web/Loading.gif">
-        </LoadingPanelImage>
-        <ItemStyle DropDownButtonSpacing="8px" ImageSpacing="6px" 
-            PopOutImageSpacing="10px" />
-        <SubMenuItemStyle>
-            <HoverStyle BackColor="#0066CC" ForeColor="#CCCCCC">
-                <Border BorderColor="#0066CC" />
-            </HoverStyle>
-        </SubMenuItemStyle>
-        <SubMenuStyle GutterWidth="0px" />
-    </dx:ASPxMenu>
-    </div>
-
     <div class="wrapctrl">
         <ul class="ctrlist">
-            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                class="fa fa-plus"></i>Nuevo</a></li>
-            <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
-                <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-            <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
-                <i class="fa fa-trash"></i>Borrar</a></li>
-        </ul>
+            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo">
+                            <i class="fa fa-plus"></i>Agregar</a></li>
+                        <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
+                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+                        <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
+                            <i class="fa fa-trash"></i>Borrar</a></li>
+                     </ul>
     </div>
-    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+        <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
 fn_EndCallback();
 }" />
     </dx:ASPxCallback>
-    <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
+        <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEstado" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+        DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEntidad" SettingsBehavior-AllowFocusedRow="True"
+        Width="100%" ClientInstanceName="GridPrincipal" 
+        OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
-            <dx:GridViewDataTextColumn Caption="Id" FieldName="IdEstado" ReadOnly="True" VisibleIndex="0"
-                Width="17%">
+            <dx:GridViewDataTextColumn Caption="Id Proveedor" FieldName="IdEntidad" 
+                ReadOnly="True" VisibleIndex="0"
+                Width="12%">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Descripcion" FieldName="DescEstado" VisibleIndex="1">
+            <dx:GridViewDataTextColumn Caption="Proveedor" FieldName="Empresa" 
+                VisibleIndex="1">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn VisibleIndex="2" Width="0%">
+            <dx:GridViewDataTextColumn FieldName="Direccion" VisibleIndex="2">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Email" VisibleIndex="3">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Telefono" VisibleIndex="4" Width="7%">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Web" VisibleIndex="5" Width="12%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -148,15 +87,20 @@ fn_EndCallback();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT [IdEstado], [DescEstado] FROM [MINV_EstadoMateriales]">
+        
+        SelectCommand="SELECT [IdEntidad], [Empresa], [Email], [Telefono], [Web], [Direccion] FROM [USER_Entidad] WHERE ([IdTipo] = @IdTipo)">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="2" Name="IdTipo" Type="Int32" />
+        </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
-        AllowDragging="True" AllowResize="True" HeaderText="Formulario de registro" Modal="True"
+        AllowDragging="True" AllowResize="True" 
+        HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="186px" Width="300px" CloseAction="CloseButton">
+        Height="200px" Width="328px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
@@ -177,9 +121,9 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                 </div>
                                 <div>
-                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Tipo material">
+                                    <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Nombre proveedor">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxTextBox ID="txtDesc" runat="server" Width="199px" ClientInstanceName="txtDesc"
+                                    <dx:ASPxTextBox ID="txtDesc" runat="server" Width="93%" ClientInstanceName="txtDesc"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
@@ -188,7 +132,56 @@ fn_CleanGroup(1);
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                 </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Direccion">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxMemo ID="memoDirec" ClientInstanceName="memoDirec" runat="server" Height="93%" Width="93%">
+                                    <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                        </ValidationSettings>
+                                    </dx:ASPxMemo>
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Telefono">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtTel" runat="server" Width="93%" ClientInstanceName="txtTel"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                        </ValidationSettings>
+                                    </dx:ASPxTextBox>
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Email">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtMail" runat="server" Width="93%" ClientInstanceName="txtMail"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Informacion Requerida" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                                                            <RequiredField ErrorText="Ingrese un email Valido" IsRequired="True" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                        </ValidationSettings>
+                                    </dx:ASPxTextBox>
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Sitio Web">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtWeb" runat="server" Width="93%" ClientInstanceName="txtWeb"
+                                        ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            <RegularExpression ErrorText="Ingresar un URL válido." ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            </ValidationSettings>
+                                    </dx:ASPxTextBox>
+                                </div>
                             </div>
+
                             <div>
                                 <ul class="frmctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
