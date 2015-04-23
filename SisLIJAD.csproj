@@ -130,6 +130,7 @@
     <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
     <Content Include="RecoverMail.htm" />
+    <Content Include="Scripts\jsfunction.min.js" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
@@ -151,6 +152,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\styles.css" />
+    <Content Include="Styles\styles.min.css" />
     <Content Include="Tecnicos\Bienvenidos.aspx" />
     <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
     <Content Include="Tecnicos\SolicitudesAsignadas.aspx" />

@@ -31,7 +31,17 @@ body {
     padding-top: 0.5em;
     padding-bottom: 0.3em;
     text-align: center;
-    text-shadow: 0 2px 0.8px #808080;
+    text-shadow: 0 2px 0.8px #404040;
+}
+#titulopagina {
+    /*color: #051537;*/
+    color: #ececec;
+    font-family: Lato, Verdana, Constantia;
+    font-size: 20px;
+    padding-top: 0.3em;
+    padding-bottom: 0.6em;
+    text-align: center;
+    text-shadow: 0.9px 2.3px 0.9px #000000;
 }
 .Titulo2 {
     /*color: #051537;*/
@@ -452,12 +462,14 @@ section {
     font-size: 1.1em;
    /*  display: block;
    text-align: right;*/
-    padding: 10px;
+   
     color: White;
-    position:fixed;
+   /* position:fixed;*/
+   position:absolute;
     left:85%;
-    margin-top:2em;
+    margin-top:0.8em;
     font-family: Lato, Verdana, Constantia;
+    font-size:medium;
     text-shadow: 0 2px 0.8px #808080;
 }
 
@@ -559,7 +571,13 @@ height:400px;
 	float:left;
     margin-top:1em;
 }
-             
+        
+ .grid
+ {
+     margin-right:0.5%;
+     margin-left:0.5%;
+     width:99%;
+     }            
              
              
              

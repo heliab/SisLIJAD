@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPREUCA.master.cs" Inherits="SisLIJAD.PEUCA.MasterPREUCA" %>
-
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,7 +20,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="loginDisplay">
+    <%--<div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Bienvenid@ <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        <br>
+                      [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/>  ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>--%>
+    <div class="Header"id="Titulo1">
+        
+        <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
@@ -31,12 +46,65 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-    <div class="Header" id="Titulo1">
-        Usuarios UCA
-    </div>
-    <div class="logo">
-    </div>
+            Usuarios UCA
+            <div id="titulopagina"><%=this.Page.Title%></div>
+     </div>
+     
+   <%-- <div class="logo">
+    </div>--%>
     <div class="content">
+    <div class="menumodulo">
+    <dx:ASPxMenu ID="ASPxMenu1" runat="server" AutoSeparators="RootOnly" 
+        BorderBetweenItemAndSubMenu="HideRootOnly" ClientIDMode="AutoID" 
+        CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" CssPostfix="SoftOrange" 
+        GutterWidth="0px" ItemSpacing="1px" 
+        SeparatorHeight="1px" SeparatorWidth="1px" ShowPopOutImages="True" 
+        SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css" 
+        Font-Bold="True" Font-Size="Small" Width="100%" ForeColor="#333333" >
+        <SeparatorPaddings Padding="0px" />
+        <Items>
+<dx:MenuItem Text=""></dx:MenuItem>
+            <dx:MenuItem Text="Inicio" NavigateUrl="~/SICOM/Default.aspx">
+            </dx:MenuItem>
+            <dx:MenuItem Text="Solicitudes">
+                <Items>
+                    <dx:MenuItem Text="Contratación Servicio" 
+                        NavigateUrl="~/SICOM/SolicServicio.aspx">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/SICOM/SolicCompMaterial.aspx" 
+                        Text="Compra materiales">
+                    </dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Registros">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/SICOM/RegistroProveedores.aspx" 
+                        Text="Registro Proveedores">
+                    </dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="Reportes">
+            </dx:MenuItem>
+            <dx:MenuItem Text="Mantenimiento">
+                <Items>
+<dx:MenuItem Text="Tipo Moneda" NavigateUrl="~/SICOM/TipoMoneda.aspx"></dx:MenuItem>
+                </Items>
+            </dx:MenuItem>
+            <dx:MenuItem Text="">
+            </dx:MenuItem>
+        </Items>
+        <LoadingPanelImage Url="~/App_Themes/SoftOrange/Web/Loading.gif">
+        </LoadingPanelImage>
+        <ItemStyle DropDownButtonSpacing="8px" ImageSpacing="6px" 
+            PopOutImageSpacing="10px" />
+        <SubMenuItemStyle>
+            <HoverStyle BackColor="#0066CC" ForeColor="#CCCCCC">
+                <Border BorderColor="#0066CC" />
+            </HoverStyle>
+        </SubMenuItemStyle>
+        <SubMenuStyle GutterWidth="0px" />
+    </dx:ASPxMenu>
+    </div>
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
         </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="GridContent" runat="server">

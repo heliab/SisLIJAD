@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PEUCA/MasterPREUCA.Master" AutoEventWireup="true" CodeBehind="SolicitudLaboratorios.aspx.cs" Inherits="SisLIJAD.PEUCA.SolicitudLaboratorios" %>
+﻿<%@ Page Title="Solicitud Laboratorios" Language="C#" MasterPageFile="~/PEUCA/MasterPREUCA.Master" AutoEventWireup="true" CodeBehind="SolicitudLaboratorios.aspx.cs" Inherits="SisLIJAD.PEUCA.SolicitudLaboratorios"%>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -91,6 +91,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSPrestamos" KeyFieldName="IdPrestLab" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -206,6 +207,7 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT MPR_Solic_Lab.IdPrestLab, MPR_Solic_Lab.Procedimiento, MPR_Solic_Lab.username, CONVERT (Date, MPR_Solic_Lab.FechaReg) AS Registrado, CONVERT (DATE, MPR_Solic_Lab.FechaReq) AS Requerido, MPR_Solic_Lab.Horaini, MPR_Solic_Lab.HoraFin, MINV_Ubicaciones.DescUbicacion, MPR_Solic_Lab.Enviada, MPR_Solic_Lab.Aprobada, MPR_Solic_Lab.Cancelada FROM MPR_Solic_Lab INNER JOIN MINV_Ubicaciones ON MPR_Solic_Lab.IdUbicacion = MINV_Ubicaciones.IdUbicacion WHERE (MPR_Solic_Lab.username = @username) ORDER BY MPR_Solic_Lab.IdPrestLab DESC">
         <SelectParameters>
