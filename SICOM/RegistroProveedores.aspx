@@ -135,8 +135,9 @@ fn_CleanGroup(1);
                                 <div>
                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Direccion">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxMemo ID="memoDirec" ClientInstanceName="memoDirec" runat="server" Height="93%" Width="93%">
-                                    <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                    <dx:ASPxMemo ID="memoDirec" ClientInstanceName="memoDirec" runat="server" Height="93%"
+                                        Width="93%">
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
@@ -162,9 +163,7 @@ fn_CleanGroup(1);
                                         ValidationSettings-ValidationGroup="ControlGroup1">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
-                                            <RegularExpression ErrorText="Informacion Requerida" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
-                                                            <RequiredField ErrorText="Ingrese un email Valido" IsRequired="True" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Ingrese una direccion valida" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                 </div>
@@ -176,8 +175,7 @@ fn_CleanGroup(1);
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Ingresar un URL válido." ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" />
-                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                            </ValidationSettings>
+                                             </ValidationSettings>
                                     </dx:ASPxTextBox>
                                 </div>
                             </div>

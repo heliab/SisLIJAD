@@ -181,10 +181,7 @@ namespace SisLIJAD.MINV
         {
             Select();
         }
-         protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
-        {
-            Session["IdTipoMov"] = (sender as ASPxGridView).GetMasterRowKeyValue();
-        }
+       
         #endregion
 
         #region subcrud
@@ -315,12 +312,17 @@ namespace SisLIJAD.MINV
 
          }
          #endregion
-
+         #region Subcallback
          protected void SubFillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
          {
              SubSelect();
          }
-     
+         protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
+         {
+             Session["IdTipoMov"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+         }
+        #endregion
+
 
     }
 }
