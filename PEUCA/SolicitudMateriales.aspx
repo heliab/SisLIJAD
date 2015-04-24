@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PEUCA/MasterPREUCA.Master" AutoEventWireup="true" CodeBehind="SolicitudMateriales.aspx.cs" Inherits="SisLIJAD.PEUCA.SolicitudMateriales" %>
+﻿<%@ Page Title="Solicitud de Materiales" Language="C#" MasterPageFile="~/PEUCA/MasterPREUCA.Master" AutoEventWireup="true" CodeBehind="SolicitudMateriales.aspx.cs" Inherits="SisLIJAD.PEUCA.SolicitudMateriales" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -146,6 +146,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSPrestamos" KeyFieldName="IdPrestamo" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -297,6 +298,7 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT(Date,FechaPrestar)as FechaPrestamo, CONVERT(Date,FechaDevolver) as FechaDevolucion, SolicitadoPor, Enviado,Aprobado FROM MINV_Prestamos WHERE (SolicitadoPor = @username) ORDER BY IdPrestamo DESC">
         <SelectParameters>
@@ -310,14 +312,12 @@ fn_EndCallback();
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDatosPersonales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-    SelectCommand="SELECT NombCompleto, Cedula FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+  SelectCommand="SELECT NombCompleto, Cedula FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
     </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDSDatosAcademicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
     SelectCommand="SELECT CodigoAsignatura, Asignatura FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />

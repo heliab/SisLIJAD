@@ -13,6 +13,15 @@ namespace SisLIJAD.MINV {
     public partial class MasterMinv {
         
         /// <summary>
+        /// Control Head1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        
+        /// <summary>
         /// Control head.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace SisLIJAD.MINV {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
+        
+        /// <summary>
+        /// Control ASPxMenu1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxMenu.ASPxMenu ASPxMenu1;
         
         /// <summary>
         /// Control FormContent.

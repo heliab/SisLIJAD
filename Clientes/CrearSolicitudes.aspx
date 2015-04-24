@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
+<%@ Page Title="Solicitudes de prueba" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -77,6 +77,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+    <div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
@@ -156,6 +157,7 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+        </div>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
         SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) and (Enviada=0) ORDER BY IdSolicPrueba DESC">

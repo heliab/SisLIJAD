@@ -688,6 +688,7 @@
     <Content Include="Tecnicos\TecnicosMASTER.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cuenta\web.config" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />

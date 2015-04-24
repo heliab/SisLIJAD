@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesEnviadas.aspx.cs" Inherits="SisLIJAD.Clientes.SolicitudesEnviadas" %>
+﻿<%@ Page Title="Soicitdes Enviadas" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesEnviadas.aspx.cs" Inherits="SisLIJAD.Clientes.SolicitudesEnviadas" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -82,6 +82,7 @@ fn_EndCallback();
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
@@ -153,12 +154,9 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-        
-        
-        
-        SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba,username, FechaRegistro,Autorizado FROM MPR_Solic_Pruebas WHERE (username=@username) and (Autorizado=1) ORDER BY IdSolicPrueba DESC">
+     SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba,username, FechaRegistro,Autorizado FROM MPR_Solic_Pruebas WHERE (username=@username) and (Autorizado=1) ORDER BY IdSolicPrueba DESC">
         <SelectParameters>
             <asp:Parameter Name="username" />
         </SelectParameters>
