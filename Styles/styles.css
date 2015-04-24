@@ -353,14 +353,18 @@ section {
      {
          padding-top: 5px;
          padding-bottom:5px;
+      /*   margin:0 0;*/
+         
          }
     .wrapctrl
     {
          background:rgba(27, 0, 0, 0.2);
         border-left-style:solid;
         border-left-width: 2.5px;
-        padding-left: 2.3em;
-        width:auto;
+      /*  padding-left: 2.3em;*/
+         margin-right:0.5%;
+     margin-left:0.5%;
+     width:99%;
         }
   .leftctrl
   {
