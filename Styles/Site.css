@@ -3,9 +3,9 @@
 
 body   
 {
-    background: #b6b7bc;
+   /* background: #b6b7bc;*/
     font-size: .80em;
-    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    font-family: Lato, Verdana, Constantia;
     margin: 0px;
     padding: 0px;
     color: #696969;
@@ -195,6 +195,7 @@ fieldset
     margin: 1em 0px;
     padding: 1em;
     border: 1px solid #ccc;
+     border-radius: 10px;
 }
 
 fieldset p 

@@ -60,7 +60,7 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
-    <Content Include="Account\RecoverPassword.aspx" />
+    <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Clientes\CrearSolicitudes.aspx" />
     <Content Include="Clientes\Resultados.aspx" />
@@ -117,7 +117,6 @@
     <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\MasterMPR.Master" />
-    <Content Include="MPR\PesoSecoSuelto.aspx" />
     <Content Include="MPR\Pruebas.aspx" />
     <Content Include="MPR\SolicitudesPruebas.aspx" />
     <Content Include="MPR\TiposPrueba.aspx" />
@@ -129,7 +128,8 @@
     <Content Include="Pruebas\HumedadAridos.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoCompacto.aspx" />
     <Content Include="Pruebas\PesoVolumetricoSecoSuelto.aspx" />
-    <Content Include="RecoverMail.htm" />
+    <Content Include="Recover\RecoverMail.htm" />
+    <Content Include="Recover\RecoverPassword.htm" />
     <Content Include="Scripts\jsfunction.min.js" />
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
@@ -202,11 +202,11 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\RecoverPassword.aspx.cs">
+    <Compile Include="Recover\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\RecoverPassword.aspx.designer.cs">
+    <Compile Include="Recover\RecoverPassword.aspx.designer.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
@@ -485,13 +485,6 @@
     </Compile>
     <Compile Include="MPR\MasterMPR.Master.designer.cs">
       <DependentUpon>MasterMPR.Master</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\PesoSecoSuelto.aspx.cs">
-      <DependentUpon>PesoSecoSuelto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\PesoSecoSuelto.aspx.designer.cs">
-      <DependentUpon>PesoSecoSuelto.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\Pruebas.aspx.cs">
       <DependentUpon>Pruebas.aspx</DependentUpon>

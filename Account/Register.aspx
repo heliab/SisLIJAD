@@ -1,16 +1,27 @@
-﻿<%@ Page Title="Registrarse" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Registrarse" Language="C#" MasterPageFile="~/Account/AccountMASTER.Master" AutoEventWireup="true"
     CodeBehind="Register.aspx.cs" Inherits="SisLIJAD.Account.Register" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
+<div class="registerbg">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" 
-    EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser" 
-    DisableCreatedUser="True">
+    EnableViewState="False" OnCreatedUser="RegisterUser_CreatedUser" 
+    DisableCreatedUser="True" BackColor="#F7F6F3" BorderColor="#E6E2D8" 
+        BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+        <HeaderStyle BackColor="#5D7B9D" BorderStyle="Solid" Font-Bold="True" 
+            Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
         <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
         </LayoutTemplate>
+        <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+            ForeColor="#284775" />
+        <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+            ForeColor="#284775" />
+        <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
@@ -27,10 +38,11 @@
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
                     </span>
                     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
-                         ValidationGroup="RegisterUserValidationGroup"/>
-                    <div class="accountInfo">
+                         ValidationGroup="RegisterUserValidationGroup" Font-Bold="True" 
+                        Font-Size="Large" ForeColor="#CC0000"/>
+                    <div class="accountInfo formRegister">
                         <fieldset class="register">
-                            <legend>Información de cuenta</legend>
+                          <legend class="legenda">Información de cuenta</legend>
                             <p>
                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nombre de usuario:</asp:Label>
                                 <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
@@ -65,13 +77,24 @@
                         </fieldset>
                         <p class="submitButton">
                             <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Crear usuario" 
-                                 ValidationGroup="RegisterUserValidationGroup"/>
+                                 ValidationGroup="RegisterUserValidationGroup" BorderColor="#99CCFF" 
+                                CssClass="white-font button-blue" Height="29px" Width="119px" 
+                                Font-Bold="False"/>
                         </p>
                     </div>
                 </ContentTemplate>
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
+<asp:CompleteWizardStep runat="server"></asp:CompleteWizardStep>
         </WizardSteps>
+        <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
+            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+            ForeColor="#284775" />
+        <SideBarButtonStyle BorderWidth="0px" Font-Names="Verdana" ForeColor="White" />
+        <SideBarStyle BackColor="#5D7B9D" BorderWidth="0px" Font-Size="0.9em" 
+            VerticalAlign="Top" />
+        <StepStyle BorderWidth="0px" />
     </asp:CreateUserWizard>
+    </div>
 </asp:Content>

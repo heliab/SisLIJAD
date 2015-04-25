@@ -17,7 +17,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="loginDisplay">
+        
+    <div class="Header" id="Titulo1">
+    <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
@@ -29,13 +31,10 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-    <div class="Header" id="Titulo1">
         Módulo clientes. Bienvenidos!
+        <div id="titulopagina"><%=this.Page.Title%></div>
     </div>
      
-<%--    <div class="logo">
-   
-    </div>--%>
 
     <div>
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
@@ -45,7 +44,8 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <div class="footer"></div>
+    <div class="scrollfooter"></div>
+  <div class="footer"></div>
     </form>
 </body>
 </html>

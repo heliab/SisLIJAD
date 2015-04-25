@@ -39,6 +39,10 @@
                         <asp:CheckBox ID="RememberMe" runat="server"/>
                         <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Mantenerme conectado</asp:Label>
                     </p>
+                    <p>
+                    <asp:LinkButton ID="lbtnRecover" runat="server" 
+                            PostBackUrl="~/Recover/RecoverPassword.aspx">¿Olvidó contraseña?</asp:LinkButton>
+                    </p>
                 </fieldset>
                 <p class="submitButton">
                     <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Iniciar sesión" ValidationGroup="LoginUserValidationGroup"/>

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="SolicCompMaterial.aspx.cs" Inherits="SisLIJAD.SICOM.SolicCompMaterial" %>
+<%@ Page Title="Solicitud Compra de Materiales" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="SolicCompMaterial.aspx.cs" Inherits="SisLIJAD.SICOM.SolicCompMaterial" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -66,6 +66,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudMateriales" KeyFieldName="IdSolic_Comp" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal"
@@ -165,6 +166,7 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSSolicitudMateriales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
         SelectCommand="SELECT MSCOMP_Solic_Compras.IdSolic_Comp, MSCOMP_Solic_Compras.HeaderSolic, MSCOMP_Solic_Compras.FechARecibir, MSCOMP_Tipo_Moneda.DescTipoM, USER_Entidad.Empresa FROM MSCOMP_Solic_Compras INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Solic_Compras.IdMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda INNER JOIN USER_Entidad ON MSCOMP_Solic_Compras.IdEntidad = USER_Entidad.IdEntidad ORDER BY MSCOMP_Solic_Compras.IdSolic_Comp DESC">

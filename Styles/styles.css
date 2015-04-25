@@ -10,10 +10,13 @@ body {
       rgba(115, 195, 24, 0.2)
     ),/*url(../Images/swirl_pattern.png);*/url(../Images/back_p2.png);
     
-    background-repeat: repeat;
-  
+    background-repeat: no-repeat;
+   background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));
 }
-
+.registerbg
+{
+    
+    }
 #centerbox {
     background-color: rgba(90, 155, 16, 0.32);
     height: 57%;
@@ -387,6 +390,15 @@ section {
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
      }
+     
+     .formRegister
+    {
+        background-color: rgba(240,240,240, 0.3);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
+        padding-left:1.7em;
+        margin-left:19em;
+     }
      /*Colores de botones*/   
            .button-green {
             background: rgb(28, 184, 65); /* this is a green */
@@ -583,7 +595,11 @@ height:400px;
      width:99%;
      }            
              
-             
+ .legenda
+ {
+     font-family: Lato, Verdana, Constantia;
+     color:#2770C2;
+     } 
              
              
              

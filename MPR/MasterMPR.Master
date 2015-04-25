@@ -34,8 +34,7 @@
     <div class="Header" id="Titulo1">
         Prueba de materiales
     </div>
-    <div class="logo">
-    </div>
+    
     <div class="content">
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
         </asp:ContentPlaceHolder>

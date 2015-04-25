@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="TipoServicio.aspx.cs" Inherits="SisLIJAD.SICOM.TipoServicio" %>
+<%@ Page Title="Tipos de Servicio" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="TipoServicio.aspx.cs" Inherits="SisLIJAD.SICOM.TipoServicio" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
@@ -42,6 +42,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSTipoServicio" KeyFieldName="IdServicio" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal"
@@ -69,9 +70,8 @@ fn_EndCallback();
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSTipoServicio" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-
-
         SelectCommand="SELECT [IdServicio], [NomServicio] FROM [MSCOMP_TipoServicio] ORDER BY [IdServicio] DESC">
     </asp:SqlDataSource>
 

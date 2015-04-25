@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="TipoMoneda.aspx.cs" Inherits="SisLIJAD.SICOM.TipoMoneda" %>
+﻿<%@ Page Title="Tipo Moneda" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="TipoMoneda.aspx.cs" Inherits="SisLIJAD.SICOM.TipoMoneda" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
@@ -42,6 +42,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSTipoMoneda" KeyFieldName="IdTipoMoneda" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -70,8 +71,8 @@ fn_EndCallback();
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSTipoMoneda" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
         SelectCommand="SELECT [IdTipoMoneda], [DescTipoM] FROM [MSCOMP_Tipo_Moneda]">
     </asp:SqlDataSource>
     

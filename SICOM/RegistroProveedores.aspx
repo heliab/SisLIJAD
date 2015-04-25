@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="RegistroProveedores.aspx.cs" Inherits="SisLIJAD.SICOM.RegistroProveedores" %>
+﻿<%@ Page Title="Proveedores" Language="C#" MasterPageFile="~/SICOM/MasterSICOM.Master" AutoEventWireup="true" CodeBehind="RegistroProveedores.aspx.cs" Inherits="SisLIJAD.SICOM.RegistroProveedores" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -45,7 +45,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSEstadoMaterial" KeyFieldName="IdEntidad" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -86,9 +86,9 @@ fn_EndCallback();
             </FocusedRow>
         </Styles>
     </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-        SelectCommand="SELECT [IdEntidad], [Empresa], [Email], [Telefono], [Web], [Direccion] FROM [USER_Entidad] WHERE ([IdTipo] = @IdTipo)">
+           SelectCommand="SELECT [IdEntidad], [Empresa], [Email], [Telefono], [Web], [Direccion] FROM [USER_Entidad] WHERE ([IdTipo] = @IdTipo)">
         <SelectParameters>
             <asp:Parameter DefaultValue="2" Name="IdTipo" Type="Int32" />
         </SelectParameters>

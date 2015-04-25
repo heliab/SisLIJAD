@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Autorizar Solicitudes" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="AutSolicitudesMateriales.aspx.cs" Inherits="SisLIJAD.MINV.AutSolicitudesMateriales" %>
+﻿<%@ Page Title="Autorizar Solicitudes Prestamo Materiales" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="AutSolicitudesMateriales.aspx.cs" Inherits="SisLIJAD.MINV.AutSolicitudesMateriales" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>

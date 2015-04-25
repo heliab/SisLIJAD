@@ -68,27 +68,19 @@
             </dx:MenuItem>
             <dx:MenuItem Text="Solicitudes">
                 <Items>
-                    <dx:MenuItem Text="Contratación Servicio" 
-                        NavigateUrl="~/SICOM/SolicServicio.aspx">
+                    <dx:MenuItem Text="Solicitud de Laboratorios" 
+                        NavigateUrl="~/PEUCA/SolicitudLaboratorios.aspx">
                     </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/SICOM/SolicCompMaterial.aspx" 
-                        Text="Compra materiales">
-                    </dx:MenuItem>
-                </Items>
-            </dx:MenuItem>
-            <dx:MenuItem Text="Registros">
-                <Items>
-                    <dx:MenuItem NavigateUrl="~/SICOM/RegistroProveedores.aspx" 
-                        Text="Registro Proveedores">
+                    <dx:MenuItem NavigateUrl="~/PEUCA/SolicitudMateriales.aspx" 
+                        Text="Solicitud de Materiales">
                     </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
-            <dx:MenuItem Text="Reportes">
+            <dx:MenuItem Text="">
             </dx:MenuItem>
-            <dx:MenuItem Text="Mantenimiento">
-                <Items>
-<dx:MenuItem Text="Tipo Moneda" NavigateUrl="~/SICOM/TipoMoneda.aspx"></dx:MenuItem>
-                </Items>
+            <dx:MenuItem Text="">
+            </dx:MenuItem>
+            <dx:MenuItem Text="">
             </dx:MenuItem>
             <dx:MenuItem Text="">
             </dx:MenuItem>
