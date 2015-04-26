@@ -60,6 +60,7 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Clientes\CrearSolicitudes.aspx" />

@@ -13,5 +13,10 @@ namespace SisLIJAD.Account
         {
             RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
+
+        protected void lbtnRecover_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Recover/RecoverPassword.aspx", true);
+        }
     }
 }

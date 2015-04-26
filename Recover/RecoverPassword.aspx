@@ -14,7 +14,7 @@
                 BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
             <MailDefinition BodyFileName="~/Recover/RecoverPassword.htm" From="SisLijad@gmail.com" 
-                Subject="Recuperacion de contraseña">
+                Subject="Recuperacion de contraseña" IsBodyHtml="True">
             </MailDefinition>
             <SuccessTextStyle Font-Bold="True" ForeColor="#1C5E55" />
             <TextBoxStyle Font-Size="0.8em" />

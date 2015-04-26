@@ -27,7 +27,7 @@
                 Font-Size="2em" ForeColor="#333333" TextLayout="TextOnTop" 
                 CreateUserText="Registrarse" CreateUserUrl="~/Account/Register.aspx" 
                 PasswordRecoveryText="¿Olvidastes tu contraseña?" 
-                PasswordRecoveryUrl="~/RecuperarConstraseña.aspx">
+                PasswordRecoveryUrl="~/Recover/RecoverPassword.aspx">
                 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                 <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" 
                     BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />

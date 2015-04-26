@@ -41,7 +41,7 @@
                     </p>
                     <p>
                     <asp:LinkButton ID="lbtnRecover" runat="server" 
-                            PostBackUrl="~/Recover/RecoverPassword.aspx">¿Olvidó contraseña?</asp:LinkButton>
+                            PostBackUrl="~/Recover/RecoverPassword.aspx" onclick="lbtnRecover_Click">¿Olvidó contraseña?</asp:LinkButton>
                     </p>
                 </fieldset>
                 <p class="submitButton">

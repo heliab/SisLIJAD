@@ -22,6 +22,26 @@ namespace SisLIJAD.Account
             e.Cancel = true;
 
 
+            //MailMessage mail = new MailMessage();
+            //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            //SmtpServer.Port = 587;
+            //SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
+            //SmtpServer.EnableSsl = true;
+            //SmtpServer.Send(e.Message);
+
+
+
+
+            //SmtpClient email = new SmtpClient();
+            //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            //SmtpServer.Port = 587;
+            //SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
+            //email.EnableSsl = true;
+            //email.Send(e.Message);
+            //e.Cancel = true;
+
+
 
         }
     }
