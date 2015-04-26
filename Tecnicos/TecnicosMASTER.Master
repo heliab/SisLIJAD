@@ -50,58 +50,25 @@
         <SeparatorPaddings Padding="0px" />
         <Items>
 <dx:MenuItem Text=""></dx:MenuItem>
-            <dx:MenuItem Text="Inicio" NavigateUrl="~/MINV/DefaultMINV.aspx">
+            <dx:MenuItem Text="Inicio" NavigateUrl="~/Modulos.aspx">
             </dx:MenuItem>
             <dx:MenuItem BeginGroup="True" Text="Solicitudes">
                 <Items>
-                    <dx:MenuItem NavigateUrl="~/MINV/AutSolicitudesMateriales.aspx" 
-                        Text="Autorizar Solicitudes">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Solicitud Materiales" 
-                        NavigateUrl="~/MINV/SolicitudesMateriales.aspx">
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/SolicitudesAsignadas.aspx" 
+                        Text="Solicitudes Asignadas">
                     </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Registros">
                 <Items>
-                    <dx:MenuItem Text="Entradas" NavigateUrl="~/MINV/EntradaInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Salidas" NavigateUrl="~/MINV/Salidas.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Transferencias" NavigateUrl="~/MINV/Transferencias.aspx" 
-                        Visible="False">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Ajustes Inventario" 
-                        NavigateUrl="~/MINV/AjustesInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/MaterialesDañados.aspx" 
-                        Text="Materiales Dañados" Visible="False">
+                    <dx:MenuItem Text="Entrega Materiales" 
+                        NavigateUrl="~/Tecnicos/EntregaMaterialesPrestamo.aspx">
                     </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Reportes">
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
-                <Items>
-<dx:MenuItem Text="Materiales" NavigateUrl="~/MINV/Materiales.aspx"></dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/Existencias.aspx" Text="Existencias">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Estado de Materiales" 
-                        NavigateUrl="~/MINV/EstadoMateriales.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/TipoMateriales.aspx" Text="Tipo Materiales">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/UnidadesMedida.aspx" Text="Unidades de Medida">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Tipo Ubicaciones" NavigateUrl="~/MINV/TipoUbicaciones.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Ubicaciones Especificas" 
-                        NavigateUrl="~/MINV/Ubicaciones.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/TipoMovimiento.aspx" 
-                        Text="Tipo de movimientos" Visible="False">
-                    </dx:MenuItem>
-                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="">
             </dx:MenuItem>

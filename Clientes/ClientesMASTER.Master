@@ -53,7 +53,7 @@
 <SeparatorPaddings Padding="0px"></SeparatorPaddings>
         <Items>
 <dx:MenuItem Text=""></dx:MenuItem>
-            <dx:MenuItem Text="Inicio" NavigateUrl="~/Clientes/Default.aspx">
+            <dx:MenuItem Text="Inicio" NavigateUrl="~/Modulos.aspx">
             </dx:MenuItem>
             <dx:MenuItem Text="Solicitudes">
                 <Items>

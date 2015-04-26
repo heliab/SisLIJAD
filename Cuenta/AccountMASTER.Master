@@ -51,7 +51,7 @@
 <SeparatorPaddings Padding="0px"></SeparatorPaddings>
         <Items>
 <dx:MenuItem Text=""></dx:MenuItem>
-            <dx:MenuItem Text="Inicio">
+            <dx:MenuItem Text="Inicio" NavigateUrl="~/Modulos.aspx">
             </dx:MenuItem>
             <dx:MenuItem Text="Usuarios y roles" NavigateUrl="~/Cuenta/UserAndRoles.aspx">
             </dx:MenuItem>

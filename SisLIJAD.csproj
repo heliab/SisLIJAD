@@ -159,7 +159,7 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\styles.css" />
     <Content Include="Styles\styles.min.css" />
-    <Content Include="Tecnicos\Bienvenidos.aspx" />
+    <Content Include="Tecnicos\Default.aspx" />
     <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
     <Content Include="Tecnicos\SolicitudesAsignadas.aspx" />
     <Content Include="Web.config">
@@ -661,12 +661,12 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Tecnicos\Bienvenidos.aspx.cs">
-      <DependentUpon>Bienvenidos.aspx</DependentUpon>
+    <Compile Include="Tecnicos\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tecnicos\Bienvenidos.aspx.designer.cs">
-      <DependentUpon>Bienvenidos.aspx</DependentUpon>
+    <Compile Include="Tecnicos\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.cs">
       <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>

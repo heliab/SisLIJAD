@@ -415,6 +415,16 @@ section {
         margin-top:7em;
         position:absolute;
        }
+       .formModulo
+    {
+        background-color: rgb(240,240,240);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
+        padding-left:1.7em;
+        margin-left:27.8em;
+        margin-top:10em;
+        width:350px;
+     }
      /*Colores de botones*/   
            .button-green {
             background: rgb(28, 184, 65); /* this is a green */

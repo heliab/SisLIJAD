@@ -17,10 +17,32 @@ namespace SisLIJAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Roles.IsUserInRole("Administrador"))
+            if (Roles.IsUserInRole("Tecnico"))
             {
-                Response.Write("<script>alert('" + Server.HtmlEncode("Hola Tecnico") + "')</script>");
-                //Response.Redirect("Default.aspx");
+                Response.Redirect("~/Tecnicos/Default.aspx");
+            }
+            if (Roles.IsUserInRole("Clientes"))
+            {
+                Response.Redirect("~/Clientes/Default.aspx");
+            }
+
+            if (Roles.IsUserInRole("PEUCA"))
+            {
+                Response.Redirect("~/PEUCA/Default.aspx");
+            }
+            if (Roles.IsUserInRole("Administrador"))
+            {
+                LinkInventarios.Visible = true;
+                LinkPrueba.Visible = true;
+                LinkCompra.Visible = true;
+                LinkCuenta.Visible = true;
+                LinkTecnico.Visible = true;
+                LinkClientes.Visible = true;
+                LinkUCA.Visible = true;
+            }
+            else {
+                Response.Write("<script>alert('" + Server.HtmlEncode("Aún no tiene asignado ningún permiso de usuario. Estamos trabajando en la autorización de su perfil. Por favor intente más tarde") + "')</script>");
+                Response.Redirect("Default.aspx");
             }
         }
     }

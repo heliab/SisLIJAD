@@ -17,19 +17,6 @@ namespace SisLIJAD
     public partial class _Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-          
-        }
-
-        protected void Login1_LoggedIn(object sender, EventArgs e)
-        {
-            if (Roles.IsUserInRole("Administrador"))
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode("Es administrador") + "')</script>");
-            }
-
-                //Response.Redirect("Default.aspx");
-
-        }
+        {}
     }
 }
