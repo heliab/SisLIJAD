@@ -210,6 +210,13 @@
     <Compile Include="Cuenta\InfoUser.aspx.designer.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pruebas\PruebasMaster.Master.cs">
+      <DependentUpon>PruebasMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\PruebasMaster.Master.designer.cs">
+      <DependentUpon>PruebasMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Recover\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -621,6 +628,13 @@
     <Compile Include="SICOM\TipoServicio.aspx.designer.cs">
       <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SisLijadMaster.Master.cs">
+      <DependentUpon>SisLijadMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SisLijadMaster.Master.designer.cs">
+      <DependentUpon>SisLijadMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -683,6 +697,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cuenta\web.config" />
+    <Content Include="SisLijadMaster.Master" />
+    <Content Include="Pruebas\PruebasMaster.Master" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />

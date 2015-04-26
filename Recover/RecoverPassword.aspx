@@ -1,17 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cuenta/AccountMASTER.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="SisLIJAD.Account.RecoverPassword" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SisLijadMaster.Master" AutoEventWireup="true" CodeBehind="RecoverPassword.aspx.cs" Inherits="SisLIJAD.Account.RecoverPassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-    <div>
+<div class="registerbg">
+<div class="formRegister"> 
     <h1>Recuperar contraseña</h1>
         <asp:PasswordRecovery ID="PasswordRecovery1" runat="server" BackColor="#F7F6F3" 
             BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" 
-            Font-Names="Verdana" Font-Size="0.8em" 
+            Font-Names="Verdana" Font-Size="1.5em" 
             onsendingmail="PasswordRecovery1_SendingMail">
             <SubmitButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" 
-                BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" 
+                BorderWidth="1px" Font-Names="Verdana" Font-Size="1.1em" 
                 ForeColor="#284775" />
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
             <MailDefinition BodyFileName="~/Recover/RecoverPassword.htm" From="SisLijad@gmail.com" 

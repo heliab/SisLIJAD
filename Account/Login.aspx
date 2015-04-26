@@ -4,6 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
+<div class="centertitle">
     <h2>
         Iniciar sesión
     </h2>
@@ -18,7 +19,8 @@
             </span>
             <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
-            <div class="accountInfo">
+                 </div>
+            <div class="accountInfo formRegister">
                 <fieldset class="login">
                     <legend>Información de cuenta</legend>
                     <p>
@@ -45,9 +47,12 @@
                     </p>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Iniciar sesión" ValidationGroup="LoginUserValidationGroup"/>
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" 
+                        CssClass="white-font button-blue" Text="Iniciar sesión" 
+                        ValidationGroup="LoginUserValidationGroup" Font-Size="18px"/>
                 </p>
             </div>
         </LayoutTemplate>
     </asp:Login>
+    </div>
 </asp:Content>

@@ -25,6 +25,7 @@
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
+                <div class="centertitle">
                     <h2>
                         Crear una nueva cuenta
                     </h2>
@@ -34,12 +35,14 @@
                     <p>
                         Las contraseñas deben tener una longitud mínima de <%= Membership.MinRequiredPasswordLength %> caracteres.
                     </p>
+                   
                     <span class="failureNotification">
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
-                    </span>
+                    </span> 
                     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
                          ValidationGroup="RegisterUserValidationGroup" Font-Bold="True" 
-                        Font-Size="Large" ForeColor="#CC0000"/>
+                        Font-Size="Small" ForeColor="#CC0000"/>
+                        </div>
                     <div class="accountInfo formRegister">
                         <fieldset class="register">
                           <legend class="legenda">Información de cuenta</legend>

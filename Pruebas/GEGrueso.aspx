@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="GEGrueso.aspx.cs" Inherits="SisLIJAD.Pruebas.GEGrueso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true" CodeBehind="GEGrueso.aspx.cs" Inherits="SisLIJAD.Pruebas.GEGrueso" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>

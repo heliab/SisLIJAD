@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true"
     CodeBehind="HumedadAridos.aspx.cs" Inherits="SisLIJAD.Pruebas.HumedadAridos" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"

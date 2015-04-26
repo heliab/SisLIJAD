@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Security;
 
-namespace SisLIJAD
+namespace SisLIJAD.Pruebas
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class PruebasMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

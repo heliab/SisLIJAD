@@ -1,46 +1,29 @@
-﻿<%@ Page Title="Página principal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Página principal" Language="C#" MasterPageFile="~/SisLijadMaster.Master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="SisLIJAD._Default" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        ASP.NET
-    </h2>
-    <p>
-        Para obtener más información acerca de ASP.NET, visite <a href="http://www.asp.net" title="Sitio web de ASP.NET">www.asp.net</a>.
-    </p>
-    <p>
-        También puede encontrar <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
-            title="Documentación de ASP.NET en MSDN">documentación sobre ASP.NET en MSDN</a>.
-    </p>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
     
-    <asp:LoginStatus ID="LoginStatus2" runat="server" />
+    
+    <div class="formRegister">
     <asp:LoginView ID="LoginView1" runat="server">
         <AnonymousTemplate>
         <p>Por favor inicie sesion</p>
-            <asp:Login ID="Login1" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" 
-                BorderPadding="4" BorderStyle="Solid" BorderWidth="5px" Font-Names="Verdana" 
-                Font-Size="2em" ForeColor="#333333" TextLayout="TextOnTop" 
+            <asp:Login ID="Login1" runat="server" 
                 CreateUserText="Registrarse" CreateUserUrl="~/Account/Register.aspx" 
                 PasswordRecoveryText="¿Olvidastes tu contraseña?" 
                 PasswordRecoveryUrl="~/Recover/RecoverPassword.aspx">
-                <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" 
-                    BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
-                <TextBoxStyle Font-Size="0.8em" />
-                <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" 
-                    ForeColor="White" />
             </asp:Login>
         </AnonymousTemplate>
         <LoggedInTemplate>
         <p>Bienvenido 
             <asp:LoginName ID="LoginName1" runat="server" />
             <asp:LoginStatus ID="LoginStatus1" runat="server" /></p>
-            <dx:ASPxMenu ID="AdminMenu" runat="server" AutoSeparators="RootOnly" 
+            <%--<dx:ASPxMenu ID="AdminMenu" runat="server" AutoSeparators="RootOnly" 
         ClientIDMode="AutoID" CssFilePath="~/App_Themes/Blue/{0}/styles.css" 
         CssPostfix="Blue" ImageFolder="~/App_Themes/Blue/{0}/" ItemSpacing="0px" 
         SeparatorHeight="100%" SeparatorWidth="2px" ShowPopOutImages="True" 
@@ -97,8 +80,9 @@
                 <SubMenuItemStyle ImageSpacing="19px" PopOutImageSpacing="30px">
                 </SubMenuItemStyle>
                 <SubMenuStyle GutterWidth="0px" />
-            </dx:ASPxMenu>
+            </dx:ASPxMenu>--%>
       </LoggedInTemplate>
 
         </asp:LoginView>
+        </div>
 </asp:Content>

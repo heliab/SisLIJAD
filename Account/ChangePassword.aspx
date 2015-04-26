@@ -1,9 +1,10 @@
-﻿<%@ Page Title="Cambiar contraseña" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Cambiar contraseña" Language="C#" MasterPageFile="~/Account/AccountMASTER.Master" AutoEventWireup="true"
     CodeBehind="ChangePassword.aspx.cs" Inherits="SisLIJAD.Account.ChangePassword" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
+   <div class="centertitle">
     <h2>
         Cambiar contraseña
     </h2>
@@ -13,6 +14,8 @@
     <p>
         Las contraseñas nuevas deben tener una longitud mínima de <%= Membership.MinRequiredPasswordLength %> caracteres.
     </p>
+    </div>
+    <div class="formRegister">
     <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
          SuccessPageUrl="ChangePasswordSuccess.aspx">
         <ChangePasswordTemplate>
@@ -57,4 +60,5 @@
             </div>
         </ChangePasswordTemplate>
     </asp:ChangePassword>
+    </div>
 </asp:Content>

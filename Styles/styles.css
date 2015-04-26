@@ -5,17 +5,22 @@ body {
     background-image: linear-gradient(
       rgba(115, 195, 24, 0.13), 
       rgba(115, 195, 24, 0.13)*/
-        background-image: linear-gradient(
+    /*    background-image: linear-gradient(
       rgba(224,224,224, 0.4), 
       rgba(115, 195, 24, 0.2)
-    ),/*url(../Images/swirl_pattern.png);*/url(../Images/back_p2.png);
+    ),url(../Images/back_p2.png);
     
     background-repeat: no-repeat;
-   background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));
+   background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));*/
+   background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
+  background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Firefox 3.6 to 15 */
 }
 .registerbg
 {
-    
+    background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
+  background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); 
+     width:100%;
+     height:430px;
     }
 #centerbox {
     background-color: rgba(90, 155, 16, 0.32);
@@ -397,7 +402,7 @@ section {
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
-        margin-left:19em;
+        margin-left:27.8em;
      }
      /*Colores de botones*/   
            .button-green {
@@ -600,9 +605,9 @@ height:400px;
      font-family: Lato, Verdana, Constantia;
      color:#2770C2;
      } 
+.centertitle{margin-left:27.8em;}             
              
-             
-             
+
              
        /*  #myfooter
          {
