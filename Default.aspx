@@ -8,22 +8,27 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
     
-    
-    <div class="formRegister">
+    <div id="fondo"> 
+    <div class="formWelcome">
     <asp:LoginView ID="LoginView1" runat="server">
         <AnonymousTemplate>
-        <p>Por favor inicie sesion</p>
+        <p class="bold font-inicio">Por favor inicie sesion</p>
             <asp:Login ID="Login1" runat="server" 
                 CreateUserText="Registrarse" CreateUserUrl="~/Account/Register.aspx" 
                 PasswordRecoveryText="¿Olvidastes tu contraseña?" 
-                PasswordRecoveryUrl="~/Recover/RecoverPassword.aspx">
+                PasswordRecoveryUrl="~/Recover/RecoverPassword.aspx" Font-Size="Large" 
+                ForeColor="#333333" DestinationPageUrl="~/Modulos.aspx" 
+                onloggedin="Login1_LoggedIn">
+                <CheckBoxStyle BorderColor="#0066CC" />
+                <LoginButtonStyle Font-Size="Medium" />
+                <TitleTextStyle Font-Bold="True" HorizontalAlign="Left" />
             </asp:Login>
         </AnonymousTemplate>
         <LoggedInTemplate>
         <p>Bienvenido 
             <asp:LoginName ID="LoginName1" runat="server" />
             <asp:LoginStatus ID="LoginStatus1" runat="server" /></p>
-            <%--<dx:ASPxMenu ID="AdminMenu" runat="server" AutoSeparators="RootOnly" 
+        <dx:ASPxMenu ID="AdminMenu" runat="server" AutoSeparators="RootOnly" 
         ClientIDMode="AutoID" CssFilePath="~/App_Themes/Blue/{0}/styles.css" 
         CssPostfix="Blue" ImageFolder="~/App_Themes/Blue/{0}/" ItemSpacing="0px" 
         SeparatorHeight="100%" SeparatorWidth="2px" ShowPopOutImages="True" 
@@ -80,9 +85,10 @@
                 <SubMenuItemStyle ImageSpacing="19px" PopOutImageSpacing="30px">
                 </SubMenuItemStyle>
                 <SubMenuStyle GutterWidth="0px" />
-            </dx:ASPxMenu>--%>
+            </dx:ASPxMenu>
       </LoggedInTemplate>
 
         </asp:LoginView>
         </div>
+       </div>
 </asp:Content>

@@ -404,6 +404,17 @@ section {
         padding-left:1.7em;
         margin-left:27.8em;
      }
+          .formWelcome
+    {
+        background-color: rgba(210,210,210,0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
+        padding-left:1.7em;
+        margin-left:38em;
+        width:360px;
+        margin-top:7em;
+        position:absolute;
+       }
      /*Colores de botones*/   
            .button-green {
             background: rgb(28, 184, 65); /* this is a green */
@@ -475,6 +486,11 @@ section {
 {
     font-weight: bold;
 }
+.font-inicio
+{
+    font-size:1.5em;
+    color:rgb(47, 47, 47);
+    }
 
         /*espacio izquierdo de botones*/
         #leftmar-button
@@ -612,21 +628,17 @@ height:400px;
      } 
 .centertitle{margin-left:27.8em;}             
              
-
-             
-       /*  #myfooter
-         {
-             clear: both;
- position: relative;
- z-index: 10;
- height: 3em;
- margin-top: -3em;
-  background-color: rgba(68, 117, 185, 0.8);
-             }
-             .content
-             {
-                  height: 100%;
-                  padding-bottom: 3em;
-                 }
-                 body > .content { height: auto; min-height: 100%; }
-                 html, body, .content  { height: 100%; }*/
+#fondo{
+ background: url(../Images/blurfromt.JPG) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:500px;
+   /* -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+*/
+    }

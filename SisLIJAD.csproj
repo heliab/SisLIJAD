@@ -62,6 +62,10 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Clientes\Default.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
+    <Content Include="Images\fromt.jpg" />
+    <Content Include="Images\FRONT.JPG" />
+    <Content Include="Images\side.jpg" />
+    <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
     <Content Include="PEUCA\Default.aspx" />
     <Content Include="RecoverPassword.htm" />
@@ -217,6 +221,13 @@
     </Compile>
     <Compile Include="Cuenta\InfoUser.aspx.designer.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos.aspx.cs">
+      <DependentUpon>Modulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos.aspx.designer.cs">
+      <DependentUpon>Modulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

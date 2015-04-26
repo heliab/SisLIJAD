@@ -11,25 +11,17 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-
 namespace SisLIJAD
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class Modulos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-        }
-
-        protected void Login1_LoggedIn(object sender, EventArgs e)
-        {
-            if (Roles.IsUserInRole("Administrador"))
+            if (!Roles.IsUserInRole("Administrador"))
             {
-                Response.Write("<script>alert('" + Server.HtmlEncode("Es administrador") + "')</script>");
-            }
-
+                Response.Write("<script>alert('" + Server.HtmlEncode("Hola Tecnico") + "')</script>");
                 //Response.Redirect("Default.aspx");
-
+            }
         }
     }
 }

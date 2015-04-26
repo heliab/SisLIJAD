@@ -18,6 +18,7 @@
  
 </head>
 <body>
+
     <form id="form1" runat="server">
             <div class="Header" id="Titulo1">
     <div class="loginDisplay">
@@ -44,9 +45,11 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-     <div class="scrollfooter"></div>
+     
+     <%--<div class="scrollfooter"></div>--%>
   <div class="footer"></div>
     
     </form>
+ 
 </body>
 </html>

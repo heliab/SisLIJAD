@@ -19,7 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <div class="Header" id="Titulo1">
+            <div onclick="location.href='http://localhost/SISLIJAD/';" class="Header" id="Titulo1">
     <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
