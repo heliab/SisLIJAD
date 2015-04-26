@@ -10,7 +10,7 @@
 namespace SisLIJAD.Cuenta {
     
     
-    public partial class UserInformation {
+    public partial class InfoUser {
         
         /// <summary>
         /// Control BackLink.

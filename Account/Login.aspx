@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Account/AccountMASTER.Master" AutoEventWireup="true"
     CodeBehind="Login.aspx.cs" Inherits="SisLIJAD.Account.Login" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
     <h2>
         Iniciar sesión
     </h2>

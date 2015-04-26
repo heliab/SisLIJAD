@@ -133,16 +133,14 @@ fn_EndCallback();
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>
                     <Columns>
-                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" VisibleIndex="0"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                            VisibleIndex="0">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1" Caption="Nombre Ensaye"
-                            Width="30%">
+                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2" Caption="Observacion">
+                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" Caption="Duración Días Aprox"
-                            Width="10%">
+                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3">
                         </dx:GridViewDataTextColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />

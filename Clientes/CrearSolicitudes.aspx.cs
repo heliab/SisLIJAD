@@ -259,7 +259,7 @@ namespace SisLIJAD.Clientes
         }
         protected void SubGrid_BeforePerformDataSelect(object sender, EventArgs e)
         {
-            Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+            Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         protected void cmbPrueba_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {

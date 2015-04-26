@@ -60,6 +60,7 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Cuenta\InfoUser.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -75,7 +76,6 @@
     <Content Include="Clientes\welcome.aspx" />
     <Content Include="Cuenta\ManageUser.aspx" />
     <Content Include="Cuenta\UserAndRoles.aspx" />
-    <Content Include="Cuenta\UserInformation.aspx" />
     <Content Include="humans.txt" />
     <Content Include="Images\ASPxRoundPanel\552374105\BottomLeftCorner.png" />
     <Content Include="Images\ASPxRoundPanel\552374105\BottomRightCorner.png" />
@@ -203,6 +203,13 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cuenta\InfoUser.aspx.cs">
+      <DependentUpon>InfoUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\InfoUser.aspx.designer.cs">
+      <DependentUpon>InfoUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recover\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,13 +322,6 @@
     </Compile>
     <Compile Include="Cuenta\UserAndRoles.aspx.designer.cs">
       <DependentUpon>UserAndRoles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cuenta\UserInformation.aspx.cs">
-      <DependentUpon>UserInformation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cuenta\UserInformation.aspx.designer.cs">
-      <DependentUpon>UserInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

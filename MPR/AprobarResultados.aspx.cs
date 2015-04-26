@@ -109,7 +109,7 @@ namespace SisLIJAD.MPR
 
                 mail.From = new MailAddress("sislijad@gmail.com", "Alerta del sistema");
                 mail.To.Add(email);
-                mail.Subject = "Solicitud de Materiales pendiente";
+                mail.Subject = "Resultado de pruebas publicados";
 
                 mail.IsBodyHtml = true;
                 string htmlBody;

@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace SisLIJAD.Cuenta
 {
-    public partial class UserInformation : System.Web.UI.Page
+    public partial class InfoUser : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,13 +22,13 @@ namespace SisLIJAD.Cuenta
                 // If querystring value is missing, send the user to ManageUsers.aspx
                 string userName = Request.QueryString["user"];
                 if (string.IsNullOrEmpty(userName))
-                    Response.Redirect("ManageUsers.aspx");
+                    Response.Redirect("ManageUser.aspx");
 
 
                 // Get information about this user
                 MembershipUser usr = Membership.GetUser(userName);
                 if (usr == null)
-                    Response.Redirect("ManageUsers.aspx");
+                    Response.Redirect("ManageUser.aspx");
 
                 UserNameLabel.Text = usr.UserName;
                 IsApproved.Checked = usr.IsApproved;
