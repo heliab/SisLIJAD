@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Autorizar Prestamo Laboratorios" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
     CodeBehind="AutPrestaLabs.aspx.cs" Inherits="SisLIJAD.MPR.AutPrestaLabs" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -87,6 +87,7 @@ fn_EndCallback();
     </dx:ASPxTextBox>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
+<div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSPrestamos" KeyFieldName="IdPrestLab" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
@@ -203,7 +204,7 @@ fn_EndCallback();
                 </dx:ASPxPageControl>
             </DetailRow>
         </Templates>
-    </dx:ASPxGridView>
+    </dx:ASPxGridView></div>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT MPR_Solic_Lab.IdPrestLab, MPR_Solic_Lab.Procedimiento, MPR_Solic_Lab.username, CONVERT (Date, MPR_Solic_Lab.FechaReg) AS Registrado, CONVERT (DATE, MPR_Solic_Lab.FechaReq) AS Requerido, MPR_Solic_Lab.Horaini, MPR_Solic_Lab.HoraFin, MINV_Ubicaciones.DescUbicacion, MPR_Solic_Lab.Aprobada, MPR_Solic_Lab.Cancelada, aspnet_Membership.Email FROM aspnet_Users INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId INNER JOIN MPR_Solic_Lab INNER JOIN MINV_Ubicaciones ON MPR_Solic_Lab.IdUbicacion = MINV_Ubicaciones.IdUbicacion ON aspnet_Users.UserName = MPR_Solic_Lab.username WHERE (MPR_Solic_Lab.Enviada = 1) ORDER BY MPR_Solic_Lab.IdPrestLab DESC">
     </asp:SqlDataSource>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesAsignadas.aspx.cs" Inherits="SisLIJAD.Tecnicos.SolicitudesAsignadas" %>
+﻿<%@ Page Title="Solicitudes Asignadas" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="SolicitudesAsignadas.aspx.cs" Inherits="SisLIJAD.Tecnicos.SolicitudesAsignadas" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -68,7 +68,7 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-    
+    <div class="grid"> 
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" 
@@ -190,6 +190,7 @@ fn_EndCallback();
             </DetailRow>
         </Templates>
     </dx:ASPxGridView>
+    </div> 
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
           SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, Autorizado, FechaAprobación FROM MPR_Solic_Pruebas WHERE (Autorizado = 1) ORDER BY IdSolicPrueba DESC">
     </asp:SqlDataSource>

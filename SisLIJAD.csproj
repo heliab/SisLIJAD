@@ -60,7 +60,10 @@
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Clientes\Default.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
+    <Content Include="MPR\Default.aspx" />
+    <Content Include="PEUCA\Default.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -73,7 +76,6 @@
     <Content Include="Clientes\Results\PesoVolumetricoSecoCompactoRes.aspx" />
     <Content Include="Clientes\Results\PesoVolumetricoSecoSueltoRes.aspx" />
     <Content Include="Clientes\SolicitudesEnviadas.aspx" />
-    <Content Include="Clientes\welcome.aspx" />
     <Content Include="Cuenta\ManageUser.aspx" />
     <Content Include="Cuenta\UserAndRoles.aspx" />
     <Content Include="humans.txt" />
@@ -115,7 +117,6 @@
     <Content Include="MINV\UnidadesMedida.aspx" />
     <Content Include="MPR\AprobarResultados.aspx" />
     <Content Include="MPR\AutPrestaLabs.aspx" />
-    <Content Include="MPR\DefaultMPR.aspx" />
     <Content Include="MPR\EquiposMaquinarias.aspx" />
     <Content Include="MPR\MasterMPR.Master" />
     <Content Include="MPR\Pruebas.aspx" />
@@ -203,12 +204,33 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cuenta\InfoUser.aspx.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cuenta\InfoUser.aspx.designer.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PEUCA\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PEUCA\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pruebas\PruebasMaster.Master.cs">
       <DependentUpon>PruebasMaster.Master</DependentUpon>
@@ -301,13 +323,6 @@
     </Compile>
     <Compile Include="Clientes\SolicitudesEnviadas.aspx.designer.cs">
       <DependentUpon>SolicitudesEnviadas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\welcome.aspx.cs">
-      <DependentUpon>welcome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Clientes\welcome.aspx.designer.cs">
-      <DependentUpon>welcome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cuenta\AccountMASTER.Master.cs">
       <DependentUpon>AccountMASTER.Master</DependentUpon>
@@ -472,13 +487,6 @@
     </Compile>
     <Compile Include="MPR\AutPrestaLabs.aspx.designer.cs">
       <DependentUpon>AutPrestaLabs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\DefaultMPR.aspx.cs">
-      <DependentUpon>DefaultMPR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPR\DefaultMPR.aspx.designer.cs">
-      <DependentUpon>DefaultMPR.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\EquiposMaquinarias.aspx.cs">
       <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>

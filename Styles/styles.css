@@ -467,10 +467,15 @@ section {
         color:rgb(243, 229, 171);
         
         }
-        .white-font:hover
-        {
-            color:rgb(246, 246, 246);
-            }
+.white-font:hover
+ {
+        color:rgb(246, 246, 246);
+ }
+ .bold
+{
+    font-weight: bold;
+}
+
         /*espacio izquierdo de botones*/
         #leftmar-button
         {

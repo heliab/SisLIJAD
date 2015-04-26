@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Tipo de movimiento" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="TipoMovimiento.aspx.cs" Inherits="SisLIJAD.MINV.TipoMovimiento" %>
+﻿<%@ Page Title="Tipos de movimiento" Language="C#" MasterPageFile="~/MINV/MasterMinv.Master" AutoEventWireup="true" CodeBehind="TipoMovimiento.aspx.cs" Inherits="SisLIJAD.MINV.TipoMovimiento" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>

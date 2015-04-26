@@ -35,7 +35,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-            Inventario de Materiales
+            Materiales
             <div id="titulopagina"><%=this.Page.Title%></div>
      </div>
     <div class="content">
@@ -63,29 +63,12 @@
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Registros">
-                <Items>
-                    <dx:MenuItem Text="Entradas" NavigateUrl="~/MINV/EntradaInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Salidas" NavigateUrl="~/MINV/Salidas.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Transferencias" NavigateUrl="~/MINV/Transferencias.aspx" 
-                        Visible="False">
-                    </dx:MenuItem>
-                    <dx:MenuItem Text="Ajustes Inventario" 
-                        NavigateUrl="~/MINV/AjustesInventario.aspx">
-                    </dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/MaterialesDañados.aspx" 
-                        Text="Materiales Dañados" Visible="False">
-                    </dx:MenuItem>
-                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Reportes">
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
                 <Items>
 <dx:MenuItem Text="Materiales" NavigateUrl="~/MINV/Materiales.aspx"></dx:MenuItem>
-                    <dx:MenuItem NavigateUrl="~/MINV/Existencias.aspx" Text="Existencias">
-                    </dx:MenuItem>
                     <dx:MenuItem Text="Estado de Materiales" 
                         NavigateUrl="~/MINV/EstadoMateriales.aspx">
                     </dx:MenuItem>
