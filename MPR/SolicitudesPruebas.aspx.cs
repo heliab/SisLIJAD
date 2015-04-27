@@ -314,7 +314,7 @@ namespace SisLIJAD.MPR
         }
         #endregion
 
-        #region SubDRUD
+        #region SubCRUD
         protected void SubSelect()
         {
 

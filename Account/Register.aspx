@@ -4,7 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="FormContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
-<div class="registerbg">
+    <div class="registerbg">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" 
     EnableViewState="False" OnCreatedUser="RegisterUser_CreatedUser" 
     DisableCreatedUser="True" BackColor="#F7F6F3" BorderColor="#E6E2D8" 
@@ -89,7 +89,29 @@
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
-<asp:CompleteWizardStep runat="server"></asp:CompleteWizardStep>
+<asp:CompleteWizardStep runat="server">
+    <ContentTemplate>
+        <table style="font-family:Verdana;font-size:100%;">
+            <tr>
+                <td align="center" colspan="2" 
+                    style="color:White;background-color:#5D7B9D;font-weight:bold;">
+                    Completar</td>
+            </tr>
+            <tr>
+                <td>
+                    La cuenta se ha creado correctamente.</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="2">
+                    <asp:Button ID="ContinueButton" runat="server" BackColor="#FFFBFF" 
+                        BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" 
+                        CausesValidation="False" CommandName="Continue" Font-Names="Verdana" 
+                        ForeColor="#284775" Text="Continuar" ValidationGroup="RegisterUser" />
+                </td>
+            </tr>
+        </table>
+    </ContentTemplate>
+            </asp:CompleteWizardStep>
         </WizardSteps>
         <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
             BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 

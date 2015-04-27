@@ -67,6 +67,7 @@
     <Content Include="Images\side.jpg" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
+    <Content Include="MPR\VincularMAteriales.aspx" />
     <Content Include="PEUCA\Default.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="MPR\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\VincularMAteriales.aspx.cs">
+      <DependentUpon>VincularMAteriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\VincularMAteriales.aspx.designer.cs">
+      <DependentUpon>VincularMAteriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="PEUCA\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
