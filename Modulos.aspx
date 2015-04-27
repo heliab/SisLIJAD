@@ -6,12 +6,12 @@
     <div class="formWelcome">
         
             <h2>
-                Lista de Módulos SISLIJAD
+                Lista de M&oacutedulos SISLIJAD
             </h2>
         <ul class="listaModulo">
             <li><i class="fa fa-external-link-square"></i>
                 <asp:LinkButton ID="LinkInventarios" runat="server" PostBackUrl="~/MINV/DefaultMINV.aspx"
-                    Visible="False" Font-Size="1.6em" ForeColor="#003399">Ir Módulo Materiales</asp:LinkButton>
+                    Visible="False" Font-Size="1.6em" ForeColor="#003399">Ir M&oacutedulo Materiales</asp:LinkButton>
             </li>
             <li><i class="fa fa-external-link-square"></i>
                 <asp:LinkButton ID="LinkPrueba" runat="server" PostBackUrl="~/MPR/Default.aspx" Visible="False"

@@ -26,16 +26,16 @@
     <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesi&oacuten</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         Bienvenid@ <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                         <br>
-                      [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/>  ]
+                      [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesi&oacuten" LogoutPageUrl="~/"/>  ]
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-        Módulo clientes. Bienvenidos!
+        M&oacutedulo clientes. Bienvenidos!
         <div id="titulopagina"><%=this.Page.Title%></div>
     </div>
      

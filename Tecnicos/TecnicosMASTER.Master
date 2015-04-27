@@ -34,7 +34,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-            Módulo Técnicos
+            M&oacutedulo T&eacutecnicos
             <div id="titulopagina"><%=this.Page.Title%></div>
      </div>
 

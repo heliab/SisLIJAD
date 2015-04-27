@@ -90,22 +90,26 @@ fn_EndCallback();
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" 
-                VisibleIndex="0" Caption="Id Solicitud" Width="12%">
+            <dx:GridViewDataTextColumn Caption="Id Solicitud" FieldName="IdSolicPrueba" 
+                ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0" Width="12%">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" 
-                Caption="Descripción Prueba" Width="60%">
+            <dx:GridViewDataTextColumn Caption="Descripción Prueba" 
+                FieldName="HeaderSolicPrueba" ShowInCustomizationForm="True" VisibleIndex="1">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="2" Width="10%">
+            <dx:GridViewDataTextColumn FieldName="username" ShowInCustomizationForm="True" 
+                VisibleIndex="2" Width="8%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="3">
+            <dx:GridViewDataTextColumn FieldName="FechaRegistro" 
+                ShowInCustomizationForm="True" VisibleIndex="3" Width="10%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Autorizado" VisibleIndex="4" Width="7%">
+            <dx:GridViewDataCheckColumn FieldName="Autorizado" 
+                ShowInCustomizationForm="True" VisibleIndex="4" Width="7%">
             </dx:GridViewDataCheckColumn>
             <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
-                <ClearFilterButton Text="Limpiar" Visible="True">
+                <ClearFilterButton Text="Limpíar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
         </Columns>
@@ -156,9 +160,10 @@ fn_EndCallback();
     </dx:ASPxGridView>
     </div>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-     SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba,username, FechaRegistro,Autorizado FROM MPR_Solic_Pruebas WHERE (username=@username) and (Autorizado=1) ORDER BY IdSolicPrueba DESC">
+     SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, username, FechaRegistro, Autorizado FROM MPR_Solic_Pruebas WHERE (username = @username) AND (Enviada = 1) 
+ORDER BY IdSolicPrueba DESC">
         <SelectParameters>
-            <asp:Parameter Name="username" />
+            <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"

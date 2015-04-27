@@ -18,25 +18,30 @@
  
 </head>
 <body>
-
     <form id="form1" runat="server">
-            <div class="Header" id="Titulo1">
-    <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar Sesion/Mi perfil</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Bienvenid@ <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        <br>
-                      [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/>  ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
+    <div class="Header" id="Titulo1">
+        <div class="loginDisplay">
+            <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                <AnonymousTemplate>
+                    [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Iniciar Sesion/Mi
+                        perfil</a> ]
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    Bienvenid@ <span class="bold">
+                        <asp:LoginName ID="HeadLoginName" runat="server" />
+                    </span>!
+                    <br>
+                    [
+                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión"
+                        LogoutPageUrl="~/" />
+                    ]
+                </LoggedInTemplate>
+            </asp:LoginView>
+        </div>
         SISLIJAD
-         <div id="titulopagina"><%=this.Page.Title%></div>
+        <div id="titulopagina">
+            <%=this.Page.Title%></div>
     </div>
-
     <div>
         <asp:ContentPlaceHolder ID="FormContent" runat="server">
         </asp:ContentPlaceHolder>
@@ -45,11 +50,9 @@
         <asp:ContentPlaceHolder ID="PopupContent" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-     
-     <%--<div class="scrollfooter"></div>--%>
-  <div class="footer"></div>
-    
+    <%--<div class="scrollfooter"></div>--%>
+    <div class="footer">
+    </div>
     </form>
- 
 </body>
 </html>
