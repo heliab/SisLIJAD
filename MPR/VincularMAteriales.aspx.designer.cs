@@ -31,6 +31,15 @@ namespace SisLIJAD.MPR {
         protected global::DevExpress.Web.ASPxHiddenField.ASPxHiddenField HiddenV;
         
         /// <summary>
+        /// Control txtSubId2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtSubId2;
+        
+        /// <summary>
         /// Control GridPrincipal.
         /// </summary>
         /// <remarks>

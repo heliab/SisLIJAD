@@ -27,14 +27,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     function fn_SubNewVinJS() {
-
+        fn_GetValOnHid();
+        HiddenV.Set("Type", 0);
+        fn_SubNewJS();
+        cmbMaterial.PerformCallback();
     }
     function fn_SubNewVin2JS() {
-
+        HiddenV.Set("Type", 1);
+        fn_GetValOnHid();
+        fn_SubNewJS();
+        cmbMaterial.PerformCallback();
      }
      function SubEditVinJS() {
-
-      }
+         fn_GetValOnHid();
+     }
+     function fn_GetValOnHid() {
+         HiddenV.Set("SessionId", fn_GetIdValue());
+     }
 
 </script>
 </asp:Content>
@@ -57,15 +66,28 @@ fn_EndCallback();
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">
     </dx:ASPxHiddenField>
+    <dx:ASPxTextBox ID="txtSubId2" runat="server" Width="170px" 
+            ClientInstanceName="txtSubId2" ClientVisible="False">
+        </dx:ASPxTextBox>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
 <div class="grid">
     <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
         DataSourceID="SDSPruebas" KeyFieldName="IdPrueba" SettingsBehavior-AllowFocusedRow="True"
         Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+
+<Settings ShowFilterRow="True" ShowHeaderFilterButton="True" ShowGroupPanel="True"></Settings>
+
+<SettingsText GroupPanel="Arrastre las columnas aqu&#237;" 
+            EmptyDataRow="No hay datos para mostrar"></SettingsText>
+
+        <ClientSideEvents DetailRowExpanding="function(s, e) {
+	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
+}" />
+        
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrueba" ReadOnly="True" VisibleIndex="0"
-                Width="7px" ShowInCustomizationForm="True" SortIndex="0" 
+                Width="7%" ShowInCustomizationForm="True" SortIndex="0" 
                 SortOrder="Descending">
                 <EditFormSettings Visible="False" />
 <EditFormSettings Visible="False"></EditFormSettings>
@@ -99,10 +121,7 @@ fn_EndCallback();
         <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
 
-<Settings ShowFilterRow="True" ShowHeaderFilterButton="True" ShowGroupPanel="True"></Settings>
-
-<SettingsText GroupPanel="Arrastre las columnas aqu&#237;" 
-            EmptyDataRow="No hay datos para mostrar"></SettingsText>
+        <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
 
         <Styles>
             <FocusedRow BackColor="#5180BF">
@@ -121,15 +140,15 @@ fn_EndCallback();
                     <ul class="ctrlist">
                         <li><a class="pure-button blue-font" href="javascript:fn_SubNewVinJS();" title="Nuevo">
                             <i class="fa fa-plus"></i>Nuevo</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_SubEditVinJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+                       <%-- <li><a class="pure-button green-font" href="javascript:fn_SubEditJS();" title="Editar">
+                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>--%>
                         <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
                             <i class="fa fa-trash"></i>Borrar</a></li>
                     </ul>
                 </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                     ClientInstanceName="SubGrid" DataSourceID="SDSDetMatLab" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%">
+                    Width="100%" KeyFieldName="IdDetalle">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>
@@ -162,16 +181,17 @@ fn_EndCallback();
                     <ul class="ctrlist">
                                  <li><a class="pure-button blue-font" href="javascript:fn_SubNewVin2JS();" title="Nuevo">
                             <i class="fa fa-plus"></i>Nuevo</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_SubEditVinJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
+                     <%--   <li><a class="pure-button green-font" href="javascript:fn_SubEditJS();" title="Editar">
+                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>--%>
+                        <li><a class="pure-button red-font" href="javascript:fn_SubDelete2JS();" title="Borrar">
                             <i class="fa fa-trash"></i>Borrar</a></li>
                     </ul>
                 </div>
                                     <dx:ASPxGridView ID="SubGrid2" runat="server" ClientIDMode="AutoID" 
                                         ClientInstanceName="SubGrid2" Width="100%" AutoGenerateColumns="False" 
                                         DataSourceID="SDSDetMatCliente" 
-                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect">
+                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect" 
+                                        KeyFieldName="IdDetalle">
                                         <Columns>
                                             <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
                                                 ShowInCustomizationForm="True" VisibleIndex="0" Width="14%">
@@ -185,6 +205,7 @@ fn_EndCallback();
                                         </Columns>
                                         <SettingsBehavior AllowFocusedRow="True" />
                                         <Settings ShowFilterRow="True" ShowFooter="True" />
+                                        <SettingsDetail IsDetailGrid="True" />
                                         <Styles>
                                             <FocusedRow BackColor="#5180BF">
                                             </FocusedRow>
@@ -205,16 +226,17 @@ fn_EndCallback();
          <asp:SqlDataSource ID="SDSDetMatLab" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
             
         
-        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, MPR_Det_Mat_Prueba.Cantidad + ' ' + MINV_UnidadM.AbrUnid AS Cantidad FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 0) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
+        
+        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial,     CAST(MPR_Det_Mat_Prueba.Cantidad AS nvarchar) + ' ' + CAST(MINV_UnidadM.AbrUnid AS NVARCHAR) AS Cantidad
+ FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 0) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
          <SelectParameters>
              <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
          </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetMatCliente" runat="server" 
          ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-            
         
-        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, MPR_Det_Mat_Prueba.Cantidad + ' ' + MINV_UnidadM.AbrUnid AS Cantidad FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 1) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
+        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, CAST(MPR_Det_Mat_Prueba.Cantidad AS nvarchar) + ' ' + CAST(MINV_UnidadM.AbrUnid AS NVARCHAR) AS Cantidad FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 1) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
         </SelectParameters>
@@ -401,7 +423,7 @@ fn_EndCallback();
                                 <div>
                                     <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Seleccione Material">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbMaterial" runat="server" ClientInstanceName="cmbmaterial" 
+                                    <dx:ASPxComboBox ID="cmbMaterial" runat="server" ClientInstanceName="cmbMaterial" 
                                         Width="95%" DataSourceID="SqlDataSource1" TextField="NomMaterial" 
                                         ValueField="IdMaterial" OnCallback="cmbMaterial_Callback">
                                         <Columns>
@@ -435,7 +457,7 @@ fn_EndCallback();
                                         <SpinButtons ShowLargeIncrementButtons="True">
                                         </SpinButtons>
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
-                                            SetFocusOnError="True" ValidationGroup="ControlGroup1">
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                             <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>

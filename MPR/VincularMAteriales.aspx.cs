@@ -36,7 +36,7 @@ namespace SisLIJAD.MPR
                     break;
                 case "5": SubDelete();
                     break;
-                case "6": SubInsert2();
+                case "12": SubDelete();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -226,19 +226,19 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) AS IdEspec," +
-                    "IdPrueba,ObservPrueba FROM MPR_Det_Sol_Prueba WHERE (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR)"
-                    + "= @IdEspec)", con);
-                cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
+                SqlCommand cmd = new SqlCommand("SELECT CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdMaterial AS NVARCHAR) AS IdDetalle," +
+                    "IdMaterial,Cantidad FROM MPR_Det_Mat_Prueba WHERE (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR)"
+                    + "= @IdDetalle)", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtSubId.Text);
 
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
-                    txtSubId.Text = dr["IdEspec"].ToString();
-                    //cmbPrueba.Text = dr["IdPrueba"].ToString();
-                    //memoOb.Text = dr["ObservPrueba"].ToString();
+                    txtSubId.Text = dr["IdDetalle"].ToString();
+                    cmbMaterial.Text = dr["IdMaterial"].ToString();
+                    sCant2.Value= dr["Cant"].ToString();
 
                 }
                 else
@@ -263,16 +263,18 @@ namespace SisLIJAD.MPR
         }
         protected void SubInsert()
         {
-            string idub = HiddenV.Get("Session").ToString();
+             string idprueba = HiddenV.Get("SessionId").ToString();
+             string type = HiddenV.Get("Type").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Sol_Prueba(IdSolPrueba,IdPrueba,ObservPrueba) values(@IdSolPrueba,@IdPrueba,@ObservPrueba)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Mat_Prueba(IdPrueba,IdMaterial,Cantidad,RequeridoPor) values(@IdPrueba,@IdMaterial,@Cantidad,@RequeridoPor)", con);
 
-                cmd.Parameters.AddWithValue("@IdSolPrueba", idub);
-                //cmd.Parameters.AddWithValue("@IdPrueba", cmbPrueba.Value);
-                //cmd.Parameters.AddWithValue("@ObservPrueba", memoOb.Text);
+                cmd.Parameters.AddWithValue("@IdPrueba", idprueba);
+                cmd.Parameters.AddWithValue("@IdMaterial", cmbMaterial.Value);
+                cmd.Parameters.AddWithValue("@Cantidad", sCant2.Value);
+                cmd.Parameters.AddWithValue("@RequeridoPor", type);
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -295,18 +297,16 @@ namespace SisLIJAD.MPR
         }
         protected void SubUpdate()
         {
-            string idub = HiddenV.Get("Session").ToString();
+            string idprueba = HiddenV.Get("SessionId").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE MPR_Det_Sol_Prueba set IdSolPrueba=@IdSolPrueba, IdPrueba=@IdPrueba,ObservPrueba=@ObservPrueba where (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) = @IdEspec)", con);
+                SqlCommand cmd = new SqlCommand("UPDATE MPR_Det_Mat_Prueba set IdMaterial=@IdMaterial,Cantidad=@Cantidad where (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdMaterial AS NVARCHAR) = @IdEspec)", con);
                 cmd.Parameters.AddWithValue("@IdEspec", txtSubId.Text);
-                cmd.Parameters.AddWithValue("@IdSolPrueba", idub);
-                //cmd.Parameters.AddWithValue("@IdPrueba", cmbPrueba.Value);
-                //cmd.Parameters.AddWithValue("@ObservPrueba", memoOb.Text);
-
-
+                cmd.Parameters.AddWithValue("@IdMaterial", cmbMaterial.Value);
+                cmd.Parameters.AddWithValue("@Cantidad", sCant2.Value);
+                
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha actualizado correctamente") + "')</script>");
@@ -331,8 +331,8 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Sol_Prueba WHERE (CAST(IdSolPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) = @IdEspec)", con);
-                cmd.Parameters.AddWithValue("@IdEspec", txtIdD.Text);
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Mat_Prueba WHERE (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdMaterial AS NVARCHAR) = @IdDetalle)", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
@@ -341,42 +341,6 @@ namespace SisLIJAD.MPR
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
                 }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-                Response.Write("<script>alert(\"an error occur\")</script>");
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        #endregion
-
-
-        #region SubCRUD 2
-        protected void SubInsert2()
-        {
-            string idub = HiddenV.Get("Session").ToString();
-            SqlConnection con = new SqlConnection(Database.ConnectionString);
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Sol_Prueba(IdSolPrueba,IdPrueba,ObservPrueba) values(@IdSolPrueba,@IdPrueba,@ObservPrueba)", con);
-
-                cmd.Parameters.AddWithValue("@IdSolPrueba", idub);
-                //cmd.Parameters.AddWithValue("@IdPrueba", cmbPrueba.Value);
-                //cmd.Parameters.AddWithValue("@ObservPrueba", memoOb.Text);
-                int count = cmd.ExecuteNonQuery();
-                if (count == 1)
-                {
-
-                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha guardado correctamente") + "')</script>");
-                }
-                else
-
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
             }
             catch (Exception ex)
             {

@@ -294,6 +294,7 @@ fn_EndCallback();
                                         </Columns>
                                         <SettingsBehavior AllowFocusedRow="True" />
                                         <Settings ShowFilterRow="True" ShowFooter="True" />
+                                        <SettingsDetail IsDetailGrid="True" />
                                         <Styles>
                                             <FocusedRow BackColor="#5180BF">
                                             </FocusedRow>
