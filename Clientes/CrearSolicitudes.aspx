@@ -171,6 +171,15 @@ fn_EndCallback();
     </asp:SqlDataSource>
 
 
+    <asp:SqlDataSource ID="SDSMaterialesRequeridos" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+        SelectCommand="SELECT MINV_Materiales.NomMaterial AS MaterialesRequerido, CAST(MPR_Det_Mat_Prueba.Cantidad AS NVARCHAR) + ' ' + CAST(MINV_UnidadM.NomUnidadM AS NVARCHAR) AS Cantidad FROM MINV_UnidadM INNER JOIN MINV_Materiales ON MINV_UnidadM.IdUnidadM = MINV_Materiales.IdUnidad INNER JOIN MPR_Det_Mat_Prueba ON MINV_Materiales.IdMaterial = MPR_Det_Mat_Prueba.IdMaterial INNER JOIN MPR_Det_Sol_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Det_Sol_Prueba.IdPrueba INNER JOIN MPR_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Prueba.IdPrueba AND MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) = @Detail) AND (MPR_Det_Mat_Prueba.RequeridoPor = 0)">
+        <SelectParameters>
+            <asp:SessionParameter Name="Detail" SessionField="IdDetalle" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
    
