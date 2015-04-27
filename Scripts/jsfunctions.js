@@ -212,7 +212,7 @@ function fn_SubCancelD2JS() {
     fn_ClosePopup(2);
 }
 function fn_SubCancel2JS() {
-    fn_ClosePopup(2);
+    fn_ClosePopup(3);
 }
 /* **********************************Funciones Grid************************************* */
 function fn_GetIdValue() {
