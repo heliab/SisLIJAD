@@ -20,12 +20,14 @@ namespace SisLIJAD.MPR.Reportes
         private void ShowReport() {
             rvPruebasxUsuario.Reset();
 
-            DataTable dt = GetData((TextBox1.Text).ToString());
+            //DataTable dt = GetData((TextBox1.Text).ToString());
+            DataTable dt = GetData((cmbUsuarios.Text).ToString());
             ReportDataSource rds = new ReportDataSource("DSTestByUSer1",dt);
             rvPruebasxUsuario.LocalReport.DataSources.Add(rds);
             rvPruebasxUsuario.LocalReport.ReportPath = "MPR/DSRPT/SolicitudePorUsuario.rdlc";
             ReportParameter[] rptParams = new ReportParameter[] { 
-            new ReportParameter("username",TextBox1.Text)
+            //new ReportParameter("username",TextBox1.Text)
+             new ReportParameter("username",cmbUsuarios.Text)
             };
             rvPruebasxUsuario.LocalReport.SetParameters(rptParams);
             rvPruebasxUsuario.LocalReport.Refresh();
