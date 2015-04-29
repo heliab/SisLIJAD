@@ -9,6 +9,10 @@
                 Lista de M&oacutedulos SISLIJAD
             </h2>
         <ul class="listaModulo">
+         <li><i class="fa fa-home fa-lg"></i>
+                <asp:LinkButton ID="LinkHome" runat="server" PostBackUrl="~/Default.aspx"
+                    Visible="False" Font-Size="1.6em" ForeColor="#003399">Ir Inicio</asp:LinkButton>
+            </li>
             <li><i class="fa fa-external-link-square"></i>
                 <asp:LinkButton ID="LinkInventarios" runat="server" PostBackUrl="~/MINV/DefaultMINV.aspx"
                     Visible="False" Font-Size="1.6em" ForeColor="#003399">Ir M&oacutedulo Materiales</asp:LinkButton>

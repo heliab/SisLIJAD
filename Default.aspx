@@ -29,11 +29,11 @@
             <asp:LoginName ID="LoginName1" runat="server" />
             <asp:LoginStatus ID="LoginStatus1" runat="server" /></p>
             
-          <i class="fa fa-external-link-square"></i>  
+          <i class="fa fa-external-link-square fa-lg"></i>  
             <asp:LinkButton ID="LinkModulo" runat="server" 
                 PostBackUrl="~/Modulos.aspx" Font-Size="Large">Ir al sistema</asp:LinkButton>
 <br />
-         <i class="fa fa-key"></i>   
+         <i class="fa fa-key fa-lg"></i>   
             <asp:LinkButton ID="LinkButton1" runat="server" 
                 PostBackUrl="~/Account/ChangePassword.aspx" Font-Size="Large">Cambiar contraseña</asp:LinkButton>
       </LoggedInTemplate>

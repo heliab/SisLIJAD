@@ -51,6 +51,9 @@ namespace SisLIJAD.MPR.Reportes
         {
             ShowReport();
         }
+
+
+
     
     }
 

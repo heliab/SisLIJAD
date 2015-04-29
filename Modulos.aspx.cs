@@ -17,6 +17,7 @@ namespace SisLIJAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Roles.IsUserInRole("Tecnico"))
             {
                 Response.Redirect("~/Tecnicos/Default.aspx");
@@ -32,6 +33,7 @@ namespace SisLIJAD
             }
             if (Roles.IsUserInRole("Administrador"))
             {
+                LinkHome.Visible = true;
                 LinkInventarios.Visible = true;
                 LinkPrueba.Visible = true;
                 LinkCompra.Visible = true;
