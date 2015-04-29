@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetListaMatTipo" targetNamespace="http://tempuri.org/DataSetListaMatTipo.xsd" xmlns:mstns="http://tempuri.org/DataSetListaMatTipo.xsd" xmlns="http://tempuri.org/DataSetListaMatTipo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDLabsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDLabsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDLabsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_ListaMatTipoTableAdapter" GeneratorDataComponentClassName="View_ListaMatTipoTableAdapter" Name="View_ListaMatTipo" UserDataComponentName="View_ListaMatTipoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_ListaMatTipo" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdMaterial, NomMaterial, CodUCA, Marca, DescTipoMat FROM dbo.View_ListaMatTipo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdMaterial" DataSetColumn="IdMaterial" />
+              <Mapping SourceColumn="NomMaterial" DataSetColumn="NomMaterial" />
+              <Mapping SourceColumn="CodUCA" DataSetColumn="CodUCA" />
+              <Mapping SourceColumn="Marca" DataSetColumn="Marca" />
+              <Mapping SourceColumn="DescTipoMat" DataSetColumn="DescTipoMat" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetListaMatTipo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetListaMatTipo" msprop:Generator_UserDSName="DataSetListaMatTipo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_ListaMatTipo" msprop:Generator_TableClassName="View_ListaMatTipoDataTable" msprop:Generator_TableVarName="tableView_ListaMatTipo" msprop:Generator_TablePropName="View_ListaMatTipo" msprop:Generator_RowDeletingName="View_ListaMatTipoRowDeleting" msprop:Generator_RowChangingName="View_ListaMatTipoRowChanging" msprop:Generator_RowEvHandlerName="View_ListaMatTipoRowChangeEventHandler" msprop:Generator_RowDeletedName="View_ListaMatTipoRowDeleted" msprop:Generator_UserTableName="View_ListaMatTipo" msprop:Generator_RowChangedName="View_ListaMatTipoRowChanged" msprop:Generator_RowEvArgName="View_ListaMatTipoRowChangeEvent" msprop:Generator_RowClassName="View_ListaMatTipoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdMaterial" msprop:Generator_ColumnVarNameInTable="columnIdMaterial" msprop:Generator_ColumnPropNameInRow="IdMaterial" msprop:Generator_ColumnPropNameInTable="IdMaterialColumn" msprop:Generator_UserColumnName="IdMaterial" type="xs:int" />
+              <xs:element name="NomMaterial" msprop:Generator_ColumnVarNameInTable="columnNomMaterial" msprop:Generator_ColumnPropNameInRow="NomMaterial" msprop:Generator_ColumnPropNameInTable="NomMaterialColumn" msprop:Generator_UserColumnName="NomMaterial">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CodUCA" msprop:Generator_ColumnVarNameInTable="columnCodUCA" msprop:Generator_ColumnPropNameInRow="CodUCA" msprop:Generator_ColumnPropNameInTable="CodUCAColumn" msprop:Generator_UserColumnName="CodUCA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Marca" msprop:Generator_ColumnVarNameInTable="columnMarca" msprop:Generator_ColumnPropNameInRow="Marca" msprop:Generator_ColumnPropNameInTable="MarcaColumn" msprop:Generator_UserColumnName="Marca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DescTipoMat" msprop:Generator_ColumnVarNameInTable="columnDescTipoMat" msprop:Generator_ColumnPropNameInRow="DescTipoMat" msprop:Generator_ColumnPropNameInTable="DescTipoMatColumn" msprop:Generator_UserColumnName="DescTipoMat">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_ListaMatTipo" />
+      <xs:field xpath="mstns:IdMaterial" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

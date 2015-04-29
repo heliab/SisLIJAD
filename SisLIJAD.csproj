@@ -39,6 +39,9 @@
     </Reference>
     <Reference Include="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -65,6 +68,8 @@
     <Content Include="Images\fromt.jpg" />
     <Content Include="Images\FRONT.JPG" />
     <Content Include="Images\side.jpg" />
+    <Content Include="MINV\Reportes\ListaMateriales.aspx" />
+    <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
     <Content Include="MPR\VincularMAteriales.aspx" />
@@ -222,6 +227,30 @@
     </Compile>
     <Compile Include="Cuenta\InfoUser.aspx.designer.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\DSRPT\DataSetListaMatTipo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListaMatTipo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\DSRPT\DS_ListaMateriales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ListaMateriales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaMateriales.aspx.cs">
+      <DependentUpon>ListaMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaMateriales.aspx.designer.cs">
+      <DependentUpon>ListaMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\MaterialesPorTipo.aspx.cs">
+      <DependentUpon>MaterialesPorTipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\MaterialesPorTipo.aspx.designer.cs">
+      <DependentUpon>MaterialesPorTipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos.aspx.cs">
       <DependentUpon>Modulos.aspx</DependentUpon>
@@ -706,6 +735,8 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -725,6 +756,28 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
+    <None Include="MINV\DSRPT\DataSetListaMatTipo.xsc">
+      <DependentUpon>DataSetListaMatTipo.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DataSetListaMatTipo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListaMatTipo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MINV\DSRPT\DataSetListaMatTipo.xss">
+      <DependentUpon>DataSetListaMatTipo.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DS_ListaMateriales.xsc">
+      <DependentUpon>DS_ListaMateriales.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DS_ListaMateriales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ListaMateriales.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MINV\DSRPT\DS_ListaMateriales.xss">
+      <DependentUpon>DS_ListaMateriales.xsd</DependentUpon>
+    </None>
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
     <None Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />
