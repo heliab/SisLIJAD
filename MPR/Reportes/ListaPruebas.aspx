@@ -12,10 +12,10 @@
     <div class="reportframe">
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
             Font-Size="8pt" InteractiveDeviceInfos="(Colección)" 
-            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="642px">
+            WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="662px">
             <LocalReport ReportPath="MPR\DSRPT\ListaPruebas.rdlc">
                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DS_ListaPrueba" />
+                    <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DSListaPruebas" />
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>

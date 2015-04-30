@@ -154,6 +154,7 @@
     <Content Include="Scripts\jsfunctions.js" />
     <Content Include="Scripts\TriCallback.js" />
     <Content Include="SICOM\Default.aspx" />
+    <Content Include="SICOM\Reportes\SolicitudesCompraId.aspx" />
     <Content Include="SICOM\RegistroProveedores.aspx" />
     <Content Include="SICOM\SolicCompMaterial.aspx" />
     <Content Include="SICOM\SolicServicio.aspx" />
@@ -222,6 +223,16 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SICOM\DSRPT\DSGetSolMatById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetSolMatById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\DSRPT\DSListaPruebas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSListaPruebas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MINV\DSRPT\DSGetLoanMatByUser.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -279,11 +290,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MPR\DSRPT\DSListaPrueba2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSListaPrueba2.xsd</DependentUpon>
     </Compile>
     <Compile Include="MPR\DSRPT\BDLabsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -746,6 +752,13 @@
     <Compile Include="SICOM\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SICOM\Reportes\SolicitudesCompraId.aspx.cs">
+      <DependentUpon>SolicitudesCompraId.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SICOM\Reportes\SolicitudesCompraId.aspx.designer.cs">
+      <DependentUpon>SolicitudesCompraId.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SICOM\MasterSICOM.Master.cs">
       <DependentUpon>MasterSICOM.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -850,6 +863,7 @@
     <EmbeddedResource Include="MPR\DSRPT\PruebasporAprobar.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\SolicitudePorUsuario.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="SICOM\DSRPT\Rpt_SolicitudesCompraId.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MINV\MasterMinv.Master" />
@@ -868,6 +882,28 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
+    <None Include="SICOM\DSRPT\DSGetSolMatById.xsc">
+      <DependentUpon>DSGetSolMatById.xsd</DependentUpon>
+    </None>
+    <None Include="SICOM\DSRPT\DSGetSolMatById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetSolMatById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SICOM\DSRPT\DSGetSolMatById.xss">
+      <DependentUpon>DSGetSolMatById.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSListaPruebas.xsc">
+      <DependentUpon>DSListaPruebas.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSListaPruebas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSListaPruebas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MPR\DSRPT\DSListaPruebas.xss">
+      <DependentUpon>DSListaPruebas.xsd</DependentUpon>
+    </None>
     <None Include="MINV\DSRPT\DSGetLoanMatByUser.xsc">
       <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
     </None>
@@ -933,17 +969,6 @@
     </None>
     <None Include="MPR\DSRPT\DS_CostoPruebas.xss">
       <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
-    </None>
-    <None Include="MPR\DSRPT\DSListaPrueba2.xsc">
-      <DependentUpon>DSListaPrueba2.xsd</DependentUpon>
-    </None>
-    <None Include="MPR\DSRPT\DSListaPrueba2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSListaPrueba2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MPR\DSRPT\DSListaPrueba2.xss">
-      <DependentUpon>DSListaPrueba2.xsd</DependentUpon>
     </None>
     <None Include="MPR\DSRPT\BDLabsDataSet.xsc">
       <DependentUpon>BDLabsDataSet.xsd</DependentUpon>

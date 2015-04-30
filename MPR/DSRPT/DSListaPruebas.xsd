@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DSListaPrueba2" targetNamespace="http://tempuri.org/DSListaPrueba2.xsd" xmlns:mstns="http://tempuri.org/DSListaPrueba2.xsd" xmlns="http://tempuri.org/DSListaPrueba2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DSListaPruebas" targetNamespace="http://tempuri.org/DSListaPruebas.xsd" xmlns:mstns="http://tempuri.org/DSListaPruebas.xsd" xmlns="http://tempuri.org/DSListaPruebas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -32,7 +32,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DSListaPrueba2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSListaPrueba2" msprop:Generator_UserDSName="DSListaPrueba2">
+  <xs:element name="DSListaPruebas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSListaPruebas" msprop:Generator_UserDSName="DSListaPruebas">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="View_ListaPruebas" msprop:Generator_TableClassName="View_ListaPruebasDataTable" msprop:Generator_TableVarName="tableView_ListaPruebas" msprop:Generator_TablePropName="View_ListaPruebas" msprop:Generator_RowDeletingName="View_ListaPruebasRowDeleting" msprop:Generator_RowChangingName="View_ListaPruebasRowChanging" msprop:Generator_RowEvHandlerName="View_ListaPruebasRowChangeEventHandler" msprop:Generator_RowDeletedName="View_ListaPruebasRowDeleted" msprop:Generator_UserTableName="View_ListaPruebas" msprop:Generator_RowChangedName="View_ListaPruebasRowChanged" msprop:Generator_RowEvArgName="View_ListaPruebasRowChangeEvent" msprop:Generator_RowClassName="View_ListaPruebasRow">
