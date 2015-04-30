@@ -431,7 +431,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.92299cm</Top>
         <Height>1.2cm</Height>
-        <Width>18.39237cm</Width>
+        <Width>18.39234cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -465,7 +465,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Ensayes por aprobrobar</Value>
+                <Value>Ensayes por aprobar</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>

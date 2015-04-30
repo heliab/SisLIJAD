@@ -73,6 +73,7 @@
     <Content Include="MINV\Reportes\ListaMateriales.aspx" />
     <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
     <Content Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx" />
+    <Content Include="MINV\Reportes\SolicitudesPorUsuario.aspx" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
     <Content Include="MPR\Reportes\CostoPruebas.aspx" />
@@ -221,6 +222,11 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MINV\DSRPT\DSGetLoanMatByUser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MINV\DSRPT\DSMaterialEnviado.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +238,13 @@
     </Compile>
     <Compile Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx.designer.cs">
       <DependentUpon>SolicitudesMaterialesEnviadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\SolicitudesPorUsuario.aspx.cs">
+      <DependentUpon>SolicitudesPorUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\SolicitudesPorUsuario.aspx.designer.cs">
+      <DependentUpon>SolicitudesPorUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\DSRPT\DSBodegas.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -831,7 +844,7 @@
     <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaLaboratorios.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_PrestamoMatEnviadas.rdlc" />
-    <EmbeddedResource Include="MINV\Reportes\SolicitudesMaterialesEnviadas.rdlc" />
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_SolicitudesPorUsuario.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\ListaPruebas.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\PrecioPruebas.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\PruebasporAprobar.rdlc" />
@@ -855,6 +868,17 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xsc">
+      <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetLoanMatByUser.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xss">
+      <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
+    </None>
     <None Include="MINV\DSRPT\DSMaterialEnviado.xsc">
       <DependentUpon>DSMaterialEnviado.xsd</DependentUpon>
     </None>
