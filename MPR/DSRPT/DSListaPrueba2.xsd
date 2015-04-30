@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSListaPrueba2" targetNamespace="http://tempuri.org/DSListaPrueba2.xsd" xmlns:mstns="http://tempuri.org/DSListaPrueba2.xsd" xmlns="http://tempuri.org/DSListaPrueba2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDLabsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDLabsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDLabsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_ListaPruebasTableAdapter" GeneratorDataComponentClassName="View_ListaPruebasTableAdapter" Name="View_ListaPruebas" UserDataComponentName="View_ListaPruebasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_ListaPruebas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdPrueba, NomPrueba, DescPrueba, Duracion, DescUbicacion FROM dbo.View_ListaPruebas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPrueba" DataSetColumn="IdPrueba" />
+              <Mapping SourceColumn="NomPrueba" DataSetColumn="NomPrueba" />
+              <Mapping SourceColumn="DescPrueba" DataSetColumn="DescPrueba" />
+              <Mapping SourceColumn="Duracion" DataSetColumn="Duracion" />
+              <Mapping SourceColumn="DescUbicacion" DataSetColumn="DescUbicacion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSListaPrueba2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSListaPrueba2" msprop:Generator_UserDSName="DSListaPrueba2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_ListaPruebas" msprop:Generator_TableClassName="View_ListaPruebasDataTable" msprop:Generator_TableVarName="tableView_ListaPruebas" msprop:Generator_TablePropName="View_ListaPruebas" msprop:Generator_RowDeletingName="View_ListaPruebasRowDeleting" msprop:Generator_RowChangingName="View_ListaPruebasRowChanging" msprop:Generator_RowEvHandlerName="View_ListaPruebasRowChangeEventHandler" msprop:Generator_RowDeletedName="View_ListaPruebasRowDeleted" msprop:Generator_UserTableName="View_ListaPruebas" msprop:Generator_RowChangedName="View_ListaPruebasRowChanged" msprop:Generator_RowEvArgName="View_ListaPruebasRowChangeEvent" msprop:Generator_RowClassName="View_ListaPruebasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPrueba" msprop:Generator_ColumnVarNameInTable="columnIdPrueba" msprop:Generator_ColumnPropNameInRow="IdPrueba" msprop:Generator_ColumnPropNameInTable="IdPruebaColumn" msprop:Generator_UserColumnName="IdPrueba" type="xs:int" />
+              <xs:element name="NomPrueba" msprop:Generator_ColumnVarNameInTable="columnNomPrueba" msprop:Generator_ColumnPropNameInRow="NomPrueba" msprop:Generator_ColumnPropNameInTable="NomPruebaColumn" msprop:Generator_UserColumnName="NomPrueba">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DescPrueba" msprop:Generator_ColumnVarNameInTable="columnDescPrueba" msprop:Generator_ColumnPropNameInRow="DescPrueba" msprop:Generator_ColumnPropNameInTable="DescPruebaColumn" msprop:Generator_UserColumnName="DescPrueba">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Duracion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDuracion" msprop:Generator_ColumnPropNameInRow="Duracion" msprop:Generator_ColumnPropNameInTable="DuracionColumn" msprop:Generator_UserColumnName="Duracion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DescUbicacion" msprop:Generator_ColumnVarNameInTable="columnDescUbicacion" msprop:Generator_ColumnPropNameInRow="DescUbicacion" msprop:Generator_ColumnPropNameInTable="DescUbicacionColumn" msprop:Generator_UserColumnName="DescUbicacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_ListaPruebas" />
+      <xs:field xpath="mstns:IdPrueba" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
