@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPruebasAprobar" targetNamespace="http://tempuri.org/DSPruebasAprobar.xsd" xmlns:mstns="http://tempuri.org/DSPruebasAprobar.xsd" xmlns="http://tempuri.org/DSPruebasAprobar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDLabsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDLabsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDLabsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_PruebasporAprobarTableAdapter" GeneratorDataComponentClassName="View_PruebasporAprobarTableAdapter" Name="View_PruebasporAprobar" UserDataComponentName="View_PruebasporAprobarTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_PruebasporAprobar" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Pagado, Enviada FROM dbo.View_PruebasporAprobar</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdSolicPrueba" DataSetColumn="IdSolicPrueba" />
+              <Mapping SourceColumn="HeaderSolicPrueba" DataSetColumn="HeaderSolicPrueba" />
+              <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="Pagado" DataSetColumn="Pagado" />
+              <Mapping SourceColumn="Enviada" DataSetColumn="Enviada" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPruebasAprobar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSPruebasAprobar" msprop:Generator_UserDSName="DSPruebasAprobar">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_PruebasporAprobar" msprop:Generator_TableClassName="View_PruebasporAprobarDataTable" msprop:Generator_TableVarName="tableView_PruebasporAprobar" msprop:Generator_TablePropName="View_PruebasporAprobar" msprop:Generator_RowDeletingName="View_PruebasporAprobarRowDeleting" msprop:Generator_RowChangingName="View_PruebasporAprobarRowChanging" msprop:Generator_RowEvHandlerName="View_PruebasporAprobarRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PruebasporAprobarRowDeleted" msprop:Generator_UserTableName="View_PruebasporAprobar" msprop:Generator_RowChangedName="View_PruebasporAprobarRowChanged" msprop:Generator_RowEvArgName="View_PruebasporAprobarRowChangeEvent" msprop:Generator_RowClassName="View_PruebasporAprobarRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdSolicPrueba" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdSolicPrueba" msprop:Generator_ColumnPropNameInRow="IdSolicPrueba" msprop:Generator_ColumnPropNameInTable="IdSolicPruebaColumn" msprop:Generator_UserColumnName="IdSolicPrueba" type="xs:int" />
+              <xs:element name="HeaderSolicPrueba" msprop:Generator_ColumnVarNameInTable="columnHeaderSolicPrueba" msprop:Generator_ColumnPropNameInRow="HeaderSolicPrueba" msprop:Generator_ColumnPropNameInTable="HeaderSolicPruebaColumn" msprop:Generator_UserColumnName="HeaderSolicPrueba">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaRegistro" msprop:Generator_ColumnVarNameInTable="columnFechaRegistro" msprop:Generator_ColumnPropNameInRow="FechaRegistro" msprop:Generator_ColumnPropNameInTable="FechaRegistroColumn" msprop:Generator_UserColumnName="FechaRegistro">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pagado" msprop:Generator_ColumnVarNameInTable="columnPagado" msprop:Generator_ColumnPropNameInRow="Pagado" msprop:Generator_ColumnPropNameInTable="PagadoColumn" msprop:Generator_UserColumnName="Pagado" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Enviada" msprop:Generator_ColumnVarNameInTable="columnEnviada" msprop:Generator_ColumnPropNameInRow="Enviada" msprop:Generator_ColumnPropNameInTable="EnviadaColumn" msprop:Generator_UserColumnName="Enviada" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_PruebasporAprobar" />
+      <xs:field xpath="mstns:IdSolicPrueba" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

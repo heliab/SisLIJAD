@@ -20,17 +20,17 @@ namespace SisLIJAD {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DS_CostoPruebas")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DSPruebasAprobar")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DS_CostoPruebas : global::System.Data.DataSet {
+    public partial class DSPruebasAprobar : global::System.Data.DataSet {
         
-        private View_CostoPruebasDataTable tableView_CostoPruebas;
+        private View_PruebasporAprobarDataTable tableView_PruebasporAprobar;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DS_CostoPruebas() {
+        public DSPruebasAprobar() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SisLIJAD {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DS_CostoPruebas(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DSPruebasAprobar(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SisLIJAD {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["View_CostoPruebas"] != null)) {
-                    base.Tables.Add(new View_CostoPruebasDataTable(ds.Tables["View_CostoPruebas"]));
+                if ((ds.Tables["View_PruebasporAprobar"] != null)) {
+                    base.Tables.Add(new View_PruebasporAprobarDataTable(ds.Tables["View_PruebasporAprobar"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SisLIJAD {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public View_CostoPruebasDataTable View_CostoPruebas {
+        public View_PruebasporAprobarDataTable View_PruebasporAprobar {
             get {
-                return this.tableView_CostoPruebas;
+                return this.tableView_PruebasporAprobar;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DS_CostoPruebas cln = ((DS_CostoPruebas)(base.Clone()));
+            DSPruebasAprobar cln = ((DSPruebasAprobar)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SisLIJAD {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["View_CostoPruebas"] != null)) {
-                    base.Tables.Add(new View_CostoPruebasDataTable(ds.Tables["View_CostoPruebas"]));
+                if ((ds.Tables["View_PruebasporAprobar"] != null)) {
+                    base.Tables.Add(new View_PruebasporAprobarDataTable(ds.Tables["View_PruebasporAprobar"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableView_CostoPruebas = ((View_CostoPruebasDataTable)(base.Tables["View_CostoPruebas"]));
+            this.tableView_PruebasporAprobar = ((View_PruebasporAprobarDataTable)(base.Tables["View_PruebasporAprobar"]));
             if ((initTable == true)) {
-                if ((this.tableView_CostoPruebas != null)) {
-                    this.tableView_CostoPruebas.InitVars();
+                if ((this.tableView_PruebasporAprobar != null)) {
+                    this.tableView_PruebasporAprobar.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DS_CostoPruebas";
+            this.DataSetName = "DSPruebasAprobar";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DS_CostoPruebas.xsd";
+            this.Namespace = "http://tempuri.org/DSPruebasAprobar.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableView_CostoPruebas = new View_CostoPruebasDataTable();
-            base.Tables.Add(this.tableView_CostoPruebas);
+            this.tableView_PruebasporAprobar = new View_PruebasporAprobarDataTable();
+            base.Tables.Add(this.tableView_PruebasporAprobar);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeView_CostoPruebas() {
+        private bool ShouldSerializeView_PruebasporAprobar() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DS_CostoPruebas ds = new DS_CostoPruebas();
+            DSPruebasAprobar ds = new DSPruebasAprobar();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,31 @@ namespace SisLIJAD {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void View_CostoPruebasRowChangeEventHandler(object sender, View_CostoPruebasRowChangeEvent e);
+        public delegate void View_PruebasporAprobarRowChangeEventHandler(object sender, View_PruebasporAprobarRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class View_CostoPruebasDataTable : global::System.Data.TypedTableBase<View_CostoPruebasRow> {
+        public partial class View_PruebasporAprobarDataTable : global::System.Data.TypedTableBase<View_PruebasporAprobarRow> {
             
-            private global::System.Data.DataColumn columnIdPrueba;
+            private global::System.Data.DataColumn columnIdSolicPrueba;
             
-            private global::System.Data.DataColumn columnNomPrueba;
+            private global::System.Data.DataColumn columnHeaderSolicPrueba;
             
-            private global::System.Data.DataColumn columnPrecio;
+            private global::System.Data.DataColumn columnFechaRegistro;
+            
+            private global::System.Data.DataColumn columnusername;
+            
+            private global::System.Data.DataColumn columnPagado;
+            
+            private global::System.Data.DataColumn columnEnviada;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasDataTable() {
-                this.TableName = "View_CostoPruebas";
+            public View_PruebasporAprobarDataTable() {
+                this.TableName = "View_PruebasporAprobar";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +302,7 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal View_CostoPruebasDataTable(global::System.Data.DataTable table) {
+            internal View_PruebasporAprobarDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +319,56 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected View_CostoPruebasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected View_PruebasporAprobarDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdPruebaColumn {
+            public global::System.Data.DataColumn IdSolicPruebaColumn {
                 get {
-                    return this.columnIdPrueba;
+                    return this.columnIdSolicPrueba;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NomPruebaColumn {
+            public global::System.Data.DataColumn HeaderSolicPruebaColumn {
                 get {
-                    return this.columnNomPrueba;
+                    return this.columnHeaderSolicPrueba;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PrecioColumn {
+            public global::System.Data.DataColumn FechaRegistroColumn {
                 get {
-                    return this.columnPrecio;
+                    return this.columnFechaRegistro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usernameColumn {
+                get {
+                    return this.columnusername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PagadoColumn {
+                get {
+                    return this.columnPagado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EnviadaColumn {
+                get {
+                    return this.columnEnviada;
                 }
             }
             
@@ -353,54 +383,57 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRow this[int index] {
+            public View_PruebasporAprobarRow this[int index] {
                 get {
-                    return ((View_CostoPruebasRow)(this.Rows[index]));
+                    return ((View_PruebasporAprobarRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event View_CostoPruebasRowChangeEventHandler View_CostoPruebasRowChanging;
+            public event View_PruebasporAprobarRowChangeEventHandler View_PruebasporAprobarRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event View_CostoPruebasRowChangeEventHandler View_CostoPruebasRowChanged;
+            public event View_PruebasporAprobarRowChangeEventHandler View_PruebasporAprobarRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event View_CostoPruebasRowChangeEventHandler View_CostoPruebasRowDeleting;
+            public event View_PruebasporAprobarRowChangeEventHandler View_PruebasporAprobarRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event View_CostoPruebasRowChangeEventHandler View_CostoPruebasRowDeleted;
+            public event View_PruebasporAprobarRowChangeEventHandler View_PruebasporAprobarRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddView_CostoPruebasRow(View_CostoPruebasRow row) {
+            public void AddView_PruebasporAprobarRow(View_PruebasporAprobarRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRow AddView_CostoPruebasRow(string NomPrueba, string Precio) {
-                View_CostoPruebasRow rowView_CostoPruebasRow = ((View_CostoPruebasRow)(this.NewRow()));
+            public View_PruebasporAprobarRow AddView_PruebasporAprobarRow(string HeaderSolicPrueba, string FechaRegistro, string username, bool Pagado, bool Enviada) {
+                View_PruebasporAprobarRow rowView_PruebasporAprobarRow = ((View_PruebasporAprobarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        NomPrueba,
-                        Precio};
-                rowView_CostoPruebasRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowView_CostoPruebasRow);
-                return rowView_CostoPruebasRow;
+                        HeaderSolicPrueba,
+                        FechaRegistro,
+                        username,
+                        Pagado,
+                        Enviada};
+                rowView_PruebasporAprobarRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowView_PruebasporAprobarRow);
+                return rowView_PruebasporAprobarRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRow FindByIdPrueba(int IdPrueba) {
-                return ((View_CostoPruebasRow)(this.Rows.Find(new object[] {
-                            IdPrueba})));
+            public View_PruebasporAprobarRow FindByIdSolicPrueba(int IdSolicPrueba) {
+                return ((View_PruebasporAprobarRow)(this.Rows.Find(new object[] {
+                            IdSolicPrueba})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                View_CostoPruebasDataTable cln = ((View_CostoPruebasDataTable)(base.Clone()));
+                View_PruebasporAprobarDataTable cln = ((View_PruebasporAprobarDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,64 +441,74 @@ namespace SisLIJAD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new View_CostoPruebasDataTable();
+                return new View_PruebasporAprobarDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnIdPrueba = base.Columns["IdPrueba"];
-                this.columnNomPrueba = base.Columns["NomPrueba"];
-                this.columnPrecio = base.Columns["Precio"];
+                this.columnIdSolicPrueba = base.Columns["IdSolicPrueba"];
+                this.columnHeaderSolicPrueba = base.Columns["HeaderSolicPrueba"];
+                this.columnFechaRegistro = base.Columns["FechaRegistro"];
+                this.columnusername = base.Columns["username"];
+                this.columnPagado = base.Columns["Pagado"];
+                this.columnEnviada = base.Columns["Enviada"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnIdPrueba = new global::System.Data.DataColumn("IdPrueba", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdPrueba);
-                this.columnNomPrueba = new global::System.Data.DataColumn("NomPrueba", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNomPrueba);
-                this.columnPrecio = new global::System.Data.DataColumn("Precio", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrecio);
+                this.columnIdSolicPrueba = new global::System.Data.DataColumn("IdSolicPrueba", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdSolicPrueba);
+                this.columnHeaderSolicPrueba = new global::System.Data.DataColumn("HeaderSolicPrueba", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHeaderSolicPrueba);
+                this.columnFechaRegistro = new global::System.Data.DataColumn("FechaRegistro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFechaRegistro);
+                this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusername);
+                this.columnPagado = new global::System.Data.DataColumn("Pagado", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPagado);
+                this.columnEnviada = new global::System.Data.DataColumn("Enviada", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnviada);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIdPrueba}, true));
-                this.columnIdPrueba.AutoIncrement = true;
-                this.columnIdPrueba.AutoIncrementSeed = -1;
-                this.columnIdPrueba.AutoIncrementStep = -1;
-                this.columnIdPrueba.AllowDBNull = false;
-                this.columnIdPrueba.ReadOnly = true;
-                this.columnIdPrueba.Unique = true;
-                this.columnNomPrueba.AllowDBNull = false;
-                this.columnNomPrueba.MaxLength = 500;
-                this.columnPrecio.ReadOnly = true;
-                this.columnPrecio.MaxLength = 33;
+                                this.columnIdSolicPrueba}, true));
+                this.columnIdSolicPrueba.AutoIncrement = true;
+                this.columnIdSolicPrueba.AutoIncrementSeed = -1;
+                this.columnIdSolicPrueba.AutoIncrementStep = -1;
+                this.columnIdSolicPrueba.AllowDBNull = false;
+                this.columnIdSolicPrueba.ReadOnly = true;
+                this.columnIdSolicPrueba.Unique = true;
+                this.columnHeaderSolicPrueba.AllowDBNull = false;
+                this.columnHeaderSolicPrueba.MaxLength = 2147483647;
+                this.columnFechaRegistro.AllowDBNull = false;
+                this.columnFechaRegistro.MaxLength = 50;
+                this.columnusername.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRow NewView_CostoPruebasRow() {
-                return ((View_CostoPruebasRow)(this.NewRow()));
+            public View_PruebasporAprobarRow NewView_PruebasporAprobarRow() {
+                return ((View_PruebasporAprobarRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new View_CostoPruebasRow(builder);
+                return new View_PruebasporAprobarRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(View_CostoPruebasRow);
+                return typeof(View_PruebasporAprobarRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.View_CostoPruebasRowChanged != null)) {
-                    this.View_CostoPruebasRowChanged(this, new View_CostoPruebasRowChangeEvent(((View_CostoPruebasRow)(e.Row)), e.Action));
+                if ((this.View_PruebasporAprobarRowChanged != null)) {
+                    this.View_PruebasporAprobarRowChanged(this, new View_PruebasporAprobarRowChangeEvent(((View_PruebasporAprobarRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,8 +516,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.View_CostoPruebasRowChanging != null)) {
-                    this.View_CostoPruebasRowChanging(this, new View_CostoPruebasRowChangeEvent(((View_CostoPruebasRow)(e.Row)), e.Action));
+                if ((this.View_PruebasporAprobarRowChanging != null)) {
+                    this.View_PruebasporAprobarRowChanging(this, new View_PruebasporAprobarRowChangeEvent(((View_PruebasporAprobarRow)(e.Row)), e.Action));
                 }
             }
             
@@ -482,8 +525,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.View_CostoPruebasRowDeleted != null)) {
-                    this.View_CostoPruebasRowDeleted(this, new View_CostoPruebasRowChangeEvent(((View_CostoPruebasRow)(e.Row)), e.Action));
+                if ((this.View_PruebasporAprobarRowDeleted != null)) {
+                    this.View_PruebasporAprobarRowDeleted(this, new View_PruebasporAprobarRowChangeEvent(((View_PruebasporAprobarRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,14 +534,14 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.View_CostoPruebasRowDeleting != null)) {
-                    this.View_CostoPruebasRowDeleting(this, new View_CostoPruebasRowChangeEvent(((View_CostoPruebasRow)(e.Row)), e.Action));
+                if ((this.View_PruebasporAprobarRowDeleting != null)) {
+                    this.View_PruebasporAprobarRowDeleting(this, new View_PruebasporAprobarRowChangeEvent(((View_PruebasporAprobarRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveView_CostoPruebasRow(View_CostoPruebasRow row) {
+            public void RemoveView_PruebasporAprobarRow(View_PruebasporAprobarRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -507,7 +550,7 @@ namespace SisLIJAD {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DS_CostoPruebas ds = new DS_CostoPruebas();
+                DSPruebasAprobar ds = new DSPruebasAprobar();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -525,7 +568,7 @@ namespace SisLIJAD {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "View_CostoPruebasDataTable";
+                attribute2.FixedValue = "View_PruebasporAprobarDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -569,65 +612,133 @@ namespace SisLIJAD {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class View_CostoPruebasRow : global::System.Data.DataRow {
+        public partial class View_PruebasporAprobarRow : global::System.Data.DataRow {
             
-            private View_CostoPruebasDataTable tableView_CostoPruebas;
+            private View_PruebasporAprobarDataTable tableView_PruebasporAprobar;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal View_CostoPruebasRow(global::System.Data.DataRowBuilder rb) : 
+            internal View_PruebasporAprobarRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableView_CostoPruebas = ((View_CostoPruebasDataTable)(this.Table));
+                this.tableView_PruebasporAprobar = ((View_PruebasporAprobarDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IdPrueba {
+            public int IdSolicPrueba {
                 get {
-                    return ((int)(this[this.tableView_CostoPruebas.IdPruebaColumn]));
+                    return ((int)(this[this.tableView_PruebasporAprobar.IdSolicPruebaColumn]));
                 }
                 set {
-                    this[this.tableView_CostoPruebas.IdPruebaColumn] = value;
+                    this[this.tableView_PruebasporAprobar.IdSolicPruebaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string NomPrueba {
+            public string HeaderSolicPrueba {
                 get {
-                    return ((string)(this[this.tableView_CostoPruebas.NomPruebaColumn]));
+                    return ((string)(this[this.tableView_PruebasporAprobar.HeaderSolicPruebaColumn]));
                 }
                 set {
-                    this[this.tableView_CostoPruebas.NomPruebaColumn] = value;
+                    this[this.tableView_PruebasporAprobar.HeaderSolicPruebaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Precio {
+            public string FechaRegistro {
+                get {
+                    return ((string)(this[this.tableView_PruebasporAprobar.FechaRegistroColumn]));
+                }
+                set {
+                    this[this.tableView_PruebasporAprobar.FechaRegistroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string username {
                 get {
                     try {
-                        return ((string)(this[this.tableView_CostoPruebas.PrecioColumn]));
+                        return ((string)(this[this.tableView_PruebasporAprobar.usernameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Precio\' de la tabla \'View_CostoPruebas\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'username\' de la tabla \'View_PruebasporAprobar\' es DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableView_CostoPruebas.PrecioColumn] = value;
+                    this[this.tableView_PruebasporAprobar.usernameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPrecioNull() {
-                return this.IsNull(this.tableView_CostoPruebas.PrecioColumn);
+            public bool Pagado {
+                get {
+                    try {
+                        return ((bool)(this[this.tableView_PruebasporAprobar.PagadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Pagado\' de la tabla \'View_PruebasporAprobar\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableView_PruebasporAprobar.PagadoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPrecioNull() {
-                this[this.tableView_CostoPruebas.PrecioColumn] = global::System.Convert.DBNull;
+            public bool Enviada {
+                get {
+                    try {
+                        return ((bool)(this[this.tableView_PruebasporAprobar.EnviadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Enviada\' de la tabla \'View_PruebasporAprobar\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableView_PruebasporAprobar.EnviadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsusernameNull() {
+                return this.IsNull(this.tableView_PruebasporAprobar.usernameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetusernameNull() {
+                this[this.tableView_PruebasporAprobar.usernameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPagadoNull() {
+                return this.IsNull(this.tableView_PruebasporAprobar.PagadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPagadoNull() {
+                this[this.tableView_PruebasporAprobar.PagadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEnviadaNull() {
+                return this.IsNull(this.tableView_PruebasporAprobar.EnviadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEnviadaNull() {
+                this[this.tableView_PruebasporAprobar.EnviadaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -635,22 +746,22 @@ namespace SisLIJAD {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class View_CostoPruebasRowChangeEvent : global::System.EventArgs {
+        public class View_PruebasporAprobarRowChangeEvent : global::System.EventArgs {
             
-            private View_CostoPruebasRow eventRow;
+            private View_PruebasporAprobarRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRowChangeEvent(View_CostoPruebasRow row, global::System.Data.DataRowAction action) {
+            public View_PruebasporAprobarRowChangeEvent(View_PruebasporAprobarRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_CostoPruebasRow Row {
+            public View_PruebasporAprobarRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -666,7 +777,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.DS_CostoPruebasTableAdapters {
+namespace SisLIJAD.DSPruebasAprobarTableAdapters {
     
     
     /// <summary>
@@ -678,7 +789,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class View_CostoPruebasTableAdapter : global::System.ComponentModel.Component {
+    public partial class View_PruebasporAprobarTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -692,7 +803,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public View_CostoPruebasTableAdapter() {
+        public View_PruebasporAprobarTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -789,10 +900,13 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "View_CostoPruebas";
-            tableMapping.ColumnMappings.Add("IdPrueba", "IdPrueba");
-            tableMapping.ColumnMappings.Add("NomPrueba", "NomPrueba");
-            tableMapping.ColumnMappings.Add("Precio", "Precio");
+            tableMapping.DataSetTable = "View_PruebasporAprobar";
+            tableMapping.ColumnMappings.Add("IdSolicPrueba", "IdSolicPrueba");
+            tableMapping.ColumnMappings.Add("HeaderSolicPrueba", "HeaderSolicPrueba");
+            tableMapping.ColumnMappings.Add("FechaRegistro", "FechaRegistro");
+            tableMapping.ColumnMappings.Add("username", "username");
+            tableMapping.ColumnMappings.Add("Pagado", "Pagado");
+            tableMapping.ColumnMappings.Add("Enviada", "Enviada");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -809,7 +923,8 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdPrueba, NomPrueba, Precio FROM dbo.View_CostoPruebas";
+            this._commandCollection[0].CommandText = "SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Pagado, Enviada" +
+                " FROM dbo.View_PruebasporAprobar";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -817,7 +932,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS_CostoPruebas.View_CostoPruebasDataTable dataTable) {
+        public virtual int Fill(DSPruebasAprobar.View_PruebasporAprobarDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -830,9 +945,9 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS_CostoPruebas.View_CostoPruebasDataTable GetData() {
+        public virtual DSPruebasAprobar.View_PruebasporAprobarDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DS_CostoPruebas.View_CostoPruebasDataTable dataTable = new DS_CostoPruebas.View_CostoPruebasDataTable();
+            DSPruebasAprobar.View_PruebasporAprobarDataTable dataTable = new DSPruebasAprobar.View_PruebasporAprobarDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -906,7 +1021,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DS_CostoPruebas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DSPruebasAprobar dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -916,7 +1031,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DS_CostoPruebas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DSPruebasAprobar dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -926,7 +1041,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DS_CostoPruebas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DSPruebasAprobar dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -960,7 +1075,7 @@ namespace SisLIJAD.DS_CostoPruebasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DS_CostoPruebas dataSet) {
+        public virtual int UpdateAll(DSPruebasAprobar dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
