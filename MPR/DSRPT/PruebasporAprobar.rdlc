@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
   <DataSources>
-    <DataSource Name="DSListaPrueba2">
+    <DataSource Name="DSAprobarPruebas">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>2123aee6-b86d-4bfd-9159-d2543e0fd1ee</rd:DataSourceID>
+      <rd:DataSourceID>1836d896-2791-4bb8-ab6c-a98350608d98</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DS_ListaPrueba">
+    <DataSet Name="DataSet1">
       <Fields>
-        <Field Name="IdPrueba">
-          <DataField>IdPrueba</DataField>
+        <Field Name="IdSolicPrueba">
+          <DataField>IdSolicPrueba</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NomPrueba">
-          <DataField>NomPrueba</DataField>
+        <Field Name="HeaderSolicPrueba">
+          <DataField>HeaderSolicPrueba</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DescPrueba">
-          <DataField>DescPrueba</DataField>
+        <Field Name="FechaRegistro">
+          <DataField>FechaRegistro</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Duracion">
-          <DataField>Duracion</DataField>
+        <Field Name="username">
+          <DataField>username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DescUbicacion">
-          <DataField>DescUbicacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="Pagado">
+          <DataField>Pagado</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Enviada">
+          <DataField>Enviada</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
       </Fields>
       <Query>
-        <DataSourceName>DSListaPrueba2</DataSourceName>
+        <DataSourceName>DSAprobarPruebas</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSListaPrueba2</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\DSListaPrueba2.xsd</rd:SchemaPath>
-        <rd:TableName>View_ListaPruebas</rd:TableName>
+        <rd:DataSetName>DSAprobarPruebas</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\DSAprobarPruebas.xsd</rd:SchemaPath>
+        <rd:TableName>View_PruebasporAprobar</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>View_ListaPruebasTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>View_PruebasporAprobarTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -53,19 +57,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.65983in</Width>
+              <Width>0.89831in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.73183in</Width>
+              <Width>3.29415in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.83125in</Width>
+              <Width>1.61706in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.65983in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.61725in</Width>
+              <Width>1.43156in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -74,14 +75,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox26">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Id Prueba</Value>
+                              <Value>Id Solicitud</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -90,7 +91,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -126,59 +127,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox28">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Nombre Ensaye</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox28</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightGrey</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox32">
+                    <Textbox Name="Textbox3">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -194,7 +143,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox32</rd:DefaultName>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -230,14 +179,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox30">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Duracion</Value>
+                              <Value>Registrado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -246,7 +195,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -282,14 +231,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox34">
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Lugar Experimentacion</Value>
+                              <Value>username</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -298,7 +247,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox34</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -339,21 +288,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="IdPrueba">
+                    <Textbox Name="IdSolicPrueba">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!IdPrueba.Value</Value>
+                              <Value>=Fields!IdSolicPrueba.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>IdPrueba</rd:DefaultName>
+                      <rd:DefaultName>IdSolicPrueba</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -369,21 +318,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NomPrueba">
+                    <Textbox Name="HeaderSolicPrueba">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NomPrueba.Value</Value>
+                              <Value>=Fields!HeaderSolicPrueba.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NomPrueba</rd:DefaultName>
+                      <rd:DefaultName>HeaderSolicPrueba</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -399,21 +348,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DescPrueba">
+                    <Textbox Name="FechaRegistro">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DescPrueba.Value</Value>
+                              <Value>=Fields!FechaRegistro.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DescPrueba</rd:DefaultName>
+                      <rd:DefaultName>FechaRegistro</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -429,51 +378,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Duracion">
+                    <Textbox Name="username">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Duracion.Value</Value>
+                              <Value>=Fields!username.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Duracion</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="DescUbicacion">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!DescUbicacion.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>DescUbicacion</rd:DefaultName>
+                      <rd:DefaultName>username</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -497,7 +416,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -510,10 +428,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DS_ListaPrueba</DataSetName>
-        <Top>1.49521cm</Top>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>1.92299cm</Top>
         <Height>1.2cm</Height>
-        <Width>16.50997cm</Width>
+        <Width>18.39237cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -540,16 +458,16 @@
           </RightBorder>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox158">
+      <Textbox Name="Textbox13">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Lista de ensayes</Value>
+                <Value>Ensayes por aprobrobar</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -557,11 +475,10 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox157</rd:DefaultName>
-        <Top>0.54667cm</Top>
-        <Left>0.29104cm</Left>
+        <rd:DefaultName>Textbox13</rd:DefaultName>
+        <Top>0.86466cm</Top>
         <Height>0.6cm</Height>
-        <Width>5.48979cm</Width>
+        <Width>5.01354cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -573,25 +490,38 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Rectangle Name="Rectangle11">
+        <KeepTogether>true</KeepTogether>
+        <Top>3.925cm</Top>
+        <Left>0.01354cm</Left>
+        <Height>2.5cm</Height>
+        <Width>18.37882cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.58509in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>6.5in</Width>
+  <Width>7.24109in</Width>
   <Page>
     <PageHeader>
-      <Height>2.57091cm</Height>
+      <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Rectangle Name="Rectangle1">
           <KeepTogether>true</KeepTogether>
-          <Top>2.31987cm</Top>
+          <Top>2.28896cm</Top>
           <Height>0.25104cm</Height>
-          <Width>16.51cm</Width>
+          <Width>18.39237cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -616,8 +546,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox157</rd:DefaultName>
-          <Top>1.31177cm</Top>
-          <Left>6.35677cm</Left>
+          <Top>1.21824cm</Top>
+          <Left>7.95941cm</Left>
           <Height>0.6cm</Height>
           <Width>5.48979cm</Width>
           <ZIndex>1</ZIndex>
@@ -650,8 +580,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox156</rd:DefaultName>
-          <Top>0.15615cm</Top>
-          <Left>5.61594cm</Left>
+          <Top>0.06262cm</Top>
+          <Left>7.09687cm</Left>
           <Height>1.15562cm</Height>
           <Width>5.96604cm</Width>
           <ZIndex>2</ZIndex>
@@ -669,8 +599,8 @@
           <Source>Embedded</Source>
           <Value>SisLIJAD3</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.15615cm</Top>
-          <Left>1.19063cm</Left>
+          <Top>0.06262cm</Top>
+          <Left>2.13181cm</Left>
           <Height>1.92496cm</Height>
           <Width>2.46062cm</Width>
           <ZIndex>3</ZIndex>
@@ -711,7 +641,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox157</rd:DefaultName>
           <Top>0.97cm</Top>
-          <Left>5.61594cm</Left>
+          <Left>6.8217cm</Left>
           <Height>0.6cm</Height>
           <Width>5.48979cm</Width>
           <Style>
@@ -773,6 +703,6 @@ D1UkWN+C89QWXBXKEpsPj7vQUPVIlCnoFtTLHCMUrH3RgxrcEGU0JPocSnk1WtdFCoVkLjL5blHhk11I
 oWQed/vtvdP/eUct1NSDmz3KKOEbtgdd0K3QvGEePTyBmKxDAjJMfUNgF44Lwod/jn98gRBMoAduGN34YwQ9gTSPK2x31GoT/Tvotbhj/QjbfCaahpnK/ciGdqszbW4nk6cZsmwuzME9Gbwoghdr8HJz51q3CPeF0jAaJXzZfgEtxkzlV2i+b2SmP/BGMlz2URpGMwksLFMZR+nNRtJuoOEuJpTGbCHP9IlIbsDxpLFG+phQGrOFnZgc0QSa2/4mWpQwjIqYUBozm3Ch4gA2j3L5GbKQWW/SqIoJpTEb6EVG6qgx+mrg08AGE0mjFiaUxswl7E0ezuQEDSvR6ncj2ciNWYQJpTHT2QJ4D2FaspuBU4B/ADbkNurChNKYmag3mUc9x+chI/xfgRNQmJ2JpFE3JpTGzEMi2YPK+74LRZBcgEJHbwRMJI1YWGSOMbOQSC5G+RqXo1jkLwAXA8MmkEYSTCiNmUGY3PgZwPtQ0pHLga+jxBAzPh7ZaB0uZw8yjLg8GSVofgClSFNmIhNIo0H+HwZ1BKHix9TSAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTI3VDE3OjI0OjMyLTA1OjAwhru7lQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yN1QxNzoyNDozMi0wNTowMPfmAykAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportID>b330670c-43da-4542-ad9c-7180f53da813</rd:ReportID>
+  <rd:ReportID>3d09e317-748a-4544-b448-e6d31dffb430</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>

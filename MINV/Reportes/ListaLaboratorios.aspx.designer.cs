@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.MPR.Reportes {
+namespace SisLIJAD.MINV.Reportes {
     
     
-    public partial class PruebasPorAprobar {
+    public partial class ListaLaboratorios {
         
         /// <summary>
         /// Control ScriptManager1.

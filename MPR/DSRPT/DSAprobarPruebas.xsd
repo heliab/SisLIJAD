@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DSPruebasAprobar" targetNamespace="http://tempuri.org/DSPruebasAprobar.xsd" xmlns:mstns="http://tempuri.org/DSPruebasAprobar.xsd" xmlns="http://tempuri.org/DSPruebasAprobar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DSAprobarPruebas" targetNamespace="http://tempuri.org/DSAprobarPruebas.xsd" xmlns:mstns="http://tempuri.org/DSAprobarPruebas.xsd" xmlns="http://tempuri.org/DSAprobarPruebas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -33,7 +33,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DSPruebasAprobar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSPruebasAprobar" msprop:Generator_UserDSName="DSPruebasAprobar">
+  <xs:element name="DSAprobarPruebas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSAprobarPruebas" msprop:Generator_UserDSName="DSAprobarPruebas">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="View_PruebasporAprobar" msprop:Generator_TableClassName="View_PruebasporAprobarDataTable" msprop:Generator_TableVarName="tableView_PruebasporAprobar" msprop:Generator_TablePropName="View_PruebasporAprobar" msprop:Generator_RowDeletingName="View_PruebasporAprobarRowDeleting" msprop:Generator_RowChangingName="View_PruebasporAprobarRowChanging" msprop:Generator_RowEvHandlerName="View_PruebasporAprobarRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PruebasporAprobarRowDeleted" msprop:Generator_UserTableName="View_PruebasporAprobar" msprop:Generator_RowChangedName="View_PruebasporAprobarRowChanged" msprop:Generator_RowEvArgName="View_PruebasporAprobarRowChangeEvent" msprop:Generator_RowClassName="View_PruebasporAprobarRow">

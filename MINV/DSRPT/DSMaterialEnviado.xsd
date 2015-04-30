@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSMaterialEnviado" targetNamespace="http://tempuri.org/DSMaterialEnviado.xsd" xmlns:mstns="http://tempuri.org/DSMaterialEnviado.xsd" xmlns="http://tempuri.org/DSMaterialEnviado.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDLabsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDLabsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDLabsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_PrestaMatAllSendTableAdapter" GeneratorDataComponentClassName="View_PrestaMatAllSendTableAdapter" Name="View_PrestaMatAllSend" UserDataComponentName="View_PrestaMatAllSendTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_PrestaMatAllSend" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdPrestamo, Procedimiento, FechaRegistro, FechaPrestar, FechaDevolver, SolicitadoPor, NombCompleto, Asignatura, CodigoAsignatura, Cedula FROM dbo.View_PrestaMatAllSend</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPrestamo" DataSetColumn="IdPrestamo" />
+              <Mapping SourceColumn="Procedimiento" DataSetColumn="Procedimiento" />
+              <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
+              <Mapping SourceColumn="FechaPrestar" DataSetColumn="FechaPrestar" />
+              <Mapping SourceColumn="FechaDevolver" DataSetColumn="FechaDevolver" />
+              <Mapping SourceColumn="SolicitadoPor" DataSetColumn="SolicitadoPor" />
+              <Mapping SourceColumn="NombCompleto" DataSetColumn="NombCompleto" />
+              <Mapping SourceColumn="Asignatura" DataSetColumn="Asignatura" />
+              <Mapping SourceColumn="CodigoAsignatura" DataSetColumn="CodigoAsignatura" />
+              <Mapping SourceColumn="Cedula" DataSetColumn="Cedula" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSMaterialEnviado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSMaterialEnviado" msprop:Generator_UserDSName="DSMaterialEnviado">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_PrestaMatAllSend" msprop:Generator_TableClassName="View_PrestaMatAllSendDataTable" msprop:Generator_TableVarName="tableView_PrestaMatAllSend" msprop:Generator_TablePropName="View_PrestaMatAllSend" msprop:Generator_RowDeletingName="View_PrestaMatAllSendRowDeleting" msprop:Generator_RowChangingName="View_PrestaMatAllSendRowChanging" msprop:Generator_RowEvHandlerName="View_PrestaMatAllSendRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PrestaMatAllSendRowDeleted" msprop:Generator_UserTableName="View_PrestaMatAllSend" msprop:Generator_RowChangedName="View_PrestaMatAllSendRowChanged" msprop:Generator_RowEvArgName="View_PrestaMatAllSendRowChangeEvent" msprop:Generator_RowClassName="View_PrestaMatAllSendRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPrestamo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdPrestamo" msprop:Generator_ColumnPropNameInRow="IdPrestamo" msprop:Generator_ColumnPropNameInTable="IdPrestamoColumn" msprop:Generator_UserColumnName="IdPrestamo" type="xs:int" />
+              <xs:element name="Procedimiento" msprop:Generator_ColumnVarNameInTable="columnProcedimiento" msprop:Generator_ColumnPropNameInRow="Procedimiento" msprop:Generator_ColumnPropNameInTable="ProcedimientoColumn" msprop:Generator_UserColumnName="Procedimiento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaRegistro" msprop:Generator_ColumnVarNameInTable="columnFechaRegistro" msprop:Generator_ColumnPropNameInRow="FechaRegistro" msprop:Generator_ColumnPropNameInTable="FechaRegistroColumn" msprop:Generator_UserColumnName="FechaRegistro">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaPrestar" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaPrestar" msprop:Generator_ColumnPropNameInRow="FechaPrestar" msprop:Generator_ColumnPropNameInTable="FechaPrestarColumn" msprop:Generator_UserColumnName="FechaPrestar" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaDevolver" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaDevolver" msprop:Generator_ColumnPropNameInRow="FechaDevolver" msprop:Generator_ColumnPropNameInTable="FechaDevolverColumn" msprop:Generator_UserColumnName="FechaDevolver" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SolicitadoPor" msprop:Generator_ColumnVarNameInTable="columnSolicitadoPor" msprop:Generator_ColumnPropNameInRow="SolicitadoPor" msprop:Generator_ColumnPropNameInTable="SolicitadoPorColumn" msprop:Generator_UserColumnName="SolicitadoPor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombCompleto" msprop:Generator_ColumnVarNameInTable="columnNombCompleto" msprop:Generator_ColumnPropNameInRow="NombCompleto" msprop:Generator_ColumnPropNameInTable="NombCompletoColumn" msprop:Generator_UserColumnName="NombCompleto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asignatura" msprop:Generator_ColumnVarNameInTable="columnAsignatura" msprop:Generator_ColumnPropNameInRow="Asignatura" msprop:Generator_ColumnPropNameInTable="AsignaturaColumn" msprop:Generator_UserColumnName="Asignatura" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CodigoAsignatura" msprop:Generator_ColumnVarNameInTable="columnCodigoAsignatura" msprop:Generator_ColumnPropNameInRow="CodigoAsignatura" msprop:Generator_ColumnPropNameInTable="CodigoAsignaturaColumn" msprop:Generator_UserColumnName="CodigoAsignatura" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cedula" msprop:Generator_ColumnVarNameInTable="columnCedula" msprop:Generator_ColumnPropNameInRow="Cedula" msprop:Generator_ColumnPropNameInTable="CedulaColumn" msprop:Generator_UserColumnName="Cedula" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_PrestaMatAllSend" />
+      <xs:field xpath="mstns:IdPrestamo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

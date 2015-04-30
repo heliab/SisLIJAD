@@ -68,8 +68,11 @@
     <Content Include="Images\fromt.jpg" />
     <Content Include="Images\FRONT.JPG" />
     <Content Include="Images\side.jpg" />
+    <Content Include="MINV\Reportes\ListaBodegas.aspx" />
+    <Content Include="MINV\Reportes\ListaLaboratorios.aspx" />
     <Content Include="MINV\Reportes\ListaMateriales.aspx" />
     <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
+    <Content Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
     <Content Include="MPR\Reportes\CostoPruebas.aspx" />
@@ -218,10 +221,46 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DSPruebasAprobar.Designer.cs">
+    <Compile Include="MINV\DSRPT\DSMaterialEnviado.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DSPruebasAprobar.xsd</DependentUpon>
+      <DependentUpon>DSMaterialEnviado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx.cs">
+      <DependentUpon>SolicitudesMaterialesEnviadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx.designer.cs">
+      <DependentUpon>SolicitudesMaterialesEnviadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\DSRPT\DSBodegas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSBodegas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\DSRPT\DSLaboratorios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSLaboratorios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaBodegas.aspx.cs">
+      <DependentUpon>ListaBodegas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaBodegas.aspx.designer.cs">
+      <DependentUpon>ListaBodegas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaLaboratorios.aspx.cs">
+      <DependentUpon>ListaLaboratorios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaLaboratorios.aspx.designer.cs">
+      <DependentUpon>ListaLaboratorios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\DSRPT\DSAprobarPruebas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAprobarPruebas.xsd</DependentUpon>
     </Compile>
     <Compile Include="MPR\DSRPT\DS_CostoPruebas.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -787,11 +826,15 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MINV\DSRPT\ListaBodega.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaLaboratorios.rdlc" />
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_PrestamoMatEnviadas.rdlc" />
+    <EmbeddedResource Include="MINV\Reportes\SolicitudesMaterialesEnviadas.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\ListaPruebas.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\PrecioPruebas.rdlc" />
-    <EmbeddedResource Include="MPR\DSRPT\PruebasAprobar.rdlc" />
+    <EmbeddedResource Include="MPR\DSRPT\PruebasporAprobar.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\SolicitudePorUsuario.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
@@ -812,16 +855,49 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
-    <None Include="DSPruebasAprobar.xsc">
-      <DependentUpon>DSPruebasAprobar.xsd</DependentUpon>
+    <None Include="MINV\DSRPT\DSMaterialEnviado.xsc">
+      <DependentUpon>DSMaterialEnviado.xsd</DependentUpon>
     </None>
-    <None Include="DSPruebasAprobar.xsd">
+    <None Include="MINV\DSRPT\DSMaterialEnviado.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSPruebasAprobar.Designer.cs</LastGenOutput>
+      <LastGenOutput>DSMaterialEnviado.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSPruebasAprobar.xss">
-      <DependentUpon>DSPruebasAprobar.xsd</DependentUpon>
+    <None Include="MINV\DSRPT\DSMaterialEnviado.xss">
+      <DependentUpon>DSMaterialEnviado.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSBodegas.xsc">
+      <DependentUpon>DSBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSBodegas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSBodegas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MPR\DSRPT\DSBodegas.xss">
+      <DependentUpon>DSBodegas.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DSLaboratorios.xsc">
+      <DependentUpon>DSLaboratorios.xsd</DependentUpon>
+    </None>
+    <None Include="MINV\DSRPT\DSLaboratorios.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSLaboratorios.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MINV\DSRPT\DSLaboratorios.xss">
+      <DependentUpon>DSLaboratorios.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSAprobarPruebas.xsc">
+      <DependentUpon>DSAprobarPruebas.xsd</DependentUpon>
+    </None>
+    <None Include="MPR\DSRPT\DSAprobarPruebas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAprobarPruebas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MPR\DSRPT\DSAprobarPruebas.xss">
+      <DependentUpon>DSAprobarPruebas.xsd</DependentUpon>
     </None>
     <None Include="MPR\DSRPT\DS_CostoPruebas.xsc">
       <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
