@@ -72,6 +72,7 @@
     <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
+    <Content Include="MPR\Reportes\CostoPruebas.aspx" />
     <Content Include="MPR\Reportes\ListaPruebas.aspx" />
     <Content Include="MPR\Reportes\PruebasPorUsuario.aspx" />
     <Content Include="MPR\VincularMAteriales.aspx" />
@@ -216,6 +217,11 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DS_CostoPruebas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MPR\DSRPT\DSListaPrueba2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -277,6 +283,13 @@
     </Compile>
     <Compile Include="MPR\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MPR\Reportes\CostoPruebas.aspx.cs">
+      <DependentUpon>CostoPruebas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MPR\Reportes\CostoPruebas.aspx.designer.cs">
+      <DependentUpon>CostoPruebas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MPR\Reportes\ListaPruebas.aspx.cs">
       <DependentUpon>ListaPruebas.aspx</DependentUpon>
@@ -764,6 +777,7 @@
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\ListaPruebas.rdlc" />
+    <EmbeddedResource Include="MPR\DSRPT\PrecioPruebas.rdlc" />
     <EmbeddedResource Include="MPR\DSRPT\SolicitudePorUsuario.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
@@ -784,6 +798,17 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
+    <None Include="DS_CostoPruebas.xsc">
+      <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
+    </None>
+    <None Include="DS_CostoPruebas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_CostoPruebas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_CostoPruebas.xss">
+      <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
+    </None>
     <None Include="MPR\DSRPT\DSListaPrueba2.xsc">
       <DependentUpon>DSListaPrueba2.xsd</DependentUpon>
     </None>

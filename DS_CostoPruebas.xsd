@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_CostoPruebas" targetNamespace="http://tempuri.org/DS_CostoPruebas.xsd" xmlns:mstns="http://tempuri.org/DS_CostoPruebas.xsd" xmlns="http://tempuri.org/DS_CostoPruebas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDLabsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDLabsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDLabsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_CostoPruebasTableAdapter" GeneratorDataComponentClassName="View_CostoPruebasTableAdapter" Name="View_CostoPruebas" UserDataComponentName="View_CostoPruebasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_CostoPruebas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdPrueba, NomPrueba, Precio FROM dbo.View_CostoPruebas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdPrueba" DataSetColumn="IdPrueba" />
+              <Mapping SourceColumn="NomPrueba" DataSetColumn="NomPrueba" />
+              <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_CostoPruebas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_CostoPruebas" msprop:Generator_UserDSName="DS_CostoPruebas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_CostoPruebas" msprop:Generator_TableClassName="View_CostoPruebasDataTable" msprop:Generator_TableVarName="tableView_CostoPruebas" msprop:Generator_TablePropName="View_CostoPruebas" msprop:Generator_RowDeletingName="View_CostoPruebasRowDeleting" msprop:Generator_RowChangingName="View_CostoPruebasRowChanging" msprop:Generator_RowEvHandlerName="View_CostoPruebasRowChangeEventHandler" msprop:Generator_RowDeletedName="View_CostoPruebasRowDeleted" msprop:Generator_UserTableName="View_CostoPruebas" msprop:Generator_RowChangedName="View_CostoPruebasRowChanged" msprop:Generator_RowEvArgName="View_CostoPruebasRowChangeEvent" msprop:Generator_RowClassName="View_CostoPruebasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPrueba" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdPrueba" msprop:Generator_ColumnPropNameInRow="IdPrueba" msprop:Generator_ColumnPropNameInTable="IdPruebaColumn" msprop:Generator_UserColumnName="IdPrueba" type="xs:int" />
+              <xs:element name="NomPrueba" msprop:Generator_ColumnVarNameInTable="columnNomPrueba" msprop:Generator_ColumnPropNameInRow="NomPrueba" msprop:Generator_ColumnPropNameInTable="NomPruebaColumn" msprop:Generator_UserColumnName="NomPrueba">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPrecio" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_UserColumnName="Precio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="33" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_CostoPruebas" />
+      <xs:field xpath="mstns:IdPrueba" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
