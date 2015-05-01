@@ -156,6 +156,7 @@
     <Content Include="SICOM\Default.aspx" />
     <Content Include="SICOM\Reportes\SolicitudesCompraId.aspx" />
     <Content Include="SICOM\RegistroProveedores.aspx" />
+    <Content Include="SICOM\Reportes\SolicitudServicios.aspx" />
     <Content Include="SICOM\SolicCompMaterial.aspx" />
     <Content Include="SICOM\SolicServicio.aspx" />
     <Content Include="SICOM\TipoMoneda.aspx" />
@@ -222,6 +223,11 @@
     </Compile>
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSGetSolById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetSolById.xsd</DependentUpon>
     </Compile>
     <Compile Include="SICOM\DSRPT\DSGetSolMatById.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -773,6 +779,13 @@
     <Compile Include="SICOM\RegistroProveedores.aspx.designer.cs">
       <DependentUpon>RegistroProveedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SICOM\Reportes\SolicitudServicios.aspx.cs">
+      <DependentUpon>SolicitudServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SICOM\Reportes\SolicitudServicios.aspx.designer.cs">
+      <DependentUpon>SolicitudServicios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SICOM\SolicCompMaterial.aspx.cs">
       <DependentUpon>SolicCompMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -864,6 +877,7 @@
     <EmbeddedResource Include="MPR\DSRPT\SolicitudePorUsuario.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="SICOM\DSRPT\Rpt_SolicitudesCompraId.rdlc" />
+    <EmbeddedResource Include="SICOM\DSRPT\Rpt_SolicitudServicio.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MINV\MasterMinv.Master" />
@@ -882,6 +896,17 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
+    <None Include="DSGetSolById.xsc">
+      <DependentUpon>DSGetSolById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetSolById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetSolById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSGetSolById.xss">
+      <DependentUpon>DSGetSolById.xsd</DependentUpon>
+    </None>
     <None Include="SICOM\DSRPT\DSGetSolMatById.xsc">
       <DependentUpon>DSGetSolMatById.xsd</DependentUpon>
     </None>
