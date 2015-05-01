@@ -174,8 +174,8 @@
                 <ContentCollection>
                     <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
                         
-                        <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
-                            OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
+                        <dx:ASPxGridView ID="GridResultados" runat="server" 
+                            ClientInstanceName="GridResultados" Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
                             <Columns>
                                 <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
@@ -210,7 +210,7 @@
                     <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
                         
                         <dx:ASPxGridView ID="GridResultados2" runat="server" ClientInstanceName="GridResultados2"
-                            OnCustomCallback="GridResultados2_CustomCallback" Width="100%" AutoGenerateColumns="False"
+                            Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes2" KeyFieldName="Codigo">
                             <Columns>
                                 <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">

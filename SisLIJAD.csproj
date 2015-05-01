@@ -237,6 +237,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DSGetResultsById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetResultsById.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SICOM\DSRPT\DSGetSolById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -878,6 +883,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_PVSS.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Solicitudesenviadas.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\ListaBodega.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
@@ -920,6 +926,17 @@
     </None>
     <None Include="Clientes\DSRPT\DSGetSendSolByUser.xss">
       <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetResultsById.xsc">
+      <DependentUpon>DSGetResultsById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetResultsById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetResultsById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSGetResultsById.xss">
+      <DependentUpon>DSGetResultsById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolById.xsc">
       <DependentUpon>DSGetSolById.xsd</DependentUpon>
