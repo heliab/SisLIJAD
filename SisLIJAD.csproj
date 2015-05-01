@@ -64,6 +64,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Clientes\Default.aspx" />
+    <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
     <Content Include="Images\fromt.jpg" />
     <Content Include="Images\FRONT.JPG" />
@@ -224,7 +225,19 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DSGetSolById.Designer.cs">
+    <Compile Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx.cs">
+      <DependentUpon>SolicitudesEnviadasRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx.designer.cs">
+      <DependentUpon>SolicitudesEnviadasRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\DSRPT\DSGetSendSolByUser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SICOM\DSRPT\DSGetSolById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetSolById.xsd</DependentUpon>
@@ -865,6 +878,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\Solicitudesenviadas.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\ListaBodega.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
@@ -896,15 +910,26 @@
     <Content Include="Cuenta\web.config" />
     <Content Include="SisLijadMaster.Master" />
     <Content Include="Pruebas\PruebasMaster.Master" />
-    <None Include="DSGetSolById.xsc">
+    <None Include="Clientes\DSRPT\DSGetSendSolByUser.xsc">
+      <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
+    </None>
+    <None Include="Clientes\DSRPT\DSGetSendSolByUser.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetSendSolByUser.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Clientes\DSRPT\DSGetSendSolByUser.xss">
+      <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
+    </None>
+    <None Include="SICOM\DSRPT\DSGetSolById.xsc">
       <DependentUpon>DSGetSolById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetSolById.xsd">
+    <None Include="SICOM\DSRPT\DSGetSolById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetSolById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSGetSolById.xss">
+    <None Include="SICOM\DSRPT\DSGetSolById.xss">
       <DependentUpon>DSGetSolById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolMatById.xsc">

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.SICOM.DSRPT {
     
     
     /// <summary>
@@ -773,7 +773,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.DSGetSolByIdTableAdapters {
+namespace SisLIJAD.SICOM.DSRPT.DSGetSolByIdTableAdapters {
     
     
     /// <summary>
