@@ -13,13 +13,13 @@ namespace SisLIJAD.Clientes.Results {
     public partial class PesoVolumetricoSecoSueltoRes {
         
         /// <summary>
-        /// Control btnReporte.
+        /// Control btnReport.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReporte;
+        protected global::System.Web.UI.WebControls.Button btnReport;
         
         /// <summary>
         /// Control ASPxRoundPanel1.

@@ -53,9 +53,9 @@ namespace SisLIJAD.Clientes.Results
 
         }
 
-        protected void btnReporte_Click(object sender, EventArgs e)
+       protected void btnReport_Click(object sender, EventArgs e)
         {
-            ShowReport();
+ShowReport();
         }
     }
 }
