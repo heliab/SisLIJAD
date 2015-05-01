@@ -17,7 +17,7 @@
         <div class="BaseForm">
             <div class="row">
                 <div class="first">
-                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Seleccione usuario" 
+                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Seleccione Solicitud" 
                         Font-Bold="True" Font-Italic="False" Font-Names="Verdana">
                     </dx:ASPxLabel>
                 </div>
@@ -29,12 +29,16 @@
                         TextField="Descripcion" ValueField="Id"
                         ValueType="System.String" Font-Size="Medium" 
                         EnableIncrementalFiltering="True" Width="350px">
+                        <Columns>
+                            <dx:ListBoxColumn Caption="Id" FieldName="Id" Width="7%" />
+                            <dx:ListBoxColumn Caption="Descripcion" FieldName="Descripcion" />
+                        </Columns>
                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                             ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                            <RegularExpression ErrorText="Seleccione un usuario" />
-                            <RequiredField ErrorText="Seleccione un usuario" IsRequired="True" />
-                            <RegularExpression ErrorText="Seleccione un usuario"></RegularExpression>
-                            <RequiredField IsRequired="True" ErrorText="Seleccione un usuario"></RequiredField>
+                            <RegularExpression ErrorText="Seleccione una solicitud" />
+                            <RequiredField ErrorText="Seleccione una solicitud" IsRequired="True" />
+                            <RegularExpression ErrorText="Seleccione una solicitud"></RegularExpression>
+                            <RequiredField IsRequired="True" ErrorText="SSeleccione una solicitud"></RequiredField>
                         </ValidationSettings>
                     </dx:ASPxComboBox>
                 </div>
@@ -50,13 +54,14 @@
 
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt"
             InteractiveDeviceInfos="(Colección)" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt"
-            BorderStyle="Inset" Width="705px">
+            BorderStyle="Inset" Width="642px">
         </rsweb:ReportViewer>
         
     </div>
      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
             
-        
+            
+             
         SelectCommand="SELECT DISTINCT IdSolic_Comp AS Id, HeaderSolic AS Descripcion FROM MSCOMP_Solic_Compras"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
