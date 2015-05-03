@@ -1,4 +1,6 @@
-<%@ Page Title="Solicitudes de prueba" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
+<%@ Page Title="Solicitudes de prueba" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master"
+    AutoEventWireup="true" CodeBehind="CrearSolicitudes.aspx.cs" Inherits="SisLIJAD.Clientes.CrearSolicitudes" %>
+
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -15,56 +17,55 @@
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
-    <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- <script type="text/javascript">
-     function fn_SubNewSolJS() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubNewJS();
+    <script type="text/javascript">
+        function fn_SubNewSolJS() {
+            fn_GetValOnHid();
+            cmbPrueba.PerformCallback();
+            fn_SubNewJS();
         }
 
-     function fn_SubEditJSSol() {
-         fn_GetValOnHid();
-         cmbPrueba.PerformCallback();
-         fn_SubEditJS();
-     }
+        function fn_SubEditJSSol() {
+            fn_GetValOnHid();
+            cmbPrueba.PerformCallback();
+            fn_SubEditJS();
+        }
 
-     function fn_SubAddSol() {
-         fn_GetValOnHid();
-         fn_SubAdd();
-         cmbPrueba.PerformCallback();
+        function fn_SubAddSol() {
+            fn_GetValOnHid();
+            fn_SubAdd();
+            cmbPrueba.PerformCallback();
 
-     }
-     function fn_GetValOnHid() {
-         HiddenV.Set("SessionId", fn_GetIdValue());
-     }
-     function fn_EnviarSolJS() {
-         if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
-        HiddenV.Set('Nuevo', 6);
-        HiddenV.Set('Enviar', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
-        alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
-    }
-         }
+        }
+        function fn_GetValOnHid() {
+            HiddenV.Set("SessionId", fn_GetIdValue());
+        }
+        function fn_EnviarSolJS() {
+            if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
+                HiddenV.Set('Nuevo', 6);
+                HiddenV.Set('Enviar', fn_GetIdValue());
+                NewCallback.PerformCallback();
+                fn_EndCallback();
+                alert('Su solicitud fue enviada con exito\nPuede ver las solicitudes enviada en la sección Solicitud-> Solicitudes Enviadas');
+            }
+        }
      
      
- </script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<div class="wrapctrl">
+    <div class="wrapctrl">
         <ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                class="fa fa-plus"></i> Nueva Solicitud</a></li>
+                class="fa fa-plus"></i>Nueva Solicitud</a></li>
             <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
-                <i class="fa fa-pencil-square-o"></i> Editar</a></li>
+                <i class="fa fa-pencil-square-o"></i>Editar</a></li>
             <li><a class="pure-button red-font" href="javascript:fn_DeleteJS();" title="Borrar">
-                <i class="fa fa-trash"></i> Borrar</a></li>
+                <i class="fa fa-trash"></i>Borrar</a></li>
             <li><a class="pure-button green-font" href="javascript:fn_EnviarSolJS();" title="Borrar">
-                <i class="fa fa-paper-plane-o"></i> Enviar solicitud</a></li>
+                <i class="fa fa-paper-plane-o"></i>Enviar solicitud</a></li>
         </ul>
     </div>
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
@@ -78,125 +79,150 @@ fn_EndCallback();
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
     <div class="grid">
-    <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
-        <ClientSideEvents DetailRowExpanding="function(s, e) {
+        <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+            DataSourceID="SDSSolicitudes" KeyFieldName="IdSolicPrueba" SettingsBehavior-AllowFocusedRow="True"
+            Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
+            <ClientSideEvents DetailRowExpanding="function(s, e) {
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
-        <Columns>
-            <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" VisibleIndex="0"
-                Caption="Id Solicitud" Width="8%">
-                <EditFormSettings Visible="False" />
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" Caption="Descripción solicitud">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="2" Width="15%">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Solicitante" FieldName="username" VisibleIndex="3"
-                Width="11%">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="4" Width="8%">
-            </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
-                <ClearFilterButton Text="Limpiar" Visible="True">
-                </ClearFilterButton>
-            </dx:GridViewCommandColumn>
-        </Columns>
-        <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
-        <SettingsPager AlwaysShowPager="True" PageSize="15">
-            <Summary Text="Página {0} de {1} ({2} items)" />
-        </SettingsPager>
-        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
-        <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
-        <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
-        <Styles>
-            <FocusedRow BackColor="#5180BF">
-            </FocusedRow>
-        </Styles>
-        <Templates>
-            <DetailRow>
-                <div class="wrapctrl">
-                    <ul class="ctrlist">
-                        <li><a class="pure-button blue-font" href="javascript:fn_SubNewSolJS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Nuevo</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_SubEditJSSol();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
-                </div>
-                <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%" KeyFieldName="IdDetalle">
-                    <TotalSummary>
-                        <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
-                    </TotalSummary>
-                    <Columns>
-                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
-                            VisibleIndex="0">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3">
-                        </dx:GridViewDataTextColumn>
-                    </Columns>
-                    <SettingsBehavior AllowFocusedRow="True" />
-                    <Settings ShowFilterRow="True" ShowFooter="True" />
-                    <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
-                    <SettingsDetail IsDetailGrid="True" />
-                    <Styles>
-                        <FocusedRow BackColor="#5180BF">
-                        </FocusedRow>
-                    </Styles>
-                </dx:ASPxGridView>
-            </DetailRow>
-        </Templates>
-    </dx:ASPxGridView>
-        </div>
+            <Columns>
+                <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" VisibleIndex="0"
+                    Caption="Id Solicitud" Width="8%">
+                    <EditFormSettings Visible="False" />
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" Caption="Descripción solicitud">
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="2" Width="15%">
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Solicitante" FieldName="username" VisibleIndex="3"
+                    Width="11%">
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="4" Width="8%">
+                </dx:GridViewDataCheckColumn>
+                <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
+                    <ClearFilterButton Text="Limpiar" Visible="True">
+                    </ClearFilterButton>
+                </dx:GridViewCommandColumn>
+            </Columns>
+            <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
+            <SettingsPager AlwaysShowPager="True" PageSize="15">
+                <Summary Text="Página {0} de {1} ({2} items)" />
+            </SettingsPager>
+            <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
+            <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
+            <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
+            <Styles>
+                <FocusedRow BackColor="#5180BF">
+                </FocusedRow>
+            </Styles>
+            <Templates>
+                <DetailRow>
+                    <div class="wrapctrl">
+                        <ul class="ctrlist">
+                            <li><a class="pure-button blue-font" href="javascript:fn_SubNewSolJS();" title="Nuevo">
+                                <i class="fa fa-plus"></i>Nuevo</a></li>
+                            <li><a class="pure-button green-font" href="javascript:fn_SubEditJSSol();" title="Editar">
+                                <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+                            <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
+                                <i class="fa fa-trash"></i>Borrar</a></li>
+                        </ul>
+                    </div>
+                    <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                        ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
+                        Width="100%" KeyFieldName="IdPrueba">
+                        <ClientSideEvents DetailRowExpanding="function(s, e) {
+	SubGrid.SetFocusedRowIndex(e.visibleIndex);
+}" />
+                        <TotalSummary>
+                            <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
+                        </TotalSummary>
+                        <Columns>
+                            <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" VisibleIndex="0">
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="NomPrueba" VisibleIndex="1">
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="ObservPrueba" VisibleIndex="2">
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="Duracion" VisibleIndex="3" Caption="Duracion Días">
+                            </dx:GridViewDataTextColumn>
+                        </Columns>
+                        <SettingsBehavior AllowFocusedRow="True" />
+                        <Settings ShowFilterRow="True" ShowFooter="True" />
+                        <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
+                        <SettingsDetail IsDetailGrid="True" AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
+                        <Styles>
+                            <FocusedRow BackColor="#5180BF">
+                            </FocusedRow>
+                        </Styles>
+                        <Templates>
+                            <DetailRow>
+                                <div class="BaseForm wraptitle">
+                                    <div class="row">
+                                        <div class="first">
+                                            <div class="Titulo2">
+                                                Materiales Requeridos
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                    DataSourceID="SDSMaterialesRequeridos" KeyFieldName="MaterialesRequerido" OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect"
+                                    Width="100%">
+                                    <Columns>
+                                        <dx:GridViewDataTextColumn FieldName="MaterialesRequerido" VisibleIndex="0">
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn FieldName="Cantidad" ReadOnly="True" VisibleIndex="1">
+                                        </dx:GridViewDataTextColumn>
+                                    </Columns>
+                                    <SettingsBehavior AllowFocusedRow="True" />
+                                    <SettingsPager PageSize="5">
+                                        <Summary AllPagesText="Pag: {0} - {1} ({2} items)" Text="Pag {0} of {1} ({2} items)" />
+                                    </SettingsPager>
+                                    <Settings ShowFooter="True" />
+                                    <SettingsDetail IsDetailGrid="True" />
+                                    <Styles>
+                                        <FocusedRow BackColor="#5180BF">
+                                        </FocusedRow>
+                                    </Styles>
+                                </dx:ASPxGridView>
+                            </DetailRow>
+                        </Templates>
+                    </dx:ASPxGridView>
+                </DetailRow>
+            </Templates>
+        </dx:ASPxGridView>
+    </div>
     <asp:SqlDataSource ID="SDSSolicitudes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
         SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Enviada FROM MPR_Solic_Pruebas WHERE (username = @username) and (Enviada=0) ORDER BY IdSolicPrueba DESC">
         <SelectParameters>
             <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion, MPR_Prueba.IdPrueba FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
         </SelectParameters>
     </asp:SqlDataSource>
-
-
-
-     <asp:SqlDataSource ID="SDSMaterialesRequeridos" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-        SelectCommand="SELECT MINV_Materiales.NomMaterial AS MaterialesRequerido, CAST(MPR_Det_Mat_Prueba.Cantidad AS NVARCHAR) + ' ' + CAST(MINV_UnidadM.NomUnidadM AS NVARCHAR) AS Cantidad FROM MINV_UnidadM INNER JOIN MINV_Materiales ON MINV_UnidadM.IdUnidadM = MINV_Materiales.IdUnidad INNER JOIN MPR_Det_Mat_Prueba ON MINV_Materiales.IdMaterial = MPR_Det_Mat_Prueba.IdMaterial INNER JOIN MPR_Det_Sol_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Det_Sol_Prueba.IdPrueba INNER JOIN MPR_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Prueba.IdPrueba AND MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) = @Detail) AND (MPR_Det_Mat_Prueba.RequeridoPor = 0)">
+    <asp:SqlDataSource ID="SDSMaterialesRequeridos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+        SelectCommand="SELECT MINV_Materiales.NomMaterial AS MaterialesRequerido, CAST(MPR_Det_Mat_Prueba.Cantidad AS NVARCHAR) + ' ' + CAST(MINV_UnidadM.NomUnidadM AS NVARCHAR) AS Cantidad FROM MINV_UnidadM INNER JOIN MINV_Materiales ON MINV_UnidadM.IdUnidadM = MINV_Materiales.IdUnidad INNER JOIN MPR_Det_Mat_Prueba ON MINV_Materiales.IdMaterial = MPR_Det_Mat_Prueba.IdMaterial INNER JOIN MPR_Det_Sol_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Det_Sol_Prueba.IdPrueba WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 0) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba) GROUP BY MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MPR_Det_Mat_Prueba.Cantidad">
         <SelectParameters>
-            <asp:SessionParameter Name="Detail" SessionField="IdDetalle" />
+            <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
         </SelectParameters>
     </asp:SqlDataSource>
-       
-
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-   
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
-        AllowDragging="True" AllowResize="True" 
-        HeaderText="Formulario de registro" Modal="True"
+        AllowDragging="True" AllowResize="True" HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
         Height="206px" Width="558px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
-<ClientSideEvents CloseUp="function(s, e) {
+        <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }"></ClientSideEvents>
-
         <ContentStyle BackColor="#F9F9F9">
         </ContentStyle>
         <ContentCollection>
@@ -213,12 +239,11 @@ fn_CleanGroup(1);
                                         ClientEnabled="true" ReadOnly="True">
                                     </dx:ASPxTextBox>
                                 </div>
-                                 <div>
+                                <div>
                                     <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Descripción de Solicitud">
                                     </dx:ASPxLabel>
                                     <dx:ASPxMemo ID="memoDesc" runat="server" ClientInstanceName="memoDesc" Height="63px"
-                                        Width="467px" ValidationSettings-ValidationGroup="ControlGroup1" 
-                                         NullText="Añada la descripción de su solicitud aquí">
+                                        Width="467px" ValidationSettings-ValidationGroup="ControlGroup1" NullText="Añada la descripción de su solicitud aquí">
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
@@ -228,25 +253,25 @@ fn_CleanGroup(1);
                                         </ValidationSettings>
                                     </dx:ASPxMemo>
                                 </div>
-                                <div><i>*Agregue luego a su solicitud, los ensayes que requiere</i></div>
-                            </div>
                                 <div>
-                                    <ul class="frmctrl">
-                                        <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
-                                            <i class="fa fa-floppy-o"></i>Guardar y agreagar pruebas</a></li>
-                                        <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
-                                            <i class="fa fa-times"></i>Cancelar</a></li>
-                                        <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
-                                            <i class="fa fa-repeat"></i>Limpiar</a></li>
-                                    </ul>
-                                </div>
+                                    <i>*Agregue luego a su solicitud, los ensayes que requiere</i></div>
+                            </div>
+                            <div>
+                                <ul class="frmctrl">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                        <i class="fa fa-floppy-o"></i>Guardar y agreagar pruebas</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
+                                        <i class="fa fa-times"></i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
+                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
+                                </ul>
+                            </div>
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxCallbackPanel>
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
-
     <dx:ASPxPopupControl ID="SubFormPopup" runat="server" ClientInstanceName="SubFormPopup"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario de sub registro"
         Modal="True" PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True"
@@ -291,14 +316,13 @@ fn_EndCallback();
                                 <div>
                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione Prueba">
                                     </dx:ASPxLabel>
-                                    <dx:ASPxComboBox ID="cmbPrueba" runat="server" ClientInstanceName="cmbPrueba" 
-                                        Width="95%" DataSourceID="SDSPruebas" TextField="NomPrueba" 
-                                        ValueField="IdPrueba" OnCallback="cmbPrueba_Callback">
+                                    <dx:ASPxComboBox ID="cmbPrueba" runat="server" ClientInstanceName="cmbPrueba" Width="95%"
+                                        DataSourceID="SDSPruebas" TextField="NomPrueba" ValueField="IdPrueba" OnCallback="cmbPrueba_Callback">
                                         <Columns>
                                             <dx:ListBoxColumn Caption="Id" FieldName="IdPrueba" Width="10%" />
                                             <dx:ListBoxColumn Caption="Prueba" FieldName="NomPrueba" />
                                         </Columns>
-                                     <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
@@ -306,9 +330,7 @@ fn_EndCallback();
                                             <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
-                                    <asp:SqlDataSource ID="SDSPruebas" runat="server" 
-                                        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                        
+                                    <asp:SqlDataSource ID="SDSPruebas" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
                                         SelectCommand="SELECT IdPrueba, NomPrueba FROM MPR_Prueba WHERE (IdPrueba NOT IN (SELECT IdPrueba FROM MPR_Det_Sol_Prueba WHERE (IdSolPrueba = @IdSol)))">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdSol" SessionField="IdSol" />
@@ -319,19 +341,18 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Observación adicional">
                                     </dx:ASPxLabel>
                                     <dx:ASPxMemo ID="memoOb" ClientInstanceName="memoOb" runat="server" Height="30px"
-                                        Width="95%" 
-                                        NullText="Puede añadir información adicional a cada prueba aquí">
-                                         <NullTextStyle Font-Italic="True" ForeColor="Gray">
-                                         </NullTextStyle>
-                                         <ValidationSettings ValidationGroup="ControlGroup2">
+                                        Width="95%" NullText="Puede añadir información adicional a cada prueba aquí">
+                                        <NullTextStyle Font-Italic="True" ForeColor="Gray">
+                                        </NullTextStyle>
+                                        <ValidationSettings ValidationGroup="ControlGroup2">
                                         </ValidationSettings>
                                     </dx:ASPxMemo>
                                 </div>
                             </div>
                             <div>
                                 <ul class="frmctrl">
-                                    <li><a class="pure-button button-blue green-font" href="javascript:fn_SubAddSol();" title="Guardar">
-                                        <i class="fa fa-plus-square"></i>Nuevo</a></li>
+                                    <li><a class="pure-button button-blue green-font" href="javascript:fn_SubAddSol();"
+                                        title="Guardar"><i class="fa fa-plus-square"></i>Nuevo</a></li>
                                     <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_SubCancelJS()" title="Cancelar">
@@ -346,7 +367,6 @@ fn_EndCallback();
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
-
     <dx:ASPxPopupControl ID="DeleteForm" runat="server" ClientInstanceName="DeleteForm"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
@@ -378,5 +398,4 @@ fn_EndCallback();
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
-
 </asp:Content>

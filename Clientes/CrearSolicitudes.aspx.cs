@@ -266,6 +266,11 @@ namespace SisLIJAD.Clientes
             Session["IdSol"] = HiddenV.Get("SessionId").ToString();
             cmbPrueba.DataBind();
         }
+        protected void ASPxGridView1_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+
 
         #endregion
         #region SubDRUD
@@ -404,5 +409,6 @@ namespace SisLIJAD.Clientes
         }
         #endregion
 
+     
     }
 }
