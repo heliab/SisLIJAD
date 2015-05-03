@@ -179,6 +179,7 @@
     <Content Include="Styles\styles.min.css" />
     <Content Include="Tecnicos\Default.aspx" />
     <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
+    <Content Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx" />
     <Content Include="Tecnicos\SolicitudesAsignadas.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -250,10 +251,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DSGetReqMatById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\DSGetReqMatById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\DSRPT\DSGetAllReqMatById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
     </Compile>
     <Compile Include="SICOM\DSRPT\DSGetSolById.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -873,6 +879,13 @@
     <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.designer.cs">
       <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx.cs">
+      <DependentUpon>Rpt_MaterialesReq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx.designer.cs">
+      <DependentUpon>Rpt_MaterialesReq.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnicos\SolicitudesAsignadas.aspx.cs">
       <DependentUpon>SolicitudesAsignadas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -912,6 +925,7 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="SICOM\DSRPT\Rpt_SolicitudesCompraId.rdlc" />
     <EmbeddedResource Include="SICOM\DSRPT\Rpt_SolicitudServicio.rdlc" />
+    <EmbeddedResource Include="Tecnicos\DSRPT\Rpt_MaterialesReq.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MINV\MasterMinv.Master" />
@@ -952,16 +966,27 @@
     <None Include="Clientes\DSRPT\DSGetResultsById.xss">
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetReqMatById.xsc">
+    <None Include="Clientes\DSRPT\DSGetReqMatById.xsc">
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetReqMatById.xsd">
+    <None Include="Clientes\DSRPT\DSGetReqMatById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetReqMatById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSGetReqMatById.xss">
+    <None Include="Clientes\DSRPT\DSGetReqMatById.xss">
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
+    </None>
+    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xsc">
+      <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
+    </None>
+    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetAllReqMatById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xss">
+      <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolById.xsc">
       <DependentUpon>DSGetSolById.xsd</DependentUpon>

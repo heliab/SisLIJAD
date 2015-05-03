@@ -93,8 +93,7 @@ fn_EndCallback();
         <SettingsPager AlwaysShowPager="True" PageSize="15">
             <Summary Text="Página {0} de {1} ({2} items)" />
         </SettingsPager>
-        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" 
-            ShowGroupPanel="True" />
+        <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" ShowGroupPanel="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />
         <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
         <Styles>
@@ -103,21 +102,23 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-            <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" 
-        ClientIDMode="AutoID" Width="100%">
-        <TabPages>
-            <dx:TabPage Text="Ensayes">
-                <ContentCollection>
-                    <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
-                     <div class="wrapctrl">
-                    <ul class="ctrlist">
-                        <li><a class=" pure-button blue-font" href="javascript:fn_IrCalculo();" title="Nuevo">
-                            <i class="fa fa-external-link"></i>Ir a cálculo</a></li>
-                    </ul>
-                </div>
-                <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%" KeyFieldName="IdDetalle">
+                <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
+                    Width="100%">
+                    <TabPages>
+                        <dx:TabPage Text="Ensayes">
+                            <ContentCollection>
+                                <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
+                                    <div class="wrapctrl">
+                                        <ul class="ctrlist">
+                                            <li><a class=" pure-button blue-font" href="javascript:fn_IrCalculo();" title="Calculo">
+                                                <i class="fa fa-external-link"></i>Ir a cálculo</a></li>
+                                            <li><a class=" pure-button green-font" href="javascript:fn_IrChecklist();" title="VerMateriales">
+                                                <i class="fa fa-search"></i>Ver Materiales</a></li>
+                                        </ul>
+                                    </div>
+                                    <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                        ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
+                                        Width="100%" KeyFieldName="IdDetalle">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
                     </TotalSummary>

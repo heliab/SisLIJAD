@@ -568,3 +568,10 @@ function fn_VerMaterialesJS() {
     SubGridId = SubGrid.GetRowKey(SubGrid.GetFocusedRowIndex());
     window.location.href = "/Clientes/Reportes/Rpt_MaterialesRequeridos.aspx?Id="+SubGridId;
 }
+function fn_IrChecklist() {
+    SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdPrueba', GetPrValues);
+    function GetPrValues(Val) {
+        window.location.href = "/Tecnicos/Reportes/Rpt_MaterialesReq.aspx?Id=" + Val; 
+    
+    }
+}

@@ -36,14 +36,14 @@
                     PVSC
                 </div>
             </div>
-            <div class="Second">
+            <%--<div class="Second">
                 <ul class="ctrlist2 ctrleft">
                     <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                         class="fa fa-list"></i>Checklist</a></li>
                     <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
                         <i class="fa fa-search"></i>Ver ficha</a></li>
                 </ul>
-            </div>
+            </div>--%>
         </div>
     </div>
     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" runat="server" Width="100%" BackColor="#F3F3F3"

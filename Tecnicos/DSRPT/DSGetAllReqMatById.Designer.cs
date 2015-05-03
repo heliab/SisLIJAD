@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.Tecnicos.DSRPT {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace SisLIJAD {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DSGetReqMatById")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DSGetAllReqMatById")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DSGetReqMatById : global::System.Data.DataSet {
+    public partial class DSGetAllReqMatById : global::System.Data.DataSet {
         
-        private GetReqMatByIdDataTable tableGetReqMatById;
+        private GetAllReqMatByIdDataTable tableGetAllReqMatById;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DSGetReqMatById() {
+        public DSGetAllReqMatById() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SisLIJAD {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DSGetReqMatById(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DSGetAllReqMatById(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SisLIJAD {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["GetReqMatById"] != null)) {
-                    base.Tables.Add(new GetReqMatByIdDataTable(ds.Tables["GetReqMatById"]));
+                if ((ds.Tables["GetAllReqMatById"] != null)) {
+                    base.Tables.Add(new GetAllReqMatByIdDataTable(ds.Tables["GetAllReqMatById"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SisLIJAD {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public GetReqMatByIdDataTable GetReqMatById {
+        public GetAllReqMatByIdDataTable GetAllReqMatById {
             get {
-                return this.tableGetReqMatById;
+                return this.tableGetAllReqMatById;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DSGetReqMatById cln = ((DSGetReqMatById)(base.Clone()));
+            DSGetAllReqMatById cln = ((DSGetAllReqMatById)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SisLIJAD {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["GetReqMatById"] != null)) {
-                    base.Tables.Add(new GetReqMatByIdDataTable(ds.Tables["GetReqMatById"]));
+                if ((ds.Tables["GetAllReqMatById"] != null)) {
+                    base.Tables.Add(new GetAllReqMatByIdDataTable(ds.Tables["GetAllReqMatById"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableGetReqMatById = ((GetReqMatByIdDataTable)(base.Tables["GetReqMatById"]));
+            this.tableGetAllReqMatById = ((GetAllReqMatByIdDataTable)(base.Tables["GetAllReqMatById"]));
             if ((initTable == true)) {
-                if ((this.tableGetReqMatById != null)) {
-                    this.tableGetReqMatById.InitVars();
+                if ((this.tableGetAllReqMatById != null)) {
+                    this.tableGetAllReqMatById.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DSGetReqMatById";
+            this.DataSetName = "DSGetAllReqMatById";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DSGetReqMatById.xsd";
+            this.Namespace = "http://tempuri.org/DSGetAllReqMatById.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableGetReqMatById = new GetReqMatByIdDataTable();
-            base.Tables.Add(this.tableGetReqMatById);
+            this.tableGetAllReqMatById = new GetAllReqMatByIdDataTable();
+            base.Tables.Add(this.tableGetAllReqMatById);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeGetReqMatById() {
+        private bool ShouldSerializeGetAllReqMatById() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DSGetReqMatById ds = new DSGetReqMatById();
+            DSGetAllReqMatById ds = new DSGetAllReqMatById();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace SisLIJAD {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void GetReqMatByIdRowChangeEventHandler(object sender, GetReqMatByIdRowChangeEvent e);
+        public delegate void GetAllReqMatByIdRowChangeEventHandler(object sender, GetAllReqMatByIdRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class GetReqMatByIdDataTable : global::System.Data.TypedTableBase<GetReqMatByIdRow> {
+        public partial class GetAllReqMatByIdDataTable : global::System.Data.TypedTableBase<GetAllReqMatByIdRow> {
             
             private global::System.Data.DataColumn columnMaterialesRequerido;
             
@@ -287,10 +287,12 @@ namespace SisLIJAD {
             
             private global::System.Data.DataColumn columnNomPrueba;
             
+            private global::System.Data.DataColumn columnRequeridoPor;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdDataTable() {
-                this.TableName = "GetReqMatById";
+            public GetAllReqMatByIdDataTable() {
+                this.TableName = "GetAllReqMatById";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +300,7 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetReqMatByIdDataTable(global::System.Data.DataTable table) {
+            internal GetAllReqMatByIdDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +317,7 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected GetReqMatByIdDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GetAllReqMatByIdDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -354,6 +356,14 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RequeridoPorColumn {
+                get {
+                    return this.columnRequeridoPor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -363,48 +373,49 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdRow this[int index] {
+            public GetAllReqMatByIdRow this[int index] {
                 get {
-                    return ((GetReqMatByIdRow)(this.Rows[index]));
+                    return ((GetAllReqMatByIdRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetReqMatByIdRowChangeEventHandler GetReqMatByIdRowChanging;
+            public event GetAllReqMatByIdRowChangeEventHandler GetAllReqMatByIdRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetReqMatByIdRowChangeEventHandler GetReqMatByIdRowChanged;
+            public event GetAllReqMatByIdRowChangeEventHandler GetAllReqMatByIdRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetReqMatByIdRowChangeEventHandler GetReqMatByIdRowDeleting;
+            public event GetAllReqMatByIdRowChangeEventHandler GetAllReqMatByIdRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetReqMatByIdRowChangeEventHandler GetReqMatByIdRowDeleted;
+            public event GetAllReqMatByIdRowChangeEventHandler GetAllReqMatByIdRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddGetReqMatByIdRow(GetReqMatByIdRow row) {
+            public void AddGetAllReqMatByIdRow(GetAllReqMatByIdRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdRow AddGetReqMatByIdRow(string MaterialesRequerido, string Cantidad, int IdPrueba, string NomPrueba) {
-                GetReqMatByIdRow rowGetReqMatByIdRow = ((GetReqMatByIdRow)(this.NewRow()));
+            public GetAllReqMatByIdRow AddGetAllReqMatByIdRow(string MaterialesRequerido, string Cantidad, int IdPrueba, string NomPrueba, int RequeridoPor) {
+                GetAllReqMatByIdRow rowGetAllReqMatByIdRow = ((GetAllReqMatByIdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaterialesRequerido,
                         Cantidad,
                         IdPrueba,
-                        NomPrueba};
-                rowGetReqMatByIdRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowGetReqMatByIdRow);
-                return rowGetReqMatByIdRow;
+                        NomPrueba,
+                        RequeridoPor};
+                rowGetAllReqMatByIdRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetAllReqMatByIdRow);
+                return rowGetAllReqMatByIdRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                GetReqMatByIdDataTable cln = ((GetReqMatByIdDataTable)(base.Clone()));
+                GetAllReqMatByIdDataTable cln = ((GetAllReqMatByIdDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,7 +423,7 @@ namespace SisLIJAD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new GetReqMatByIdDataTable();
+                return new GetAllReqMatByIdDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -422,6 +433,7 @@ namespace SisLIJAD {
                 this.columnCantidad = base.Columns["Cantidad"];
                 this.columnIdPrueba = base.Columns["IdPrueba"];
                 this.columnNomPrueba = base.Columns["NomPrueba"];
+                this.columnRequeridoPor = base.Columns["RequeridoPor"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +447,8 @@ namespace SisLIJAD {
                 base.Columns.Add(this.columnIdPrueba);
                 this.columnNomPrueba = new global::System.Data.DataColumn("NomPrueba", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNomPrueba);
+                this.columnRequeridoPor = new global::System.Data.DataColumn("RequeridoPor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequeridoPor);
                 this.columnMaterialesRequerido.AllowDBNull = false;
                 this.columnMaterialesRequerido.MaxLength = 50;
                 this.columnCantidad.ReadOnly = true;
@@ -446,28 +460,28 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdRow NewGetReqMatByIdRow() {
-                return ((GetReqMatByIdRow)(this.NewRow()));
+            public GetAllReqMatByIdRow NewGetAllReqMatByIdRow() {
+                return ((GetAllReqMatByIdRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new GetReqMatByIdRow(builder);
+                return new GetAllReqMatByIdRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(GetReqMatByIdRow);
+                return typeof(GetAllReqMatByIdRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.GetReqMatByIdRowChanged != null)) {
-                    this.GetReqMatByIdRowChanged(this, new GetReqMatByIdRowChangeEvent(((GetReqMatByIdRow)(e.Row)), e.Action));
+                if ((this.GetAllReqMatByIdRowChanged != null)) {
+                    this.GetAllReqMatByIdRowChanged(this, new GetAllReqMatByIdRowChangeEvent(((GetAllReqMatByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,8 +489,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.GetReqMatByIdRowChanging != null)) {
-                    this.GetReqMatByIdRowChanging(this, new GetReqMatByIdRowChangeEvent(((GetReqMatByIdRow)(e.Row)), e.Action));
+                if ((this.GetAllReqMatByIdRowChanging != null)) {
+                    this.GetAllReqMatByIdRowChanging(this, new GetAllReqMatByIdRowChangeEvent(((GetAllReqMatByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +498,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.GetReqMatByIdRowDeleted != null)) {
-                    this.GetReqMatByIdRowDeleted(this, new GetReqMatByIdRowChangeEvent(((GetReqMatByIdRow)(e.Row)), e.Action));
+                if ((this.GetAllReqMatByIdRowDeleted != null)) {
+                    this.GetAllReqMatByIdRowDeleted(this, new GetAllReqMatByIdRowChangeEvent(((GetAllReqMatByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,14 +507,14 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.GetReqMatByIdRowDeleting != null)) {
-                    this.GetReqMatByIdRowDeleting(this, new GetReqMatByIdRowChangeEvent(((GetReqMatByIdRow)(e.Row)), e.Action));
+                if ((this.GetAllReqMatByIdRowDeleting != null)) {
+                    this.GetAllReqMatByIdRowDeleting(this, new GetAllReqMatByIdRowChangeEvent(((GetAllReqMatByIdRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveGetReqMatByIdRow(GetReqMatByIdRow row) {
+            public void RemoveGetAllReqMatByIdRow(GetAllReqMatByIdRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -509,7 +523,7 @@ namespace SisLIJAD {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DSGetReqMatById ds = new DSGetReqMatById();
+                DSGetAllReqMatById ds = new DSGetAllReqMatById();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -527,7 +541,7 @@ namespace SisLIJAD {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "GetReqMatByIdDataTable";
+                attribute2.FixedValue = "GetAllReqMatByIdDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -571,25 +585,25 @@ namespace SisLIJAD {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class GetReqMatByIdRow : global::System.Data.DataRow {
+        public partial class GetAllReqMatByIdRow : global::System.Data.DataRow {
             
-            private GetReqMatByIdDataTable tableGetReqMatById;
+            private GetAllReqMatByIdDataTable tableGetAllReqMatById;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetReqMatByIdRow(global::System.Data.DataRowBuilder rb) : 
+            internal GetAllReqMatByIdRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableGetReqMatById = ((GetReqMatByIdDataTable)(this.Table));
+                this.tableGetAllReqMatById = ((GetAllReqMatByIdDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string MaterialesRequerido {
                 get {
-                    return ((string)(this[this.tableGetReqMatById.MaterialesRequeridoColumn]));
+                    return ((string)(this[this.tableGetAllReqMatById.MaterialesRequeridoColumn]));
                 }
                 set {
-                    this[this.tableGetReqMatById.MaterialesRequeridoColumn] = value;
+                    this[this.tableGetAllReqMatById.MaterialesRequeridoColumn] = value;
                 }
             }
             
@@ -598,14 +612,14 @@ namespace SisLIJAD {
             public string Cantidad {
                 get {
                     try {
-                        return ((string)(this[this.tableGetReqMatById.CantidadColumn]));
+                        return ((string)(this[this.tableGetAllReqMatById.CantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'GetReqMatById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'GetAllReqMatById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetReqMatById.CantidadColumn] = value;
+                    this[this.tableGetAllReqMatById.CantidadColumn] = value;
                 }
             }
             
@@ -613,10 +627,10 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int IdPrueba {
                 get {
-                    return ((int)(this[this.tableGetReqMatById.IdPruebaColumn]));
+                    return ((int)(this[this.tableGetAllReqMatById.IdPruebaColumn]));
                 }
                 set {
-                    this[this.tableGetReqMatById.IdPruebaColumn] = value;
+                    this[this.tableGetAllReqMatById.IdPruebaColumn] = value;
                 }
             }
             
@@ -624,23 +638,51 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NomPrueba {
                 get {
-                    return ((string)(this[this.tableGetReqMatById.NomPruebaColumn]));
+                    return ((string)(this[this.tableGetAllReqMatById.NomPruebaColumn]));
                 }
                 set {
-                    this[this.tableGetReqMatById.NomPruebaColumn] = value;
+                    this[this.tableGetAllReqMatById.NomPruebaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int RequeridoPor {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetAllReqMatById.RequeridoPorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'RequeridoPor\' de la tabla \'GetAllReqMatById\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetAllReqMatById.RequeridoPorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCantidadNull() {
-                return this.IsNull(this.tableGetReqMatById.CantidadColumn);
+                return this.IsNull(this.tableGetAllReqMatById.CantidadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCantidadNull() {
-                this[this.tableGetReqMatById.CantidadColumn] = global::System.Convert.DBNull;
+                this[this.tableGetAllReqMatById.CantidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRequeridoPorNull() {
+                return this.IsNull(this.tableGetAllReqMatById.RequeridoPorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRequeridoPorNull() {
+                this[this.tableGetAllReqMatById.RequeridoPorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -648,22 +690,22 @@ namespace SisLIJAD {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class GetReqMatByIdRowChangeEvent : global::System.EventArgs {
+        public class GetAllReqMatByIdRowChangeEvent : global::System.EventArgs {
             
-            private GetReqMatByIdRow eventRow;
+            private GetAllReqMatByIdRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdRowChangeEvent(GetReqMatByIdRow row, global::System.Data.DataRowAction action) {
+            public GetAllReqMatByIdRowChangeEvent(GetAllReqMatByIdRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetReqMatByIdRow Row {
+            public GetAllReqMatByIdRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -679,7 +721,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
+namespace SisLIJAD.Tecnicos.DSRPT.DSGetAllReqMatByIdTableAdapters {
     
     
     /// <summary>
@@ -691,7 +733,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class GetReqMatByIdTableAdapter : global::System.ComponentModel.Component {
+    public partial class GetAllReqMatByIdTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -705,7 +747,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GetReqMatByIdTableAdapter() {
+        public GetAllReqMatByIdTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -802,11 +844,12 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "GetReqMatById";
+            tableMapping.DataSetTable = "GetAllReqMatById";
             tableMapping.ColumnMappings.Add("MaterialesRequerido", "MaterialesRequerido");
             tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
             tableMapping.ColumnMappings.Add("IdPrueba", "IdPrueba");
             tableMapping.ColumnMappings.Add("NomPrueba", "NomPrueba");
+            tableMapping.ColumnMappings.Add("RequeridoPor", "RequeridoPor");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -823,7 +866,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.GetReqMatById";
+            this._commandCollection[0].CommandText = "dbo.GetAllReqMatById";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -833,7 +876,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DSGetReqMatById.GetReqMatByIdDataTable dataTable, string Id) {
+        public virtual int Fill(DSGetAllReqMatById.GetAllReqMatByIdDataTable dataTable, string Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -852,7 +895,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DSGetReqMatById.GetReqMatByIdDataTable GetData(string Id) {
+        public virtual DSGetAllReqMatById.GetAllReqMatByIdDataTable GetData(string Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -860,7 +903,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Id));
             }
-            DSGetReqMatById.GetReqMatByIdDataTable dataTable = new DSGetReqMatById.GetReqMatByIdDataTable();
+            DSGetAllReqMatById.GetAllReqMatByIdDataTable dataTable = new DSGetAllReqMatById.GetAllReqMatByIdDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -934,7 +977,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DSGetReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DSGetAllReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -944,7 +987,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DSGetReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DSGetAllReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -954,7 +997,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DSGetReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DSGetAllReqMatById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -988,7 +1031,7 @@ namespace SisLIJAD.DSGetReqMatByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DSGetReqMatById dataSet) {
+        public virtual int UpdateAll(DSGetAllReqMatById dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
