@@ -230,6 +230,10 @@ namespace SisLIJAD.Clientes
         {
             Session["IdSolicPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+        protected void ASPxGridView1_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
         //protected void cmbPrueba_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         //{
         //    Session["IdSol"] = HiddenV.Get("SessionId").ToString();

@@ -127,7 +127,7 @@ fn_EndCallback();
         <Templates>
             <DetailRow>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" KeyFieldName="IdDetalle"
+                    ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" KeyFieldName="IdPrueba"
                     OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect" Width="100%">
                     <TotalSummary>
                         <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
@@ -149,11 +149,44 @@ fn_EndCallback();
                     <SettingsBehavior AllowFocusedRow="True" />
                     <Settings ShowFilterRow="True" ShowFooter="True" />
                     <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
-                    <SettingsDetail IsDetailGrid="True" />
+                    <SettingsDetail IsDetailGrid="True" ShowDetailRow="True" />
                     <Styles>
                         <FocusedRow BackColor="#5180BF">
                         </FocusedRow>
                     </Styles>
+                    <Templates>
+                       <DetailRow>
+                                <div class="BaseForm wraptitle">
+                                    <div class="row">
+                                        <div class="first">
+                                            <div class="Titulo2">
+                                                Materiales Requeridos
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                    DataSourceID="SDSMaterialesRequeridos" KeyFieldName="MaterialesRequerido" OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect"
+                                    Width="100%">
+                                    <Columns>
+                                        <dx:GridViewDataTextColumn FieldName="MaterialesRequerido" VisibleIndex="0">
+                                        </dx:GridViewDataTextColumn>
+                                        <dx:GridViewDataTextColumn FieldName="Cantidad" ReadOnly="True" VisibleIndex="1">
+                                        </dx:GridViewDataTextColumn>
+                                    </Columns>
+                                    <SettingsBehavior AllowFocusedRow="True" />
+                                    <SettingsPager PageSize="5">
+                                        <Summary AllPagesText="Pag: {0} - {1} ({2} items)" Text="Pag {0} of {1} ({2} items)" />
+                                    </SettingsPager>
+                                    <Settings ShowFooter="True" />
+                                    <SettingsDetail IsDetailGrid="True" />
+                                    <Styles>
+                                        <FocusedRow BackColor="#5180BF">
+                                        </FocusedRow>
+                                    </Styles>
+                                </dx:ASPxGridView>
+                            </DetailRow>
+                    </Templates>
                 </dx:ASPxGridView>
             </DetailRow>
         </Templates>
@@ -167,9 +200,15 @@ ORDER BY IdSolicPrueba DESC">
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetSol" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
+        SelectCommand="SELECT CAST(MPR_Det_Sol_Prueba.IdSolPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Sol_Prueba.IdPrueba AS NVARCHAR) AS IdDetalle, MPR_Prueba.NomPrueba, MPR_Det_Sol_Prueba.ObservPrueba, MPR_Prueba.Duracion,MPR_Prueba.IdPrueba  FROM MPR_Det_Sol_Prueba INNER JOIN MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba INNER JOIN MPR_Solic_Pruebas ON MPR_Det_Sol_Prueba.IdSolPrueba = MPR_Solic_Pruebas.IdSolicPrueba WHERE (MPR_Det_Sol_Prueba.IdSolPrueba = @IdSolicPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SDSMaterialesRequeridos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+        SelectCommand="SELECT MINV_Materiales.NomMaterial AS MaterialesRequerido, CAST(MPR_Det_Mat_Prueba.Cantidad AS NVARCHAR) + ' ' + CAST(MINV_UnidadM.NomUnidadM AS NVARCHAR) AS Cantidad FROM MINV_UnidadM INNER JOIN MINV_Materiales ON MINV_UnidadM.IdUnidadM = MINV_Materiales.IdUnidad INNER JOIN MPR_Det_Mat_Prueba ON MINV_Materiales.IdMaterial = MPR_Det_Mat_Prueba.IdMaterial INNER JOIN MPR_Det_Sol_Prueba ON MPR_Det_Mat_Prueba.IdPrueba = MPR_Det_Sol_Prueba.IdPrueba WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 0) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba) GROUP BY MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MPR_Det_Mat_Prueba.Cantidad">
+        <SelectParameters>
+            <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
         </SelectParameters>
     </asp:SqlDataSource>
 
