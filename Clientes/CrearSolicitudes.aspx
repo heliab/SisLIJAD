@@ -125,6 +125,8 @@ fn_EndCallback();
                                 <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                             <li><a class="pure-button red-font" href="javascript:fn_SubDeleteJS();" title="Borrar">
                                 <i class="fa fa-trash"></i>Borrar</a></li>
+                            <li><a class="pure-button blue-font" href="javascript:fn_VerMaterialesJS();" title="Reporte">
+                                <i class="fa fa-clipboard"></i>Reporte</a></li>
                         </ul>
                     </div>
                     <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"

@@ -562,5 +562,9 @@ switch(e){
     case 1: window.open("http://www.w3schools.com", "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
 //    window.location.href = "/Clientes/Results/PesoVolumetricoSecoSueltoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
         break;
-}          
+}
+}
+function fn_VerMaterialesJS() {
+    SubGridId = SubGrid.GetRowKey(SubGrid.GetFocusedRowIndex());
+    window.location.href = "/Clientes/Reportes/Rpt_MaterialesRequeridos.aspx?Id="+SubGridId;
 }

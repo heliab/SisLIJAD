@@ -64,6 +64,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Clientes\Default.aspx" />
+    <Content Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx" />
     <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
     <Content Include="Images\fromt.jpg" />
@@ -225,6 +226,13 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx.cs">
+      <DependentUpon>Rpt_MaterialesRequeridos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx.designer.cs">
+      <DependentUpon>Rpt_MaterialesRequeridos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx.cs">
       <DependentUpon>SolicitudesEnviadasRpt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,6 +249,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSGetReqMatById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </Compile>
     <Compile Include="SICOM\DSRPT\DSGetSolById.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -883,6 +896,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_GetReqMatById.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_PVSS.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Solicitudesenviadas.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\ListaBodega.rdlc" />
@@ -937,6 +951,17 @@
     </None>
     <None Include="Clientes\DSRPT\DSGetResultsById.xss">
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetReqMatById.xsc">
+      <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetReqMatById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetReqMatById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSGetReqMatById.xss">
+      <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolById.xsc">
       <DependentUpon>DSGetSolById.xsd</DependentUpon>

@@ -63,13 +63,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
 <div class="wrapctrl">
-        <ul class="ctrlist">
+        <%--<ul class="ctrlist">
             <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                 class="fa fa-search-plus"></i> Reporte</a></li>
             <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
                 <i class="fa fa-clipboard"></i> Ver</a></li>
            
-        </ul>
+        </ul>--%>
+        <div class="Titulo2">Solicitudes Enviadas</div>
     </div>
     <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
@@ -126,6 +127,12 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
+            <div class="wrapctrl">
+                        <ul class="ctrlist">
+                            <li><a class="pure-button blue-font" href="javascript:fn_VerMaterialesJS();" title="Reporte">
+                                <i class="fa fa-clipboard"></i>Reporte</a></li>
+                        </ul>
+                    </div>
                 <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                     ClientInstanceName="SubGrid" DataSourceID="SDSDetSol" KeyFieldName="IdPrueba"
                     OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect" Width="100%">
@@ -155,19 +162,19 @@ fn_EndCallback();
                         </FocusedRow>
                     </Styles>
                     <Templates>
-                       <DetailRow>
-                                <div class="BaseForm wraptitle">
-                                    <div class="row">
-                                        <div class="first">
-                                            <div class="Titulo2">
-                                                Materiales Requeridos
-                                            </div>
+                        <DetailRow>
+                            <div class="BaseForm wraptitle">
+                                <div class="row">
+                                    <div class="first">
+                                        <div class="Titulo2">
+                                            Materiales Requeridos
                                         </div>
                                     </div>
-                                    </div>
-                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                                    DataSourceID="SDSMaterialesRequeridos" KeyFieldName="MaterialesRequerido" OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect"
-                                    Width="100%">
+                                </div>
+                            </div>
+                            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                DataSourceID="SDSMaterialesRequeridos" KeyFieldName="MaterialesRequerido" OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect"
+                                Width="100%">
                                     <Columns>
                                         <dx:GridViewDataTextColumn FieldName="MaterialesRequerido" VisibleIndex="0">
                                         </dx:GridViewDataTextColumn>
