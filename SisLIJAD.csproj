@@ -237,7 +237,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DSGetResultsById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\DSGetResultsById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
@@ -927,15 +927,15 @@
     <None Include="Clientes\DSRPT\DSGetSendSolByUser.xss">
       <DependentUpon>DSGetSendSolByUser.xsd</DependentUpon>
     </None>
-    <None Include="DSGetResultsById.xsc">
+    <None Include="Clientes\DSRPT\DSGetResultsById.xsc">
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetResultsById.xsd">
+    <None Include="Clientes\DSRPT\DSGetResultsById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetResultsById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSGetResultsById.xss">
+    <None Include="Clientes\DSRPT\DSGetResultsById.xss">
       <DependentUpon>DSGetResultsById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolById.xsc">

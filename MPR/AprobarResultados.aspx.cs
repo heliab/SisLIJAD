@@ -23,6 +23,7 @@ namespace SisLIJAD.MPR
         protected void GridPrincipal_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
         {
             GridPrincipal.DataBind();
+            GridPrincipal.Focus();
         }
         protected void SubGrid2_BeforePerformDataSelect(object sender, EventArgs e)
         {
@@ -45,6 +46,7 @@ namespace SisLIJAD.MPR
                     break;
             }
             HiddenV.Clear();
+            GridPrincipal.DataBind();
         }
         #endregion
         #region CRUD

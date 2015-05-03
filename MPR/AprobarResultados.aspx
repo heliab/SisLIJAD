@@ -39,13 +39,37 @@
             HiddenV.Set('Nuevo', 7);
             fn_GetMail();
             NewCallback.PerformCallback();
-        } 
+            fn_EndCallback();
+            fn_EndCallback();
+          } 
     }
     function fn_GetIdPrValue() {
         GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         return GridId;
     }
-  
+    function fn_IrCalculo(e) {
+        SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle;IdPrueba', fn_GetValues);
+        function fn_GetValues(val) {
+            switch (val[1]) {
+                case 1:
+                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 2: window.location.href = "/Pruebas/PesoVolumetricoSecoCompacto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 3: window.location.href = "/Pruebas/HumedadAridos.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 5: window.location.href = "/Pruebas/GeFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 6: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+                case 7: window.location.href = "/Pruebas/?Id=" + val[0];
+                    break;
+            }
+
+        }
+    }
    
 </script>
 </asp:Content>
@@ -60,6 +84,7 @@
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
 fn_EndCallback();
+GridPrincipal.PerformCallback();
 }" />
     </dx:ASPxCallback>
     <dx:ASPxHiddenField ID="HiddenV" runat="server" ClientInstanceName="HiddenV">

@@ -44,9 +44,8 @@
                     <%--<li><a class="pure-button green-font" href="javascript:ReportCallback.PerformCallback();" title="Editar">
                         <i class="fa fa-search"></i>Ver ficha</a></li>--%>
                          <li>
-                             <dx:ASPxButton ID="btnReporte" runat="server" Text="Ver Reporte" 
-                                 CssClass="green-font" onclick="btnReporte_Click">
-                             </dx:ASPxButton>
+                            <asp:Button ID="btnReport" runat="server"  Text="Ver Reporte" 
+                                 CssClass="pure-button green-font" onclick="btnReport_Click" />
                          </li>
                 </ul>
             </div>
@@ -263,6 +262,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    <rsweb:ReportViewer ID="ReportViewer1" runat="server">
+    <div class="reportframe">
+    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="642px">
     </rsweb:ReportViewer>
+    </div>
 </asp:Content>

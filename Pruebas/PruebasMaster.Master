@@ -33,7 +33,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-            Usuarios UCA
+            Pruebas
             <div id="titulopagina"><%=this.Page.Title%></div>
      </div>
      <div class="content">
