@@ -50,7 +50,7 @@ namespace SisLIJAD.Cuenta
             usr.IsApproved = IsApproved.Checked;
             Membership.UpdateUser(usr);
 
-            StatusMessage.Text = "El estado de apribado ha sido actualizado.";
+            StatusMessage.Text = "El estado de aprobado ha sido actualizado.";
         }
 
         protected void UnlockUserButton_Click(object sender, EventArgs e)
@@ -62,6 +62,15 @@ namespace SisLIJAD.Cuenta
 
             UnlockUserButton.Enabled = false;
             StatusMessage.Text = "La cuenta de usuario ha sido desbloqueada.";
+        }
+
+        protected void bntDelete_Click(object sender, EventArgs e)
+        {
+            Membership.DeleteUser(UserNameLabel.Text,true);
+            StatusMessage.Text = "La cuenta de usuario ha sido borrada.";
+            //Este codigo es para redirigir al usuario a loginpage y cerrar sesion
+            //FormsAuthentication.SignOut();
+            //FormsAuthentication.RedirectToLoginPage();
         }
     }
 }

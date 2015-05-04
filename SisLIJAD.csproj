@@ -83,6 +83,7 @@
     <Content Include="MPR\Reportes\PruebasPorAprobar.aspx" />
     <Content Include="MPR\Reportes\PruebasPorUsuario.aspx" />
     <Content Include="MPR\VincularMAteriales.aspx" />
+    <Content Include="Perfil\Perfil.aspx" />
     <Content Include="PEUCA\Default.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
@@ -261,6 +262,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil\PerfilMaster.Master.cs">
+      <DependentUpon>PerfilMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil\PerfilMaster.Master.designer.cs">
+      <DependentUpon>PerfilMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\DSRPT\DSGetAllReqMatById.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1025,6 +1040,7 @@
     <None Include="Clientes\DSRPT\DSGetReqMatById.xss">
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </None>
+    <Content Include="Perfil\PerfilMaster.Master" />
     <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xsc">
       <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
     </None>

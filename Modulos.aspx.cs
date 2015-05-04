@@ -17,8 +17,8 @@ namespace SisLIJAD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Roles.IsUserInRole("Tecnico"))
+
+             if (Roles.IsUserInRole("Tecnico"))
             {
                 Response.Redirect("~/Tecnicos/Default.aspx");
             }
@@ -43,7 +43,7 @@ namespace SisLIJAD
                 LinkUCA.Visible = true;
             }
             else {
-                Response.Write("<script>alert('" + Server.HtmlEncode("Aún no tiene asignado ningún permiso de usuario. Estamos trabajando en la autorización de su perfil. Por favor intente más tarde") + "')</script>");
+                Response.Write("<script>alert('" + Server.HtmlEncode("Aun no tiene asignado ningun permiso de usuario. Estamos trabajando en la autorizacion de su perfil. Por favor intente mas tarde") + "')</script>");
                 Response.Redirect("Default.aspx");
             }
         }

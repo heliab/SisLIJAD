@@ -28,7 +28,7 @@
         <p>Bienvenido 
             <asp:LoginName ID="LoginName1" runat="server" />
             <asp:LoginStatus ID="LoginStatus1" runat="server" /></p>
-            
+           
           <i class="fa fa-external-link-square fa-lg"></i>  
             <asp:LinkButton ID="LinkModulo" runat="server" 
                 PostBackUrl="~/Modulos.aspx" Font-Size="Large">Ir al sistema</asp:LinkButton>
