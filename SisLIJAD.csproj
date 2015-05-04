@@ -179,8 +179,14 @@
     <Content Include="Styles\styles.min.css" />
     <Content Include="Tecnicos\Default.aspx" />
     <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
+    <Content Include="Tecnicos\Materiales.aspx" />
     <Content Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx" />
     <Content Include="Tecnicos\SolicitudesAsignadas.aspx" />
+    <Content Include="Tecnicos\TiposMateriales.aspx" />
+    <Content Include="Tecnicos\TiposUbicaciones.aspx" />
+    <Content Include="Tecnicos\Ubicaciones.aspx" />
+    <Content Include="Tecnicos\UnidadesMedida.aspx" />
+    <Content Include="Tecnicos\VincularMateriales.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -879,6 +885,13 @@
     <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.designer.cs">
       <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Tecnicos\Materiales.aspx.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\Materiales.aspx.designer.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx.cs">
       <DependentUpon>Rpt_MaterialesReq.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -899,6 +912,41 @@
     </Compile>
     <Compile Include="Tecnicos\TecnicosMASTER.Master.designer.cs">
       <DependentUpon>TecnicosMASTER.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\TiposMateriales.aspx.cs">
+      <DependentUpon>TiposMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\TiposMateriales.aspx.designer.cs">
+      <DependentUpon>TiposMateriales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\TiposUbicaciones.aspx.cs">
+      <DependentUpon>TiposUbicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\TiposUbicaciones.aspx.designer.cs">
+      <DependentUpon>TiposUbicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\Ubicaciones.aspx.cs">
+      <DependentUpon>Ubicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\Ubicaciones.aspx.designer.cs">
+      <DependentUpon>Ubicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\UnidadesMedida.aspx.cs">
+      <DependentUpon>UnidadesMedida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\UnidadesMedida.aspx.designer.cs">
+      <DependentUpon>UnidadesMedida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\VincularMateriales.aspx.cs">
+      <DependentUpon>VincularMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\VincularMateriales.aspx.designer.cs">
+      <DependentUpon>VincularMateriales.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

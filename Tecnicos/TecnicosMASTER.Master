@@ -70,6 +70,24 @@
             <dx:MenuItem Text="Reportes">
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/VincularMateriales.aspx" 
+                        Text="Vincular Materiales">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/Materiales.aspx" Text="Materiales">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/TiposMateriales.aspx" 
+                        Text="Tipos de Materiales">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/TiposUbicaciones.aspx" 
+                        Text="Tipos Ubicaciones">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/Ubicaciones.aspx" Text="Ubicaciones">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/UnidadesMedida.aspx" 
+                        Text="Unidades de Medida">
+                    </dx:MenuItem>
+                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="">
             </dx:MenuItem>

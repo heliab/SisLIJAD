@@ -7,8 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 
-
-namespace SisLIJAD.MINV
+namespace SisLIJAD.Tecnicos
 {
     public partial class Ubicaciones : System.Web.UI.Page
     {
@@ -115,12 +114,12 @@ namespace SisLIJAD.MINV
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
-               
+
                     Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
                 }
                 else
-             
-                Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
             }
             catch (Exception ex)
             {
@@ -208,7 +207,8 @@ namespace SisLIJAD.MINV
 
         #endregion
         #region SubDRUD
-        protected void SubSelect() {
+        protected void SubSelect()
+        {
 
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
@@ -224,7 +224,7 @@ namespace SisLIJAD.MINV
                     // display data in textboxes
                     txtSubId.Text = dr["IdEspec"].ToString();
                     txtUbicEs.Text = dr["EspecUbic"].ToString();
-                   // cmbUbic.Value = dr["IdUbicacion"].ToString();
+                    // cmbUbic.Value = dr["IdUbicacion"].ToString();
                 }
                 else
                 {
@@ -244,10 +244,11 @@ namespace SisLIJAD.MINV
             {
                 con.Close();
             }
-        
+
         }
-        protected void SubInsert() {
-           string idub= HiddenV.Get("Session").ToString();
+        protected void SubInsert()
+        {
+            string idub = HiddenV.Get("Session").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
@@ -275,7 +276,8 @@ namespace SisLIJAD.MINV
                 con.Close();
             }
         }
-        protected void SubUpdate() {
+        protected void SubUpdate()
+        {
             string idub = HiddenV.Get("Session").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
@@ -305,7 +307,8 @@ namespace SisLIJAD.MINV
                 con.Close();
             }
         }
-        protected void SubDelete() {
+        protected void SubDelete()
+        {
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
