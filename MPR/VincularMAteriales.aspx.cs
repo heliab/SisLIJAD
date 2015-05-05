@@ -36,9 +36,11 @@ namespace SisLIJAD.MPR
                     break;
                 case "5": SubDelete();
                     break;
-                case "12": SubDelete();
+                case "12":SubDelete();
                     break;
-                case "13": SubInsert2();
+                case "13":SubInsert2();
+                    break;
+                case "14":SubDelete2();
                     break;
                 default: Response.Write("Error con valor de crud");
                     break;
@@ -366,17 +368,14 @@ namespace SisLIJAD.MPR
         protected void SubInsert2()
         {
             string idprueba = HiddenV.Get("SessionId").ToString();
-            string type = HiddenV.Get("Type").ToString();
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Mat_Prueba(IdPrueba,IdMaterial,Cantidad,RequeridoPor) values(@IdPrueba,@IdMaterial,@Cantidad,@RequeridoPor)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Equi_Prueba(IdPrueba,IdEquipo) values(@IdPrueba,@IdEquipo)", con);
 
                 cmd.Parameters.AddWithValue("@IdPrueba", idprueba);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMaterial.Value);
-                cmd.Parameters.AddWithValue("@Cantidad", sCant2.Value);
-                cmd.Parameters.AddWithValue("@RequeridoPor", type);
+                cmd.Parameters.AddWithValue("@IdEquipo", cmbEquip.Value);
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
                 {
@@ -403,7 +402,7 @@ namespace SisLIJAD.MPR
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Mat_Prueba WHERE (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdMaterial AS NVARCHAR) = @IdDetalle)", con);
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Equi_Prueba WHERE (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdEquipo AS NVARCHAR) = @IdDetalle)", con);
                 cmd.Parameters.AddWithValue("@IdDetalle", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {

@@ -49,11 +49,14 @@
          HiddenV.Set('Nuevo', 13);
          fn_GetValOnHid();
          cmbEquip.PerformCallback();
-         FormPopup.Show();
+         SubFormPopup2.Show();
          fn_CleanGroup(1);
      }
-     function fn_SubDelete3JS() { 
-     
+     function fn_SubDelete3JS() {
+         HiddenV.Set('Nuevo', 14);
+         SubGridId3 = SubGrid3.GetRowKey(SubGrid3.GetFocusedRowIndex());
+         txtIdD.SetText(SubGridId3);
+         DeleteForm.Show();
      }
 </script>
 </asp:Content>
@@ -240,10 +243,11 @@ fn_EndCallback();
                                     <dx:ASPxGridView ID="SubGrid3" runat="server" ClientIDMode="AutoID" 
                                         ClientInstanceName="SubGrid3" Width="100%" AutoGenerateColumns="False" 
                                         DataSourceID="SDSEquipos" 
-                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect">
+                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect" 
+                                        KeyFieldName="IdDetalle">
                                         <Columns>
                                             <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
-                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="15%">
+                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="20%">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataTextColumn Caption="Equipo/Maquinaria" FieldName="NomMaq" 
                                                 ShowInCustomizationForm="True" VisibleIndex="1">
@@ -414,6 +418,7 @@ fn_CleanGroup(1);
                                     <asp:SqlDataSource ID="SDSTipoPr" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
                                         SelectCommand="SELECT [IdTipoPrueba], [NomTipo] FROM [MPR_Tipo_Prueba] ORDER BY [NomTipo]">
                                     </asp:SqlDataSource>
+                                </div>
                                 </div>
                                 <div>
                                     <ul class="frmctrl">
