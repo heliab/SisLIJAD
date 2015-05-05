@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<h2>Informacion de usuario</h2>
+<div class="registerbg">
+<div class="centertitle"><h2>Informacion de usuario</h2></div>
+<div class="hvr-ripple-out formUserAdmin2 ">
     <p>
         <asp:HyperLink ID="BackLink" runat="server" 
             NavigateUrl="~/Cuenta/ManageUser.aspx">&lt;&lt; Volver a lista de usuarios</asp:HyperLink>
@@ -41,6 +43,8 @@
     <p>
         <asp:Label ID="StatusMessage" CssClass="Important" runat="server"></asp:Label>
     </p>
+    </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
 </asp:Content>

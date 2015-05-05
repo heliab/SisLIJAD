@@ -425,6 +425,31 @@ section {
         margin-top:10em;
         width:350px;
      }
+     .formUserAdmin
+     {
+         background-color: rgba(145, 144, 145, 0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
+        padding-left:1.7em;
+        margin-left:27.8em;
+        margin-top:10em;
+        width:350px;
+         }
+         .formUserAdmin2
+          {
+         background-color: rgba(210,210,210, 0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(240,240,240, 0.6);
+        padding-left:1.7em;
+        margin-left:27.8em;
+        margin-top:2em;
+        width:350px;
+         }
+        .formUserAdmin2:hover,.formUserAdmin:hover
+         {
+             -moz-box-shadow: 5px 5px 0px rgba(210,210,210, 0.6);
+	            -webkit-box-shadow: 5px 5px 0px #999;
+         box-shadow: 5px 5px 0px rgba(210,210,210, 0.6) }
      /*Colores de botones*/   
            .button-green {
             background: rgb(28, 184, 65); /* this is a green */
