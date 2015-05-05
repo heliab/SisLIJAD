@@ -28,12 +28,12 @@
 <script type="text/javascript">
     function fn_SubNewVinJS() {
         fn_GetValOnHid();
-        HiddenV.Set("Type", 0);
+        HiddenV.Set("Type", 5);
         fn_SubNewJS();
         cmbMaterial.PerformCallback();
     }
     function fn_SubNewVin2JS() {
-        HiddenV.Set("Type", 1);
+        HiddenV.Set("Type", 3);
         fn_GetValOnHid();
         fn_SubNewJS();
         cmbMaterial.PerformCallback();
@@ -275,11 +275,8 @@ fn_EndCallback();
         SelectCommand="SELECT MPR_Prueba.IdPrueba, MPR_Prueba.NomPrueba, MPR_Prueba.DescPrueba, MPR_Prueba.Duracion, MINV_Ubicaciones.DescUbicacion, 'C$ ' + CAST(MPR_Prueba.Precio AS NVARCHAR) AS Precio, MPR_Tipo_Prueba.NomTipo FROM MPR_Prueba INNER JOIN MPR_Tipo_Prueba ON MPR_Prueba.IdTipoPrueba = MPR_Tipo_Prueba.IdTipoPrueba INNER JOIN MINV_Ubicaciones ON MPR_Prueba.IdUbicacion = MINV_Ubicaciones.IdUbicacion">
     </asp:SqlDataSource>
          <asp:SqlDataSource ID="SDSDetMatLab" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-            
-        
-        
         SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial,     CAST(MPR_Det_Mat_Prueba.Cantidad AS nvarchar) + ' ' + CAST(MINV_UnidadM.AbrUnid AS NVARCHAR) AS Cantidad
- FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 0) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
+ FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 5) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
          <SelectParameters>
              <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
          </SelectParameters>
@@ -287,7 +284,7 @@ fn_EndCallback();
     <asp:SqlDataSource ID="SDSDetMatCliente" runat="server" 
          ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
         
-        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, CAST(MPR_Det_Mat_Prueba.Cantidad AS nvarchar) + ' ' + CAST(MINV_UnidadM.AbrUnid AS NVARCHAR) AS Cantidad FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 1) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
+        SelectCommand="SELECT CAST(MPR_Det_Mat_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Mat_Prueba.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, CAST(MPR_Det_Mat_Prueba.Cantidad AS nvarchar) + ' ' + CAST(MINV_UnidadM.AbrUnid AS NVARCHAR) AS Cantidad FROM MPR_Det_Mat_Prueba INNER JOIN MINV_Materiales ON MPR_Det_Mat_Prueba.IdMaterial = MINV_Materiales.IdMaterial INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MPR_Det_Mat_Prueba.RequeridoPor = 3) AND (MPR_Det_Mat_Prueba.IdPrueba = @IdPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
         </SelectParameters>

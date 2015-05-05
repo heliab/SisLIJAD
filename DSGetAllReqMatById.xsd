@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetAllReqMatByIdTableAdapter" GeneratorDataComponentClassName="GetAllReqMatByIdTableAdapter" Name="GetAllReqMatById" UserDataComponentName="GetAllReqMatByIdTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.GetAllReqMatById" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.GetAllReqMatById" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.GetAllReqMatById</CommandText>
@@ -27,6 +27,7 @@
               <Mapping SourceColumn="IdPrueba" DataSetColumn="IdPrueba" />
               <Mapping SourceColumn="NomPrueba" DataSetColumn="NomPrueba" />
               <Mapping SourceColumn="RequeridoPor" DataSetColumn="RequeridoPor" />
+              <Mapping SourceColumn="DecTipo" DataSetColumn="DecTipo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -38,7 +39,7 @@
   <xs:element name="DSGetAllReqMatById" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSGetAllReqMatById" msprop:Generator_UserDSName="DSGetAllReqMatById">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GetAllReqMatById" msprop:Generator_TableClassName="GetAllReqMatByIdDataTable" msprop:Generator_TableVarName="tableGetAllReqMatById" msprop:Generator_TablePropName="GetAllReqMatById" msprop:Generator_RowDeletingName="GetAllReqMatByIdRowDeleting" msprop:Generator_RowChangingName="GetAllReqMatByIdRowChanging" msprop:Generator_RowEvHandlerName="GetAllReqMatByIdRowChangeEventHandler" msprop:Generator_RowDeletedName="GetAllReqMatByIdRowDeleted" msprop:Generator_UserTableName="GetAllReqMatById" msprop:Generator_RowChangedName="GetAllReqMatByIdRowChanged" msprop:Generator_RowEvArgName="GetAllReqMatByIdRowChangeEvent" msprop:Generator_RowClassName="GetAllReqMatByIdRow">
+        <xs:element name="GetAllReqMatById" msprop:Generator_TableClassName="GetAllReqMatByIdDataTable" msprop:Generator_TableVarName="tableGetAllReqMatById" msprop:Generator_RowChangedName="GetAllReqMatByIdRowChanged" msprop:Generator_TablePropName="GetAllReqMatById" msprop:Generator_RowDeletingName="GetAllReqMatByIdRowDeleting" msprop:Generator_RowChangingName="GetAllReqMatByIdRowChanging" msprop:Generator_RowEvHandlerName="GetAllReqMatByIdRowChangeEventHandler" msprop:Generator_RowDeletedName="GetAllReqMatByIdRowDeleted" msprop:Generator_RowClassName="GetAllReqMatByIdRow" msprop:Generator_UserTableName="GetAllReqMatById" msprop:Generator_RowEvArgName="GetAllReqMatByIdRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialesRequerido" msprop:Generator_ColumnVarNameInTable="columnMaterialesRequerido" msprop:Generator_ColumnPropNameInRow="MaterialesRequerido" msprop:Generator_ColumnPropNameInTable="MaterialesRequeridoColumn" msprop:Generator_UserColumnName="MaterialesRequerido">
@@ -64,6 +65,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="RequeridoPor" msprop:Generator_ColumnVarNameInTable="columnRequeridoPor" msprop:Generator_ColumnPropNameInRow="RequeridoPor" msprop:Generator_ColumnPropNameInTable="RequeridoPorColumn" msprop:Generator_UserColumnName="RequeridoPor" type="xs:int" minOccurs="0" />
+              <xs:element name="DecTipo" msprop:Generator_ColumnVarNameInTable="columnDecTipo" msprop:Generator_ColumnPropNameInRow="DecTipo" msprop:Generator_ColumnPropNameInTable="DecTipoColumn" msprop:Generator_UserColumnName="DecTipo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

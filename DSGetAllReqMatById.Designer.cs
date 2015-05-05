@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD.Tecnicos.DSRPT {
+namespace SisLIJAD {
     
     
     /// <summary>
@@ -289,6 +289,8 @@ namespace SisLIJAD.Tecnicos.DSRPT {
             
             private global::System.Data.DataColumn columnRequeridoPor;
             
+            private global::System.Data.DataColumn columnDecTipo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetAllReqMatByIdDataTable() {
@@ -364,6 +366,14 @@ namespace SisLIJAD.Tecnicos.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DecTipoColumn {
+                get {
+                    return this.columnDecTipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +409,15 @@ namespace SisLIJAD.Tecnicos.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetAllReqMatByIdRow AddGetAllReqMatByIdRow(string MaterialesRequerido, string Cantidad, int IdPrueba, string NomPrueba, int RequeridoPor) {
+            public GetAllReqMatByIdRow AddGetAllReqMatByIdRow(string MaterialesRequerido, string Cantidad, int IdPrueba, string NomPrueba, int RequeridoPor, string DecTipo) {
                 GetAllReqMatByIdRow rowGetAllReqMatByIdRow = ((GetAllReqMatByIdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaterialesRequerido,
                         Cantidad,
                         IdPrueba,
                         NomPrueba,
-                        RequeridoPor};
+                        RequeridoPor,
+                        DecTipo};
                 rowGetAllReqMatByIdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetAllReqMatByIdRow);
                 return rowGetAllReqMatByIdRow;
@@ -434,6 +445,7 @@ namespace SisLIJAD.Tecnicos.DSRPT {
                 this.columnIdPrueba = base.Columns["IdPrueba"];
                 this.columnNomPrueba = base.Columns["NomPrueba"];
                 this.columnRequeridoPor = base.Columns["RequeridoPor"];
+                this.columnDecTipo = base.Columns["DecTipo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +461,8 @@ namespace SisLIJAD.Tecnicos.DSRPT {
                 base.Columns.Add(this.columnNomPrueba);
                 this.columnRequeridoPor = new global::System.Data.DataColumn("RequeridoPor", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRequeridoPor);
+                this.columnDecTipo = new global::System.Data.DataColumn("DecTipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDecTipo);
                 this.columnMaterialesRequerido.AllowDBNull = false;
                 this.columnMaterialesRequerido.MaxLength = 50;
                 this.columnCantidad.ReadOnly = true;
@@ -456,6 +470,8 @@ namespace SisLIJAD.Tecnicos.DSRPT {
                 this.columnIdPrueba.AllowDBNull = false;
                 this.columnNomPrueba.AllowDBNull = false;
                 this.columnNomPrueba.MaxLength = 500;
+                this.columnDecTipo.AllowDBNull = false;
+                this.columnDecTipo.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -663,6 +679,17 @@ namespace SisLIJAD.Tecnicos.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DecTipo {
+                get {
+                    return ((string)(this[this.tableGetAllReqMatById.DecTipoColumn]));
+                }
+                set {
+                    this[this.tableGetAllReqMatById.DecTipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCantidadNull() {
                 return this.IsNull(this.tableGetAllReqMatById.CantidadColumn);
             }
@@ -721,7 +748,7 @@ namespace SisLIJAD.Tecnicos.DSRPT {
         }
     }
 }
-namespace SisLIJAD.Tecnicos.DSRPT.DSGetAllReqMatByIdTableAdapters {
+namespace SisLIJAD.DSGetAllReqMatByIdTableAdapters {
     
     
     /// <summary>
@@ -850,6 +877,7 @@ namespace SisLIJAD.Tecnicos.DSRPT.DSGetAllReqMatByIdTableAdapters {
             tableMapping.ColumnMappings.Add("IdPrueba", "IdPrueba");
             tableMapping.ColumnMappings.Add("NomPrueba", "NomPrueba");
             tableMapping.ColumnMappings.Add("RequeridoPor", "RequeridoPor");
+            tableMapping.ColumnMappings.Add("DecTipo", "DecTipo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

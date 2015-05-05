@@ -285,7 +285,7 @@
     <Compile Include="Perfil\PerfilMaster.Master.designer.cs">
       <DependentUpon>PerfilMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Tecnicos\DSRPT\DSGetAllReqMatById.Designer.cs">
+    <Compile Include="DSGetAllReqMatById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
@@ -1049,15 +1049,15 @@
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilMaster.Master" />
-    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xsc">
+    <None Include="DSGetAllReqMatById.xsc">
       <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
     </None>
-    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xsd">
+    <None Include="DSGetAllReqMatById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetAllReqMatById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Tecnicos\DSRPT\DSGetAllReqMatById.xss">
+    <None Include="DSGetAllReqMatById.xss">
       <DependentUpon>DSGetAllReqMatById.xsd</DependentUpon>
     </None>
     <None Include="SICOM\DSRPT\DSGetSolById.xsc">
