@@ -84,6 +84,9 @@
                     <dx:MenuItem NavigateUrl="~/MINV/TipoMovimiento.aspx" 
                         Text="Tipo de movimientos" Visible="False">
                     </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/EquiposMaquinaria.aspx" 
+                        Text="Equipos y Maquinaria">
+                    </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="">

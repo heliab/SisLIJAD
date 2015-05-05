@@ -70,6 +70,7 @@
     <Content Include="Images\fromt.jpg" />
     <Content Include="Images\FRONT.JPG" />
     <Content Include="Images\side.jpg" />
+    <Content Include="MINV\EquiposMaquinaria.aspx" />
     <Content Include="MINV\Reportes\ListaBodegas.aspx" />
     <Content Include="MINV\Reportes\ListaLaboratorios.aspx" />
     <Content Include="MINV\Reportes\ListaMateriales.aspx" />
@@ -262,6 +263,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\EquiposMaquinaria.aspx.cs">
+      <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\EquiposMaquinaria.aspx.designer.cs">
+      <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>

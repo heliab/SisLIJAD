@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Vincular Materiales" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="VincularMAteriales.aspx.cs" Inherits="SisLIJAD.MPR.VincularMAteriales" %>
+﻿<%@ Page Title="Vincular Materiales y Maquinaria" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="VincularMAteriales.aspx.cs" Inherits="SisLIJAD.MPR.VincularMAteriales" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -44,7 +44,17 @@
      function fn_GetValOnHid() {
          HiddenV.Set("SessionId", fn_GetIdValue());
      }
-
+     function fn_SubNew3JS() {
+         txtSubId3.SetText('Nuevo');
+         HiddenV.Set('Nuevo', 13);
+         fn_GetValOnHid();
+         cmbEquip.PerformCallback();
+         FormPopup.Show();
+         fn_CleanGroup(1);
+     }
+     function fn_SubDelete3JS() { 
+     
+     }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -129,7 +139,7 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-               <dx:ASPxPageControl ID="PageDetallle" runat="server" ActiveTabIndex="1" 
+               <dx:ASPxPageControl ID="PageDetallle" runat="server" ActiveTabIndex="2" 
                     ClientIDMode="AutoID" Width="100%">
 
                     <TabPages>
@@ -214,6 +224,43 @@ fn_EndCallback();
                                 </dx:ContentControl>
                             </ContentCollection>
                         </dx:TabPage>
+                        <dx:TabPage Text="Equipos">
+                            <ContentCollection>
+                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                                 <div class="wrapctrl">
+                    <ul class="ctrlist">
+                                 <li><a class="pure-button blue-font" href="javascript:fn_SubNew3JS();" title="Nuevo">
+                            <i class="fa fa-plus"></i>Nuevo</a></li>
+                     <%--   <li><a class="pure-button green-font" href="javascript:fn_SubEditJS();" title="Editar">
+                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>--%>
+                        <li><a class="pure-button red-font" href="javascript:fn_SubDelete3JS();" title="Borrar">
+                            <i class="fa fa-trash"></i>Borrar</a></li>
+                    </ul>
+                </div>
+                                    <dx:ASPxGridView ID="SubGrid3" runat="server" ClientIDMode="AutoID" 
+                                        ClientInstanceName="SubGrid3" Width="100%" AutoGenerateColumns="False" 
+                                        DataSourceID="SDSEquipos" 
+                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect">
+                                        <Columns>
+                                            <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="15%">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn Caption="Equipo/Maquinaria" FieldName="NomMaq" 
+                                                ShowInCustomizationForm="True" VisibleIndex="1">
+                                            </dx:GridViewDataTextColumn>
+                                        </Columns>
+                                        <SettingsBehavior AllowFocusedRow="True" />
+                                        <Settings ShowFilterRow="True" ShowFooter="True" />
+                                        <SettingsDetail IsDetailGrid="True" />
+                                        <Styles>
+                                            <FocusedRow BackColor="#5180BF">
+                                            </FocusedRow>
+                                        </Styles>
+                                    </dx:ASPxGridView>
+
+                                </dx:ContentControl>
+                            </ContentCollection>
+                        </dx:TabPage>
                     </TabPages>
 
                 </dx:ASPxPageControl>
@@ -241,6 +288,11 @@ fn_EndCallback();
             <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
         </SelectParameters>
      </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SDSEquipos" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+        SelectCommand="SELECT CAST(MPR_Det_Equi_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Equi_Prueba.IdEquipo AS NVARCHAR) AS IdDetalle, MPR_EquipMaquin.NomMaq FROM MPR_Det_Equi_Prueba INNER JOIN MPR_EquipMaquin ON MPR_Det_Equi_Prueba.IdEquipo = MPR_EquipMaquin.IdEquipo">
+
+    </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
@@ -391,10 +443,10 @@ fn_CleanGroup(2);
 	fn_CleanGroup(2);
 }" />
         <ClientSideEvents CloseButtonClick="function(s, e) {
-	fn_CleanGroup(2);
+	fn_CleanGroup(3);
 }" CloseUp="function(s, e) {
 	
-fn_CleanGroup(2);
+fn_CleanGroup(3);
 }"></ClientSideEvents>
         <ContentStyle BackColor="#F9F9F9">
         </ContentStyle>
@@ -440,8 +492,6 @@ fn_EndCallback();
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                        
-                                        
                                         SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MPR_Det_Mat_Prueba WHERE (IdPrueba = @IdPrueba)))">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
@@ -484,6 +534,94 @@ fn_EndCallback();
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
+      <dx:ASPxPopupControl ID="SubFormPopup2" runat="server" ClientInstanceName="SubFormPopup2"
+        AllowDragging="True" AllowResize="True" HeaderText="Formulario de sub registro"
+        Modal="True" PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True"
+        ShowFooter="True" FooterText="Formulario de sub registro" PopupVerticalAlign="WindowCenter"
+        ClientIDMode="AutoID" Height="186px" Width="380px" CloseAction="CloseButton">
+        <ClientSideEvents CloseUp="function(s, e) {
+	
+fn_CleanGroup(3);
+}" CloseButtonClick="function(s, e) {
+	fn_CleanGroup(3);
+}" />
+        <ClientSideEvents CloseButtonClick="function(s, e) {
+	fn_CleanGroup(3);
+}" CloseUp="function(s, e) {
+	
+fn_CleanGroup(3);
+}"></ClientSideEvents>
+        <ContentStyle BackColor="#F9F9F9">
+        </ContentStyle>
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server">
+                <dx:ASPxCallbackPanel ID="SubFillingCallback2" runat="server" ClientInstanceName="SubFillingCallback2"
+                    Width="100%">
+                    <ClientSideEvents EndCallback="function(s, e) {
+fn_EndCallback();
+}" />
+                    <ClientSideEvents EndCallback="function(s, e) {
+fn_EndCallback();
+}"></ClientSideEvents>
+                    <PanelCollection>
+                        <dx:PanelContent ID="PanelContent3" runat="server">
+                            <div class="form">
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Id">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxTextBox ID="txtSubId3" runat="server" Width="170px" ClientInstanceName="txtSubId3"
+                                        ClientEnabled="true" ReadOnly="True">
+                                    </dx:ASPxTextBox>
+                                   
+                                </div>
+                                <div>
+                                    <dx:ASPxLabel ID="ASPxLabel11" runat="server" Text="Seleccione equipo">
+                                    </dx:ASPxLabel>
+                                    <dx:ASPxComboBox ID="cmbEquip" runat="server" ClientInstanceName="cmbEquip" 
+                                        Width="95%" DataSourceID="SDSListEquip"  
+                                        TextField="NomMaq" ValueField="IdEquipo" OnCallback="cmbEquip_Callback" >
+                                        
+                                        <Columns>
+                                            <dx:ListBoxColumn Caption="ID" FieldName="IdEquipo" Width="10%" />
+                                            <dx:ListBoxColumn Caption="Equipo" FieldName="NomMaq" />
+                                        </Columns>
+                                        
+                                     <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            SetFocusOnError="True" ValidationGroup="ControlGroup3">
+                                            <RegularExpression ErrorText="Informacion Requerida" />
+                                            <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                            <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                            <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                        </ValidationSettings>
+                                    </dx:ASPxComboBox>
+                                    <asp:SqlDataSource ID="SDSListEquip" runat="server" 
+                                        ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                        
+                                        SelectCommand="SELECT IdEquipo, NomMaq FROM MPR_EquipMaquin WHERE (IdEquipo NOT IN (SELECT IdEquipo FROM MPR_Det_Equi_Prueba AS MPR_Det_Equi_Prueba WHERE (IdPrueba = @IdPrueba))) ORDER BY NomMaq">
+                                        <SelectParameters>
+                                            <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
+                                </div>
+                                
+                            </div>
+                            <div>
+                                <ul class="frmctrl" id="leftmar-button">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SubSave2JS();" title="Guardar">
+                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_SubCancel2JS();" title="Cancelar">
+                                        <i class="fa fa-times"></i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(3);" title="Limpiar">
+                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
+                                </ul>
+                            </div>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                </dx:ASPxCallbackPanel>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </dx:ASPxPopupControl>
+
     <dx:ASPxPopupControl ID="DeleteForm" runat="server" ClientInstanceName="DeleteForm"
         AllowDragging="True" AllowResize="True" HeaderText="Formulario borrar" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"

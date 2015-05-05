@@ -38,6 +38,8 @@ namespace SisLIJAD.MPR
                     break;
                 case "12": SubDelete();
                     break;
+                case "13": SubInsert2();
+                    break;
                 default: Response.Write("Error con valor de crud");
                     break;
 
@@ -216,6 +218,12 @@ namespace SisLIJAD.MPR
         {
             Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+        protected void cmbEquip_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            Session["IdPrueba"] = HiddenV.Get("SessionId").ToString();
+            cmbEquip.DataBind();
+        }
+
         #endregion
 
         #region SubCRUD
@@ -353,6 +361,71 @@ namespace SisLIJAD.MPR
             }
         }
         #endregion
+
+        #region SubCallback2
+        protected void SubInsert2()
+        {
+            string idprueba = HiddenV.Get("SessionId").ToString();
+            string type = HiddenV.Get("Type").ToString();
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Mat_Prueba(IdPrueba,IdMaterial,Cantidad,RequeridoPor) values(@IdPrueba,@IdMaterial,@Cantidad,@RequeridoPor)", con);
+
+                cmd.Parameters.AddWithValue("@IdPrueba", idprueba);
+                cmd.Parameters.AddWithValue("@IdMaterial", cmbMaterial.Value);
+                cmd.Parameters.AddWithValue("@Cantidad", sCant2.Value);
+                cmd.Parameters.AddWithValue("@RequeridoPor", type);
+                int count = cmd.ExecuteNonQuery();
+                if (count == 1)
+                {
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha guardado correctamente") + "')</script>");
+                }
+                else
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void SubDelete2()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Mat_Prueba WHERE (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdMaterial AS NVARCHAR) = @IdDetalle)", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtIdD.Text);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
+
 
     }
 }

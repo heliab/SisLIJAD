@@ -77,7 +77,7 @@
                 <Items>
 <dx:MenuItem Text="Registro Ensayes" NavigateUrl="~/MPR/Pruebas.aspx"></dx:MenuItem>
                     <dx:MenuItem NavigateUrl="~/MPR/VincularMAteriales.aspx" 
-                        Text="Vincular Materiales">
+                        Text="Vincular Materiales y Equipos">
                     </dx:MenuItem>
                     <dx:MenuItem NavigateUrl="~/MPR/TiposPrueba.aspx" Text="Tipos Prueba">
                     </dx:MenuItem>
