@@ -36,6 +36,10 @@
          <i class="fa fa-key fa-lg"></i>   
             <asp:LinkButton ID="LinkButton1" runat="server" 
                 PostBackUrl="~/Account/ChangePassword.aspx" Font-Size="Large">Cambiar contraseña</asp:LinkButton>
+        <br />
+        <i class="fa fa-user fa-lg"></i>   
+            <asp:LinkButton ID="LinkButton2" runat="server" 
+                PostBackUrl="~/Perfil/Perfil.aspx" Font-Size="Large">Editar Perfil</asp:LinkButton>
       </LoggedInTemplate>
 
      

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<h2>Informacion de usuarui</h2>
+<h2>Informacion de usuario</h2>
     <p>
         <asp:HyperLink ID="BackLink" runat="server" 
             NavigateUrl="~/Cuenta/ManageUser.aspx">&lt;&lt; Volver a lista de usuarios</asp:HyperLink>

@@ -575,3 +575,12 @@ function fn_IrChecklist() {
     
     }
 }
+/*Funciones pantalla de edicion de perfil*/
+function fn_ChangeProfileJS() {
+    FillingCallback.PerformCallback();
+    FormPopup.Show();
+}
+function fn_SaveProfileJS() {
+    NewCallback.PerformCallback();
+    fn_ClosePopup(1);
+}
