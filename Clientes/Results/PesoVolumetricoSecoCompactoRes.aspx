@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Clientes/ClientesMASTER.Master" AutoEventWireup="true" CodeBehind="PesoVolumetricoSecoCompactoRes.aspx.cs" Inherits="SisLIJAD.Clientes.Results.PesoVolumetricoSecoCompactoRes" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -36,12 +39,12 @@
                     PVSC
                 </div>
             </div>
-            <div class="Second">
+            <div>
                 <ul class="ctrlist2 ctrleft">
-                    <%--<li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
-                        class="fa fa-list"></i>Checklist</a></li>--%>
-                    <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
-                        <i class="fa fa-search"></i>Ver ficha</a></li>
+                      <li>
+                            <asp:Button ID="btnReport" runat="server"  Text="Ver Reporte" 
+                                 CssClass="pure-button green-font" onclick="btnReport_Click" />
+                         </li>
                 </ul>
             </div>
         </div>
@@ -259,4 +262,10 @@
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
+  <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div class="reportframe">
+    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="642px">
+    </rsweb:ReportViewer>
+    </div>
 </asp:Content>

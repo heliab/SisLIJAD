@@ -114,6 +114,8 @@ fn_EndCallback();
                                                 <i class="fa fa-external-link"></i>Ir a cálculo</a></li>
                                             <li><a class=" pure-button green-font" href="javascript:fn_IrChecklist();" title="VerMateriales">
                                                 <i class="fa fa-search"></i>Ver Materiales</a></li>
+                                             <li><a class=" pure-button green-font" href="javascript:fn_IrEqChecklist();" title="Ver equipos">
+                                                <i class="fa fa-search"></i>Ver Equipos</a></li>
                                         </ul>
                                     </div>
                                     <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"

@@ -334,7 +334,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>C29 M Result</Value>
+                                                <Value>Resultados</Value>
                                                 <Style>
                                                   <FontWeight>Bold</FontWeight>
                                                 </Style>
@@ -528,7 +528,7 @@
                           <Top>2.14312cm</Top>
                           <Left>0.53128cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>15.26336cm</Width>
+                          <Width>15.26337cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -564,7 +564,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

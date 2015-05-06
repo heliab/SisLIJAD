@@ -575,6 +575,12 @@ function fn_IrChecklist() {
     
     }
 }
+function fn_IrEqChecklist() { 
+SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdPrueba', GetPrValues);
+    function GetPrValues(Val) {
+        window.location.href = "/Tecnicos/Reportes/Rpt_EquipReq.aspx?Id=" + Val; 
+    }
+}
 /*Funciones pantalla de edicion de perfil*/
 function fn_ChangeProfileJS() {
     FillingCallback.PerformCallback();
