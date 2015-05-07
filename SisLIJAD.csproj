@@ -276,10 +276,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetASTM566ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DSGetASTM127_OD_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\DSGetASTM127_OD_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetASTM127_OD_ById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSGetASTM128_OD_ById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
     </Compile>
     <Compile Include="MINV\EquiposMaquinaria.aspx.cs">
       <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
@@ -1009,6 +1014,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeFinoRes.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GetReqMatById.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_HumedadAridos.rdlc" />
@@ -1104,16 +1110,27 @@
     <None Include="Clientes\DSRPT\DSGetASTM566ById.xss">
       <DependentUpon>DSGetASTM566ById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetASTM127_OD_ById.xsc">
+    <None Include="Clientes\DSRPT\DSGetASTM127_OD_ById.xsc">
       <DependentUpon>DSGetASTM127_OD_ById.xsd</DependentUpon>
     </None>
-    <None Include="DSGetASTM127_OD_ById.xsd">
+    <None Include="Clientes\DSRPT\DSGetASTM127_OD_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetASTM127_OD_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSGetASTM127_OD_ById.xss">
+    <None Include="Clientes\DSRPT\DSGetASTM127_OD_ById.xss">
       <DependentUpon>DSGetASTM127_OD_ById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetASTM128_OD_ById.xsc">
+      <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
+    </None>
+    <None Include="DSGetASTM128_OD_ById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGetASTM128_OD_ById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSGetASTM128_OD_ById.xss">
+      <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
     </None>
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">
       <DependentUpon>DSGetAllReqEqById.xsd</DependentUpon>

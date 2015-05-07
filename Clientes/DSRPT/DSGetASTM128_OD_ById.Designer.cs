@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.Clientes.DSRPT {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace SisLIJAD {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DSGetASTM127_OD_ById")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DSGetASTM128_OD_ById")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DSGetASTM127_OD_ById : global::System.Data.DataSet {
+    public partial class DSGetASTM128_OD_ById : global::System.Data.DataSet {
         
-        private GetASTM127_OD_ByIdDataTable tableGetASTM127_OD_ById;
+        private GetASTM128_OD_ByIdDataTable tableGetASTM128_OD_ById;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DSGetASTM127_OD_ById() {
+        public DSGetASTM128_OD_ById() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SisLIJAD {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DSGetASTM127_OD_ById(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DSGetASTM128_OD_ById(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SisLIJAD {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["GetASTM127_OD_ById"] != null)) {
-                    base.Tables.Add(new GetASTM127_OD_ByIdDataTable(ds.Tables["GetASTM127_OD_ById"]));
+                if ((ds.Tables["GetASTM128_OD_ById"] != null)) {
+                    base.Tables.Add(new GetASTM128_OD_ByIdDataTable(ds.Tables["GetASTM128_OD_ById"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SisLIJAD {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public GetASTM127_OD_ByIdDataTable GetASTM127_OD_ById {
+        public GetASTM128_OD_ByIdDataTable GetASTM128_OD_ById {
             get {
-                return this.tableGetASTM127_OD_ById;
+                return this.tableGetASTM128_OD_ById;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DSGetASTM127_OD_ById cln = ((DSGetASTM127_OD_ById)(base.Clone()));
+            DSGetASTM128_OD_ById cln = ((DSGetASTM128_OD_ById)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SisLIJAD {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["GetASTM127_OD_ById"] != null)) {
-                    base.Tables.Add(new GetASTM127_OD_ByIdDataTable(ds.Tables["GetASTM127_OD_ById"]));
+                if ((ds.Tables["GetASTM128_OD_ById"] != null)) {
+                    base.Tables.Add(new GetASTM128_OD_ByIdDataTable(ds.Tables["GetASTM128_OD_ById"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableGetASTM127_OD_ById = ((GetASTM127_OD_ByIdDataTable)(base.Tables["GetASTM127_OD_ById"]));
+            this.tableGetASTM128_OD_ById = ((GetASTM128_OD_ByIdDataTable)(base.Tables["GetASTM128_OD_ById"]));
             if ((initTable == true)) {
-                if ((this.tableGetASTM127_OD_ById != null)) {
-                    this.tableGetASTM127_OD_ById.InitVars();
+                if ((this.tableGetASTM128_OD_ById != null)) {
+                    this.tableGetASTM128_OD_ById.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DSGetASTM127_OD_ById";
+            this.DataSetName = "DSGetASTM128_OD_ById";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DSGetASTM127_OD_ById.xsd";
+            this.Namespace = "http://tempuri.org/DSGetASTM128_OD_ById.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableGetASTM127_OD_ById = new GetASTM127_OD_ByIdDataTable();
-            base.Tables.Add(this.tableGetASTM127_OD_ById);
+            this.tableGetASTM128_OD_ById = new GetASTM128_OD_ByIdDataTable();
+            base.Tables.Add(this.tableGetASTM128_OD_ById);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeGetASTM127_OD_ById() {
+        private bool ShouldSerializeGetASTM128_OD_ById() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SisLIJAD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DSGetASTM127_OD_ById ds = new DSGetASTM127_OD_ById();
+            DSGetASTM128_OD_ById ds = new DSGetASTM128_OD_ById();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace SisLIJAD {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void GetASTM127_OD_ByIdRowChangeEventHandler(object sender, GetASTM127_OD_ByIdRowChangeEvent e);
+        public delegate void GetASTM128_OD_ByIdRowChangeEventHandler(object sender, GetASTM128_OD_ByIdRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class GetASTM127_OD_ByIdDataTable : global::System.Data.TypedTableBase<GetASTM127_OD_ByIdRow> {
+        public partial class GetASTM128_OD_ByIdDataTable : global::System.Data.TypedTableBase<GetASTM128_OD_ByIdRow> {
             
             private global::System.Data.DataColumn columnIdSol;
             
@@ -289,18 +289,20 @@ namespace SisLIJAD {
             
             private global::System.Data.DataColumn columnNomPrueba;
             
-            private global::System.Data.DataColumn columnC127_A_Ge;
+            private global::System.Data.DataColumn columnC128_A_Ge;
             
-            private global::System.Data.DataColumn columnC127_B_Ge;
+            private global::System.Data.DataColumn columnC128_B_Ge;
             
-            private global::System.Data.DataColumn columnC127_C_Ge;
+            private global::System.Data.DataColumn columnC128_C_Ge;
             
-            private global::System.Data.DataColumn columnC127_OD_Result;
+            private global::System.Data.DataColumn columnC128_S_Ge;
+            
+            private global::System.Data.DataColumn columnC128_OD_Result;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdDataTable() {
-                this.TableName = "GetASTM127_OD_ById";
+            public GetASTM128_OD_ByIdDataTable() {
+                this.TableName = "GetASTM128_OD_ById";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +310,7 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetASTM127_OD_ByIdDataTable(global::System.Data.DataTable table) {
+            internal GetASTM128_OD_ByIdDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +327,7 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected GetASTM127_OD_ByIdDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GetASTM128_OD_ByIdDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -372,33 +374,41 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn C127_A_GeColumn {
+            public global::System.Data.DataColumn C128_A_GeColumn {
                 get {
-                    return this.columnC127_A_Ge;
+                    return this.columnC128_A_Ge;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn C127_B_GeColumn {
+            public global::System.Data.DataColumn C128_B_GeColumn {
                 get {
-                    return this.columnC127_B_Ge;
+                    return this.columnC128_B_Ge;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn C127_C_GeColumn {
+            public global::System.Data.DataColumn C128_C_GeColumn {
                 get {
-                    return this.columnC127_C_Ge;
+                    return this.columnC128_C_Ge;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn C127_OD_ResultColumn {
+            public global::System.Data.DataColumn C128_S_GeColumn {
                 get {
-                    return this.columnC127_OD_Result;
+                    return this.columnC128_S_Ge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn C128_OD_ResultColumn {
+                get {
+                    return this.columnC128_OD_Result;
                 }
             }
             
@@ -413,53 +423,54 @@ namespace SisLIJAD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdRow this[int index] {
+            public GetASTM128_OD_ByIdRow this[int index] {
                 get {
-                    return ((GetASTM127_OD_ByIdRow)(this.Rows[index]));
+                    return ((GetASTM128_OD_ByIdRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetASTM127_OD_ByIdRowChangeEventHandler GetASTM127_OD_ByIdRowChanging;
+            public event GetASTM128_OD_ByIdRowChangeEventHandler GetASTM128_OD_ByIdRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetASTM127_OD_ByIdRowChangeEventHandler GetASTM127_OD_ByIdRowChanged;
+            public event GetASTM128_OD_ByIdRowChangeEventHandler GetASTM128_OD_ByIdRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetASTM127_OD_ByIdRowChangeEventHandler GetASTM127_OD_ByIdRowDeleting;
+            public event GetASTM128_OD_ByIdRowChangeEventHandler GetASTM128_OD_ByIdRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetASTM127_OD_ByIdRowChangeEventHandler GetASTM127_OD_ByIdRowDeleted;
+            public event GetASTM128_OD_ByIdRowChangeEventHandler GetASTM128_OD_ByIdRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddGetASTM127_OD_ByIdRow(GetASTM127_OD_ByIdRow row) {
+            public void AddGetASTM128_OD_ByIdRow(GetASTM128_OD_ByIdRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdRow AddGetASTM127_OD_ByIdRow(string IdSol, string IdPrueba, string CodigoResultado, string username, string NomPrueba, double C127_A_Ge, double C127_B_Ge, double C127_C_Ge, string C127_OD_Result) {
-                GetASTM127_OD_ByIdRow rowGetASTM127_OD_ByIdRow = ((GetASTM127_OD_ByIdRow)(this.NewRow()));
+            public GetASTM128_OD_ByIdRow AddGetASTM128_OD_ByIdRow(string IdSol, string IdPrueba, string CodigoResultado, string username, string NomPrueba, double C128_A_Ge, double C128_B_Ge, double C128_C_Ge, double C128_S_Ge, string C128_OD_Result) {
+                GetASTM128_OD_ByIdRow rowGetASTM128_OD_ByIdRow = ((GetASTM128_OD_ByIdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdSol,
                         IdPrueba,
                         CodigoResultado,
                         username,
                         NomPrueba,
-                        C127_A_Ge,
-                        C127_B_Ge,
-                        C127_C_Ge,
-                        C127_OD_Result};
-                rowGetASTM127_OD_ByIdRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowGetASTM127_OD_ByIdRow);
-                return rowGetASTM127_OD_ByIdRow;
+                        C128_A_Ge,
+                        C128_B_Ge,
+                        C128_C_Ge,
+                        C128_S_Ge,
+                        C128_OD_Result};
+                rowGetASTM128_OD_ByIdRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetASTM128_OD_ByIdRow);
+                return rowGetASTM128_OD_ByIdRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                GetASTM127_OD_ByIdDataTable cln = ((GetASTM127_OD_ByIdDataTable)(base.Clone()));
+                GetASTM128_OD_ByIdDataTable cln = ((GetASTM128_OD_ByIdDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,7 +478,7 @@ namespace SisLIJAD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new GetASTM127_OD_ByIdDataTable();
+                return new GetASTM128_OD_ByIdDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -478,10 +489,11 @@ namespace SisLIJAD {
                 this.columnCodigoResultado = base.Columns["CodigoResultado"];
                 this.columnusername = base.Columns["username"];
                 this.columnNomPrueba = base.Columns["NomPrueba"];
-                this.columnC127_A_Ge = base.Columns["C127_A_Ge"];
-                this.columnC127_B_Ge = base.Columns["C127_B_Ge"];
-                this.columnC127_C_Ge = base.Columns["C127_C_Ge"];
-                this.columnC127_OD_Result = base.Columns["C127_OD_Result"];
+                this.columnC128_A_Ge = base.Columns["C128_A_Ge"];
+                this.columnC128_B_Ge = base.Columns["C128_B_Ge"];
+                this.columnC128_C_Ge = base.Columns["C128_C_Ge"];
+                this.columnC128_S_Ge = base.Columns["C128_S_Ge"];
+                this.columnC128_OD_Result = base.Columns["C128_OD_Result"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -497,14 +509,16 @@ namespace SisLIJAD {
                 base.Columns.Add(this.columnusername);
                 this.columnNomPrueba = new global::System.Data.DataColumn("NomPrueba", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNomPrueba);
-                this.columnC127_A_Ge = new global::System.Data.DataColumn("C127_A_Ge", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnC127_A_Ge);
-                this.columnC127_B_Ge = new global::System.Data.DataColumn("C127_B_Ge", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnC127_B_Ge);
-                this.columnC127_C_Ge = new global::System.Data.DataColumn("C127_C_Ge", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnC127_C_Ge);
-                this.columnC127_OD_Result = new global::System.Data.DataColumn("C127_OD_Result", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnC127_OD_Result);
+                this.columnC128_A_Ge = new global::System.Data.DataColumn("C128_A_Ge", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC128_A_Ge);
+                this.columnC128_B_Ge = new global::System.Data.DataColumn("C128_B_Ge", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC128_B_Ge);
+                this.columnC128_C_Ge = new global::System.Data.DataColumn("C128_C_Ge", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC128_C_Ge);
+                this.columnC128_S_Ge = new global::System.Data.DataColumn("C128_S_Ge", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC128_S_Ge);
+                this.columnC128_OD_Result = new global::System.Data.DataColumn("C128_OD_Result", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnC128_OD_Result);
                 this.columnIdSol.ReadOnly = true;
                 this.columnIdSol.MaxLength = 30;
                 this.columnIdPrueba.ReadOnly = true;
@@ -514,33 +528,33 @@ namespace SisLIJAD {
                 this.columnusername.MaxLength = 50;
                 this.columnNomPrueba.AllowDBNull = false;
                 this.columnNomPrueba.MaxLength = 500;
-                this.columnC127_OD_Result.MaxLength = 50;
+                this.columnC128_OD_Result.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdRow NewGetASTM127_OD_ByIdRow() {
-                return ((GetASTM127_OD_ByIdRow)(this.NewRow()));
+            public GetASTM128_OD_ByIdRow NewGetASTM128_OD_ByIdRow() {
+                return ((GetASTM128_OD_ByIdRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new GetASTM127_OD_ByIdRow(builder);
+                return new GetASTM128_OD_ByIdRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(GetASTM127_OD_ByIdRow);
+                return typeof(GetASTM128_OD_ByIdRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.GetASTM127_OD_ByIdRowChanged != null)) {
-                    this.GetASTM127_OD_ByIdRowChanged(this, new GetASTM127_OD_ByIdRowChangeEvent(((GetASTM127_OD_ByIdRow)(e.Row)), e.Action));
+                if ((this.GetASTM128_OD_ByIdRowChanged != null)) {
+                    this.GetASTM128_OD_ByIdRowChanged(this, new GetASTM128_OD_ByIdRowChangeEvent(((GetASTM128_OD_ByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -548,8 +562,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.GetASTM127_OD_ByIdRowChanging != null)) {
-                    this.GetASTM127_OD_ByIdRowChanging(this, new GetASTM127_OD_ByIdRowChangeEvent(((GetASTM127_OD_ByIdRow)(e.Row)), e.Action));
+                if ((this.GetASTM128_OD_ByIdRowChanging != null)) {
+                    this.GetASTM128_OD_ByIdRowChanging(this, new GetASTM128_OD_ByIdRowChangeEvent(((GetASTM128_OD_ByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -557,8 +571,8 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.GetASTM127_OD_ByIdRowDeleted != null)) {
-                    this.GetASTM127_OD_ByIdRowDeleted(this, new GetASTM127_OD_ByIdRowChangeEvent(((GetASTM127_OD_ByIdRow)(e.Row)), e.Action));
+                if ((this.GetASTM128_OD_ByIdRowDeleted != null)) {
+                    this.GetASTM128_OD_ByIdRowDeleted(this, new GetASTM128_OD_ByIdRowChangeEvent(((GetASTM128_OD_ByIdRow)(e.Row)), e.Action));
                 }
             }
             
@@ -566,14 +580,14 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.GetASTM127_OD_ByIdRowDeleting != null)) {
-                    this.GetASTM127_OD_ByIdRowDeleting(this, new GetASTM127_OD_ByIdRowChangeEvent(((GetASTM127_OD_ByIdRow)(e.Row)), e.Action));
+                if ((this.GetASTM128_OD_ByIdRowDeleting != null)) {
+                    this.GetASTM128_OD_ByIdRowDeleting(this, new GetASTM128_OD_ByIdRowChangeEvent(((GetASTM128_OD_ByIdRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveGetASTM127_OD_ByIdRow(GetASTM127_OD_ByIdRow row) {
+            public void RemoveGetASTM128_OD_ByIdRow(GetASTM128_OD_ByIdRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -582,7 +596,7 @@ namespace SisLIJAD {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DSGetASTM127_OD_ById ds = new DSGetASTM127_OD_ById();
+                DSGetASTM128_OD_ById ds = new DSGetASTM128_OD_ById();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -600,7 +614,7 @@ namespace SisLIJAD {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "GetASTM127_OD_ByIdDataTable";
+                attribute2.FixedValue = "GetASTM128_OD_ByIdDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -644,15 +658,15 @@ namespace SisLIJAD {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class GetASTM127_OD_ByIdRow : global::System.Data.DataRow {
+        public partial class GetASTM128_OD_ByIdRow : global::System.Data.DataRow {
             
-            private GetASTM127_OD_ByIdDataTable tableGetASTM127_OD_ById;
+            private GetASTM128_OD_ByIdDataTable tableGetASTM128_OD_ById;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetASTM127_OD_ByIdRow(global::System.Data.DataRowBuilder rb) : 
+            internal GetASTM128_OD_ByIdRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableGetASTM127_OD_ById = ((GetASTM127_OD_ByIdDataTable)(this.Table));
+                this.tableGetASTM128_OD_ById = ((GetASTM128_OD_ByIdDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -660,14 +674,14 @@ namespace SisLIJAD {
             public string IdSol {
                 get {
                     try {
-                        return ((string)(this[this.tableGetASTM127_OD_ById.IdSolColumn]));
+                        return ((string)(this[this.tableGetASTM128_OD_ById.IdSolColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdSol\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdSol\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.IdSolColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.IdSolColumn] = value;
                 }
             }
             
@@ -676,14 +690,14 @@ namespace SisLIJAD {
             public string IdPrueba {
                 get {
                     try {
-                        return ((string)(this[this.tableGetASTM127_OD_ById.IdPruebaColumn]));
+                        return ((string)(this[this.tableGetASTM128_OD_ById.IdPruebaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdPrueba\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdPrueba\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.IdPruebaColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.IdPruebaColumn] = value;
                 }
             }
             
@@ -692,15 +706,15 @@ namespace SisLIJAD {
             public string CodigoResultado {
                 get {
                     try {
-                        return ((string)(this[this.tableGetASTM127_OD_ById.CodigoResultadoColumn]));
+                        return ((string)(this[this.tableGetASTM128_OD_ById.CodigoResultadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CodigoResultado\' de la tabla \'GetASTM127_OD_ById\' es DBNu" +
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CodigoResultado\' de la tabla \'GetASTM128_OD_ById\' es DBNu" +
                                 "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.CodigoResultadoColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.CodigoResultadoColumn] = value;
                 }
             }
             
@@ -709,14 +723,14 @@ namespace SisLIJAD {
             public string username {
                 get {
                     try {
-                        return ((string)(this[this.tableGetASTM127_OD_ById.usernameColumn]));
+                        return ((string)(this[this.tableGetASTM128_OD_ById.usernameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'username\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'username\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.usernameColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.usernameColumn] = value;
                 }
             }
             
@@ -724,172 +738,200 @@ namespace SisLIJAD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NomPrueba {
                 get {
-                    return ((string)(this[this.tableGetASTM127_OD_ById.NomPruebaColumn]));
+                    return ((string)(this[this.tableGetASTM128_OD_ById.NomPruebaColumn]));
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.NomPruebaColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.NomPruebaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double C127_A_Ge {
+            public double C128_A_Ge {
                 get {
                     try {
-                        return ((double)(this[this.tableGetASTM127_OD_ById.C127_A_GeColumn]));
+                        return ((double)(this[this.tableGetASTM128_OD_ById.C128_A_GeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C127_A_Ge\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C128_A_Ge\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.C127_A_GeColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.C128_A_GeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double C127_B_Ge {
+            public double C128_B_Ge {
                 get {
                     try {
-                        return ((double)(this[this.tableGetASTM127_OD_ById.C127_B_GeColumn]));
+                        return ((double)(this[this.tableGetASTM128_OD_ById.C128_B_GeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C127_B_Ge\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C128_B_Ge\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.C127_B_GeColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.C128_B_GeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double C127_C_Ge {
+            public double C128_C_Ge {
                 get {
                     try {
-                        return ((double)(this[this.tableGetASTM127_OD_ById.C127_C_GeColumn]));
+                        return ((double)(this[this.tableGetASTM128_OD_ById.C128_C_GeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C127_C_Ge\' de la tabla \'GetASTM127_OD_ById\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C128_C_Ge\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.C127_C_GeColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.C128_C_GeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string C127_OD_Result {
+            public double C128_S_Ge {
                 get {
                     try {
-                        return ((string)(this[this.tableGetASTM127_OD_ById.C127_OD_ResultColumn]));
+                        return ((double)(this[this.tableGetASTM128_OD_ById.C128_S_GeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C127_OD_Result\' de la tabla \'GetASTM127_OD_ById\' es DBNul" +
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C128_S_Ge\' de la tabla \'GetASTM128_OD_ById\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetASTM128_OD_ById.C128_S_GeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string C128_OD_Result {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetASTM128_OD_ById.C128_OD_ResultColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'C128_OD_Result\' de la tabla \'GetASTM128_OD_ById\' es DBNul" +
                                 "l.", e);
                     }
                 }
                 set {
-                    this[this.tableGetASTM127_OD_ById.C127_OD_ResultColumn] = value;
+                    this[this.tableGetASTM128_OD_ById.C128_OD_ResultColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdSolNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.IdSolColumn);
+                return this.IsNull(this.tableGetASTM128_OD_ById.IdSolColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetIdSolNull() {
-                this[this.tableGetASTM127_OD_ById.IdSolColumn] = global::System.Convert.DBNull;
+                this[this.tableGetASTM128_OD_ById.IdSolColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdPruebaNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.IdPruebaColumn);
+                return this.IsNull(this.tableGetASTM128_OD_ById.IdPruebaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetIdPruebaNull() {
-                this[this.tableGetASTM127_OD_ById.IdPruebaColumn] = global::System.Convert.DBNull;
+                this[this.tableGetASTM128_OD_ById.IdPruebaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCodigoResultadoNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.CodigoResultadoColumn);
+                return this.IsNull(this.tableGetASTM128_OD_ById.CodigoResultadoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCodigoResultadoNull() {
-                this[this.tableGetASTM127_OD_ById.CodigoResultadoColumn] = global::System.Convert.DBNull;
+                this[this.tableGetASTM128_OD_ById.CodigoResultadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsusernameNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.usernameColumn);
+                return this.IsNull(this.tableGetASTM128_OD_ById.usernameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetusernameNull() {
-                this[this.tableGetASTM127_OD_ById.usernameColumn] = global::System.Convert.DBNull;
+                this[this.tableGetASTM128_OD_ById.usernameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsC127_A_GeNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.C127_A_GeColumn);
+            public bool IsC128_A_GeNull() {
+                return this.IsNull(this.tableGetASTM128_OD_ById.C128_A_GeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetC127_A_GeNull() {
-                this[this.tableGetASTM127_OD_ById.C127_A_GeColumn] = global::System.Convert.DBNull;
+            public void SetC128_A_GeNull() {
+                this[this.tableGetASTM128_OD_ById.C128_A_GeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsC127_B_GeNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.C127_B_GeColumn);
+            public bool IsC128_B_GeNull() {
+                return this.IsNull(this.tableGetASTM128_OD_ById.C128_B_GeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetC127_B_GeNull() {
-                this[this.tableGetASTM127_OD_ById.C127_B_GeColumn] = global::System.Convert.DBNull;
+            public void SetC128_B_GeNull() {
+                this[this.tableGetASTM128_OD_ById.C128_B_GeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsC127_C_GeNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.C127_C_GeColumn);
+            public bool IsC128_C_GeNull() {
+                return this.IsNull(this.tableGetASTM128_OD_ById.C128_C_GeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetC127_C_GeNull() {
-                this[this.tableGetASTM127_OD_ById.C127_C_GeColumn] = global::System.Convert.DBNull;
+            public void SetC128_C_GeNull() {
+                this[this.tableGetASTM128_OD_ById.C128_C_GeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsC127_OD_ResultNull() {
-                return this.IsNull(this.tableGetASTM127_OD_ById.C127_OD_ResultColumn);
+            public bool IsC128_S_GeNull() {
+                return this.IsNull(this.tableGetASTM128_OD_ById.C128_S_GeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetC127_OD_ResultNull() {
-                this[this.tableGetASTM127_OD_ById.C127_OD_ResultColumn] = global::System.Convert.DBNull;
+            public void SetC128_S_GeNull() {
+                this[this.tableGetASTM128_OD_ById.C128_S_GeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsC128_OD_ResultNull() {
+                return this.IsNull(this.tableGetASTM128_OD_ById.C128_OD_ResultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetC128_OD_ResultNull() {
+                this[this.tableGetASTM128_OD_ById.C128_OD_ResultColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -897,22 +939,22 @@ namespace SisLIJAD {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class GetASTM127_OD_ByIdRowChangeEvent : global::System.EventArgs {
+        public class GetASTM128_OD_ByIdRowChangeEvent : global::System.EventArgs {
             
-            private GetASTM127_OD_ByIdRow eventRow;
+            private GetASTM128_OD_ByIdRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdRowChangeEvent(GetASTM127_OD_ByIdRow row, global::System.Data.DataRowAction action) {
+            public GetASTM128_OD_ByIdRowChangeEvent(GetASTM128_OD_ByIdRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetASTM127_OD_ByIdRow Row {
+            public GetASTM128_OD_ByIdRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -928,7 +970,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
+namespace SisLIJAD.Clientes.DSRPT.DSGetASTM128_OD_ByIdTableAdapters {
     
     
     /// <summary>
@@ -940,7 +982,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class GetASTM127_OD_ByIdTableAdapter : global::System.ComponentModel.Component {
+    public partial class GetASTM128_OD_ByIdTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -954,7 +996,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GetASTM127_OD_ByIdTableAdapter() {
+        public GetASTM128_OD_ByIdTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1051,16 +1093,17 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "GetASTM127_OD_ById";
+            tableMapping.DataSetTable = "GetASTM128_OD_ById";
             tableMapping.ColumnMappings.Add("IdSol", "IdSol");
             tableMapping.ColumnMappings.Add("IdPrueba", "IdPrueba");
             tableMapping.ColumnMappings.Add("CodigoResultado", "CodigoResultado");
             tableMapping.ColumnMappings.Add("username", "username");
             tableMapping.ColumnMappings.Add("NomPrueba", "NomPrueba");
-            tableMapping.ColumnMappings.Add("C127_A_Ge", "C127_A_Ge");
-            tableMapping.ColumnMappings.Add("C127_B_Ge", "C127_B_Ge");
-            tableMapping.ColumnMappings.Add("C127_C_Ge", "C127_C_Ge");
-            tableMapping.ColumnMappings.Add("C127_OD_Result", "C127_OD_Result");
+            tableMapping.ColumnMappings.Add("C128_A_Ge", "C128_A_Ge");
+            tableMapping.ColumnMappings.Add("C128_B_Ge", "C128_B_Ge");
+            tableMapping.ColumnMappings.Add("C128_C_Ge", "C128_C_Ge");
+            tableMapping.ColumnMappings.Add("C128_S_Ge", "C128_S_Ge");
+            tableMapping.ColumnMappings.Add("C128_OD_Result", "C128_OD_Result");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1077,7 +1120,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.GetASTM127_OD_ById";
+            this._commandCollection[0].CommandText = "dbo.GetASTM128_OD_ById";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdSol", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1088,7 +1131,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DSGetASTM127_OD_ById.GetASTM127_OD_ByIdDataTable dataTable, string IdSol, string IdPr) {
+        public virtual int Fill(DSGetASTM128_OD_ById.GetASTM128_OD_ByIdDataTable dataTable, string IdSol, string IdPr) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((IdSol == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1113,7 +1156,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DSGetASTM127_OD_ById.GetASTM127_OD_ByIdDataTable GetData(string IdSol, string IdPr) {
+        public virtual DSGetASTM128_OD_ById.GetASTM128_OD_ByIdDataTable GetData(string IdSol, string IdPr) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((IdSol == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1127,7 +1170,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(IdPr));
             }
-            DSGetASTM127_OD_ById.GetASTM127_OD_ByIdDataTable dataTable = new DSGetASTM127_OD_ById.GetASTM127_OD_ByIdDataTable();
+            DSGetASTM128_OD_ById.GetASTM128_OD_ByIdDataTable dataTable = new DSGetASTM128_OD_ById.GetASTM128_OD_ByIdDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1201,7 +1244,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DSGetASTM127_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DSGetASTM128_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1211,7 +1254,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DSGetASTM127_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DSGetASTM128_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1221,7 +1264,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DSGetASTM127_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DSGetASTM128_OD_ById dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1255,7 +1298,7 @@ namespace SisLIJAD.DSGetASTM127_OD_ByIdTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DSGetASTM127_OD_ById dataSet) {
+        public virtual int UpdateAll(DSGetASTM128_OD_ById dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
