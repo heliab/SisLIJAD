@@ -69,6 +69,14 @@
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Reportes">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/SICOM/Reportes/SolicitudesCompraId.aspx" 
+                        Text="Solicitudes Compra">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/SICOM/Reportes/SolicitudServicios.aspx" 
+                        Text="Solicitud de contratación">
+                    </dx:MenuItem>
+                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
                 <Items>

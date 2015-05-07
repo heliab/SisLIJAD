@@ -72,7 +72,12 @@
                     </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
-            <dx:MenuItem Text="">
+            <dx:MenuItem Text="Reportes">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/Clientes/Reportes/SolicitudesEnviadasRpt.aspx" 
+                        Text="Solicitudes Enviadas">
+                    </dx:MenuItem>
+                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="">
             </dx:MenuItem>

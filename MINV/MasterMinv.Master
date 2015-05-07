@@ -65,6 +65,26 @@
             <dx:MenuItem Text="Registros">
             </dx:MenuItem>
             <dx:MenuItem Text="Reportes">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/SolicitudesMaterialesEnviadas.aspx" 
+                        Text="Solicitudes Prestamo Materiales">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/SolicitudesPorUsuario.aspx" 
+                        Text="Solicitudes Usuario">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/ListaMateriales.aspx" 
+                        Text="Lista Materiales">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/ListaBodegas.aspx" 
+                        Text="Lista Bodegas">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/ListaLaboratorios.aspx" 
+                        Text="Lista Laboratorios">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/MaterialesPorTipo.aspx" 
+                        Text="Materiales por tipo">
+                    </dx:MenuItem>
+                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
                 <Items>

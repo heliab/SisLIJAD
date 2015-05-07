@@ -72,6 +72,20 @@
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Reportes">
+                <Items>
+                    <dx:MenuItem NavigateUrl="~/MPR/Reportes/ListaPruebas.aspx" 
+                        Text="Lista de pruebas">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MPR/Reportes/PruebasPorAprobar.aspx" 
+                        Text="Pruebas por aprobar">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MPR/Reportes/PruebasPorUsuario.aspx" 
+                        Text="Pruebas por usuario">
+                    </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MPR/Reportes/CostoPruebas.aspx" 
+                        Text="Coste Pruebas">
+                    </dx:MenuItem>
+                </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="Mantenimiento">
                 <Items>
