@@ -32,17 +32,17 @@
         <div class="row">
             <div class="first">
                 <div class="Titulo2">
-                    PVSS
+                    GEa Grueso
                 </div>
             </div>
-            <div>
+            <%--<div>
                 <ul class="ctrlist2 ctrleft">
                     <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
                         class="fa fa-list"></i>Checklist</a></li>
                     <li><a class="pure-button green-font" href="javascript:fn_EditJS();" title="Editar">
                         <i class="fa fa-search"></i>Ver ficha</a></li>
                 </ul>
-            </div>
+            </div>--%>
         </div>
     </div>
     <dx:ASPxRoundPanel ID="ASPxRoundPanel1" runat="server" Width="100%" BackColor="#F3F3F3"
@@ -172,7 +172,7 @@ fn_EndCallbackForTest();
                 <div class="second">
                     <ul class="ctrlist2">
                         <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                            <i class="fa fa-plus"></i>Hum.Vap(p)</a></li>
+                            <i class="fa fa-plus"></i>Calc. SSD</a></li>
                         <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
                             <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                         <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
@@ -189,11 +189,11 @@ fn_EndCallbackForTest();
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_W" VisibleIndex="2">
+                <dx:GridViewDataTextColumn FieldName="C127_A_Gea" VisibleIndex="2">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_D" VisibleIndex="3">
+                <dx:GridViewDataTextColumn FieldName="C127_C_Gea" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_p_Result" VisibleIndex="4">
+                <dx:GridViewDataTextColumn FieldName="C127_SSD_Gea_Result" VisibleIndex="4">
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />
@@ -209,7 +209,7 @@ fn_EndCallbackForTest();
         </dx:ASPxGridView>
         <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
             
-            SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C566_W, MPR_Det_Result_Prueba.C566_D, MPR_Det_Result_Prueba.C566_p_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
+            SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C127_A_Gea, MPR_Det_Result_Prueba.C127_C_Gea, MPR_Det_Result_Prueba.C127_SSD_Gea_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
             <SelectParameters>
                 <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
                 <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
@@ -257,9 +257,9 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Muestra de masa original">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso de la muestra seca">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sW" ClientInstanceName="sW" runat="server" Number="0.0" LargeIncrement="1"
+                                            <dx:ASPxSpinEdit ID="sA" ClientInstanceName="sA" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
@@ -278,9 +278,9 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa de muestra seca">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Peso de la muestra sumergida">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sD" ClientInstanceName="sD" runat="server" Number="0.0" LargeIncrement="1"
+                                            <dx:ASPxSpinEdit ID="sC" ClientInstanceName="sC" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
@@ -312,6 +312,8 @@ fn_CleanGroup(-1);
                                             </dx:ASPxTextBox>
                                         </div>
                                     </div>
+                                    
+                                    
                                 </div>
                             </div>
                             <br />

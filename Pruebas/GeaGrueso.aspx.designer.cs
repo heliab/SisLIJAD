@@ -148,13 +148,13 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
         
         /// <summary>
-        /// Control sW.
+        /// Control sA.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sW;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sA;
         
         /// <summary>
         /// Control ASPxLabel2.
@@ -166,13 +166,13 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel2;
         
         /// <summary>
-        /// Control sD.
+        /// Control sC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sD;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sC;
         
         /// <summary>
         /// Control ASPxLabel4.

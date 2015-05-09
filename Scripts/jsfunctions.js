@@ -402,7 +402,7 @@ function fn_Validate(e) {
     
    
 }
-
+function fn_MostrarCredito() { alert("SISLIJAD Creado por Haniel Lopez")}
 /************************* Funciones prueba *************************/
 function fn_NewMainTest() {
     txtId.SetText('Nuevo Calculo');
