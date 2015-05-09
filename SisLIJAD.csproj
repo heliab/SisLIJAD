@@ -287,6 +287,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DsGetASTM127_SSD_ById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MINV\EquiposMaquinaria.aspx.cs">
       <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1022,6 +1027,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeaGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeFinoRes.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GetReqMatById.rdlc" />
@@ -1139,6 +1145,17 @@
     </None>
     <None Include="Clientes\DSRPT\DSGetASTM128_OD_ById.xss">
       <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
+    </None>
+    <None Include="DsGetASTM127_SSD_ById.xsc">
+      <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
+    </None>
+    <None Include="DsGetASTM127_SSD_ById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsGetASTM127_SSD_ById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DsGetASTM127_SSD_ById.xss">
+      <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">
       <DependentUpon>DSGetAllReqEqById.xsd</DependentUpon>
