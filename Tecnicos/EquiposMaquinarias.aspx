@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Equipos y Maquinarias" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true"
-    CodeBehind="EquiposMaquinarias.aspx.cs" Inherits="SisLIJAD.MPR.EquiposMaquinarias" %>
+﻿<%@ Page Title="Equipos y maquinarias" Language="C#" MasterPageFile="~/Tecnicos/TecnicosMASTER.Master" AutoEventWireup="true" CodeBehind="EquiposMaquinarias.aspx.cs" Inherits="SisLIJAD.Tecnicos.EquiposMaquinarias" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>

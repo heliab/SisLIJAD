@@ -182,6 +182,7 @@
     <Content Include="Styles\styles.min.css" />
     <Content Include="Tecnicos\Default.aspx" />
     <Content Include="Tecnicos\EntregaMaterialesPrestamo.aspx" />
+    <Content Include="Tecnicos\EquiposMaquinarias.aspx" />
     <Content Include="Tecnicos\Materiales.aspx" />
     <Content Include="Tecnicos\Reportes\Rpt_EquipReq.aspx" />
     <Content Include="Tecnicos\Reportes\Rpt_MaterialesReq.aspx" />
@@ -934,6 +935,13 @@
     </Compile>
     <Compile Include="Tecnicos\EntregaMaterialesPrestamo.aspx.designer.cs">
       <DependentUpon>EntregaMaterialesPrestamo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnicos\EquiposMaquinarias.aspx.cs">
+      <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tecnicos\EquiposMaquinarias.aspx.designer.cs">
+      <DependentUpon>EquiposMaquinarias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\Materiales.aspx.cs">
       <DependentUpon>Materiales.aspx</DependentUpon>

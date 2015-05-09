@@ -87,6 +87,9 @@
                     <dx:MenuItem NavigateUrl="~/Tecnicos/UnidadesMedida.aspx" 
                         Text="Unidades de Medida">
                     </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/Tecnicos/EquiposMaquinarias.aspx" 
+                        Text="Equipos y Maquinarias">
+                    </dx:MenuItem>
                 </Items>
             </dx:MenuItem>
             <dx:MenuItem Text="">

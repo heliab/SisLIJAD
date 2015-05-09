@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 
-namespace SisLIJAD.MPR
+namespace SisLIJAD.Tecnicos
 {
     public partial class EquiposMaquinarias : System.Web.UI.Page
     {
@@ -15,7 +15,6 @@ namespace SisLIJAD.MPR
         {
 
         }
-
 
         #region CRUD
         protected void Select()
@@ -189,8 +188,5 @@ namespace SisLIJAD.MPR
             Select();
         }
         #endregion
-       
-
-
     }
 }

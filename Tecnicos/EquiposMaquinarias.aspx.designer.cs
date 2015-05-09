@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SisLIJAD.MPR {
+namespace SisLIJAD.Tecnicos {
     
     
     public partial class EquiposMaquinarias {
