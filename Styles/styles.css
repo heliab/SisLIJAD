@@ -61,6 +61,16 @@ body {
     text-align: left;
     text-shadow: 0 2px 0.8px #808080;
 }
+#Titulo3 {
+    /*color: #051537;*/
+    color: #E8E8E8;
+    font-family: Lato, Verdana, Constantia;
+    font-size: 50px;
+    padding-top: 3em;
+    padding-bottom: 0.3em;
+    text-align: center;
+    text-shadow: 0 2px 0.8px #404040;
+}
 
 .footer {
     background-color: rgba(68, 117, 185, 0.8);

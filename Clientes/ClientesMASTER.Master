@@ -36,7 +36,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-        M&oacutedulo clientes. Bienvenidos!
+        M&oacutedulo clientes.
         <div id="titulopagina"><%=this.Page.Title%></div>
     </div>
      

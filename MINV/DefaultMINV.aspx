@@ -5,7 +5,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
-<h1>Bienvenido al modulo de inventario de materiales</h1>
+ <div class="registerbg">
+        <div id="Titulo3">
+            <u>Bienvenido Módulo Materiales</u>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
 </asp:Content>
