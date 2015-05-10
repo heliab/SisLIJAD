@@ -143,7 +143,7 @@ GridPrincipal.PerformCallback();
         </Styles>
         <Templates>
             <DetailRow>
-                <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
+                <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" ClientIDMode="AutoID"
                     Width="100%">
                     <TabPages>
                         <dx:TabPage Text="Ensayes">
@@ -229,7 +229,8 @@ GridPrincipal.PerformCallback();
         SelectCommand="SELECT DISTINCT MPR_Solic_Pruebas.IdSolicPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba, MPR_Solic_Pruebas.FechaAprobación, MPR_Solic_Pruebas.FechaRegistro, MPR_Solic_Pruebas.username, MPR_Solic_Pruebas.Publicada, aspnet_Membership.Email FROM aspnet_Users INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId INNER JOIN MPR_Solic_Pruebas ON aspnet_Users.UserName = MPR_Solic_Pruebas.username WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.Pagado = 1) ORDER BY MPR_Solic_Pruebas.IdSolicPrueba DESC">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSTecnicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (USER_Entidad.IdTipo = 1) AND (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
+        
+        SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
         </SelectParameters>

@@ -321,7 +321,8 @@ fn_EndCallback();
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSTecnicos" runat="server" 
          ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-            SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (USER_Entidad.IdTipo = 1) AND (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
+            
+        SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
         </SelectParameters>
@@ -555,7 +556,8 @@ fn_EndCallback();
                                         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
                                         
                                         
-                                        SelectCommand="SELECT IdEntidad, CAST(PNombre AS NVARCHAR) + ' ' + CAST(PApellido AS NVARCHAR) AS Técnico FROM USER_Entidad WHERE (IdTipo = 1) AND (IdEntidad NOT IN (SELECT IdEntidad FROM MPR_Encarg_Prueba WHERE (IdSolicPrueba = @IdSol)))">
+                                        
+                                        SelectCommand="SELECT USER_Entidad.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS Técnico FROM aspnet_Roles INNER JOIN aspnet_UsersInRoles ON aspnet_Roles.RoleId = aspnet_UsersInRoles.RoleId INNER JOIN aspnet_Users ON aspnet_UsersInRoles.UserId = aspnet_Users.UserId INNER JOIN USER_Entidad ON aspnet_Users.UserName = USER_Entidad.username WHERE (USER_Entidad.IdEntidad NOT IN (SELECT IdEntidad FROM MPR_Encarg_Prueba WHERE (IdSolicPrueba = @IdSol))) AND (aspnet_Roles.RoleName = 'Tecnico')">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdSol" SessionField="IdSol" />
                                         </SelectParameters>

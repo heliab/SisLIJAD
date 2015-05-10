@@ -104,7 +104,7 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-                <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
+                <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" ClientIDMode="AutoID"
                     Width="100%">
                     <TabPages>
                         <dx:TabPage Text="Ensayes">
@@ -202,7 +202,8 @@ fn_EndCallback();
      <asp:SqlDataSource ID="SDSTecnicos" runat="server" 
          ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
          
-         SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE (USER_Entidad.IdTipo = 1) AND (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
+         
+        SelectCommand="SELECT MPR_Encarg_Prueba.IdEntidad, CAST(USER_Entidad.PNombre AS NVARCHAR) + ' ' + CAST(USER_Entidad.PApellido AS NVARCHAR) AS TécnicoEncargado, MPR_Encarg_Prueba.Mensaje FROM USER_Entidad INNER JOIN MPR_Encarg_Prueba ON USER_Entidad.IdEntidad = MPR_Encarg_Prueba.IdEntidad WHERE  (MPR_Encarg_Prueba.IdSolicPrueba = @IdSolicPrueba)">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolicPrueba" SessionField="IdSolicPrueba" />
         </SelectParameters>

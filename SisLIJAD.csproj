@@ -287,7 +287,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DsGetASTM127_SSD_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\DsGetASTM127_SSD_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
@@ -1146,15 +1146,15 @@
     <None Include="Clientes\DSRPT\DSGetASTM128_OD_ById.xss">
       <DependentUpon>DSGetASTM128_OD_ById.xsd</DependentUpon>
     </None>
-    <None Include="DsGetASTM127_SSD_ById.xsc">
+    <None Include="Clientes\DSRPT\DsGetASTM127_SSD_ById.xsc">
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
-    <None Include="DsGetASTM127_SSD_ById.xsd">
+    <None Include="Clientes\DSRPT\DsGetASTM127_SSD_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsGetASTM127_SSD_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DsGetASTM127_SSD_ById.xss">
+    <None Include="Clientes\DSRPT\DsGetASTM127_SSD_ById.xss">
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">
