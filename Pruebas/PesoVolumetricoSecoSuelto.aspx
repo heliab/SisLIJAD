@@ -251,13 +251,18 @@ fn_EndCallbackForTest();
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
+                                    Caption="Peso del material suelto y recipiente" 
+                                    ToolTip="Peso del material suelto y recipiente" Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
+                                    Caption="Peso del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4" 
+                                    Caption="Volumen del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
+                                    Caption="Resultado">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
@@ -376,7 +381,7 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso del material suelto y recipiente">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso del material suelto y recipiente (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sG" ClientInstanceName="sG" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
