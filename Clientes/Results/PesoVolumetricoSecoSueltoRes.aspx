@@ -185,13 +185,18 @@
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2">
+                               <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
+                                    Caption="Peso del material suelto y recipiente" 
+                                    ToolTip="Peso del material suelto y recipiente" Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
+                                    Caption="Peso del recipiente" Width="8%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4" 
+                                    Caption="Volumen del recipiente" Width="8%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
+                                    Caption="Resultado">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />

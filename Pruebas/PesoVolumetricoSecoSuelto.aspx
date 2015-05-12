@@ -247,13 +247,15 @@ fn_EndCallbackForTest();
                             OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
                             <Columns>
-                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                                    Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                                    Width="20%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
                                     Caption="Peso del material suelto y recipiente" 
-                                    ToolTip="Peso del material suelto y recipiente" Width="12%">
+                                    ToolTip="Peso del material suelto y recipiente">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
                                     Caption="Peso del recipiente">
@@ -296,12 +298,14 @@ fn_EndCallbackForTest();
                             OnCustomCallback="GridResultados2_CustomCallback" Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes2" KeyFieldName="Codigo">
                             <Columns>
-                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                                    Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                                    Width="20%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
-                                    Caption="Peso del material suelto y recipiente" Width="14%">
+                                    Caption="Peso del material suelto y recipiente">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
                                     Caption="Peso del recipiente">
