@@ -181,17 +181,24 @@
                             ClientInstanceName="GridResultados" Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
                             <Columns>
-                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                                    Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                                    Width="20%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
+                                    Caption="Peso del material suelto y recipiente" 
+                                    ToolTip="Peso del material suelto y recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
+                                    Caption="Peso del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4" 
+                                    Caption="Volumen del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
+                                    Caption="Resultado">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
@@ -210,23 +217,28 @@
             </dx:TabPage>
             <dx:TabPage Text="PVSC/FC">
                 <ContentCollection>
-                    <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
-                        
+                    <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">            
                         <dx:ASPxGridView ID="GridResultados2" runat="server" ClientInstanceName="GridResultados2"
                             Width="100%" AutoGenerateColumns="False"
                             ClientIDMode="AutoID" DataSourceID="SDSEnsayes2" KeyFieldName="Codigo">
                             <Columns>
-                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                                    Width="12%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                                    Width="20%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
+                                    Caption="Peso del material suelto y recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
+                                    Caption="Peso del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4" 
+                                    Caption="Factor de medida">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
+                                    Caption="Resultado">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
