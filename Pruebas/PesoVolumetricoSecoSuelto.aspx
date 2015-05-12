@@ -227,7 +227,7 @@ fn_EndCallbackForTest();
                 </div>--%>
         </div>
     </div>
-    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
+    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" ClientIDMode="AutoID"
         Width="100%">
         <TabPages>
             <dx:TabPage Text="PVSS/Vol.">
@@ -300,13 +300,17 @@ fn_EndCallbackForTest();
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
+                                    Caption="Peso del material suelto y recipiente" Width="14%">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
+                                    Caption="Peso del recipiente">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4" 
+                                    Caption="Factor de medida">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
+                                    Caption="Resultado">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
