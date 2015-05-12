@@ -164,17 +164,26 @@
             Width="100%" AutoGenerateColumns="False"
             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
             <Columns>
-                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                    Width="12%">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                    Width="15%">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_A_Ge" VisibleIndex="2">
+                <dx:GridViewDataTextColumn FieldName="C127_A_Ge" VisibleIndex="2" 
+                    Caption="Masa de la muestra de ensayo " 
+                    ToolTip="Masa de la muestra de ensayo  secada al horno en el aire">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_B_Ge" VisibleIndex="3">
+                <dx:GridViewDataTextColumn FieldName="C127_B_Ge" VisibleIndex="3" 
+                    Caption="Masa de la muestra seca" 
+                    ToolTip=" Masa de la muestra secasa turada superficialmente en el aire">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_C_Ge" VisibleIndex="4">
+                <dx:GridViewDataTextColumn FieldName="C127_C_Ge" VisibleIndex="4" 
+                    Caption="Masa saturada en agua" 
+                    ToolTip="Masa aparente de la muestra de ensayo saturada en agua">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_OD_Result" VisibleIndex="5">
+                <dx:GridViewDataTextColumn FieldName="C127_OD_Result" VisibleIndex="5" 
+                    Caption="Resultado">
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />
