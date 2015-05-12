@@ -190,15 +190,21 @@ fn_EndCallbackForTest();
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_A_Ge" VisibleIndex="2">
+                <dx:GridViewDataTextColumn FieldName="C128_A_Ge" VisibleIndex="2" 
+                    Caption="Masa del espécimen" ToolTip="Masa del espécimen seco del horno">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_B_Ge" VisibleIndex="3">
+                <dx:GridViewDataTextColumn FieldName="C128_B_Ge" VisibleIndex="3" 
+                    Caption="Picnómetro con agua" ToolTip="Masa del picnómetro lleno de agua">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_C_Ge" VisibleIndex="4">
+                <dx:GridViewDataTextColumn FieldName="C128_C_Ge" VisibleIndex="4" 
+                    Caption="Picnómetro muestra y agua" 
+                    ToolTip="Masa del picnómetro lleno de la muestra y el agua">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_S_Ge" VisibleIndex="5">
+                <dx:GridViewDataTextColumn FieldName="C128_S_Ge" VisibleIndex="5" 
+                    Caption="Masa de muestra saturada seca">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_OD_Result" VisibleIndex="6">
+                <dx:GridViewDataTextColumn FieldName="C128_OD_Result" VisibleIndex="6" 
+                    Caption="Resultado">
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />

@@ -182,11 +182,14 @@ fn_EndCallbackForTest();
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_A_Gea" VisibleIndex="2">
+                <dx:GridViewDataTextColumn FieldName="C127_A_Gea" VisibleIndex="2" 
+                    Caption="Peso Muestra Seca" ToolTip="Peso Muestra Seca">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_C_Gea" VisibleIndex="3">
+                <dx:GridViewDataTextColumn FieldName="C127_C_Gea" VisibleIndex="3" 
+                    Caption="Peso Muestra Sumergida">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C127_SSD_Gea_Result" VisibleIndex="4">
+                <dx:GridViewDataTextColumn FieldName="C127_SSD_Gea_Result" VisibleIndex="4" 
+                    Caption="Resultado">
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />
