@@ -117,22 +117,19 @@
                 <dx:ASPxGridView ID="GridFicha" runat="server" ClientInstanceName="GridFicha" AutoGenerateColumns="False"
                     DataSourceID="SDSPruebaFicha" Width="100%" KeyFieldName="IdDetalle">
                     <Columns>
-                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
-                    Width="12%">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
-                    Width="15%">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_W" VisibleIndex="2" 
-                    Caption="Muestra de masa original">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_D" VisibleIndex="3" 
-                    Caption="Masa de mustra seca">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C566_p_Result" VisibleIndex="4" 
-                    Caption="Resultado">
-                </dx:GridViewDataTextColumn>
-            </Columns>
+                        <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" ShowInCustomizationForm="True"
+                            VisibleIndex="0">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" ShowInCustomizationForm="True"
+                            VisibleIndex="1" Caption="Descripción Solicitud" Width="25%">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="NomPrueba" ShowInCustomizationForm="True" VisibleIndex="2"
+                            Caption="Ensaye" Width="25%">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="ObservPrueba" ShowInCustomizationForm="True"
+                            VisibleIndex="3" Caption="Observación Cliente">
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
                     <SettingsBehavior AllowGroup="False" AllowFocusedRow="True" />
                     <SettingsPager Visible="False">
                     </SettingsPager>
@@ -162,9 +159,8 @@
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
- <dx:ASPxGridView ID="GridResultados" runat="server" 
-        ClientInstanceName="GridResultados" Width="100%" AutoGenerateColumns="False"
-            ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
+        <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
+             Width="100%" AutoGenerateColumns="False"   ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
             <Columns>
                 <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
                     Width="12%">
@@ -206,9 +202,10 @@
                 <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
             </SelectParameters>
         </asp:SqlDataSource>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-  <asp:ScriptManager ID="ScriptManager1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div class="reportframe">
     <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="642px">
