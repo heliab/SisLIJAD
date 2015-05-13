@@ -195,15 +195,24 @@ fn_EndCallbackForTest();
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_A_Ge" VisibleIndex="2" 
                     Caption="Masa de la muestra de ensayo " 
-                    ToolTip="Masa de la muestra de ensayo  secada al horno en el aire">
+                    ToolTip="Masa de la muestra de ensayo  secada al horno en el aire" 
+                    Width="5%">
+                    <PropertiesTextEdit DisplayFormatString="{0} g">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_B_Ge" VisibleIndex="3" 
                     Caption="Masa de la muestra seca" 
-                    ToolTip=" Masa de la muestra seca saturada superficialmente en el aire">
+                    ToolTip=" Masa de la muestra seca saturada superficialmente en el aire" 
+                    Width="5%">
+                    <PropertiesTextEdit DisplayFormatString="{0} g">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_C_Ge" VisibleIndex="4" 
                     Caption="Masa saturada en agua" 
-                    ToolTip="Masa aparente de la muestra de ensayo saturada en agua">
+                    ToolTip="Masa aparente de la muestra de ensayo saturada en agua" 
+                    Width="5%">
+                    <PropertiesTextEdit DisplayFormatString="{0} g">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_OD_Result" VisibleIndex="5" 
                     Caption="Resultado">
@@ -270,7 +279,8 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Masa de la muestra de ensayo secada al horno en el aire">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" 
+                                                Text="Masa de la muestra de ensayo secada al horno en el aire (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sA" ClientInstanceName="sA" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -291,7 +301,8 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa de la muestra seca saturada superficialmente en el aire">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" 
+                                                Text="Masa de la muestra seca saturada superficialmente en el aire (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sB" ClientInstanceName="sB" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -313,7 +324,8 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                     <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Masa aparente de la muestra de ensayo saturada en agua">
+                                     <dx:ASPxLabel ID="ASPxLabel5" runat="server" 
+                                            Text="Masa aparente de la muestra de ensayo saturada en agua (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sC" ClientInstanceName="sC" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">

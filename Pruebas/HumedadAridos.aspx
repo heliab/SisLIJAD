@@ -194,12 +194,18 @@ fn_EndCallbackForTest();
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C566_W" VisibleIndex="2" 
                     Caption="Muestra de masa original">
+                    <PropertiesTextEdit DisplayFormatString="{0} g">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C566_D" VisibleIndex="3" 
                     Caption="Masa de mustra seca">
+                    <PropertiesTextEdit DisplayFormatString="{0} g">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C566_p_Result" VisibleIndex="4" 
                     Caption="Resultado">
+                    <PropertiesTextEdit DisplayFormatString="{0} %">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />
@@ -263,7 +269,8 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Muestra de masa original">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" 
+                                                Text="Muestra de masa original (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sW" ClientInstanceName="sW" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -284,7 +291,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa de muestra seca">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa de muestra seca (g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sD" ClientInstanceName="sD" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
