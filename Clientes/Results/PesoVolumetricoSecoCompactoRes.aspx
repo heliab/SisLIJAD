@@ -189,16 +189,24 @@
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
                                     Caption="Peso del material suelto y recipiente" 
-                                    ToolTip="Peso del material suelto y recipiente">
+                                    ToolTip="Peso del material suelto y recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
-                                    Caption="Peso del recipiente">
+                                    Caption="Peso del recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4" 
-                                    Caption="Volumen del recipiente">
+                                    Caption="Volumen del recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} m3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
                                     Caption="Resultado">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
@@ -229,16 +237,24 @@
                                     Width="20%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
-                                    Caption="Peso del material suelto y recipiente">
+                                    Caption="Peso del material suelto y recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
-                                    Caption="Peso del recipiente">
+                                    Caption="Peso del recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4" 
-                                    Caption="Factor de medida">
+                                    Caption="Factor de medida" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} m-3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
                                     Caption="Resultado">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />

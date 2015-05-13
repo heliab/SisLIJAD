@@ -173,7 +173,7 @@ fn_EndCallbackForTest();
             </div>
         </div>
     </div>
-    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" ClientIDMode="AutoID"
+    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" ClientIDMode="AutoID"
         Width="100%">
         <TabPages>
             <dx:TabPage Text="PVSC/Vol.">
@@ -201,16 +201,18 @@ fn_EndCallbackForTest();
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
                                     Caption="Peso del material suelto y recipiente" 
-                                    ToolTip="Peso del material suelto y recipiente">
+                                    ToolTip="Peso del material suelto y recipiente" Width="5%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
-                                    Caption="Peso del recipiente">
+                                    Caption="Peso del recipiente" Width="5%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_V" VisibleIndex="4" 
-                                    Caption="Volumen del recipiente">
+                                    Caption="Volumen del recipiente" Width="5%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
                                     Caption="Resultado">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
@@ -251,16 +253,24 @@ fn_EndCallbackForTest();
                                     Width="20%">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_G" VisibleIndex="2" 
-                                    Caption="Peso del material suelto y recipiente">
+                                    Caption="Peso del material suelto y recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_T" VisibleIndex="3" 
-                                    Caption="Peso del recipiente">
+                                    Caption="Peso del recipiente" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_F" VisibleIndex="4" 
-                                    Caption="Factor de medida">
+                                    Caption="Factor de medida" Width="5%">
+                                    <PropertiesTextEdit DisplayFormatString="{0} m−3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="C29_M_Result" VisibleIndex="5" 
                                     Caption="Resultado">
+                                    <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                                    </PropertiesTextEdit>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                             <SettingsBehavior AllowFocusedRow="True" />
@@ -281,7 +291,8 @@ fn_EndCallbackForTest();
     </dx:ASPxPageControl>
     <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C29_G, MPR_Det_Result_Prueba.C29_T, MPR_Det_Result_Prueba.C29_V, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante=3)">
+        
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, CAST(MPR_Det_Result_Prueba.C29_G AS NVARCHAR) + ' kg' AS C29_G, CAST(MPR_Det_Result_Prueba.C29_T AS NVARCHAR) + ' kg' AS C29_T, CAST(MPR_Det_Result_Prueba.C29_V AS NVARCHAR) + ' m3' AS C29_V, MPR_Det_Result_Prueba.C29_M_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr) AND (MPR_Det_Result_Prueba.Variante = 3)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
@@ -337,7 +348,8 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso del material suelto y recipiente">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" 
+                                                Text="Peso del material suelto y recipiente (kg)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sG" ClientInstanceName="sG" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -358,7 +370,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Peso del recipiente">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Peso del recipiente (kg)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sT" ClientInstanceName="sT" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -379,7 +391,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Volumen del recipiente">
+                                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Volumen del recipiente (m3)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sV" ClientInstanceName="sV" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -474,7 +486,8 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                        <dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Peso del material suelto y recipiente">
+                                        <dx:ASPxLabel ID="ASPxLabel6" runat="server" 
+                                                Text="Peso del material suelto y recipiente (kg)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sG2" ClientInstanceName="sG2" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -495,7 +508,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Peso del recipiente">
+                                            <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Peso del recipiente (kg)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sT2" ClientInstanceName="sT2" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -516,7 +529,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                               <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Factor de medida">
+                                               <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Factor de medida (m-3)">
                                                 </dx:ASPxLabel>
                                                 <dx:ASPxSpinEdit ID="sF" ClientInstanceName="sF" runat="server" Number="0.0" LargeIncrement="1"
                                                     Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
