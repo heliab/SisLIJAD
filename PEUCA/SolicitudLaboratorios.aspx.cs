@@ -41,7 +41,7 @@ namespace SisLIJAD.PEUCA
                     teHoraFin.Text = dr["HoraFin"].ToString();
                     sGrup.Value= dr["NoGrupos"].ToString();
                     seEstGrup.Value= dr["NoEstudiantesGrup"].ToString();
-                    cmbLabs.Value = dr["IdUbicacion"].ToString();
+                    cmbLabs.Text = dr["IdUbicacion"].ToString();
                    
                 }
                 else

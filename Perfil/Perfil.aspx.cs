@@ -47,7 +47,7 @@ namespace SisLIJAD.Perfil
                     txtSApel.Text = dr["SApellido"].ToString();
                     txtEmpresa.Text= dr["Empresa"].ToString();
                     txtCel.Text = dr["Celular"].ToString();
-                    txtMail.Text = dr["Email"].ToString();
+                    //txtMail.Text = dr["Email"].ToString();
                     txtWeb.Text = dr["Web"].ToString();
                     
                    
@@ -91,7 +91,7 @@ namespace SisLIJAD.Perfil
                 cmd.Parameters.Add("@SApellido", SqlDbType.NVarChar).Value = txtSApel.Text;
                 cmd.Parameters.Add("@Empresa ", SqlDbType.NVarChar).Value = txtEmpresa.Text;
                 cmd.Parameters.Add("@Celular", SqlDbType.NVarChar).Value = txtCel.Text ;
-                cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtMail.Text;
+                //cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtMail.Text;
                 cmd.Parameters.Add("@Web", SqlDbType.NVarChar).Value = txtWeb.Text;
                 cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
                

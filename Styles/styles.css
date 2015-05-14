@@ -1,27 +1,25 @@
-/*Estilo CSS creado por Haniel Lopez para culminación de estudios 2014. UCA*/
+/*Estilo CSS creado por Haniel Lopez para culminación de estudios 2014-2015. UCA*/
 body {
     /* background-color: rgba(11, 163, 112, 0.52);
-  background-color:  rgba(227, 232, 218, 0.86);
+    background-color:  rgba(227, 232, 218, 0.86);
     background-image: linear-gradient(
-      rgba(115, 195, 24, 0.13), 
-      rgba(115, 195, 24, 0.13)*/
-    /*    background-image: linear-gradient(
-      rgba(224,224,224, 0.4), 
-      rgba(115, 195, 24, 0.2)
+    rgba(115, 195, 24, 0.13), 
+    rgba(115, 195, 24, 0.13)*/
+    /*background-image: linear-gradient(
+    rgba(224,224,224, 0.4), 
+    rgba(115, 195, 24, 0.2)
     ),url(../Images/back_p2.png);
-    
     background-repeat: no-repeat;
-   background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));*/
+    background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));*/
    background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
-  background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Firefox 3.6 to 15 */
+   background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Firefox 3.6 to 15 */
 }
-.registerbg
-{
+.registerbg{
     background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
-  background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); 
-     width:100%;
-     height:430px;
-    }
+    background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); 
+    width:100%;
+    height:430px;
+}
 #centerbox {
     background-color: rgba(90, 155, 16, 0.32);
     height: 57%;
@@ -29,7 +27,7 @@ body {
     position: fixed;
     text-align: justify;
     width: 80%;
-  }
+}
 
 #Titulo1 {
     /*color: #051537;*/
@@ -172,34 +170,24 @@ header {
     text-align: center;
     width: 38%;
 }
-/*
-#wrapcontainer {
-    background: rgba(90, 155, 16, 0.51);
-    /*traido de wrapper
-    
-}
-    
-*/
-
 .alineacion {
     /*Este codigo pone los elementos en fila horizontalmente
     display: inline-block;*/
     display: block;
     margin: 2em;
-    
 }
 
 /* ***********PURE CSS IDEAS*********** */
 
- .large-button{
-            color: #808080;
-            border-radius: 4px;
-            font-family: Lato, Verdana, Constantia;
-            font-size: 1em;
-            height: 3em;
-            width: 60%;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        }
+.large-button{
+   color: #808080;
+   border-radius: 4px;
+   font-family: Lato, Verdana, Constantia;
+   font-size: 1em;
+   height: 3em;
+   width: 60%;
+   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 
 .button-green{
     background-color: rgba(90, 155, 16, 0.47);
@@ -214,23 +202,19 @@ header {
     display:table;
     width: 100%;
    /* margin: 1em auto;*/
-    
-    
 }
 
 /*Half classes establecen de forma vertical la division del formulario en 2*/
 .HalfLeft{
   /*  background-color: rgba(232, 163, 0, 0.73);*/
-
-  float: right;
+   float: right;
    width: 50%; 
 }
 .HalfRight{
    /* background-color: #00ff21;*/
- float: right;
+   float: right;
    width: 50%;
 }
-
 .HalfMiddle{
   /*  background-color: rgba(68, 117, 185, 0.8);*/
     height: auto;
@@ -258,38 +242,32 @@ header {
     padding: 0.7em;
     text-align: center;
 }
-.row
-{
+.row{
     display:table-row;
-    }
+ }
 
-.first,.second,.third
-{
+.first,.second,.third{
     display:table-cell;
-    }
-   .first
-    {
-        width:19em;
-        }
+}
+.first{
+    width:19em;
+ }
 /*----------------***********************************************************************------*/
 .Header {
    /* background-color: #0094ff;
     height: 170px;
     width: 100%;*/ 
-        background-image: url("../Images/SisLIJAD3.png");
-         background-repeat:no-repeat;
+    background-image: url("../Images/SisLIJAD3.png");
+    background-repeat:no-repeat;
     background-position:5% 50%;
-     background-size: 80px 70px;
-     
+    background-size: 80px 70px;
     background-color: rgba(68, 117, 185, 0.9);
     border-bottom-color: #122953;
     border-style: solid;
     border-bottom-width: 5px;
     height: 60px;
     margin-top: 0%;
-    width: 100%;
-
-    
+    width: 100%; 
 }
 
 .Center{
@@ -345,77 +323,66 @@ section {
       
 }
 
-
-
 /* LOGO  */
-.logo  
-{
+.logo{
     background-image: url("../Images/SisLIJAD2.png");
     background-repeat:no-repeat;
     background-position:left center;
     background-size: 80px 60px;
     margin-top:0px;
     
-    }
+}
     
     
-    /*Botones*/
-    .ctrlist li
-    {
+/*Botones*/
+.ctrlist li {
     display: inline;
     list-style-type: none;
 /*padding-right: 20px;*/
-    }
+}
    
-     .ctrlist
-     {
-         padding-top: 5px;
-         padding-bottom:5px;
-      /*   margin:0 0;*/
-         
-         }
-    .wrapctrl
-    {
-         background:rgba(27, 0, 0, 0.2);
-        border-left-style:solid;
-        border-left-width: 2.5px;
+.ctrlist {
+    padding-top: 5px;
+    padding-bottom:5px;
+      /*   margin:0 0;*/        
+}
+.wrapctrl{
+     background:rgba(27, 0, 0, 0.2);
+     border-left-style:solid;
+     border-left-width: 2.5px;
       /*  padding-left: 2.3em;*/
-         margin-right:0.5%;
+     margin-right:0.5%;
      margin-left:0.5%;
      width:99%;
-        }
-  .leftctrl
-  {
+}
+.leftctrl{
       text-align:right;
-      }      
-        
-     .frmctrl 
-     {
-         padding-left: 2.3em;
-         }   
-   .frmctrl li 
-    {
-    display: inline;
-    list-style-type: none;
-        }
-    .form
-    {
+}      
+.centerctrl{
+      text-align:center;
+}
+.frmctrl{
+      padding-left: 2.3em;
+ }   
+.frmctrl li{
+      display: inline;
+      list-style-type: none;
+ }
+.form {
         background-color: rgba(240,240,240, 0.3);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
-     }
+}
      
-     .formRegister
-    {
+.formRegister{
         background-color: rgba(240,240,240, 0.3);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
         margin-left:27.8em;
-     }
-          .formWelcome
-    {
+}
+.formWelcome {
         background-color: rgba(210,210,210,0.6);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
@@ -424,9 +391,8 @@ section {
         width:360px;
         margin-top:7em;
         position:absolute;
-       }
-       .formModulo
-    {
+ }
+.formModulo{
         background-color: rgb(240,240,240);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
@@ -434,125 +400,111 @@ section {
         margin-left:27.8em;
         margin-top:10em;
         width:350px;
-     }
-     .formUserAdmin
-     {
-         background-color: rgba(145, 144, 145, 0.6);
+}
+.formUserAdmin {
+        background-color: rgba(145, 144, 145, 0.6);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
         margin-left:27.8em;
         margin-top:10em;
         width:350px;
-         }
-         .formUserAdmin2
-          {
-         background-color: rgba(210,210,210, 0.6);
+}
+.formUserAdmin2{
+        background-color: rgba(210,210,210, 0.6);
         border-radius: 10px;
         border: 1px solid rgba(240,240,240, 0.6);
         padding-left:1.7em;
         margin-left:27.8em;
         margin-top:2em;
         width:350px;
-         }
-        .formUserAdmin2:hover,.formUserAdmin:hover
-         {
-             -moz-box-shadow: 5px 5px 0px rgba(210,210,210, 0.6);
-	            -webkit-box-shadow: 5px 5px 0px #999;
+}
+.formUserAdmin2:hover,.formUserAdmin:hover{
+         -moz-box-shadow: 5px 5px 0px rgba(210,210,210, 0.6);
+	     -webkit-box-shadow: 5px 5px 0px #999;
          box-shadow: 5px 5px 0px rgba(210,210,210, 0.6) }
      /*Colores de botones*/   
-           .button-green {
-            background: rgb(28, 184, 65); /* this is a green */
+.button-green {
+         background: rgb(28, 184, 65); /* this is a green */
         }
-
-        .button-red {
+.button-red {
             background: rgb(202, 60, 60); /* this is a maroon */
         }
-
-        .button-orange {
+.button-orange {
             background: rgb(223, 117, 20);
         }
-
-        .button-blue {
+.button-blue {
             background: rgb(66, 184, 221); 
         }
-        .button-purple {
+.button-purple {
             background:rgb(87, 98, 194);
             }
-        .button-gray
+.button-gray
         {
             background:rgb(238-233-233);
             }
        /*Tamaño botones*/  
-       .button-xsmall {
+.button-xsmall {
             font-size: 70%;
         }
 
-        .button-small {
+.button-small {
             font-size: 85%;
         }
 
-        .button-large {
+.button-large {
             font-size: 110%;
         }
 
-        .button-xlarge {
+.button-xlarge {
             font-size: 125%;}
     /*Colores de letra sobre los botones*/
-    .blue-font:hover,.green-font:hover,.red-font:hover,.yellow-font:hover
-    {
+.blue-font:hover,.green-font:hover,.red-font:hover,.yellow-font:hover{
     -webkit-transition: color 0.8s ease-out;
     -moz-transition: color 0.8s ease-out;
-    }
-    .white-font:hover{-webkit-transition: color 0.5s ease-out;
+}
+.white-font:hover{
+    -webkit-transition: color 0.5s ease-out;
     -moz-transition: color 0.5s ease-out;}
-    .blue-font:hover
-    {
+.blue-font:hover {
     color:rgb(27,128,191);
-    }
-    .green-font:hover
-    {
+}
+.green-font:hover{
   color:rgb(14,145,0);
-        }
-    .red-font:hover
-    {
+}
+.red-font:hover{
    color:rgb(191,43,27);
-        }
-    .yellow-font:hover
-    {
-        color:rgb(243, 229, 171);
-        
-        }
+ }
+.yellow-font:hover{
+   color:rgb(243, 229, 171);
+}
 .white-font:hover
  {
-        color:rgb(246, 246, 246);
+   color:rgb(246, 246, 246);
  }
- .bold
+.bold
 {
     font-weight: bold;
 }
-.font-inicio
-{
+.font-inicio {
     font-size:1.5em;
     color:rgb(47, 47, 47);
-    }
+}
 
-        /*espacio izquierdo de botones*/
-        #leftmar-button
-        {
-       margin-left: 30px;
-        }
+/*espacio izquierdo de botones*/
+#leftmar-button{
+     margin-left: 30px;
+}
         
-        /*Login display from site css*/
-        .loginDisplay
+/*Login display from site css*/
+.loginDisplay
 {
     font-size: 1.1em;
    /*  display: block;
    text-align: right;*/
-   
     color: White;
    /* position:fixed;*/
-   position:absolute;
+    position:absolute;
     left:85%;
     margin-top:0.8em;
     font-family: Lato, Verdana, Constantia;
@@ -586,119 +538,114 @@ section {
     color:#A00000;
     }
     /*Ficah pruebas*/
-    .ficha
-    {
-        background:rgba(200,200,200,0.8);
-        border-style:solid;
-        border-width: 1.2px;
-        border-radius: 6px;
-        -webkit-border-radius: 6px;
-        margin-left: 1em;
-        width:90%;
-        }
-        .wraptitle
-    {
-         background:rgba(27, 0, 0, 0.2);
-        border-left-style:solid;
-        border-left-width: 2.5px;
-        padding-left: 2.3em;
-        width:96.6%;
-        
-        margin-bottom:0.2em;
-        margin-top:0.2em;
-        }
+.ficha
+{
+    background:rgba(200,200,200,0.8);
+    border-style:solid;
+    border-width: 1.2px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin-left: 1em;
+    width:90%;
+    }
+.wraptitle{
+    background:rgba(27, 0, 0, 0.2);
+    border-left-style:solid;
+    border-left-width: 2.5px;
+    padding-left: 2.3em;
+    width:96.6%;
+    margin-bottom:0.2em;
+    margin-top:0.2em;
+}
        
-    .ctrlist2 li
-    {
+.ctrlist2 li{
     display: inline;
     list-style-type: none;
-/*padding-right: 20px;*/
-    }
+    /*padding-right: 20px;*/
+}
    
-     .ctrlist2
-     {
-         margin:0px;
-         padding-bottom:4px;
-
-         }
-     .ctrleft
-     {
-         padding-left:68%;
-         
-         }
-         td
-         {
-             vertical-align:middle;}
-         hr
-         {
-             background-color:rgb(248,248,248);
+.ctrlist2{
+    margin:0px;
+    padding-bottom:4px;
+}
+.ctrleft{
+    padding-left:68%;
+    
+}
+td
+{
+    vertical-align:middle;}
+hr
+{
+    background-color:rgb(248,248,248);
              
               
-               width:80%; height:0.4px; 
-             }
+    width:80%; height:0.4px; 
+    }
              
-         .scroll
-         {height:auto;
+.scroll
+{
+height:auto;
 min-height:400px;
 height:auto;
 height:400px;   
-             }    
+    }    
              
-             .scrollfooter {
-   /*background-color: rgba(80, 108, 110, 0.8);*/
-    color: #ececec;
-    font-family: Verdana;
-    font-weight: 500;
-    height: 70px;
-    text-align: center;
-    width: 100%;
-	position:relative;
-	bottom:0;
-	left:0;
-	float:left;
-    margin-top:1em;
+    .scrollfooter {
+/*background-color: rgba(80, 108, 110, 0.8);*/
+color: #ececec;
+font-family: Verdana;
+font-weight: 500;
+height: 70px;
+text-align: center;
+width: 100%;
+position:relative;
+bottom:0;
+left:0;
+float:left;
+margin-top:1em;
 }
         
- .grid
- {
-     margin-right:0.5%;
-     margin-left:0.5%;
-     width:99%;
-     }            
+.grid
+{
+margin-right:0.5%;
+margin-left:0.5%;
+width:99%;
+}            
              
- .legenda
- {
-     font-family: Lato, Verdana, Constantia;
-     color:#2770C2;
-     } 
+.legenda
+{
+font-family: Lato, Verdana, Constantia;
+color:#2770C2;
+} 
 .centertitle{margin-left:27.8em;}             
              
 #fondo{
- background: url(../Images/blurfromt.JPG) no-repeat fixed center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height:500px;
-   /* -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
+background: url(../Images/blurfromt.JPG) no-repeat fixed center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+height:500px;
+/* -webkit-filter: blur(3px);
+-moz-filter: blur(3px);
+-o-filter: blur(3px);
+-ms-filter: blur(3px);
+filter: blur(3px);
 */
-    }
+}
 .reportframe
 {
-    margin-left:25.4%;
-        }
- .topbutton1
-        {
+margin-left:25.4%;
+}
+.topbutton1
+{
 
- padding-bottom:3px;
-        }
+padding-bottom:3px;
+}
 
 .blackfont
 {
-    color:black;
-    }
+color:black;
+}
            

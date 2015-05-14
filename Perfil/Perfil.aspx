@@ -167,7 +167,7 @@ fn_EndCallback();
     </dx:ASPxGridView>
     </div>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT IdEntidad, Empresa, Email, Web, username, PNombre+' '+ SNombre+ ' '+PApellido+' ' + SApellido as Nombre, Celular FROM USER_Entidad WHERE (username = @username)">
+        SelectCommand="SELECT USER_Entidad.IdEntidad, USER_Entidad.Empresa, USER_Entidad.Web, USER_Entidad.username, USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS Nombre, USER_Entidad.Celular, aspnet_Membership.Email FROM aspnet_UsersInRoles INNER JOIN aspnet_Roles ON aspnet_UsersInRoles.RoleId = aspnet_Roles.RoleId INNER JOIN aspnet_Users ON aspnet_UsersInRoles.UserId = aspnet_Users.UserId INNER JOIN USER_Entidad ON aspnet_Users.UserName = USER_Entidad.username INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId WHERE (USER_Entidad.username = @username)">
         <SelectParameters>
             <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
@@ -247,7 +247,8 @@ fn_CleanGroup(1);
                                     </dx:ASPxTextBox>
                                     </div>
                                 </div>
-                                <div class="row">
+                               <%-- El email lo estoy obteniendo de membership--%>
+                                <%--<div class="row">
                                 <div class="first">
                                         <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Email">
                                         </dx:ASPxLabel>
@@ -261,7 +262,7 @@ fn_CleanGroup(1);
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="row">
                                 <div class="first">
                                         <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Celular">

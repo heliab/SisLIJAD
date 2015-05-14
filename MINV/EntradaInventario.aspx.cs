@@ -35,7 +35,7 @@ namespace SisLIJAD.MINV
                     // display data in textboxes
                     txtId.Text = dr["IdEntrada"].ToString();
                     memoEntra.Text = dr["EntryHeader"].ToString();
-                    cmbProveedor.Value = dr["IdEntidad"].ToString();
+                    cmbProveedor.Text = dr["IdEntidad"].ToString();
                     deFecha.Value = dr["FechaEntrada"];
                     teHora.Text = dr["HoraRecep"].ToString();
                     cmbPersonal.Value = dr["RecepcionadoPor"].ToString();

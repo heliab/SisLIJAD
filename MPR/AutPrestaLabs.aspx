@@ -59,10 +59,6 @@
                 }
             }
         }
-        function mm() {
-            fn_GetMail();
-        }
-
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">

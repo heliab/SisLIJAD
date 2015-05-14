@@ -35,7 +35,7 @@ namespace SisLIJAD.MINV
                     txtId.Text = dr["IdMaterial"].ToString();
                     txtCodUCA.Text = dr["CodUCA"].ToString();
                     txtNomMat.Text = dr["NomMaterial"].ToString();
-                    cmbUdM.Value = dr["IdUnidad"].ToString();
+                    cmbUdM.Text = dr["IdUnidad"].ToString();
                     txtMarca.Text = dr["Marca"].ToString();
                     chkPrest.Checked= Convert.ToBoolean(dr["Prestamo"]);
                 }

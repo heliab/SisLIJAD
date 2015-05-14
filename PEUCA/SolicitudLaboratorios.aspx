@@ -235,7 +235,7 @@ fn_EndCallback();
         HeaderText="Formulario de registro" Modal="True"
         PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
         FooterText="Formulario de registro" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
-        Height="430px" Width="410px" CloseAction="CloseButton">
+        Height="430px" Width="380px" CloseAction="CloseButton">
         <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
@@ -440,7 +440,7 @@ fn_CleanGroup(1);
                                      </div>
                             </div>
                             <div>
-                                <ul class="frmctrl">
+                                <ul class="frmctrl centerctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
