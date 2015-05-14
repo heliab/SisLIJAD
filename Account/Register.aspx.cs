@@ -23,7 +23,7 @@ namespace SisLIJAD.Account
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))
             {
-                continueUrl = "~/";
+                continueUrl = "~/Perfil/Perfil.aspx";
             }
             Response.Redirect(continueUrl);
         }

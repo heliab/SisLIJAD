@@ -53,9 +53,7 @@ namespace SisLIJAD.Perfil
                 }
                 else
                 {
-                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
                     ChangeProfile();
-
                 }
                 dr.Close();
             }

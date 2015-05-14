@@ -93,7 +93,7 @@
     <ContentTemplate>
         <table style="font-family:Verdana;font-size:100%;">
             <tr>
-                <td align="center" colspan="2" 
+                <td align="center" 
                     style="color:White;background-color:#5D7B9D;font-weight:bold;">
                     Completar</td>
             </tr>
@@ -102,11 +102,12 @@
                     La cuenta se ha creado correctamente.</td>
             </tr>
             <tr>
-                <td align="right" colspan="2">
+                <td align="right">
                     <asp:Button ID="ContinueButton" runat="server" BackColor="#FFFBFF" 
                         BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" 
                         CausesValidation="False" CommandName="Continue" Font-Names="Verdana" 
-                        ForeColor="#284775" Text="Continuar" ValidationGroup="RegisterUser" />
+                        ForeColor="#284775" Text="Continuar" ValidationGroup="RegisterUser" 
+                        PostBackUrl="~/Perfil/Perfil.aspx" />
                 </td>
             </tr>
         </table>
