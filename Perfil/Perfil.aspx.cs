@@ -24,7 +24,6 @@ namespace SisLIJAD.Perfil
 
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
-            ChangeProfile();
             Select();
         }
         #region CRUD
@@ -35,7 +34,7 @@ namespace SisLIJAD.Perfil
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand(" Select PNombre,SNombre,PApellido,SApellido,Empresa,Celular,Email,Web,username from USER_Entidad where username= @username", con);
+                SqlCommand cmd = new SqlCommand(" Select PNombre,SNombre,PApellido,SApellido,Empresa,Celular,Web,username from USER_Entidad where username= @username", con);
                 cmd.Parameters.AddWithValue("@username", username);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -55,6 +54,7 @@ namespace SisLIJAD.Perfil
                 else
                 {
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+                    ChangeProfile();
 
                 }
                 dr.Close();
