@@ -215,7 +215,8 @@ fn_EndCallback();
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDatosPersonales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT Cedula, Nombre FROM MPR_Solic_Lab WHERE (IdPrestLab = @IdPrestLab)">
+        
+        SelectCommand="SELECT USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS Nombre, MPR_Solic_Lab.Cedula FROM MPR_Solic_Lab INNER JOIN USER_Entidad ON MPR_Solic_Lab.username = USER_Entidad.username WHERE (MPR_Solic_Lab.IdPrestLab = @IdPrestLab)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestLab" SessionField="IdPrestLab" />
         </SelectParameters>
@@ -308,7 +309,29 @@ fn_CleanGroup(1);
                                     </div>
                                     </div>
                                     <div class="row">
-                                        <div class="first">
+                                     <div class="first">
+                                        <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Seleccione el laboratorio">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxComboBox ID="cmbLabs" runat="server" ClientInstanceName="cmbLabs" 
+                                            DataSourceID="SDSLabs" TextField="Laboratotio" ValueField="IdLaboratorio" 
+                                            Width="170px">
+                                            <Columns>
+                                                <dx:ListBoxColumn Caption="Id" FieldName="IdLaboratorio" />
+                                                <dx:ListBoxColumn Caption="Laboratorio" FieldName="Laboratotio" />
+                                            </Columns>
+                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
+                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                    <RegularExpression ErrorText="Informacion Requerida" />
+                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                                </ValidationSettings>
+                                        </dx:ASPxComboBox>
+                                        <asp:SqlDataSource ID="SDSLabs" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
+                                            SelectCommand="SELECT IdUbicacion AS IdLaboratorio, DescUbicacion AS Laboratotio FROM MINV_Ubicaciones WHERE (IdTipoUb = 1)"></asp:SqlDataSource>
+                                    </div>
+                                        <div class="second">
                                             <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha que requeriere el laboratorio">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq" 
@@ -387,22 +410,11 @@ fn_CleanGroup(1);
                                       </div>
 
                                       <div class="row">
-                                        <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Ingrese su nombre completo">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxTextBox ID="txtNom" runat="server" Width="90%" ClientSideName="txtNom">
-                                            <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                           </dx:ASPxTextBox>
-                                        </div><div class="second">
+<div class="first">
                                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Ingrese Cedula Identidad">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtCed" runat="server" Width="170px" ClientSideName="txtCed">
+                                                <MaskSettings Mask="000-000000-0000" />
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -413,31 +425,7 @@ fn_CleanGroup(1);
                                            </dx:ASPxTextBox>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                    <div class="first">
-                                        <dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Seleccione el laboratorio">
-                                        </dx:ASPxLabel>
-                                        <dx:ASPxComboBox ID="cmbLabs" runat="server" ClientInstanceName="cmbLabs" 
-                                            DataSourceID="SDSLabs" TextField="Laboratotio" ValueField="IdLaboratorio" 
-                                            Width="170px">
-                                            <Columns>
-                                                <dx:ListBoxColumn Caption="Id" FieldName="IdLaboratorio" />
-                                                <dx:ListBoxColumn Caption="Laboratorio" FieldName="Laboratotio" />
-                                            </Columns>
-                                        <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                        </dx:ASPxComboBox>
-                                        <asp:SqlDataSource ID="SDSLabs" runat="server" 
-                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                            SelectCommand="SELECT IdUbicacion AS IdLaboratorio, DescUbicacion AS Laboratotio FROM MINV_Ubicaciones WHERE (IdTipoUb = 1)"></asp:SqlDataSource>
-                                    </div>
-                                    </div>
-                                     </div>
+                                 </div>
                             </div>
                             <div>
                                 <ul class="frmctrl centerctrl">

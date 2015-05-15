@@ -10,7 +10,7 @@
 namespace SisLIJAD.Perfil {
     
     
-    public partial class PerfilMaster {
+    public partial class PerfilesMaster {
         
         /// <summary>
         /// Control Head1.

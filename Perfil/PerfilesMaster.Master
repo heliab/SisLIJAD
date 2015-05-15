@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PerfilMaster.master.cs"
-    Inherits="SisLIJAD.Perfil.PerfilMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PerfilesMaster.master.cs" Inherits="SisLIJAD.Perfil.PerfilesMaster" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>

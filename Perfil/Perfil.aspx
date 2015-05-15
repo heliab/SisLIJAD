@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Perfil/PerfilMaster.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="SisLIJAD.Perfil.Perfil" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Perfil/PerfilesMaster.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="SisLIJAD.Perfil.Perfil" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>

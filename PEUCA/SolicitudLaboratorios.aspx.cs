@@ -23,7 +23,7 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT  IdPrestLab,Procedimiento,Cedula,Nombre,Asignatura,CodAsignatura,CONVERT(DATE,FechaReq) as FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion,Enviada,Aprobada,Cancelada FROM  [MPR_Solic_Lab]", con);
+                SqlCommand cmd = new SqlCommand("SELECT  IdPrestLab,Procedimiento,Cedula,Asignatura,CodAsignatura,CONVERT(DATE,FechaReq) as FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion,Enviada,Aprobada,Cancelada FROM  [MPR_Solic_Lab]", con);
                 cmd.Parameters.AddWithValue("@IdPrestLab", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -33,7 +33,6 @@ namespace SisLIJAD.PEUCA
                     txtId.Text = dr["IdPrestLab"].ToString();
                     mProc.Text = dr["Procedimiento"].ToString();
                     txtCed.Text = dr["Cedula"].ToString();
-                    txtNom.Text = dr["Nombre"].ToString();
                     txtAsig.Text = dr["Asignatura"].ToString();
                     txtCodAsig.Text = dr["CodAsignatura"].ToString();
                     deFeReq.Value = dr["FechaReq"].ToString();
@@ -70,11 +69,10 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Solic_Lab (Procedimiento,username,Cedula,Nombre,Asignatura,CodAsignatura,FechaReg,FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion) values(@Procedimiento,@username,@Cedula,@Nombre,@Asignatura,@CodAsignatura,@FechaReg,@FechaReq,@Horaini,@HoraFin,@NoGrupos,@NoEstudiantesGrup,@IdUbicacion)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Solic_Lab (Procedimiento,username,Cedula,Asignatura,CodAsignatura,FechaReg,FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion) values(@Procedimiento,@username,@Cedula,@Asignatura,@CodAsignatura,@FechaReg,@FechaReq,@Horaini,@HoraFin,@NoGrupos,@NoEstudiantesGrup,@IdUbicacion)", con);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
-                cmd.Parameters.AddWithValue("@Nombre", txtNom.Text);
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodAsignatura", txtCodAsig.Text);
                 cmd.Parameters.AddWithValue("@FechaReg", serverTime);
@@ -110,11 +108,10 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MPR_Solic_Lab set Procedimiento=@Procedimiento,Cedula=@Cedula,Nombre=@Nombre,Asignatura=@Asignatura,CodAsignatura=@CodAsignatura,FechaReq=@FechaReq,Horaini=@Horaini,HoraFin=@HoraFin,NoGrupos=@NoGrupos,NoEstudiantesGrup=@NoEstudiantesGrup,IdUbicacion=@IdUbicacion where IdPrestLab = @IdPrestLab", con);
+                SqlCommand cmd = new SqlCommand("update MPR_Solic_Lab set Procedimiento=@Procedimiento,Cedula=@Cedula,Asignatura=@Asignatura,CodAsignatura=@CodAsignatura,FechaReq=@FechaReq,Horaini=@Horaini,HoraFin=@HoraFin,NoGrupos=@NoGrupos,NoEstudiantesGrup=@NoEstudiantesGrup,IdUbicacion=@IdUbicacion where IdPrestLab = @IdPrestLab", con);
                 cmd.Parameters.AddWithValue("@IdPrestLab", txtId.Text);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
-                cmd.Parameters.AddWithValue("@Nombre", txtNom.Text);
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodAsignatura", txtCodAsig.Text);
                 cmd.Parameters.AddWithValue("@FechaReq", deFeReq.Value);
@@ -198,8 +195,7 @@ namespace SisLIJAD.PEUCA
                 con.Close();
             }
         }
-        #endregion
-        
+        #endregion    
         #region Mensaje
         protected void EnviarMensaje()
         {

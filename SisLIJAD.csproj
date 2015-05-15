@@ -306,12 +306,12 @@
     <Compile Include="Perfil\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Perfil\PerfilMaster.Master.cs">
-      <DependentUpon>PerfilMaster.Master</DependentUpon>
+    <Compile Include="Perfil\PerfilesMaster.Master.cs">
+      <DependentUpon>PerfilesMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Perfil\PerfilMaster.Master.designer.cs">
-      <DependentUpon>PerfilMaster.Master</DependentUpon>
+    <Compile Include="Perfil\PerfilesMaster.Master.designer.cs">
+      <DependentUpon>PerfilesMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\DSRPT\DSGetAllReqEqById1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1101,7 +1101,6 @@
     <None Include="Clientes\DSRPT\DSGetReqMatById.xss">
       <DependentUpon>DSGetReqMatById.xsd</DependentUpon>
     </None>
-    <Content Include="Perfil\PerfilMaster.Master" />
     <None Include="Clientes\DSRPT\DSPVSC.xsc">
       <DependentUpon>DSPVSC.xsd</DependentUpon>
     </None>
@@ -1157,6 +1156,7 @@
     <None Include="Clientes\DSRPT\DsGetASTM127_SSD_ById.xss">
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
+    <Content Include="Perfil\PerfilesMaster.Master" />
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">
       <DependentUpon>DSGetAllReqEqById.xsd</DependentUpon>
     </None>

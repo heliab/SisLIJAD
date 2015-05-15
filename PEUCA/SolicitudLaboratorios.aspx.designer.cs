@@ -175,6 +175,33 @@ namespace SisLIJAD.PEUCA {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtAsig;
         
         /// <summary>
+        /// Control ASPxLabel10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel10;
+        
+        /// <summary>
+        /// Control cmbLabs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbLabs;
+        
+        /// <summary>
+        /// Control SDSLabs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SDSLabs;
+        
+        /// <summary>
         /// Control ASPxLabel2.
         /// </summary>
         /// <remarks>
@@ -265,24 +292,6 @@ namespace SisLIJAD.PEUCA {
         protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit seEstGrup;
         
         /// <summary>
-        /// Control ASPxLabel4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel4;
-        
-        /// <summary>
-        /// Control txtNom.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtNom;
-        
-        /// <summary>
         /// Control ASPxLabel7.
         /// </summary>
         /// <remarks>
@@ -299,33 +308,6 @@ namespace SisLIJAD.PEUCA {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtCed;
-        
-        /// <summary>
-        /// Control ASPxLabel10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel10;
-        
-        /// <summary>
-        /// Control cmbLabs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbLabs;
-        
-        /// <summary>
-        /// Control SDSLabs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SDSLabs;
         
         /// <summary>
         /// Control DeleteForm.

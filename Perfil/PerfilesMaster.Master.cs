@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SisLIJAD.Perfil
 {
-    public partial class PerfilMaster : System.Web.UI.MasterPage
+    public partial class PerfilesMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
