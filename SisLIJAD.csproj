@@ -67,6 +67,7 @@
     <Content Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx" />
     <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
+    <Content Include="Cuenta\PersonalInfo.aspx" />
     <Content Include="Images\blackcheck.png" />
     <Content Include="Images\fromt.jpg" />
     <Content Include="Images\FRONT.JPG" />
@@ -291,6 +292,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\PersonalInfo.aspx.cs">
+      <DependentUpon>PersonalInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
+      <DependentUpon>PersonalInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\EquiposMaquinaria.aspx.cs">
       <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>

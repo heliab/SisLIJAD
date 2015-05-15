@@ -61,7 +61,7 @@
             <dx:MenuItem Text="Informacion de usuarios" 
                 NavigateUrl="~/Cuenta/InfoUser.aspx">
             </dx:MenuItem>
-            <dx:MenuItem Text="" NavigateUrl="~/Cuenta/UserInformations.aspx">
+            <dx:MenuItem Text="Info Personal" NavigateUrl="~/Cuenta/PersonalInfo.aspx">
             </dx:MenuItem>
             <dx:MenuItem Text="">
             </dx:MenuItem>
