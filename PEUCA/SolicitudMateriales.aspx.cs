@@ -24,7 +24,7 @@ namespace SisLIJAD.PEUCA
             {
                 con.Open();
                 //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
-                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[NombCompleto],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
+                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -35,7 +35,6 @@ namespace SisLIJAD.PEUCA
                     mProc.Text = dr["Procedimiento"].ToString();
                     deFeIni.Value = dr["FechaPrestar"];
                     deFefin.Value = dr["FechaDevolver"];
-                    txtNom.Text = dr["NombCompleto"].ToString();
                     txtAsig.Text= dr["Asignatura"].ToString();
                     txtCod.Text = dr["CodigoAsignatura"].ToString();
                     txtCed.Text= dr["Cedula"].ToString();
@@ -66,13 +65,12 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,NombCompleto,Asignatura,CodigoAsignatura,Cedula) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@NombCompleto,@Asignatura,@CodigoAsignatura,@Cedula)", con);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Prestamos (Procedimiento,FechaRegistro,FechaPrestar,FechaDevolver,SolicitadoPor,Asignatura,CodigoAsignatura,Cedula) values(@Procedimiento,@FechaRegistro,@FechaPrestar,@FechaDevolver,@SolicitadoPor,@Asignatura,@CodigoAsignatura,@Cedula)", con);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
                 cmd.Parameters.AddWithValue("@FechaRegistro", serverTime);
                 cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
                 cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
                 cmd.Parameters.AddWithValue("@SolicitadoPor", username);
-                cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
@@ -103,12 +101,11 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Prestamos set Procedimiento=@Procedimiento,FechaPrestar=@FechaPrestar,FechaDevolver=@FechaDevolver,NombCompleto=@NombCompleto,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdPrestamo = @IdPrestamo", con);
+                SqlCommand cmd = new SqlCommand("update MINV_Prestamos set Procedimiento=@Procedimiento,FechaPrestar=@FechaPrestar,FechaDevolver=@FechaDevolver,Asignatura=@Asignatura,CodigoAsignatura=@CodigoAsignatura,Cedula=@Cedula where IdPrestamo = @IdPrestamo", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
                 cmd.Parameters.AddWithValue("@Procedimiento", mProc.Text);
                 cmd.Parameters.AddWithValue("@FechaPrestar", deFeIni.Value);
                 cmd.Parameters.AddWithValue("@FechaDevolver", deFefin.Value);
-                cmd.Parameters.AddWithValue("@NombCompleto", txtNom.Text);
                 cmd.Parameters.AddWithValue("@Asignatura", txtAsig.Value);
                 cmd.Parameters.AddWithValue("@CodigoAsignatura", txtCod.Text);
                 cmd.Parameters.AddWithValue("@Cedula", txtCed.Text);
