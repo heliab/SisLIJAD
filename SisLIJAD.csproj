@@ -172,6 +172,11 @@
     <Content Include="Styles\font-awesome\css\font-awesome.css" />
     <Content Include="Styles\font-awesome\css\font-awesome.min.css" />
     <Content Include="Styles\font-awesome.min.css" />
+    <Content Include="Styles\lib\ie9.css" />
+    <Content Include="Styles\lib\sweet-alert.css" />
+    <Content Include="Styles\lib\sweet-alert.html" />
+    <Content Include="Styles\lib\sweet-alert.js" />
+    <Content Include="Styles\lib\sweet-alert.min.js" />
     <Content Include="Styles\Reset.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -1165,6 +1170,8 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
+    <None Include="Styles\lib\.sass-cache\7981e80cc38cc883c439302cccda55b50fb7fde4\sweet-alert.scssc" />
+    <None Include="Styles\lib\sweet-alert.scss" />
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">
       <DependentUpon>DSGetAllReqEqById.xsd</DependentUpon>
     </None>

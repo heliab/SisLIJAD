@@ -16,7 +16,7 @@
         <div class="BaseForm">
             <div class="row">
                 <div class="first">
-                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Seleccione usuario" 
+                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Seleccione solicitud" 
                         Font-Bold="True" Font-Italic="False" Font-Names="Verdana">
                     </dx:ASPxLabel>
                 </div>

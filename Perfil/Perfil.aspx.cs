@@ -14,6 +14,7 @@ namespace SisLIJAD.Perfil
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["username"] = User.Identity.Name;
+            ClientScript.RegisterStartupScript(GetType(), "show", "fn_Welcome();", true);
         }
 
         protected void GridPrincipal_CustomCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs e)

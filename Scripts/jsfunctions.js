@@ -590,3 +590,20 @@ function fn_SaveProfileJS() {
     NewCallback.PerformCallback();
     fn_ClosePopup(1);
 }
+/***** Sweet alert******/
+function fn_Welcome() {
+    swal("Bienvenido!", "Por favor completa tu perfil! De esta manera sabremos más de ti", "success")
+
+    swal({
+        title: "Bienvenido?",
+        text: "Por favor completa tu perfil! \n De esta manera sabremos más de usted!",
+        type: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#66CC66",
+        confirmButtonText: "Continuar!",
+        closeOnConfirm: false
+    },
+function () {
+    swal("Antes de todo!", "Tu usuario será aprobado por al administrador lo antes posible según los datos introducidos. \n Así puedas acceder a las funciones asignadas en el sistema. \n Gracias.", "info");
+});
+}

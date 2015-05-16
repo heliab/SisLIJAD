@@ -427,7 +427,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.16112cm</Top>
         <Height>1.2cm</Height>
-        <Width>16.51cm</Width>
+        <Width>16.51002cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -487,8 +487,47 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Firma encargado</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>5.10681cm</Top>
+        <Left>6.97124cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.19026cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.30208in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>
@@ -500,7 +539,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>6.5in</Width>
+  <Width>6.50001in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -523,7 +562,7 @@
           <KeepTogether>true</KeepTogether>
           <Top>2.19516cm</Top>
           <Height>0.25104cm</Height>
-          <Width>16.51cm</Width>
+          <Width>16.51002cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -644,9 +683,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox157</rd:DefaultName>
           <Top>0.77536cm</Top>
-          <Left>5.61594cm</Left>
+          <Left>6.48907cm</Left>
           <Height>0.6cm</Height>
-          <Width>5.48979cm</Width>
+          <Width>4.61667cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
