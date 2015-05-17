@@ -49,22 +49,28 @@ fn_EndCallback();
         OnCustomCallback="GridPrincipal_CustomCallback">
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdMaterial" ReadOnly="True" VisibleIndex="0"
-                Width="12%">
+                Width="10%" SortIndex="0" SortOrder="Descending">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="CodUCA" VisibleIndex="1">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NomMaterial" VisibleIndex="2" 
                 Caption="Nombre Material">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NomUnidadM" 
                 VisibleIndex="3" Caption="Unidad Medida">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             
             <dx:GridViewDataTextColumn FieldName="Marca" 
-                VisibleIndex="5">
+                VisibleIndex="4">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn FieldName="Prestamo" VisibleIndex="5" Width="7%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataCheckColumn>
             <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
@@ -73,6 +79,8 @@ fn_EndCallback();
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
+            <Summary AllPagesText="Paginas: {0} - {1} ({2} items)" 
+                Text="Pag {0} of {1} ({2} items)" />
         </SettingsPager>
         <Settings ShowHeaderFilterButton="True" ShowFilterRow="True" />
         <SettingsText EmptyDataRow="No hay datos para mostrar" GroupPanel="Arrastre las columnas aquí" />

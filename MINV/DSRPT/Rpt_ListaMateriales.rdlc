@@ -55,27 +55,24 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.00945in</Width>
+              <Width>0.98862in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.56377in</Width>
+              <Width>2.48987in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.00945in</Width>
+              <Width>0.98862in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.00945in</Width>
+              <Width>0.79578in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2282in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.32195in</Width>
+              <Width>0.96778in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.28309in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -347,64 +344,10 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox49">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Tipo Mataterial</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox49</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>Silver</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.28309in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -656,63 +599,12 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="DescTipoMat">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!DescTipoMat.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>DescTipoMat</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1.5pt</Width>
-                        </RightBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -731,8 +623,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Height>1.2cm</Height>
-        <Width>18.14136cm</Width>
+        <Top>0.3175cm</Top>
+        <Left>0.635cm</Left>
+        <Height>1.4381cm</Height>
+        <Width>15.82592cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -761,7 +655,8 @@
       </Tablix>
       <Rectangle Name="Rectangle73">
         <KeepTogether>true</KeepTogether>
-        <Top>1.2cm</Top>
+        <Top>1.82618cm</Top>
+        <Left>0.00003cm</Left>
         <Height>2.02375cm</Height>
         <Width>18.14133cm</Width>
         <ZIndex>1</ZIndex>
@@ -773,7 +668,7 @@
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>1.31086in</Height>
+    <Height>1.51572in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>

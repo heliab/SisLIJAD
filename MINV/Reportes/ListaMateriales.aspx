@@ -10,8 +10,7 @@
     <div class="reportframe">
     <rsweb:ReportViewer ID="rvListaMateriales" runat="server" 
     Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Colección)" WaitMessageFont-Names="Verdana" 
-    WaitMessageFont-Size="14pt" Width="687px" BorderStyle="Inset" BorderWidth="2px" 
-            Height="440px" ShowPrintButton="False">
+    WaitMessageFont-Size="14pt" Width="687px"  Height="440px" ShowPrintButton="False">
         <LocalReport ReportPath="MINV\DSRPT\Rpt_ListaMateriales.rdlc">
             <DataSources>
                 <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSet1" />
@@ -21,7 +20,8 @@
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-        SelectCommand="SELECT [IdMaterial], [NomMaterial], [CodUCA], [AbrUnid], [Marca], [DescTipoMat] FROM [View_ListaMateriales]">
+        
+        SelectCommand="SELECT [IdMaterial], [NomMaterial], [CodUCA], [AbrUnid], [Marca] FROM [View_ListaMateriales]">
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">

@@ -402,7 +402,7 @@ function fn_Validate(e) {
     
    
 }
-function fn_MostrarCredito() { alert("SISLIJAD Creado por Haniel Lopez")}
+function fn_MostrarCredito() { swal("Copyrights!", "SISLIJAD. \n Diseño: Haniel Lopez. \n Base de datos: Haniel Lopez. \n Programación: Haniel Lopez", "success"); }
 /************************* Funciones prueba *************************/
 function fn_NewMainTest() {
     txtId.SetText('Nuevo Calculo');

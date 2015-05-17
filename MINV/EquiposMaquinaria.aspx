@@ -54,23 +54,32 @@ fn_EndCallback();
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdEquipo" ReadOnly="True" VisibleIndex="0"
                 Width="6%" Caption="Id">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NomMaq" VisibleIndex="1" 
                 Caption="Equipo/Maquinaria" Width="40%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Modelo" VisibleIndex="2">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="NumSerie" 
                 VisibleIndex="3">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             
             <dx:GridViewDataTextColumn FieldName="Marca" 
-                VisibleIndex="5">
+                VisibleIndex="5" Width="13%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn Caption="Prestamo" FieldName="Prestamo" 
                 VisibleIndex="5" Width="6%">
             </dx:GridViewDataCheckColumn>
+            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
+                <ClearFilterButton Text="Limpiar" Visible="True">
+                </ClearFilterButton>
+            </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
