@@ -69,10 +69,7 @@ fn_EndCallback();
                 VisibleIndex="4">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataCheckColumn FieldName="Prestamo" VisibleIndex="5" Width="7%">
-                <Settings AutoFilterCondition="Contains" />
-            </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
+            <dx:GridViewCommandColumn VisibleIndex="5" Width="0%">
                 <ClearFilterButton Text="Limpiar" Visible="True">
                 </ClearFilterButton>
             </dx:GridViewCommandColumn>
@@ -91,7 +88,8 @@ fn_EndCallback();
     </dx:ASPxGridView>
     </div>
     <asp:SqlDataSource ID="SDSMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca, MINV_Materiales.Prestamo FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
+        
+        SelectCommand="SELECT MINV_Materiales.IdMaterial, MINV_Materiales.CodUCA, MINV_Materiales.NomMaterial, MINV_UnidadM.NomUnidadM, MINV_Materiales.Marca FROM MINV_Materiales INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM">
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
@@ -172,7 +170,7 @@ fn_CleanGroup(1);
                                 </div>                            
                                 
                               
-                               <div class="Half-form-left">
+                    <%--           <div class="Half-form-left">
                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Para Prestamo">
                                    </dx:ASPxLabel>
                                    <dx:ASPxCheckBox ID="chkPrest" runat="server" ClientInstanceName="chkPrest">
@@ -180,7 +178,7 @@ fn_CleanGroup(1);
                                </div>
                                <div class="Half-form-right">
                                
-                               </div>
+                               </div>--%>
                             </div>
                             <div>
                                 <ul class="frmctrl">

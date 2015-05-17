@@ -184,24 +184,6 @@ namespace SisLIJAD.MINV {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtMarca;
         
         /// <summary>
-        /// Control ASPxLabel3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
-        
-        /// <summary>
-        /// Control chkPrest.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxCheckBox chkPrest;
-        
-        /// <summary>
         /// Control DeleteForm.
         /// </summary>
         /// <remarks>
