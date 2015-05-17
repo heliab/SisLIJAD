@@ -74,6 +74,7 @@
     <Content Include="Images\side.jpg" />
     <Content Include="MINV\EquiposMaquinaria.aspx" />
     <Content Include="MINV\Reportes\ListaBodegas.aspx" />
+    <Content Include="MINV\Reportes\ListaEquipos.aspx" />
     <Content Include="MINV\Reportes\ListaLaboratorios.aspx" />
     <Content Include="MINV\Reportes\ListaMateriales.aspx" />
     <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
@@ -305,12 +306,24 @@
     <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DSListaEquipo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSListaEquipo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MINV\EquiposMaquinaria.aspx.cs">
       <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MINV\EquiposMaquinaria.aspx.designer.cs">
       <DependentUpon>EquiposMaquinaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaEquipos.aspx.cs">
+      <DependentUpon>ListaEquipos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\Reportes\ListaEquipos.aspx.designer.cs">
+      <DependentUpon>ListaEquipos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
@@ -1049,6 +1062,7 @@
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_PVSS.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Solicitudesenviadas.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\ListaBodega.rdlc" />
+    <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaEquipos.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaMateriales.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_MaterialesPorTipo.rdlc" />
     <EmbeddedResource Include="MINV\DSRPT\Rpt_ListaLaboratorios.rdlc" />
@@ -1170,6 +1184,17 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
+    <None Include="DSListaEquipo.xsc">
+      <DependentUpon>DSListaEquipo.xsd</DependentUpon>
+    </None>
+    <None Include="DSListaEquipo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSListaEquipo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSListaEquipo.xss">
+      <DependentUpon>DSListaEquipo.xsd</DependentUpon>
+    </None>
     <None Include="Styles\lib\.sass-cache\7981e80cc38cc883c439302cccda55b50fb7fde4\sweet-alert.scssc" />
     <None Include="Styles\lib\sweet-alert.scss" />
     <None Include="Tecnicos\DSRPT\DSGetAllReqEqById.xsc">

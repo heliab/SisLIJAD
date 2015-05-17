@@ -72,6 +72,9 @@
                     <dx:MenuItem NavigateUrl="~/MINV/Reportes/SolicitudesPorUsuario.aspx" 
                         Text="Solicitudes Usuario">
                     </dx:MenuItem>
+                    <dx:MenuItem NavigateUrl="~/MINV/Reportes/ListaEquipos.aspx" 
+                        Text="Lista de equipos">
+                    </dx:MenuItem>
                     <dx:MenuItem NavigateUrl="~/MINV/Reportes/ListaMateriales.aspx" 
                         Text="Lista Materiales">
                     </dx:MenuItem>
