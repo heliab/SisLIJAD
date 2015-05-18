@@ -214,25 +214,28 @@ fn_EndCallback();
                                             </TotalSummary>
                                             <Columns>
                                                 <dx:GridViewDataTextColumn FieldName="CodDetalle" ReadOnly="True" ShowInCustomizationForm="True"
-                                                    VisibleIndex="0" Width="10%">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" ShowInCustomizationForm="True"
-                                                    VisibleIndex="1">
+                                                    VisibleIndex="0" Width="8%">
                                                     <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn Caption="Cod. Material UCA" FieldName="CodUCA" ShowInCustomizationForm="True"
-                                                    VisibleIndex="2" Width="20%">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" VisibleIndex="3"
-                                                    Width="10%">
+                                                <dx:GridViewDataTextColumn FieldName="NomMaq" ShowInCustomizationForm="True"
+                                                    VisibleIndex="1" Caption="Equipo">
                                                     <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" VisibleIndex="4"
-                                                    Width="10%">
+                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True"
+                                                    VisibleIndex="2" Width="9%">
                                                     <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5">
-                                                    <ClearFilterButton Text="Limpiar" Visible="True">
+                                                <dx:GridViewDataTextColumn FieldName="Modelo" ShowInCustomizationForm="True" VisibleIndex="3"
+                                                    Width="8%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="4" Width="8%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5" 
+                                                    Width="0%">
+                                                    <ClearFilterButton Visible="True">
                                                     </ClearFilterButton>
                                                 </dx:GridViewCommandColumn>
                                             </Columns>
@@ -299,7 +302,8 @@ fn_EndCallback();
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle, MINV_Materiales.NomMaterial, MINV_Materiales.CodUCA, MINV_Materiales.Marca, MINV_Det_Prestamo.Cantidad FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MINV_Materiales ON MINV_Det_Prestamo.IdMaterial = MINV_Materiales.IdMaterial WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
+        
+        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) AS CodDetalle, MINV_Det_Prestamo.Cantidad, MPR_EquipMaquin.NomMaq, MPR_EquipMaquin.Modelo, MPR_EquipMaquin.Marca FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MPR_EquipMaquin ON MINV_Det_Prestamo.IdEquipo = MPR_EquipMaquin.IdEquipo WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
@@ -336,9 +340,7 @@ fn_CleanGroup(1);
                     <PanelCollection>
                         <dx:PanelContent ID="PanelContent1" runat="server">
                             <div class="form">
-                                <div class="BaseForm">
-                                    <div class="row">
-                                        <div class="first">
+                               
                                             <div>
                                                 <dx:ASPxLabel ID="lblId" runat="server" Text="Id">
                                                 </dx:ASPxLabel>
@@ -346,10 +348,9 @@ fn_CleanGroup(1);
                                                     ClientEnabled="true" ReadOnly="True">
                                                 </dx:ASPxTextBox>
                                             </div>
-                                        </div>
-                                    </div>
+
                                     <br />
-                                    <div>
+                                  
                                         <div>
                                             <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Describa el procedimiento a realizar">
                                             </dx:ASPxLabel>
@@ -363,7 +364,8 @@ fn_CleanGroup(1);
                                                 </ValidationSettings>
                                             </dx:ASPxMemo>
                                         </div>
-                                    </div>
+
+                                     <div class="BaseForm">
                                     <div class="row">
                                         <div class="first">
                                             <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha que requerirá los materiales">
@@ -498,10 +500,10 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Seleccione Material">
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbMateriales" runat="server" ClientInstanceName="cmbMateriales"
-                                        Width="95%" DataSourceID="SDSMateriales" TextField="NomMaterial" ValueField="IdMaterial"
+                                        Width="95%" DataSourceID="SDSMateriales" TextField="NomMaq" ValueField="IdEquipo"
                                         OnCallback="cmbMateriales_Callback">
                                         <Columns>
-                                            <dx:ListBoxColumn Caption="Material" FieldName="NomMaterial" />
+                                            <dx:ListBoxColumn Caption="Material" FieldName="NomMaq" />
                                         </Columns>
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
@@ -512,7 +514,8 @@ fn_EndCallback();
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="SDSMateriales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
+                                        
+                                        SelectCommand="SELECT IdEquipo, NomMaq FROM MPR_EquipMaquin WHERE (IdEquipo NOT IN (SELECT IdEquipo FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
                                         </SelectParameters>

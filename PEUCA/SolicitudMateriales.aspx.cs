@@ -191,7 +191,7 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle,IdMaterial,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) AS CodDetalle,IdEquipo,Cantidad from MINV_Det_Prestamo WHERE CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
 
 
@@ -201,7 +201,7 @@ namespace SisLIJAD.PEUCA
                 {
                     // display data in textboxes
                     txtSubId.Text = dr["CodDetalle"].ToString();
-                    cmbMateriales.Text = dr["IdMaterial"].ToString();
+                    cmbMateriales.Text = dr["IdEquipo"].ToString();
                    sCant.Value= dr["Cantidad"].ToString();
                   
 
@@ -224,7 +224,6 @@ namespace SisLIJAD.PEUCA
                 con.Close();
             }
         }
-
         protected void SubInsert()
         {
             string IdPrestamo = HiddenGridPr.Get("SessionId").ToString();
@@ -232,9 +231,9 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdPrestamo,IdMaterial,Cantidad) values(@IdPrestamo,@IdMaterial,@Cantidad)", con);
+                SqlCommand cmd = new SqlCommand("insert into MINV_Det_Prestamo(IdPrestamo,IdEquipo,Cantidad) values(@IdPrestamo,@IdEquipo,@Cantidad)", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", IdPrestamo);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
+                cmd.Parameters.AddWithValue("@IdEquipo", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
             
                 int count = cmd.ExecuteNonQuery();
@@ -264,9 +263,9 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdMaterial=@IdMaterial,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("update MINV_Det_Prestamo set IdEquipo=@IdEquipo,Cantidad=@Cantidad where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtSubId.Text);
-                cmd.Parameters.AddWithValue("@IdMaterial", cmbMateriales.Value);
+                cmd.Parameters.AddWithValue("@IdEquipo", cmbMateriales.Value);
                 cmd.Parameters.AddWithValue("@Cantidad", sCant.Value);
                 
 
@@ -294,7 +293,7 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) = @CodDetalle", con);
+                SqlCommand cmd = new SqlCommand("delete from MINV_Det_Prestamo where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) = @CodDetalle", con);
                 cmd.Parameters.AddWithValue("@CodDetalle", txtIdD.Text);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
