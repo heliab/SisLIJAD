@@ -67,6 +67,10 @@ fn_EndCallback();
             <dx:GridViewDataCheckColumn Caption="Prestamo" FieldName="Prestamo" 
                 VisibleIndex="5" Width="6%">
             </dx:GridViewDataCheckColumn>
+            <dx:GridViewCommandColumn VisibleIndex="6" Width="0%">
+                <ClearFilterButton Text="Limpiar" Visible="True">
+                </ClearFilterButton>
+            </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">

@@ -580,11 +580,11 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel11" runat="server" Text="Seleccione equipo">
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbEquip" runat="server" ClientInstanceName="cmbEquip" 
-                                        Width="95%" DataSourceID="SDSListEquip"  
+                                        Width="95%" DataSourceID="SDSListEquip"  EnableIncrementalFiltering="True" 
                                         TextField="NomMaq" ValueField="IdEquipo" OnCallback="cmbEquip_Callback" >
                                         
-                                        <Columns>
-                                            <dx:ListBoxColumn Caption="ID" FieldName="IdEquipo" Width="10%" />
+                                       <Columns>
+                                        <%--    <dx:ListBoxColumn Caption="ID" FieldName="IdEquipo" Width="10%" />--%>
                                             <dx:ListBoxColumn Caption="Equipo" FieldName="NomMaq" />
                                         </Columns>
                                         

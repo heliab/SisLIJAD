@@ -89,6 +89,7 @@
     <Content Include="MPR\VincularMAteriales.aspx" />
     <Content Include="Perfil\Perfil.aspx" />
     <Content Include="PEUCA\Default.aspx" />
+    <Content Include="Pruebas\GEssFino.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -306,7 +307,7 @@
     <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DSListaEquipo.Designer.cs">
+    <Compile Include="MINV\DSRPT\DSListaEquipo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSListaEquipo.xsd</DependentUpon>
@@ -338,6 +339,13 @@
     </Compile>
     <Compile Include="Perfil\PerfilesMaster.Master.designer.cs">
       <DependentUpon>PerfilesMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\GEssFino.aspx.cs">
+      <DependentUpon>GEssFino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\GEssFino.aspx.designer.cs">
+      <DependentUpon>GEssFino.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\DSRPT\DSGetAllReqEqById1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1184,15 +1192,15 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
-    <None Include="DSListaEquipo.xsc">
+    <None Include="MINV\DSRPT\DSListaEquipo.xsc">
       <DependentUpon>DSListaEquipo.xsd</DependentUpon>
     </None>
-    <None Include="DSListaEquipo.xsd">
+    <None Include="MINV\DSRPT\DSListaEquipo.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSListaEquipo.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSListaEquipo.xss">
+    <None Include="MINV\DSRPT\DSListaEquipo.xss">
       <DependentUpon>DSListaEquipo.xsd</DependentUpon>
     </None>
     <None Include="Styles\lib\.sass-cache\7981e80cc38cc883c439302cccda55b50fb7fde4\sweet-alert.scssc" />

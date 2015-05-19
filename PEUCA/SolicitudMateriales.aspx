@@ -500,10 +500,10 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Seleccione Material">
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbMateriales" runat="server" ClientInstanceName="cmbMateriales"
-                                        Width="95%" DataSourceID="SDSMateriales" TextField="NomMaq" ValueField="IdEquipo"
+                                        Width="95%" DataSourceID="SDSMateriales" TextField="Equipo" ValueField="Id"
                                         OnCallback="cmbMateriales_Callback">
                                         <Columns>
-                                            <dx:ListBoxColumn Caption="Material" FieldName="NomMaq" />
+                                            <dx:ListBoxColumn Caption="Material" FieldName="Equipo" />
                                         </Columns>
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup2">
@@ -513,9 +513,8 @@ fn_EndCallback();
                                             <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxComboBox>
-                                    <asp:SqlDataSource ID="SDSMateriales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                        
-                                        SelectCommand="SELECT IdEquipo, NomMaq FROM MPR_EquipMaquin WHERE (IdEquipo NOT IN (SELECT IdEquipo FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
+                                    <asp:SqlDataSource ID="SDSMateriales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"                           
+                                        SelectCommand="SELECT IdEquipo as Id, NomMaq as Equipo FROM MPR_EquipMaquin WHERE (IdEquipo NOT IN (SELECT IdEquipo FROM MINV_Det_Prestamo WHERE (IdPrestamo = @IdPrestamo))) AND (Prestamo = 1)">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
                                         </SelectParameters>

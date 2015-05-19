@@ -23,9 +23,8 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
-                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
-                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
+                 SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
+                 cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
