@@ -513,6 +513,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -538,8 +539,8 @@
         <DataSetName>GetAllReqMatById</DataSetName>
         <Top>1.77246cm</Top>
         <Left>1.41883cm</Left>
-        <Height>2.87596cm</Height>
-        <Width>13.70624cm</Width>
+        <Height>2.87597cm</Height>
+        <Width>13.70625cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>

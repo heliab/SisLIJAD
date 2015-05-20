@@ -216,6 +216,11 @@ namespace SisLIJAD.MPR
         {
             Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+        protected void SubGrid3_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+
         protected void SubGrid2_BeforePerformDataSelect(object sender, EventArgs e)
         {
             Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
@@ -424,7 +429,6 @@ namespace SisLIJAD.MPR
             }
         }
         #endregion
-
 
     }
 }

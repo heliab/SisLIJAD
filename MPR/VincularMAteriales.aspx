@@ -101,7 +101,7 @@ fn_EndCallback();
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrueba" ReadOnly="True" VisibleIndex="0"
                 Width="7%" ShowInCustomizationForm="True" SortIndex="0" 
-                SortOrder="Descending">
+                SortOrder="Ascending">
                 <EditFormSettings Visible="False" />
 <EditFormSettings Visible="False"></EditFormSettings>
             </dx:GridViewDataTextColumn>
@@ -142,11 +142,51 @@ fn_EndCallback();
         </Styles>
         <Templates>
             <DetailRow>
-               <dx:ASPxPageControl ID="PageDetallle" runat="server" ActiveTabIndex="2" 
+               <dx:ASPxPageControl ID="PageDetallle" runat="server" ActiveTabIndex="1" 
                     ClientIDMode="AutoID" Width="100%">
 
                     <TabPages>
-                        <dx:TabPage Text="Materiales Cliente">
+                        <dx:TabPage Text="Materiales Clientes">
+                            <ContentCollection>
+                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                                <div class="wrapctrl">
+                    <ul class="ctrlist">
+                     <%--   <li><a class="pure-button green-font" href="javascript:fn_SubEditJS();" title="Editar">
+                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>--%>
+                                 <li><a class="pure-button blue-font" href="javascript:fn_SubNewVin2JS();" title="Nuevo">
+                            <i class="fa fa-plus"></i>Nuevo</a></li>
+                        <li><a class="pure-button red-font" href="javascript:fn_SubDelete2JS();" title="Borrar">
+                            <i class="fa fa-trash"></i>Borrar</a></li>
+                    </ul>
+                </div>
+                                    <dx:ASPxGridView ID="SubGrid2" runat="server" ClientIDMode="AutoID" 
+                                        ClientInstanceName="SubGrid2" Width="100%" AutoGenerateColumns="False" 
+                                        DataSourceID="SDSDetMatCliente" 
+                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect" 
+                                        KeyFieldName="IdDetalle">
+                                        <Columns>
+                                            <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
+                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="14%">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" 
+                                                ShowInCustomizationForm="True" VisibleIndex="1">
+                                            </dx:GridViewDataTextColumn>
+                                            <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" 
+                                                VisibleIndex="2" Width="10%">
+                                            </dx:GridViewDataTextColumn>
+                                        </Columns>
+                                        <SettingsBehavior AllowFocusedRow="True" />
+                                        <Settings ShowFilterRow="True" ShowFooter="True" />
+                                        <SettingsDetail IsDetailGrid="True" />
+                                        <Styles>
+                                            <FocusedRow BackColor="#5180BF">
+                                            </FocusedRow>
+                                        </Styles>
+                                    </dx:ASPxGridView>
+                                </dx:ContentControl>
+                            </ContentCollection>
+                        </dx:TabPage>
+                        <dx:TabPage Text="Materiales Laboratorios">
                             <ContentCollection>
                                 <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
                                  <div class="wrapctrl">
@@ -187,46 +227,6 @@ fn_EndCallback();
                                 </dx:ContentControl>
                             </ContentCollection>
                         </dx:TabPage>
-                        <dx:TabPage Text="Materiales Laboratorios">
-                            <ContentCollection>
-                                <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                <div class="wrapctrl">
-                    <ul class="ctrlist">
-                                 <li><a class="pure-button blue-font" href="javascript:fn_SubNewVin2JS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Nuevo</a></li>
-                     <%--   <li><a class="pure-button green-font" href="javascript:fn_SubEditJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>--%>
-                        <li><a class="pure-button red-font" href="javascript:fn_SubDelete2JS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
-                </div>
-                                    <dx:ASPxGridView ID="SubGrid2" runat="server" ClientIDMode="AutoID" 
-                                        ClientInstanceName="SubGrid2" Width="100%" AutoGenerateColumns="False" 
-                                        DataSourceID="SDSDetMatCliente" 
-                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect" 
-                                        KeyFieldName="IdDetalle">
-                                        <Columns>
-                                            <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
-                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="14%">
-                                            </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" 
-                                                ShowInCustomizationForm="True" VisibleIndex="1">
-                                            </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" 
-                                                VisibleIndex="2" Width="10%">
-                                            </dx:GridViewDataTextColumn>
-                                        </Columns>
-                                        <SettingsBehavior AllowFocusedRow="True" />
-                                        <Settings ShowFilterRow="True" ShowFooter="True" />
-                                        <SettingsDetail IsDetailGrid="True" />
-                                        <Styles>
-                                            <FocusedRow BackColor="#5180BF">
-                                            </FocusedRow>
-                                        </Styles>
-                                    </dx:ASPxGridView>
-                                </dx:ContentControl>
-                            </ContentCollection>
-                        </dx:TabPage>
                         <dx:TabPage Text="Equipos">
                             <ContentCollection>
                                 <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
@@ -243,14 +243,15 @@ fn_EndCallback();
                                     <dx:ASPxGridView ID="SubGrid3" runat="server" ClientIDMode="AutoID" 
                                         ClientInstanceName="SubGrid3" Width="100%" AutoGenerateColumns="False" 
                                         DataSourceID="SDSEquipos" 
-                                        OnBeforePerformDataSelect="SubGrid2_BeforePerformDataSelect" 
+                                        OnBeforePerformDataSelect="SubGrid3_BeforePerformDataSelect" 
                                         KeyFieldName="IdDetalle">
                                         <Columns>
                                             <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
                                                 ShowInCustomizationForm="True" VisibleIndex="0" Width="20%">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataTextColumn Caption="Equipo/Maquinaria" FieldName="NomMaq" 
-                                                ShowInCustomizationForm="True" VisibleIndex="1">
+                                                ShowInCustomizationForm="True" VisibleIndex="1" SortIndex="0" 
+                                                SortOrder="Ascending">
                                             </dx:GridViewDataTextColumn>
                                         </Columns>
                                         <SettingsBehavior AllowFocusedRow="True" />
@@ -291,8 +292,11 @@ fn_EndCallback();
      </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSEquipos" runat="server" 
         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-        SelectCommand="SELECT CAST(MPR_Det_Equi_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Equi_Prueba.IdEquipo AS NVARCHAR) AS IdDetalle, MPR_EquipMaquin.NomMaq FROM MPR_Det_Equi_Prueba INNER JOIN MPR_EquipMaquin ON MPR_Det_Equi_Prueba.IdEquipo = MPR_EquipMaquin.IdEquipo">
-
+        
+        SelectCommand="SELECT CAST(MPR_Det_Equi_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Equi_Prueba.IdEquipo AS NVARCHAR) AS IdDetalle, MPR_EquipMaquin.NomMaq FROM MPR_Det_Equi_Prueba INNER JOIN MPR_EquipMaquin ON MPR_Det_Equi_Prueba.IdEquipo = MPR_EquipMaquin.IdEquipo WHERE (MPR_Det_Equi_Prueba.IdPrueba = @IdPrueba)">
+        <SelectParameters>
+            <asp:SessionParameter Name="IdPrueba" SessionField="IdPrueba" />
+        </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
@@ -478,10 +482,11 @@ fn_EndCallback();
                                     <dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Seleccione Material">
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbMaterial" runat="server" ClientInstanceName="cmbMaterial" 
-                                        Width="95%" DataSourceID="SqlDataSource1" TextField="NomMaterial" 
-                                        ValueField="IdMaterial" OnCallback="cmbMaterial_Callback">
+                                        Width="95%" DataSourceID="SqlDataSource1" TextField="NomMaterial"
+                                        ValueField="IdMaterial" OnCallback="cmbMaterial_Callback" 
+                                        EnableIncrementalFiltering="True">
                                         <Columns>
-                                            <dx:ListBoxColumn Caption="Id" FieldName="IdMaterial" Width="10%" />
+                                           <%-- <dx:ListBoxColumn Caption="Id" FieldName="IdMaterial" Width="10%" />--%>
                                             <dx:ListBoxColumn Caption="Material" FieldName="NomMaterial" />
                                         </Columns>
                                      <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
