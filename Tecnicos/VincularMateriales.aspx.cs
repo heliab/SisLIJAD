@@ -38,6 +38,10 @@ namespace SisLIJAD.Tecnicos
                     break;
                 case "12": SubDelete();
                     break;
+                case "13": SubInsert2();
+                    break;
+                case "14": SubDelete2();
+                    break;
                 default: Response.Write("Error con valor de crud");
                     break;
 
@@ -212,10 +216,21 @@ namespace SisLIJAD.Tecnicos
         {
             Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+        protected void SubGrid3_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
+
         protected void SubGrid2_BeforePerformDataSelect(object sender, EventArgs e)
         {
             Session["IdPrueba"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
+        protected void cmbEquip_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            Session["IdPrueba"] = HiddenV.Get("SessionId").ToString();
+            cmbEquip.DataBind();
+        }
+
         #endregion
 
         #region SubCRUD
@@ -354,5 +369,65 @@ namespace SisLIJAD.Tecnicos
         }
         #endregion
 
+        #region SubCallback2
+        protected void SubInsert2()
+        {
+            string idprueba = HiddenV.Get("SessionId").ToString();
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Equi_Prueba(IdPrueba,IdEquipo) values(@IdPrueba,@IdEquipo)", con);
+
+                cmd.Parameters.AddWithValue("@IdPrueba", idprueba);
+                cmd.Parameters.AddWithValue("@IdEquipo", cmbEquip.Value);
+                int count = cmd.ExecuteNonQuery();
+                if (count == 1)
+                {
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha guardado correctamente") + "')</script>");
+                }
+                else
+
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        protected void SubDelete2()
+        {
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("delete from MPR_Det_Equi_Prueba WHERE (CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdEquipo AS NVARCHAR) = @IdDetalle)", con);
+                cmd.Parameters.AddWithValue("@IdDetalle", txtIdD.Text);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    Response.Write("<script>confirm('" + Server.HtmlEncode("El registro se ha sido eliminado") + "')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido eliminar") + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+                Response.Write("<script>alert(\"an error occur\")</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }
