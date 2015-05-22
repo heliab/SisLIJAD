@@ -104,15 +104,32 @@
             }
         }
         function fn_SendJS() {
-            if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
+            //            if (confirm("¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!")) {
+            //                HiddenV.Set('Nuevo', 6);
+            //                HiddenV.Set('Enviar', fn_GetIdValue());
+            //                NewCallback.PerformCallback();
+            //                fn_EndCallback();
+            //                alert('Su solicitud fue enviada con exito');
+            //            }
+            //        }
+            swal({
+                title: "Importante",
+                text: "¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2CA259",
+                confirmButtonText: "Si, Enviar!",
+                cancelButtonText: "Cancelar",
+                closeOnConfirm: false
+            },
+            function () {
                 HiddenV.Set('Nuevo', 6);
                 HiddenV.Set('Enviar', fn_GetIdValue());
                 NewCallback.PerformCallback();
                 fn_EndCallback();
-                alert('Su solicitud fue enviada con exito');
-            }
+                swal("Enviada!", "Su solicitud fue enviada con exito.", "success");
+            });
         }
-
         function fn_SubAddSol() {
             fn_GetValOnHid();
             fn_SubAdd();
