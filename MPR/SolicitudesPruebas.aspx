@@ -1,10 +1,7 @@
 ﻿<%@ Page Title="Autorizar Solicitudes de ensayes" Language="C#" MasterPageFile="~/MPR/MasterMPR.Master" AutoEventWireup="true" CodeBehind="SolicitudesPruebas.aspx.cs" Inherits="SisLIJAD.MPR.SolicitudesPruebas" %>
 
-
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
-    Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
@@ -25,14 +22,14 @@
     Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxClasses" TagPrefix="dx" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-function fn_GetAutRow() {
-    GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Autorizado', SetAut);
-    function SetAut(Value) {
-        if (Value == 1) {
-            alert('El registro ya ha sido aprobado y no puede realizar cambios');
+        function fn_GetAutRow() {
+            GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Autorizado', SetAut);
+            function SetAut(Value) {
+                if (Value == 1) {
+//            alert('El registro ya ha sido aprobado y no puede realizar cambios');
+            fn_AprobMes(2);
             return
         }
         else { fn_AutorizarJS(); }
@@ -40,12 +37,29 @@ function fn_GetAutRow() {
 }
 
 function fn_AutorizarJS() {
-    if (confirm("¿Desea autorizar el registro?")) {
+//    if (confirm("¿Desea autorizar el registro?")) {
+//        HiddenV.Set('Nuevo', 7);
+//        HiddenV.Set('Autorizar', fn_GetIdValue());
+//        NewCallback.PerformCallback();
+//        fn_EndCallback();
+    //    }
+    swal({
+        title: "Importante",
+        text: "¿Desea autorizar el registro?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#5E94C9",
+        confirmButtonText: "Autorizar",
+        cancelButtonText: "Cancelar",
+        closeOnConfirm: false
+    },
+function () {
         HiddenV.Set('Nuevo', 7);
         HiddenV.Set('Autorizar', fn_GetIdValue());
         NewCallback.PerformCallback();
         fn_EndCallback();
-    }
+});
+
 }
 
 
@@ -53,26 +67,45 @@ function fn_GetPayRow() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Pagado', SetPay);
     function SetPay(Value) {
         if (Value == 1) {
-            alert('El registro ya ha sido pagado');
+           // alert('El registro ya ha sido pagado');
+            fn_AprobMes(3);
             return
         }
         else { fn_PayJS(); }
     }
 }
 function fn_PayJS() {
-    if (confirm("¿Desea establecer el registro como pagado?")) {
-        HiddenV.Set('Nuevo', 9);
-        HiddenV.Set('Pagado', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
-    }
+//    if (confirm("¿Desea establecer el registro como pagado?")) {
+//        HiddenV.Set('Nuevo', 9);
+//        HiddenV.Set('Pagado', fn_GetIdValue());
+//        NewCallback.PerformCallback();
+//        fn_EndCallback();
+//    }
+
+    swal({
+        title: "Importante",
+        text: "¿Desea establecer el registro como pagado?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#2CA259",
+        confirmButtonText: "Pagado",
+        cancelButtonText: "Cancelar",
+        closeOnConfirm: false
+    },
+function () {
+     HiddenV.Set('Nuevo', 9);
+     HiddenV.Set('Pagado', fn_GetIdValue());
+     NewCallback.PerformCallback();
+     fn_EndCallback();
+});
 }
 
 function fn_GetCancelRow() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Cancelada', SetCancel);
     function SetCancel(Value) {
         if (Value == 1) {
-            alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            //alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            fn_AprobMes(4);
             return
         }
         else { fn_CancelSolJS(); }
@@ -80,19 +113,36 @@ function fn_GetCancelRow() {
 }
 
 function fn_CancelSolJS() {
-    if (confirm("¿Desea descartar la solicitud?")) {
-        HiddenV.Set('Nuevo', 8);
-        HiddenV.Set('Cancel', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
-    }
+//    if (confirm("¿Desea descartar la solicitud?")) {
+//        HiddenV.Set('Nuevo', 8);
+//        HiddenV.Set('Cancel', fn_GetIdValue());
+//        NewCallback.PerformCallback();
+//        fn_EndCallback();
+//    }
+    swal({
+        title: "Importante",
+        text: "¿Desea descartar la solicitud?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#C95E5E",
+        confirmButtonText: "Descartar",
+        cancelButtonText: "Cancelar",
+        closeOnConfirm: false
+    },
+function () {
+    HiddenV.Set('Nuevo', 8);
+    HiddenV.Set('Cancel', fn_GetIdValue());
+    NewCallback.PerformCallback();
+    fn_EndCallback();
+});
 }
 
 function fn_SubNewEntJS() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Cancelada', SetCancel);
     function SetCancel(Value) {
         if (Value == 1) {
-            alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+           //alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            fn_AprobMes(4);
             return
         }
         else 
@@ -108,7 +158,8 @@ function fn_SubNewEntJS() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Cancelada', SetCancel);
     function SetCancel(Value) {
         if (Value == 1) {
-            alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+           // alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            fn_AprobMes(4);
             return
         }
         else 
@@ -124,7 +175,8 @@ function fn_SubDeleteEntJS() {
     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Cancelada', SetCancel);
     function SetCancel(Value) {
         if (Value == 1) {
-            alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            // alert('El registro ya ha sido cancelado y no puede realizar ningún cambio');
+            fn_AprobMes(4);
             return
         }
         else {
@@ -137,7 +189,7 @@ function fn_SubDeleteEntJS() {
 function fn_GetValOnHid() {
     HiddenV.Set("SessionId", fn_GetIdValue());
 }
-</script>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
     

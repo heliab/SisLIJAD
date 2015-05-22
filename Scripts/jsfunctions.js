@@ -607,3 +607,19 @@ function () {
     swal("Antes de todo!", "Tu usuario será aprobado por al administrador lo antes posible según los datos introducidos. \n Así puedas acceder a las funciones asignadas en el sistema. \n Gracias.", "info");
 });
 }
+function fn_AprobMes(e) {
+    switch (e) {
+        case 0: swal({ title:"Atención!", text: "El registro ya ha sido Aprobado!",type: "info",confirmButtonText: "Ok"})
+            break;
+        case 1: swal({ title: "Atención!", text: "La solicitud ya ha sido cancelada!", type: "info", confirmButtonText: "Ok" })
+            break;
+        case 2: swal({ title: "Atención!", text: "El registro ya ha sido aprobado y no puede realizar cambios!", type: "info", confirmButtonText: "Ok" })
+            break;
+        case 3: swal({ title: "Atención!", text: "El registro ya ha sido pagado!", type: "info", confirmButtonText: "Ok" })
+            break;
+        case 4: swal({ title: "Atención!", text: "El registro ya ha sido cancelado y no puede realizar ningún cambio!", type: "info", confirmButtonText: "Ok" })
+            break;
+        default: fn_ClosePopup(1);
+
+    }
+}

@@ -30,7 +30,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobada', SetApr);
             function SetApr(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido Aprobado');
+                    //alert('El registro ya ha sido Aprobado');
+                    fn_AprobMes(0);
                     return
                 }
                 else {
@@ -47,7 +48,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Cancelada', SetCan);
             function SetCan(Value) {
                 if (Value == 1) {
-                    alert('La solicitud ya ha sido cancelada');
+                    //alert('La solicitud ya ha sido cancelada');
+                    fn_AprobMes(1);
                     return
                 }
                 else {
