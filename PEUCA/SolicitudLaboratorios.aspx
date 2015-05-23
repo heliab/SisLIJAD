@@ -29,7 +29,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                //alert('El registro ya ha sido enviado y no puede realizar cambios');
+                fn_AprobMes(5);
                 return
             }
             else {
@@ -42,7 +43,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('La solicitud ya ha sido enviada y no puede realizar cambios');
+                //alert('La solicitud ya ha sido enviada y no puede realizar cambios');
+                fn_AprobMes(5);
                 return
             }
             else {
@@ -55,13 +57,26 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviada', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+               // alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                fn_AprobMes(6);
                 return
             }
             else {
-                if (confirm("Desear enviar la solicitud?.")) {
-                    fn_SendSolJS();
-                } 
+                swal({
+                    title: "Importante",
+                    text: "¿Desea enviar la solicitud a los laboratorios?\nEl proceso no tiene retroceso!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#2CA259",
+                    confirmButtonText: "Si, Enviar!",
+                    cancelButtonText: "Cancelar",
+                    closeOnConfirm: false
+                },
+            function () {
+                fn_SendSolJS();
+                swal("Enviada!", "Su solicitud fue enviada con exito.", "success");
+            });
+               
             }
         } 
     }
