@@ -29,7 +29,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
             function SetEnv(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                    //alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                    fn_AprobMes(5);
                     return
                 }
                 else {
@@ -43,7 +44,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
             function SetEnv(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    //alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    fn_AprobMes(5);
                     return
                 }
                 else {
@@ -57,7 +59,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
             function SetEnv(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    // alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    fn_AprobMes(5);
                     return
                 }
                 else {
@@ -71,7 +74,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
             function SetAprob(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                    //alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                    fn_AprobMes(2);
                     return
                 }
                 else {
@@ -83,7 +87,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
             function SetEnv(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    //alert('El registro ya ha sido enviado y no puede realizar cambios');
+                    fn_AprobMes(5);
                     return
                 }
                 else {
@@ -95,7 +100,8 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
             function SetEnv(Value) {
                 if (Value == 1) {
-                    alert('El registro ya ha sido enviado');
+                    // alert('El registro ya ha sido enviado');
+                    fn_AprobMes(6);
                     return
                 }
                 else {
@@ -444,6 +450,7 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Ingrese Cedula Identidad">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtCed" runat="server" Width="170px" ClientSideName="txtCed">
+                                                <MaskSettings Mask="000-000000-0000" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />

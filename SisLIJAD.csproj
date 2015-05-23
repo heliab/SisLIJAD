@@ -80,6 +80,7 @@
     <Content Include="MINV\Reportes\MaterialesPorTipo.aspx" />
     <Content Include="MINV\Reportes\SolicitudesMaterialesEnviadas.aspx" />
     <Content Include="MINV\Reportes\SolicitudesPorUsuario.aspx" />
+    <Content Include="MINV\SolicitudesMateriales.aspx" />
     <Content Include="Modulos.aspx" />
     <Content Include="MPR\Default.aspx" />
     <Content Include="MPR\Reportes\CostoPruebas.aspx" />
@@ -134,7 +135,6 @@
     <Content Include="MINV\Materiales.aspx" />
     <Content Include="MINV\MaterialesDañados.aspx" />
     <Content Include="MINV\Salidas.aspx" />
-    <Content Include="MINV\SolicitudesMateriales.aspx" />
     <Content Include="MINV\TipoMateriales.aspx" />
     <Content Include="MINV\TipoMovimiento.aspx" />
     <Content Include="MINV\TipoUbicaciones.aspx" />
@@ -325,6 +325,13 @@
     </Compile>
     <Compile Include="MINV\Reportes\ListaEquipos.aspx.designer.cs">
       <DependentUpon>ListaEquipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINV\SolicitudesMateriales.aspx.cs">
+      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINV\SolicitudesMateriales.aspx.designer.cs">
+      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perfil\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
@@ -721,13 +728,6 @@
     </Compile>
     <Compile Include="MINV\Salidas.aspx.designer.cs">
       <DependentUpon>Salidas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MINV\SolicitudesMateriales.aspx.cs">
-      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MINV\SolicitudesMateriales.aspx.designer.cs">
-      <DependentUpon>SolicitudesMateriales.aspx</DependentUpon>
     </Compile>
     <Compile Include="MINV\TipoMateriales.aspx.cs">
       <DependentUpon>TipoMateriales.aspx</DependentUpon>

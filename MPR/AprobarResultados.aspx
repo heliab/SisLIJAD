@@ -41,8 +41,8 @@
             NewCallback.PerformCallback();
             fn_EndCallback();
             fn_EndCallback();
-          } 
-    }
+        } 
+
     function fn_GetIdPrValue() {
         GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         return GridId;

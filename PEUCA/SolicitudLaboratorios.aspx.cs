@@ -23,7 +23,7 @@ namespace SisLIJAD.PEUCA
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT  IdPrestLab,Procedimiento,Cedula,Asignatura,CodAsignatura,CONVERT(DATE,FechaReq) as FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion,Enviada,Aprobada,Cancelada FROM  [MPR_Solic_Lab]", con);
+                SqlCommand cmd = new SqlCommand("SELECT  IdPrestLab,Procedimiento,Cedula,Asignatura,CodAsignatura,CONVERT(DATE,FechaReq) as FechaReq,Horaini,HoraFin,NoGrupos,NoEstudiantesGrup,IdUbicacion,Enviada,Aprobada,Cancelada FROM  [MPR_Solic_Lab] WHERE (IdPrestLab = @IdPrestLab)", con);
                 cmd.Parameters.AddWithValue("@IdPrestLab", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
