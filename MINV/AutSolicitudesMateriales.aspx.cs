@@ -23,7 +23,7 @@ namespace SisLIJAD.MINV
             {
                 con.Open();
                 //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
-                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[NombCompleto],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos]", con);
+                SqlCommand cmd = new SqlCommand("SELECT  [IdPrestamo],[Procedimiento],[FechaRegistro],[FechaPrestar],[FechaDevolver],[NombCompleto],[Asignatura],[CodigoAsignatura],[Cedula] FROM  [MINV_Prestamos] WHERE IdPrestamo=@IdPretamo", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -170,6 +170,7 @@ namespace SisLIJAD.MINV
                 cmd.Parameters.Add("@Aprobado", SqlDbType.Bit).Value = 1;
                 if (cmd.ExecuteNonQuery() == 1)
                 {
+                    EnviarMensaje();
                     Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
                 }
                 else
@@ -380,6 +381,63 @@ namespace SisLIJAD.MINV
             Session["IdPrestamo"] = (sender as ASPxGridView).GetMasterRowKeyValue();
         }
         #endregion
+        #region Mensaje
+        protected void EnviarMensaje()
+        {
+            string getemail;
+             SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
+                SqlCommand cmd = new SqlCommand("SELECT DISTINCT  dbo.MINV_Prestamos.SolicitadoPor, dbo.aspnet_Membership.Email FROM  dbo.aspnet_Users INNER JOIN dbo.aspnet_Membership ON dbo.aspnet_Users.UserId = dbo.aspnet_Membership.UserId INNER JOIN dbo.MINV_Prestamos ON dbo.aspnet_Users.UserName = dbo.MINV_Prestamos.SolicitadoPor WHERE dbo.MINV_Prestamos.IdPrestamo=@IdPrestamo", con);
+                cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
+                //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    getemail = dr["Email"].ToString();
 
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("sislijad@gmail.com", "Alerta del sistema");
+                mail.To.Add(getemail);
+                mail.Subject = "Aprobacion de solicitud de materiales";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos,<br> <br>Se le ha aprobado una solicitud de prestamos en el sistema.</p><p>Favor revisar,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+
+
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+           
+        
+        #endregion
     }
 }
