@@ -29,7 +29,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                //alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                fn_AprobMes(5);
                 return
             }
             else {
@@ -43,7 +44,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
         function SetApr(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido enviado y no puede realizar cambios');
+                //alert('El registro ya ha sido enviado y no puede realizar cambios');
+                fn_AprobMes(2);
                 return
             }
             else {
@@ -57,7 +59,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
         function SetApr(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido enviado y no puede realizar cambios');
+               // alert('El registro ya ha sido enviado y no puede realizar cambios');
+                fn_AprobMes(2);
                 return
             }
             else {
@@ -71,7 +74,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetAprob);
         function SetAprob(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido aprobado y no puede realizar cambios');
+              //  alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                fn_AprobMes(2);
                 return
             }
             else {
@@ -83,7 +87,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido enviado y no puede realizar cambios');
+               // alert('El registro ya ha sido enviado y no puede realizar cambios');
+                fn_AprobMes(5);
                 return
             }
             else {
@@ -95,7 +100,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
         function SetApr(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido autorizado');
+                //alert('El registro ya ha sido autorizado');
+                fn_AprobMes(0);
                 return
             }
             else {

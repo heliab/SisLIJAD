@@ -64,8 +64,8 @@
                     return
                 }
                 else {
-                    fn_GetValOnHid();
-                    cmbMateriales.PerformCallback();
+//                    fn_GetValOnHid();
+//                    cmbMateriales.PerformCallback();
                     fn_EditJS();
                 }
             }

@@ -58,8 +58,8 @@
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Enviado', SetEnv);
         function SetEnv(Value) {
             if (Value == 1) {
-                alert('El registro ya ha sido enviado y no puede realizar cambios');
-                //                fn_AprobMes(5);
+                //alert('El registro ya ha sido enviado y no puede realizar cambios');
+                fn_AprobMes(5);
                 return
             }
             else {
