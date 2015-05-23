@@ -31,7 +31,7 @@
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Bienvenid@ <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        Bienvenid@ <span class="bold yellow-font"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                         <br>
                       [  <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/>  ]
                     </LoggedInTemplate>

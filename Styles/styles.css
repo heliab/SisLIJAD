@@ -524,6 +524,8 @@ section {
 
 .loginDisplay a:hover
 {
+    -webkit-transition: color 0.5s ease-out;
+    -moz-transition: color 0.5s ease-out;
     color: rgb(168,0,0);
 }
 

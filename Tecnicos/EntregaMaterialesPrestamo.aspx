@@ -63,6 +63,7 @@ fn_EndCallback();
             <Columns>
                 <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
                     Width="9%" ToolTip="Cod Prestamo">
+                    <Settings AutoFilterCondition="Contains" />
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
@@ -99,7 +100,8 @@ fn_EndCallback();
             </Styles>
             <Templates>
                 <DetailRow>
-                    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" Width="100%">
+                    <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" 
+                        Width="100%">
                         <TabPages>
                             <dx:TabPage Text="Materiales">
                                 <ContentCollection>
@@ -118,24 +120,27 @@ fn_EndCallback();
                                             </TotalSummary>
                                             <Columns>
                                                 <dx:GridViewDataTextColumn FieldName="CodDetalle" ReadOnly="True" ShowInCustomizationForm="True"
-                                                    VisibleIndex="0" Width="12%">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="NomMaterial" ShowInCustomizationForm="True"
-                                                    VisibleIndex="1" Caption="Material">
+                                                    VisibleIndex="0" Width="7%">
                                                     <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="CodUCA" ShowInCustomizationForm="True" VisibleIndex="2"
-                                                    Caption="Codigo UCA" Width="12%">
+                                                <dx:GridViewDataTextColumn FieldName="NomMaq" ShowInCustomizationForm="True"
+                                                    VisibleIndex="1" Caption="Nombre Equipo">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" VisibleIndex="3">
+                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="2" Width="9%">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" VisibleIndex="4"
-                                                    Width="12%">
+                                                <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="3" Width="10%">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataCheckColumn FieldName="Prestado" ShowInCustomizationForm="True" VisibleIndex="5"
-                                                    Width="9%">
+                                                <dx:GridViewDataCheckColumn FieldName="Prestado" ShowInCustomizationForm="True" VisibleIndex="4"
+                                                    Width="10%">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataCheckColumn>
-                                                <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="6" Width="0%">
+                                                <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5" 
+                                                    Width="0%">
                                                     <ClearFilterButton Text="Limpiar" Visible="True">
                                                     </ClearFilterButton>
                                                 </dx:GridViewCommandColumn>
@@ -202,21 +207,20 @@ fn_EndCallback();
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle, MINV_Materiales.NomMaterial, MINV_Materiales.CodUCA, MINV_Materiales.Marca, MINV_Det_Prestamo.Cantidad, MINV_Det_Prestamo.Prestado FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MINV_Materiales ON MINV_Det_Prestamo.IdMaterial = MINV_Materiales.IdMaterial WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
+        
+        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MPR_EquipMaquin.IdEquipo AS NVARCHAR) AS CodDetalle, MPR_EquipMaquin.NomMaq, MINV_Det_Prestamo.Cantidad, MINV_Det_Prestamo.Prestado, MPR_EquipMaquin.Marca FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MPR_EquipMaquin ON MINV_Det_Prestamo.IdEquipo = MPR_EquipMaquin.IdEquipo WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDatosPersonales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-    SelectCommand="SELECT NombCompleto, Cedula FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+        SelectCommand="SELECT MINV_Prestamos.Cedula, USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS NombCompleto FROM MINV_Prestamos INNER JOIN USER_Entidad ON MINV_Prestamos.SolicitadoPor = USER_Entidad.username WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
     </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDSDatosAcademicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        
-    SelectCommand="SELECT CodigoAsignatura, Asignatura FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+        SelectCommand="SELECT CodigoAsignatura, Asignatura FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>

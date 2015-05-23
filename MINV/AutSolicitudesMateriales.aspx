@@ -104,13 +104,30 @@
         }
     }
     function fn_AproJS() {
-        if (confirm("¿Desea aprobar la solicitud?")) {
-            HiddenV.Set('Nuevo', 6);
-            HiddenV.Set('Aprobar', fn_GetIdValue());
-            NewCallback.PerformCallback();
-            fn_EndCallback();
-            alert('Solicitud Aprobada');
-        }
+        //        if (confirm("¿Desea aprobar la solicitud?")) {
+        //            HiddenV.Set('Nuevo', 6);
+        //            HiddenV.Set('Aprobar', fn_GetIdValue());
+        //            NewCallback.PerformCallback();
+        //            fn_EndCallback();
+        //            alert('Solicitud Aprobada');
+        //        }
+        swal({
+            title: "Importante",
+            text: "¿Desea aprobar la solicitud?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#5E94C9",
+            confirmButtonText: "Aprobar",
+            cancelButtonText: "Cancelar",
+            closeOnConfirm: false
+        },
+            function () {
+                HiddenV.Set('Nuevo', 6);
+                HiddenV.Set('Aprobar', fn_GetIdValue());
+                NewCallback.PerformCallback();
+                fn_EndCallback();
+                swal("Exito!", "Solicitud Aprobada.", "success");
+            });
     }
 
     function fn_SubAddSol() {
@@ -122,22 +139,22 @@
     function fn_GetValOnHid() {
         HiddenGridPr.Set("SessionId", GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
     }
- </script>
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
     <div class="wrapctrl">
         <ul class="ctrlist">
-            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Agregar</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditSolicJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                 <li><a class="pure-button green-font" href="javascript:fn_GetAproJS();" title="Aprobar solicitud">
-                            <i class="fa fa-check"></i>Aprobar</a></li>
+            <%--<li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
+                class="fa fa-plus"></i>Agregar</a></li>
+            <li><a class="pure-button green-font" href="javascript:fn_EditSolicJS();" title="Editar">
+                <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+            <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
+                <i class="fa fa-trash"></i>Borrar</a></li>--%>
+            <li><a class="pure-button green-font" href="javascript:fn_GetAproJS();" title="Aprobar solicitud">
+                <i class="fa fa-check"></i>Aprobar</a></li>
         </ul>
     </div>
-        <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
 fn_EndCallback();
@@ -147,11 +164,10 @@ fn_EndCallback();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-<div class="grid">
-    <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-        DataSourceID="SDSPrestamos" KeyFieldName="IdPrestamo" SettingsBehavior-AllowFocusedRow="True"
-        Width="100%" ClientInstanceName="GridPrincipal" 
-        OnCustomCallback="GridPrincipal_CustomCallback">
+    <div class="grid">
+        <dx:ASPxGridView ID="GridPrincipal" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+            DataSourceID="SDSPrestamos" KeyFieldName="IdPrestamo" SettingsBehavior-AllowFocusedRow="True"
+            Width="100%" ClientInstanceName="GridPrincipal" OnCustomCallback="GridPrincipal_CustomCallback">
         <ClientSideEvents DetailRowExpanding="function(s, e) {
 	GridPrincipal.SetFocusedRowIndex(e.visibleIndex);
 }" />
@@ -199,130 +215,129 @@ fn_EndCallback();
         <Templates>
             <DetailRow>
                 <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" 
-                    Width="100%">
-                    <TabPages>
-                        <dx:TabPage Text="Materiales">
-                            <ContentCollection>
-                                <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
-                                <div class="wrapctrl">
-                    <ul class="ctrlist">
-                        <li><a class="pure-button blue-font" href="javascript:fn_NewDetSolJS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Agregar</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditSolJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteDetSolJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
-                </div>
-                <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
-                    ClientInstanceName="SubGrid" DataSourceID="DetPrestamo" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
-                    Width="100%" KeyFieldName="CodDetalle">
-                    <TotalSummary>
-                        <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
-                    </TotalSummary>
-                    <Columns>
-                        <dx:GridViewDataTextColumn FieldName="CodDetalle" ReadOnly="True" 
-                            ShowInCustomizationForm="True" VisibleIndex="0" Width="10%">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" 
-                            ShowInCustomizationForm="True" VisibleIndex="1">
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Cod. Material UCA" FieldName="CodUCA" 
-                            ShowInCustomizationForm="True" VisibleIndex="2" Width="20%">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" 
-                            VisibleIndex="3" Width="10%">
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True" 
-                            VisibleIndex="4" Width="10%">
-                            <Settings AutoFilterCondition="Contains" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5">
-                            <ClearFilterButton Text="Limpiar" Visible="True">
-                            </ClearFilterButton>
-                        </dx:GridViewCommandColumn>
-                    </Columns>
-                    <SettingsBehavior AllowFocusedRow="True" />
-                    <Settings ShowFilterRow="True" ShowFooter="True" />
-                    <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
-                    <SettingsDetail IsDetailGrid="True" />
-                    <Styles>
-                        <FocusedRow BackColor="#5180BF">
-                        </FocusedRow>
-                    </Styles>
-                </dx:ASPxGridView>
-                                </dx:ContentControl>
-                            </ContentCollection>
-                        </dx:TabPage>
-                        <dx:TabPage Text="D. Personales">
-                            <ContentCollection>
-                                <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
-                                    <dx:ASPxGridView ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" 
-                                        Width="100%" AutoGenerateColumns="False" DataSourceID="SDSDatosPersonales" 
-                                        OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect">
-                                        <Columns>
-                                            <dx:GridViewDataTextColumn FieldName="Cedula" ShowInCustomizationForm="True" 
-                                                VisibleIndex="0" Width="20%">
-                                            </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn Caption="Nombre Solicitante" 
-                                                FieldName="NombCompleto" ShowInCustomizationForm="True" VisibleIndex="1">
-                                            </dx:GridViewDataTextColumn>
-                                        </Columns>
-                                        <SettingsPager Visible="False">
-                                        </SettingsPager>
-                                        <SettingsDetail IsDetailGrid="True" />
-                                    </dx:ASPxGridView>
-                                </dx:ContentControl>
-                            </ContentCollection>
-                        </dx:TabPage>
-                        <dx:TabPage Text="D.Academicos">
-                            <ContentCollection>
-                                <dx:ContentControl ID="ContentControl3" runat="server" SupportsDisabledAttribute="True">
-
-                                    <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" 
-                                        ClientIDMode="AutoID" DataSourceID="SDSDatosAcademicos" 
-                                        OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Width="100%">
-                                        <Columns>
-                                            <dx:GridViewDataTextColumn FieldName="CodigoAsignatura" 
-                                                ShowInCustomizationForm="True" VisibleIndex="0" Width="25%">
-                                            </dx:GridViewDataTextColumn>
-                                            <dx:GridViewDataTextColumn FieldName="Asignatura" 
-                                                ShowInCustomizationForm="True" VisibleIndex="1">
-                                            </dx:GridViewDataTextColumn>
-                                        </Columns>
-                                    </dx:ASPxGridView>
-
-                                </dx:ContentControl>
-                            </ContentCollection>
-                        </dx:TabPage>
-                    </TabPages>
-                </dx:ASPxPageControl>
+                        Width="100%">
+                        <TabPages>
+                            <dx:TabPage Text="Materiales">
+                                <ContentCollection>
+                                    <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
+                                        <div class="wrapctrl">
+                                            <ul class="ctrlist">
+                                                <li><a class="pure-button blue-font" href="javascript:fn_NewDetSolJS();" title="Nuevo">
+                                                    <i class="fa fa-plus"></i>Agregar</a></li>
+                                                <li><a class="pure-button green-font" href="javascript:fn_EditSolJS();" title="Editar">
+                                                    <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+                                                <li><a class="pure-button red-font" href="javascript:fn_DeleteDetSolJS();" title="Borrar">
+                                                    <i class="fa fa-trash"></i>Borrar</a></li>
+                                            </ul>
+                                        </div>
+                                        <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                            ClientInstanceName="SubGrid" DataSourceID="DetPrestamo" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
+                                            Width="100%" KeyFieldName="CodDetalle">
+                                             <Columns>
+                                                <dx:GridViewDataTextColumn FieldName="CodDetalle" ReadOnly="True" ShowInCustomizationForm="True"
+                                                    VisibleIndex="0" Width="7%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="NomMaq" ShowInCustomizationForm="True"
+                                                    VisibleIndex="1" Caption="Nombre Maquinaria">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Modelo" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="2" Width="15%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="3" Width="15%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True"
+                                                    VisibleIndex="4" Width="10%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                 <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5" 
+                                                     Width="0%">
+                                                     <ClearFilterButton Text="Limpiar" Visible="True">
+                                                     </ClearFilterButton>
+                                                 </dx:GridViewCommandColumn>
+                                            </Columns>
+                                            <SettingsBehavior AllowFocusedRow="True" />
+                                            <Settings ShowFilterRow="True" ShowFooter="True" />
+                                            <SettingsText EmptyDataRow="No hay datos para mostrar" FilterBarClear="Limpiar" />
+                                            <SettingsDetail IsDetailGrid="True" />
+                                            <Styles>
+                                                <FocusedRow BackColor="#5180BF">
+                                                </FocusedRow>
+                                            </Styles>
+                                        </dx:ASPxGridView>
+                                    </dx:ContentControl>
+                                </ContentCollection>
+                            </dx:TabPage>
+                            <dx:TabPage Text="D. Personales">
+                                <ContentCollection>
+                                    <dx:ContentControl ID="ContentControl2" runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" Width="100%"
+                                            AutoGenerateColumns="False" DataSourceID="SDSDatosPersonales" 
+                                            OnBeforePerformDataSelect="ASPxGridView1_BeforePerformDataSelect" 
+                                            KeyFieldName="Cedula">
+                                            <Columns>
+                                                <dx:GridViewDataTextColumn FieldName="Cedula" ShowInCustomizationForm="True" 
+                                                    VisibleIndex="0" Width="20%">
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="NombCompleto"
+                                                    ShowInCustomizationForm="True" VisibleIndex="1" ReadOnly="True">
+                                                </dx:GridViewDataTextColumn>
+                                            </Columns>
+                                            <SettingsPager Visible="False">
+                                            </SettingsPager>
+                                            <SettingsDetail IsDetailGrid="True" />
+                                        </dx:ASPxGridView>
+                                    </dx:ContentControl>
+                                </ContentCollection>
+                            </dx:TabPage>
+                            <dx:TabPage Text="D.Academicos">
+                                <ContentCollection>
+                                    <dx:ContentControl ID="ContentControl3" runat="server" SupportsDisabledAttribute="True">
+                                        <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
+                                            DataSourceID="SDSDatosAcademicos" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect"
+                                            Width="100%" KeyFieldName="CodigoAsignatura">
+                                            <Columns>
+                                                <dx:GridViewDataTextColumn FieldName="CodigoAsignatura" ShowInCustomizationForm="True"
+                                                    VisibleIndex="0" Width="20%">
+                                                </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Asignatura" ShowInCustomizationForm="True"
+                                                    VisibleIndex="1">
+                                                </dx:GridViewDataTextColumn>
+                                            </Columns>
+                                        </dx:ASPxGridView>
+                                    </dx:ContentControl>
+                                </ContentCollection>
+                            </dx:TabPage>
+                        </TabPages>
+                    </dx:ASPxPageControl>
             </DetailRow>
         </Templates>
     </dx:ASPxGridView></div>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT (Date, FechaPrestar) AS FechaPrestamo, CONVERT (Date, FechaDevolver) AS FechaDevolucion, SolicitadoPor, FechaRegistro, Aprobado FROM MINV_Prestamos WHERE (Enviado = 1) ORDER BY IdPrestamo DESC">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR) AS CodDetalle, MINV_Materiales.NomMaterial, MINV_Materiales.CodUCA, MINV_Materiales.Marca, MINV_Det_Prestamo.Cantidad FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MINV_Materiales ON MINV_Det_Prestamo.IdMaterial = MINV_Materiales.IdMaterial WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
+        <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+ SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) AS CodDetalle, MINV_Det_Prestamo.Cantidad, MPR_EquipMaquin.NomMaq, MPR_EquipMaquin.Modelo, MPR_EquipMaquin.Marca FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MPR_EquipMaquin ON MINV_Det_Prestamo.IdEquipo = MPR_EquipMaquin.IdEquipo WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDatosPersonales" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-       SelectCommand="SELECT NombCompleto, Cedula FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
+      SelectCommand="SELECT MINV_Prestamos.Cedula, USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS NombCompleto FROM MINV_Prestamos INNER JOIN USER_Entidad ON MINV_Prestamos.SolicitadoPor = USER_Entidad.username WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
     </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SDSDatosAcademicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+    <asp:SqlDataSource ID="SDSDatosAcademicos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         SelectCommand="SELECT CodigoAsignatura, Asignatura FROM MINV_Prestamos WHERE (IdPrestamo = @IdPrestamo)">
         <SelectParameters>
             <asp:SessionParameter Name="IdPrestamo" SessionField="IdPrestamo" />
         </SelectParameters>
-        </asp:SqlDataSource>
+    </asp:SqlDataSource> 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"

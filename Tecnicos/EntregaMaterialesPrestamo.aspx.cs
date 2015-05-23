@@ -38,7 +38,7 @@ namespace SisLIJAD.Tecnicos
                 if (estado == "1")
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("UPDATE MINV_Det_Prestamo set Prestado=@Prestado where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR)=@CodDetalle", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE MINV_Det_Prestamo set Prestado=@Prestado where CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR)=@CodDetalle", con);
                     cmd.Parameters.AddWithValue("@CodDetalle", val);
                     cmd.Parameters.Add("@Prestado", SqlDbType.Bit).Value = 0;
                     if (cmd.ExecuteNonQuery() == 1)
@@ -53,7 +53,7 @@ namespace SisLIJAD.Tecnicos
                 else
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("UPDATE MINV_Det_Prestamo set Prestado=@Prestado where  CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdMaterial AS NVARCHAR)=@CodDetalle", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE MINV_Det_Prestamo set Prestado=@Prestado where  CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR)=@CodDetalle", con);
                     cmd.Parameters.AddWithValue("@CodDetalle", val);
                     cmd.Parameters.Add("@Prestado", SqlDbType.Bit).Value = 1;
                     if (cmd.ExecuteNonQuery() == 1)

@@ -183,6 +183,34 @@ namespace SisLIJAD.MINV
                 con.Close();
             }
         }
+        //protected void AprobarSol() {
+        //    string val = HiddenV.Get("Aprobar").ToString();
+        //    SqlConnection con = new SqlConnection(Database.ConnectionString);
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("UPDATE MINV_Prestamos set Aprobado=@Aprobado where IdPrestamo=@IdPrestamo", con);
+        //        cmd.Parameters.AddWithValue("@IdPrestamo", val);
+        //        cmd.Parameters.Add("@Aprobado", SqlDbType.Bit).Value = 1;
+        //        if (cmd.ExecuteNonQuery() == 1)
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("El registro se ha sido aprobadp") + "')</script>");
+        //        }
+        //        else
+        //        {
+        //            Response.Write("<script>alert('" + Server.HtmlEncode("El registro no se ha podido aprobar") + "')</script>");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        
+        //}
         #endregion
         #region SubCrud
         protected void SubSelect()
@@ -371,6 +399,8 @@ namespace SisLIJAD.MINV
                     break;
                 case "6": EnviarSol();
                     break;
+                //case "7": AprobarSol();
+                //    break;
                 default: Response.Write("Error con valor de crud");
                     break;
 

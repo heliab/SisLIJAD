@@ -134,6 +134,7 @@
                 fn_EndCallback();
                 swal("Enviada!", "Su solicitud fue enviada con exito.", "success");
             });
+            fn_EndCallback();
     }
 
     function fn_SubAddSol() {
@@ -145,22 +146,40 @@
     function fn_GetValOnHid() {
         HiddenGridPr.Set("SessionId", GridIdx = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex()));
     }
- </script>
+//    function fn_GetAprobJS(){
+//     GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Aprobado', SetApr);
+//        function SetApr(Value) {
+//            if (Value == 1) {
+//                HiddenV.Set('Estado', 1);
+//            }
+//            else {
+//                HiddenV.Set('Estado', 0);
+//            }
+//            HiddenV.Set('Nuevo', 7);
+//            HiddenV.Set('Aprobar', fn_GetIdValue());
+//            NewCallback.PerformCallback();
+//            fn_EndCallback();
+//            swal('Estado de solicitud cambiado');
+//        }
+//    }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
     <div class="wrapctrl">
         <ul class="ctrlist">
-            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo">
-                            <i class="fa fa-plus"></i>Agregar</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditSolicJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                 <li><a class="pure-button green-font" href="javascript:fn_GetSendJS();" title="Enviar solicitud">
-                            <i class="fa fa-paper-plane-o"></i>Enviar</a></li>
+            <li><a class="pure-button blue-font" href="javascript:fn_NewJS();" title="Nuevo"><i
+                class="fa fa-plus"></i>Agregar</a></li>
+            <li><a class="pure-button green-font" href="javascript:fn_EditSolicJS();" title="Editar">
+                <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+            <li><a class="pure-button red-font" href="javascript:fn_DeleteSolicJS();" title="Borrar">
+                <i class="fa fa-trash"></i>Borrar</a></li>
+            <li><a class="pure-button green-font" href="javascript:fn_GetSendJS();" title="Enviar solicitud">
+                <i class="fa fa-paper-plane-o"></i>Enviar</a></li>
+           <%-- <li><a class="pure-button green-font" href="javascript:fn_GetAprobJS();" title="Aprobar solicitud">
+                <i class="fa fa-check"></i>Aprobar</a></li>--%>
         </ul>
     </div>
-        <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
+    <dx:ASPxCallback ID="NewCallback" runat="server" ClientInstanceName="NewCallback"
         OnCallback="NewCallback_Callback" ClientIDMode="AutoID">
         <ClientSideEvents EndCallback="function(s, e) {
 fn_EndCallback();
@@ -182,11 +201,13 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex())
 " />
             <Columns>
                 <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" 
-                    VisibleIndex="0" ShowInCustomizationForm="True">
+                    VisibleIndex="0" ShowInCustomizationForm="True" Width="7%">
+                    <Settings AutoFilterCondition="Contains" />
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1" 
-                    ShowInCustomizationForm="True">
+                    ShowInCustomizationForm="True" Width="40%">
+                    <Settings AutoFilterCondition="Contains" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn FieldName="FechaPrestamo" ReadOnly="True" 
                     VisibleIndex="2" ShowInCustomizationForm="True">
@@ -196,13 +217,18 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex())
                 </dx:GridViewDataDateColumn>
                 <dx:GridViewDataTextColumn FieldName="SolicitadoPor" VisibleIndex="4" 
                     ShowInCustomizationForm="True">
+                    <Settings AutoFilterCondition="Contains" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataCheckColumn FieldName="Enviado" VisibleIndex="5" 
-                    ShowInCustomizationForm="True">
+                    ShowInCustomizationForm="True" Width="10%">
                 </dx:GridViewDataCheckColumn>
                 <dx:GridViewDataCheckColumn FieldName="Aprobado" VisibleIndex="6" 
-                    ShowInCustomizationForm="True">
+                    ShowInCustomizationForm="True" Width="10%">
                 </dx:GridViewDataCheckColumn>
+                <dx:GridViewCommandColumn VisibleIndex="7" Width="0%">
+                    <ClearFilterButton Text="Limpiar" Visible="True">
+                    </ClearFilterButton>
+                </dx:GridViewCommandColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
             <SettingsPager AlwaysShowPager="True" PageSize="15">
@@ -236,25 +262,32 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex())
                                         <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                                             ClientInstanceName="SubGrid" DataSourceID="DetPrestamo" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
                                             Width="100%" KeyFieldName="CodDetalle">
-                                            <TotalSummary>
-                                                <dx:ASPxSummaryItem FieldName="Duracion" ShowInColumn="Duracion" SummaryType="Sum" />
-                                            </TotalSummary>
-                                            <Columns>
+                                             <Columns>
                                                 <dx:GridViewDataTextColumn FieldName="CodDetalle" ReadOnly="True" ShowInCustomizationForm="True"
-                                                    VisibleIndex="0">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True"
-                                                    VisibleIndex="1">
+                                                    VisibleIndex="0" Width="7%">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="NomMaq" ShowInCustomizationForm="True"
-                                                    VisibleIndex="2">
+                                                    VisibleIndex="1" Caption="Nombre Maquinaria">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="Modelo" ShowInCustomizationForm="True" 
-                                                    VisibleIndex="3">
+                                                    VisibleIndex="2">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="Marca" ShowInCustomizationForm="True" 
-                                                    VisibleIndex="4">
+                                                    VisibleIndex="3">
+                                                    <Settings AutoFilterCondition="Contains" />
                                                 </dx:GridViewDataTextColumn>
+                                                <dx:GridViewDataTextColumn FieldName="Cantidad" ShowInCustomizationForm="True"
+                                                    VisibleIndex="4" Width="10%">
+                                                    <Settings AutoFilterCondition="Contains" />
+                                                </dx:GridViewDataTextColumn>
+                                                 <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="5" 
+                                                     Width="0%">
+                                                     <ClearFilterButton Text="Limpiar" Visible="True">
+                                                     </ClearFilterButton>
+                                                 </dx:GridViewCommandColumn>
                                             </Columns>
                                             <SettingsBehavior AllowFocusedRow="True" />
                                             <Settings ShowFilterRow="True" ShowFooter="True" />
@@ -277,7 +310,7 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex())
                                             KeyFieldName="Cedula">
                                             <Columns>
                                                 <dx:GridViewDataTextColumn FieldName="Cedula" ShowInCustomizationForm="True" 
-                                                    VisibleIndex="0">
+                                                    VisibleIndex="0" Width="20%">
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="NombCompleto"
                                                     ShowInCustomizationForm="True" VisibleIndex="1" ReadOnly="True">
@@ -298,7 +331,7 @@ GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex())
                                             Width="100%" KeyFieldName="CodigoAsignatura">
                                             <Columns>
                                                 <dx:GridViewDataTextColumn FieldName="CodigoAsignatura" ShowInCustomizationForm="True"
-                                                    VisibleIndex="0">
+                                                    VisibleIndex="0" Width="20%">
                                                 </dx:GridViewDataTextColumn>
                                                 <dx:GridViewDataTextColumn FieldName="Asignatura" ShowInCustomizationForm="True"
                                                     VisibleIndex="1">
@@ -464,7 +497,7 @@ fn_CleanGroup(1);
                                 </div>
                             </div>
                             <div>
-                                <ul class="frmctrl">
+                                <ul class="frmctrl centerctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
