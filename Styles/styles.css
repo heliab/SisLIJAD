@@ -11,8 +11,24 @@ body {
     ),url(../Images/back_p2.png);
     background-repeat: no-repeat;
     background: linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2));*/
+    /*Version correcta
    background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
-   background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Firefox 3.6 to 15 */
+ /*  background: -moz-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Firefox 3.6 to 15 */
+   
+ /*  background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(253,253,246,1) 5%, rgba(223,235,136,1) 64%, rgba(223,235,136,1) 66%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(5%, rgba(253,253,246,1)), color-stop(64%, rgba(223,235,136,1)), color-stop(66%, rgba(223,235,136,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(253,253,246,1) 5%, rgba(223,235,136,1) 64%, rgba(223,235,136,1) 66%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(253,253,246,1) 5%, rgba(223,235,136,1) 64%, rgba(223,235,136,1) 66%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(253,253,246,1) 5%, rgba(223,235,136,1) 64%, rgba(223,235,136,1) 66%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(253,253,246,1) 5%, rgba(223,235,136,1) 64%, rgba(223,235,136,1) 66%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dfeb88', GradientType=0 );
+*/
+
+
+background: ##e1f897;
+background-image: url("../Images/zenbg-1.png"), url("../Images/zenbg-2.png");
+background-repeat: repeat-x, repeat;
 }
 .registerbg{
     background: -webkit-linear-gradient(rgba(224,224,224, 0.4), rgba(115, 195, 24, 0.2)); /* For Safari 5.1 to 6.0 */
@@ -344,7 +360,7 @@ section {
 .ctrlist {
     padding-top: 5px;
     padding-bottom:5px;
-      /*   margin:0 0;*/        
+      /*   margin:0 0;*/ 
 }
 .wrapctrl{
      background:rgba(27, 0, 0, 0.2);
