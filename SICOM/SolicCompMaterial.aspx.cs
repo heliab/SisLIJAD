@@ -22,7 +22,7 @@ namespace SisLIJAD.SICOM
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT  [IdSolic_Comp],[FechARecibir],[HeaderSolic],[IdEntidad],[IdMoneda] FROM  [MSCOMP_Solic_Compras]", con);
+                SqlCommand cmd = new SqlCommand("SELECT  [IdSolic_Comp],[FechARecibir],[HeaderSolic],[IdEntidad],[IdMoneda] FROM  [MSCOMP_Solic_Compras] WHERE IdSolic_Comp=@IdSolic_Comp", con);
                 cmd.Parameters.AddWithValue("@IdSolic_Comp", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
                 SqlDataReader dr = cmd.ExecuteReader();
