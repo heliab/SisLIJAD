@@ -161,7 +161,7 @@
 //            fn_EndCallback();
 //            swal('Estado de solicitud cambiado');
 //        }
-//    }
+    //    }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
@@ -440,8 +440,10 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Fecha de devolución">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFefin" runat="server" ClientInstanceName="deFefin">
+                                                <ClientSideEvents Validation="function(s,e){e.isValid = (CheckDifference()&gt;=0)}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom" 
+                                                    ErrorText="Fecha inválida">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>

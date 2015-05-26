@@ -625,4 +625,21 @@ function fn_AprobMes(e) {
             default: fn_ClosePopup(1);
 
     }
-}
+    }
+
+    //Validacion de fechas
+    function CheckDifference() {
+        var startDate = new Date();
+        var endDate = new Date();
+        var difference = -1;
+        startDate = deFeIni.GetDate();
+        if (startDate != null) {
+            endDate = deFefin.GetDate();
+            var startTime = startDate.getTime();
+            var endTime = endDate.getTime();
+            difference = (endTime - startTime) / 86400000;
+
+        }
+        return difference;
+
+    }
