@@ -178,7 +178,7 @@ fn_EndCallback();
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
     AllowDragging="True" AllowResize="True" HeaderText="Actualizacion de perfil" Modal="True"
     PopupHorizontalAlign="WindowCenter" ShowPageScrollbarWhenModal="True" ShowFooter="True"
-    FooterText="Actualizacion de perfil" PopupVerticalAlign="WindowCenter" ClientIDMode="AutoID"
+    FooterText="Actualizacion de perfil" PopupVerticalAlign="TopSides" ClientIDMode="AutoID"
     Height="197px" Width="360px" CloseAction="CloseButton">
     <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
