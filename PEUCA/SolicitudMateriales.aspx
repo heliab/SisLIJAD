@@ -180,9 +180,11 @@ fn_EndCallback();
             <Columns>
                 <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
                     Width="7%">
+                    <Settings AutoFilterCondition="Contains" />
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
+                    <Settings AutoFilterCondition="Contains" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataDateColumn FieldName="FechaPrestamo" ReadOnly="True" VisibleIndex="2"
                     Width="10%">
@@ -191,6 +193,7 @@ fn_EndCallback();
                     Width="10%">
                 </dx:GridViewDataDateColumn>
                 <dx:GridViewDataTextColumn FieldName="SolicitadoPor" VisibleIndex="4" Width="15%">
+                    <Settings AutoFilterCondition="Contains" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataCheckColumn FieldName="Enviado" VisibleIndex="5" Width="7%">
                 </dx:GridViewDataCheckColumn>

@@ -306,7 +306,7 @@ fn_CleanGroup(1);
                             </div>
                         </div>
                         <div>
-                            <ul class="frmctrl">
+                            <ul class="frmctrl centerctrl">
                                 <li><a class="pure-button green-font" href="javascript:fn_SaveProfileJS()" title="Guardar"><i class="fa fa-floppy-o">
                                     </i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">

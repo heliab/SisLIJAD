@@ -121,6 +121,7 @@ fn_EndCallback();
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="2" 
                 Caption="Usuario">
@@ -128,9 +129,11 @@ fn_EndCallback();
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn FieldName="Registrado" ReadOnly="True" 
                 VisibleIndex="3" Width="10%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataDateColumn FieldName="Requerido" ReadOnly="True" 
                 VisibleIndex="4" Width="10%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataTextColumn FieldName="Horaini" VisibleIndex="5" 
                 Caption="H.Inicio" Width="6%">
@@ -140,6 +143,7 @@ fn_EndCallback();
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="DescUbicacion" VisibleIndex="7" 
                 Caption="Laboratorio" Width="10%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn FieldName="Enviada" VisibleIndex="8" Width="7%">
             </dx:GridViewDataCheckColumn>
