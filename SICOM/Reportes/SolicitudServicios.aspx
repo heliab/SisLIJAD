@@ -27,10 +27,10 @@
                         ClientIDMode="AutoID" DataSourceID="SqlDataSource1" 
                         TextField="Descripcion" ValueField="Id"
                         ValueType="System.String" Font-Size="Medium" 
-                        EnableIncrementalFiltering="True" Width="350px">
+                        EnableIncrementalFiltering="True" Width="350px" DropDownStyle="DropDown">
                         <Columns>
                             <dx:ListBoxColumn Caption="Id" FieldName="Id" Width="7%" />
-                            <dx:ListBoxColumn Caption="Solicitud" FieldName="Descripcion" />
+                            <dx:ListBoxColumn Caption="Solicitud" FieldName="Descripcion" Width="93%" />
                         </Columns>
                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                             ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">

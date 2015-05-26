@@ -427,6 +427,8 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha que requerirá los materiales">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFeIni" runat="server" ClientInstanceName="deFeIni">
+                                                <CalendarProperties TodayButtonText="Hoy">
+                                                </CalendarProperties>
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -440,6 +442,8 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Fecha de devolución">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFefin" runat="server" ClientInstanceName="deFefin">
+                                                <CalendarProperties TodayButtonText="Hoy">
+                                                </CalendarProperties>
                                                 <ClientSideEvents Validation="function(s,e){e.isValid = (CheckDifference()>=0)}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom" 

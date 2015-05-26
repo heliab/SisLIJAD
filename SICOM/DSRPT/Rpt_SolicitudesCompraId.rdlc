@@ -459,7 +459,7 @@
                           <Top>2.4483cm</Top>
                           <Left>0.82868cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>14.02245cm</Width>
+                          <Width>14.02243cm</Width>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -659,8 +659,47 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Firma encargado</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>7.21403cm</Top>
+        <Left>6.65987cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.19026cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2.53125in</Height>
+    <Height>3.14583in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>
@@ -745,7 +784,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox156</rd:DefaultName>
           <Top>0.24783cm</Top>
-          <Left>5.9599cm</Left>
+          <Left>6.36736cm</Left>
           <Height>1.15562cm</Height>
           <Width>5.14583cm</Width>
           <ZIndex>2</ZIndex>

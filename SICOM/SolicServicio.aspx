@@ -195,6 +195,8 @@ fn_CleanGroup(1);
                                     <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha de contratacion">
                                             </dx:ASPxLabel>
                                     <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq">
+                                            <CalendarProperties TodayButtonText="Hoy">
+                                            </CalendarProperties>
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />

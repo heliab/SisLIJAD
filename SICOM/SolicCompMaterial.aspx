@@ -247,6 +247,8 @@ fn_CleanGroup(1);
                                     <dx:ASPxLabel ID="ASPxLabel80" runat="server" Text="Fecha compra requerida">
                                             </dx:ASPxLabel>
                                     <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq">
+                                            <CalendarProperties TodayButtonText="Hoy">
+                                            </CalendarProperties>
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
@@ -278,7 +280,7 @@ fn_CleanGroup(1);
                                 </div>
 
                          <div>
-                                <ul class="frmctrl">
+                                <ul class="frmctrl centerctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
                                     </i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
@@ -398,7 +400,7 @@ fn_EndCallback();
                                 </div>
                             </div>
                             <div>
-                                <ul class="frmctrl">
+                                <ul class="frmctrl centerctrl">
                                     <li><a class="pure-button button-green white-font" href="javascript:fn_SubAddMat();" title="Guardar">
                                         <i class="fa fa-plus-square"></i>Nuevo</a></li>
                                     <li><a class="pure-button green-font" href="javascript:fn_SubSaveJS();" title="Guardar">
