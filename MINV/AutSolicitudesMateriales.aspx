@@ -179,7 +179,7 @@ fn_EndCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
-                Width="9%" ToolTip="Cod Prestamo">
+                Width="9%" ToolTip="Cod Prestamo" SortIndex="0" SortOrder="Descending">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
@@ -410,8 +410,10 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Fecha de devolución">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFefin" runat="server" ClientInstanceName="deFefin">
+                                                <ClientSideEvents Validation="function(s,e){e.isValid = (CheckDifference()&gt;=0)}" />
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom" 
+                                                    ErrorText="Fecha inválida">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>

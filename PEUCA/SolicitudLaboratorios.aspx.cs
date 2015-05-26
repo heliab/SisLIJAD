@@ -15,6 +15,7 @@ namespace SisLIJAD.PEUCA
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["username"] = User.Identity.Name;
+            deFeReq.MinDate = DateTime.Today;
         }
         #region CRUD
         protected void Select()

@@ -407,8 +407,10 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Fecha de devolución">
                                             </dx:ASPxLabel>
                                             <dx:ASPxDateEdit ID="deFefin" runat="server" ClientInstanceName="deFefin">
+                                                <ClientSideEvents Validation="function(s,e){e.isValid = (CheckDifference()>=0)}" />
                                                 <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom" 
+                                                    ErrorText="Fecha Inválida">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
                                                     <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
@@ -464,7 +466,7 @@ fn_CleanGroup(1);
                                 </div>
                             </div>
                             <div>
-                                <ul class="frmctrl">
+                                <ul class="frmctrl centerctrl">
                                     <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
                                         <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">

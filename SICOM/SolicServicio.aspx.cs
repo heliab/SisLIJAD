@@ -13,7 +13,7 @@ namespace SisLIJAD.SICOM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            deFeReq.MinDate = DateTime.Today;
         }
 
         #region CRUD
