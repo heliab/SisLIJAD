@@ -142,10 +142,6 @@ fn_CleanGroup(1);
                                     </dx:ASPxLabel>
                                     <dx:ASPxComboBox ID="cmbUdM" runat="server" ClientInstanceName="cmbUdM" DataSourceID="SDSUdM"
                                         TextField="Nom" ValueField="Id">
-                                          <Columns>
-                                            <dx:ListBoxColumn Caption="Id" FieldName="Id" />
-                                            <dx:ListBoxColumn Caption="Unidad" FieldName="Nom" />
-                                        </Columns>
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
