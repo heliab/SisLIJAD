@@ -30,8 +30,8 @@
                         ValueType="System.String" Font-Size="Medium" 
                         EnableIncrementalFiltering="True" Width="350px">
                         <Columns>
-                            <dx:ListBoxColumn Caption="Id" FieldName="Id" Width="7%" />
-                            <dx:ListBoxColumn Caption="Descripcion" FieldName="Descripcion" />
+                            <dx:ListBoxColumn Caption="Id" FieldName="Id" Width="25px" />
+                            <dx:ListBoxColumn Caption="Descripcion" FieldName="Descripcion" Width="700px" />
                         </Columns>
                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                             ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">

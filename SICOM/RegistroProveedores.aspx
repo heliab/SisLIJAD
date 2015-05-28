@@ -53,7 +53,7 @@ fn_EndCallback();
         <Columns>
             <dx:GridViewDataTextColumn Caption="Id Proveedor" FieldName="IdEntidad" 
                 ReadOnly="True" VisibleIndex="0"
-                Width="12%">
+                Width="12%" SortIndex="0" SortOrder="Descending">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Proveedor" FieldName="Empresa" 
@@ -149,6 +149,7 @@ fn_CleanGroup(1);
                                     </dx:ASPxLabel>
                                     <dx:ASPxTextBox ID="txtTel" runat="server" Width="93%" ClientInstanceName="txtTel"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
+                                        <MaskSettings Mask="0000-0000" />
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
