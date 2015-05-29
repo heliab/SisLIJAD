@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetLoanMatByUserTableAdapter" GeneratorDataComponentClassName="GetLoanMatByUserTableAdapter" Name="GetLoanMatByUser" UserDataComponentName="GetLoanMatByUserTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.GetLoanMatByUser" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.GetLoanMatByUser" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.GetLoanMatByUser</CommandText>
@@ -32,6 +32,8 @@
               <Mapping SourceColumn="Asignatura" DataSetColumn="Asignatura" />
               <Mapping SourceColumn="CodigoAsignatura" DataSetColumn="CodigoAsignatura" />
               <Mapping SourceColumn="Cedula" DataSetColumn="Cedula" />
+              <Mapping SourceColumn="NomMaq" DataSetColumn="NomMaq" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -43,7 +45,7 @@
   <xs:element name="DSGetLoanMatByUser" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSGetLoanMatByUser" msprop:Generator_UserDSName="DSGetLoanMatByUser">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GetLoanMatByUser" msprop:Generator_TableClassName="GetLoanMatByUserDataTable" msprop:Generator_TableVarName="tableGetLoanMatByUser" msprop:Generator_TablePropName="GetLoanMatByUser" msprop:Generator_RowDeletingName="GetLoanMatByUserRowDeleting" msprop:Generator_RowChangingName="GetLoanMatByUserRowChanging" msprop:Generator_RowEvHandlerName="GetLoanMatByUserRowChangeEventHandler" msprop:Generator_RowDeletedName="GetLoanMatByUserRowDeleted" msprop:Generator_UserTableName="GetLoanMatByUser" msprop:Generator_RowChangedName="GetLoanMatByUserRowChanged" msprop:Generator_RowEvArgName="GetLoanMatByUserRowChangeEvent" msprop:Generator_RowClassName="GetLoanMatByUserRow">
+        <xs:element name="GetLoanMatByUser" msprop:Generator_TableClassName="GetLoanMatByUserDataTable" msprop:Generator_TableVarName="tableGetLoanMatByUser" msprop:Generator_RowChangedName="GetLoanMatByUserRowChanged" msprop:Generator_TablePropName="GetLoanMatByUser" msprop:Generator_RowDeletingName="GetLoanMatByUserRowDeleting" msprop:Generator_RowChangingName="GetLoanMatByUserRowChanging" msprop:Generator_RowEvHandlerName="GetLoanMatByUserRowChangeEventHandler" msprop:Generator_RowDeletedName="GetLoanMatByUserRowDeleted" msprop:Generator_RowClassName="GetLoanMatByUserRow" msprop:Generator_UserTableName="GetLoanMatByUser" msprop:Generator_RowEvArgName="GetLoanMatByUserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdPrestamo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnIdPrestamo" msprop:Generator_ColumnPropNameInRow="IdPrestamo" msprop:Generator_ColumnPropNameInTable="IdPrestamoColumn" msprop:Generator_UserColumnName="IdPrestamo" type="xs:int" />
@@ -54,7 +56,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FechaRegistro" msprop:Generator_ColumnVarNameInTable="columnFechaRegistro" msprop:Generator_ColumnPropNameInRow="FechaRegistro" msprop:Generator_ColumnPropNameInTable="FechaRegistroColumn" msprop:Generator_UserColumnName="FechaRegistro">
+              <xs:element name="FechaRegistro" msprop:Generator_ColumnVarNameInTable="columnFechaRegistro" msprop:Generator_ColumnPropNameInRow="FechaRegistro" msprop:Generator_ColumnPropNameInTable="FechaRegistroColumn" msprop:Generator_UserColumnName="FechaRegistro" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -98,6 +100,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="NomMaq" msprop:Generator_ColumnVarNameInTable="columnNomMaq" msprop:Generator_ColumnPropNameInRow="NomMaq" msprop:Generator_ColumnPropNameInTable="NomMaqColumn" msprop:Generator_UserColumnName="NomMaq">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

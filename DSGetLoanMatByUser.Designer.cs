@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD.MINV.DSRPT {
+namespace SisLIJAD {
     
     
     /// <summary>
@@ -299,6 +299,10 @@ namespace SisLIJAD.MINV.DSRPT {
             
             private global::System.Data.DataColumn columnCedula;
             
+            private global::System.Data.DataColumn columnNomMaq;
+            
+            private global::System.Data.DataColumn columnCantidad;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetLoanMatByUserDataTable() {
@@ -414,6 +418,22 @@ namespace SisLIJAD.MINV.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NomMaqColumn {
+                get {
+                    return this.columnNomMaq;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CantidadColumn {
+                get {
+                    return this.columnCantidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +469,7 @@ namespace SisLIJAD.MINV.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetLoanMatByUserRow AddGetLoanMatByUserRow(string Procedimiento, string FechaRegistro, System.DateTime FechaPrestar, System.DateTime FechaDevolver, string SolicitadoPor, string NombCompleto, string Asignatura, string CodigoAsignatura, string Cedula) {
+            public GetLoanMatByUserRow AddGetLoanMatByUserRow(string Procedimiento, string FechaRegistro, System.DateTime FechaPrestar, System.DateTime FechaDevolver, string SolicitadoPor, string NombCompleto, string Asignatura, string CodigoAsignatura, string Cedula, string NomMaq, double Cantidad) {
                 GetLoanMatByUserRow rowGetLoanMatByUserRow = ((GetLoanMatByUserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -461,7 +481,9 @@ namespace SisLIJAD.MINV.DSRPT {
                         NombCompleto,
                         Asignatura,
                         CodigoAsignatura,
-                        Cedula};
+                        Cedula,
+                        NomMaq,
+                        Cantidad};
                 rowGetLoanMatByUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetLoanMatByUserRow);
                 return rowGetLoanMatByUserRow;
@@ -501,6 +523,8 @@ namespace SisLIJAD.MINV.DSRPT {
                 this.columnAsignatura = base.Columns["Asignatura"];
                 this.columnCodigoAsignatura = base.Columns["CodigoAsignatura"];
                 this.columnCedula = base.Columns["Cedula"];
+                this.columnNomMaq = base.Columns["NomMaq"];
+                this.columnCantidad = base.Columns["Cantidad"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -526,6 +550,10 @@ namespace SisLIJAD.MINV.DSRPT {
                 base.Columns.Add(this.columnCodigoAsignatura);
                 this.columnCedula = new global::System.Data.DataColumn("Cedula", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCedula);
+                this.columnNomMaq = new global::System.Data.DataColumn("NomMaq", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNomMaq);
+                this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantidad);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdPrestamo}, true));
                 this.columnIdPrestamo.AutoIncrement = true;
@@ -534,7 +562,6 @@ namespace SisLIJAD.MINV.DSRPT {
                 this.columnIdPrestamo.Unique = true;
                 this.columnProcedimiento.AllowDBNull = false;
                 this.columnProcedimiento.MaxLength = 2147483647;
-                this.columnFechaRegistro.AllowDBNull = false;
                 this.columnFechaRegistro.MaxLength = 50;
                 this.columnFechaPrestar.AllowDBNull = false;
                 this.columnFechaDevolver.AllowDBNull = false;
@@ -544,6 +571,9 @@ namespace SisLIJAD.MINV.DSRPT {
                 this.columnAsignatura.MaxLength = 70;
                 this.columnCodigoAsignatura.MaxLength = 15;
                 this.columnCedula.MaxLength = 50;
+                this.columnNomMaq.AllowDBNull = false;
+                this.columnNomMaq.MaxLength = 2147483647;
+                this.columnCantidad.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -710,7 +740,12 @@ namespace SisLIJAD.MINV.DSRPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string FechaRegistro {
                 get {
-                    return ((string)(this[this.tableGetLoanMatByUser.FechaRegistroColumn]));
+                    try {
+                        return ((string)(this[this.tableGetLoanMatByUser.FechaRegistroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FechaRegistro\' de la tabla \'GetLoanMatByUser\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableGetLoanMatByUser.FechaRegistroColumn] = value;
@@ -817,6 +852,40 @@ namespace SisLIJAD.MINV.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NomMaq {
+                get {
+                    return ((string)(this[this.tableGetLoanMatByUser.NomMaqColumn]));
+                }
+                set {
+                    this[this.tableGetLoanMatByUser.NomMaqColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Cantidad {
+                get {
+                    return ((double)(this[this.tableGetLoanMatByUser.CantidadColumn]));
+                }
+                set {
+                    this[this.tableGetLoanMatByUser.CantidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFechaRegistroNull() {
+                return this.IsNull(this.tableGetLoanMatByUser.FechaRegistroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFechaRegistroNull() {
+                this[this.tableGetLoanMatByUser.FechaRegistroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNombCompletoNull() {
                 return this.IsNull(this.tableGetLoanMatByUser.NombCompletoColumn);
             }
@@ -899,7 +968,7 @@ namespace SisLIJAD.MINV.DSRPT {
         }
     }
 }
-namespace SisLIJAD.MINV.DSRPT.DSGetLoanMatByUserTableAdapters {
+namespace SisLIJAD.DSGetLoanMatByUserTableAdapters {
     
     
     /// <summary>
@@ -1033,6 +1102,8 @@ namespace SisLIJAD.MINV.DSRPT.DSGetLoanMatByUserTableAdapters {
             tableMapping.ColumnMappings.Add("Asignatura", "Asignatura");
             tableMapping.ColumnMappings.Add("CodigoAsignatura", "CodigoAsignatura");
             tableMapping.ColumnMappings.Add("Cedula", "Cedula");
+            tableMapping.ColumnMappings.Add("NomMaq", "NomMaq");
+            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
