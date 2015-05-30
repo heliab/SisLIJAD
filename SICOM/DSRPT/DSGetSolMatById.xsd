@@ -29,7 +29,6 @@
               <Mapping SourceColumn="PrecioTotal" DataSetColumn="PrecioTotal" />
               <Mapping SourceColumn="PrecioIndividual" DataSetColumn="PrecioIndividual" />
               <Mapping SourceColumn="DescTipoM" DataSetColumn="DescTipoM" />
-              <Mapping SourceColumn="IdSolic_Comp" DataSetColumn="IdSolic_Comp1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -41,7 +40,7 @@
   <xs:element name="DSGetSolMatById" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSGetSolMatById" msprop:Generator_UserDSName="DSGetSolMatById">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GetSolMatById" msprop:Generator_TableClassName="GetSolMatByIdDataTable" msprop:Generator_TableVarName="tableGetSolMatById" msprop:Generator_RowChangedName="GetSolMatByIdRowChanged" msprop:Generator_TablePropName="GetSolMatById" msprop:Generator_RowDeletingName="GetSolMatByIdRowDeleting" msprop:Generator_RowChangingName="GetSolMatByIdRowChanging" msprop:Generator_RowEvHandlerName="GetSolMatByIdRowChangeEventHandler" msprop:Generator_RowDeletedName="GetSolMatByIdRowDeleted" msprop:Generator_RowClassName="GetSolMatByIdRow" msprop:Generator_UserTableName="GetSolMatById" msprop:Generator_RowEvArgName="GetSolMatByIdRowChangeEvent">
+        <xs:element name="GetSolMatById" msprop:Generator_TableClassName="GetSolMatByIdDataTable" msprop:Generator_TableVarName="tableGetSolMatById" msprop:Generator_TablePropName="GetSolMatById" msprop:Generator_RowDeletingName="GetSolMatByIdRowDeleting" msprop:Generator_RowChangingName="GetSolMatByIdRowChanging" msprop:Generator_RowEvHandlerName="GetSolMatByIdRowChangeEventHandler" msprop:Generator_RowDeletedName="GetSolMatByIdRowDeleted" msprop:Generator_UserTableName="GetSolMatById" msprop:Generator_RowChangedName="GetSolMatByIdRowChanged" msprop:Generator_RowEvArgName="GetSolMatByIdRowChangeEvent" msprop:Generator_RowClassName="GetSolMatByIdRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdSolic_Comp" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnIdSolic_Comp" msprop:Generator_ColumnPropNameInRow="IdSolic_Comp" msprop:Generator_ColumnPropNameInTable="IdSolic_CompColumn" msprop:Generator_UserColumnName="IdSolic_Comp" type="xs:int" />
@@ -73,13 +72,6 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IdSolic_Comp1" msdata:ReadOnly="true" msdata:Caption="IdSolic_Comp" msprop:Generator_ColumnVarNameInTable="columnIdSolic_Comp1" msprop:Generator_ColumnPropNameInRow="IdSolic_Comp1" msprop:Generator_ColumnPropNameInTable="IdSolic_Comp1Column" msprop:Generator_UserColumnName="IdSolic_Comp1" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

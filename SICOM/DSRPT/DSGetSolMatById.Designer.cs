@@ -295,8 +295,6 @@ namespace SisLIJAD.SICOM.DSRPT {
             
             private global::System.Data.DataColumn columnDescTipoM;
             
-            private global::System.Data.DataColumn columnIdSolic_Comp1;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetSolMatByIdDataTable() {
@@ -396,14 +394,6 @@ namespace SisLIJAD.SICOM.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdSolic_Comp1Column {
-                get {
-                    return this.columnIdSolic_Comp1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +429,7 @@ namespace SisLIJAD.SICOM.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetSolMatByIdRow AddGetSolMatByIdRow(System.DateTime FechARecibir, string HeaderSolic, string NomMaterial, double Cantidad, string PrecioTotal, double PrecioIndividual, string DescTipoM, string IdSolic_Comp1) {
+            public GetSolMatByIdRow AddGetSolMatByIdRow(System.DateTime FechARecibir, string HeaderSolic, string NomMaterial, double Cantidad, string PrecioTotal, double PrecioIndividual, string DescTipoM) {
                 GetSolMatByIdRow rowGetSolMatByIdRow = ((GetSolMatByIdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -449,8 +439,7 @@ namespace SisLIJAD.SICOM.DSRPT {
                         Cantidad,
                         PrecioTotal,
                         PrecioIndividual,
-                        DescTipoM,
-                        IdSolic_Comp1};
+                        DescTipoM};
                 rowGetSolMatByIdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetSolMatByIdRow);
                 return rowGetSolMatByIdRow;
@@ -488,7 +477,6 @@ namespace SisLIJAD.SICOM.DSRPT {
                 this.columnPrecioTotal = base.Columns["PrecioTotal"];
                 this.columnPrecioIndividual = base.Columns["PrecioIndividual"];
                 this.columnDescTipoM = base.Columns["DescTipoM"];
-                this.columnIdSolic_Comp1 = base.Columns["IdSolic_Comp1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -510,8 +498,6 @@ namespace SisLIJAD.SICOM.DSRPT {
                 base.Columns.Add(this.columnPrecioIndividual);
                 this.columnDescTipoM = new global::System.Data.DataColumn("DescTipoM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescTipoM);
-                this.columnIdSolic_Comp1 = new global::System.Data.DataColumn("IdSolic_Comp1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdSolic_Comp1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdSolic_Comp}, true));
                 this.columnIdSolic_Comp.AutoIncrement = true;
@@ -528,9 +514,6 @@ namespace SisLIJAD.SICOM.DSRPT {
                 this.columnPrecioIndividual.ReadOnly = true;
                 this.columnDescTipoM.AllowDBNull = false;
                 this.columnDescTipoM.MaxLength = 50;
-                this.columnIdSolic_Comp1.ReadOnly = true;
-                this.columnIdSolic_Comp1.Caption = "IdSolic_Comp";
-                this.columnIdSolic_Comp1.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -776,22 +759,6 @@ namespace SisLIJAD.SICOM.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IdSolic_Comp1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetSolMatById.IdSolic_Comp1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdSolic_Comp1\' de la tabla \'GetSolMatById\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetSolMatById.IdSolic_Comp1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechARecibirNull() {
                 return this.IsNull(this.tableGetSolMatById.FechARecibirColumn);
             }
@@ -824,18 +791,6 @@ namespace SisLIJAD.SICOM.DSRPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPrecioIndividualNull() {
                 this[this.tableGetSolMatById.PrecioIndividualColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIdSolic_Comp1Null() {
-                return this.IsNull(this.tableGetSolMatById.IdSolic_Comp1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIdSolic_Comp1Null() {
-                this[this.tableGetSolMatById.IdSolic_Comp1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -1005,7 +960,6 @@ namespace SisLIJAD.SICOM.DSRPT.DSGetSolMatByIdTableAdapters {
             tableMapping.ColumnMappings.Add("PrecioTotal", "PrecioTotal");
             tableMapping.ColumnMappings.Add("PrecioIndividual", "PrecioIndividual");
             tableMapping.ColumnMappings.Add("DescTipoM", "DescTipoM");
-            tableMapping.ColumnMappings.Add("IdSolic_Comp", "IdSolic_Comp1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
