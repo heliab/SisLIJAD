@@ -76,7 +76,7 @@ fn_EndCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdSolic_Comp" ReadOnly="True"
-                VisibleIndex="0" Caption="Id Solicitud" Width="12%">
+                VisibleIndex="0" Caption="Id Solicitud" Width="9%">
                 <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
@@ -136,18 +136,23 @@ fn_EndCallback();
                     </TotalSummary>
                     <Columns>
                         <dx:GridViewDataTextColumn FieldName="IdDetalle" ReadOnly="True" 
-                            VisibleIndex="0">
+                            VisibleIndex="0" Width="12%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn Caption="Material" FieldName="NomMaterial" 
-                            VisibleIndex="1">
+                            VisibleIndex="1" SortIndex="0" SortOrder="Ascending">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Cantidad" VisibleIndex="2">
+                        <dx:GridViewDataTextColumn FieldName="Cantidad" VisibleIndex="2" Width="7%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="Precio"
-                            VisibleIndex="3" Caption="Precio Total">
+                            VisibleIndex="3" Caption="Precio Total" Width="12%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataTextColumn FieldName="PrecioIndividual"
-                            VisibleIndex="4" ReadOnly="True">
+                            VisibleIndex="4" ReadOnly="True" Width="12%">
+                            <Settings AutoFilterCondition="Contains" />
                         </dx:GridViewDataTextColumn>
                     </Columns>
                     <SettingsBehavior AllowFocusedRow="True" />
@@ -173,7 +178,8 @@ fn_EndCallback();
             </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDSDetCompra" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, MSCOMP_Solicitud_Mat.Cantidad, MSCOMP_Solicitud_Mat.Precio, CAST(MSCOMP_Solicitud_Mat.Precio / MSCOMP_Solicitud_Mat.Cantidad AS NVARCHAR) + ' ' + MSCOMP_Tipo_Moneda.DescTipoM AS PrecioIndividual FROM MINV_Materiales INNER JOIN MSCOMP_Solicitud_Mat ON MINV_Materiales.IdMaterial = MSCOMP_Solicitud_Mat.IdMaterial INNER JOIN MSCOMP_Solic_Compras ON MSCOMP_Solicitud_Mat.IdSolic_Comp = MSCOMP_Solic_Compras.IdSolic_Comp INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Solic_Compras.IdMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda WHERE (MSCOMP_Solicitud_Mat.IdSolic_Comp = @IdSolic_Comp) ORDER BY IdDetalle DESC">
+        
+        SelectCommand="SELECT CAST(MSCOMP_Solicitud_Mat.IdSolic_Comp AS NVARCHAR) + '.' + CAST(MSCOMP_Solicitud_Mat.IdMaterial AS NVARCHAR) AS IdDetalle, MINV_Materiales.NomMaterial, CAST(MSCOMP_Solicitud_Mat.Cantidad AS NVARCHAR) + ' ' + MINV_UnidadM.AbrUnid AS Cantidad, MSCOMP_Solicitud_Mat.Precio, CAST(MSCOMP_Solicitud_Mat.Precio / MSCOMP_Solicitud_Mat.Cantidad AS NVARCHAR) + ' ' + MSCOMP_Tipo_Moneda.DescTipoM AS PrecioIndividual FROM MINV_Materiales INNER JOIN MSCOMP_Solicitud_Mat ON MINV_Materiales.IdMaterial = MSCOMP_Solicitud_Mat.IdMaterial INNER JOIN MSCOMP_Solic_Compras ON MSCOMP_Solicitud_Mat.IdSolic_Comp = MSCOMP_Solic_Compras.IdSolic_Comp INNER JOIN MSCOMP_Tipo_Moneda ON MSCOMP_Solic_Compras.IdMoneda = MSCOMP_Tipo_Moneda.IdTipoMoneda INNER JOIN MINV_UnidadM ON MINV_Materiales.IdUnidad = MINV_UnidadM.IdUnidadM WHERE (MSCOMP_Solicitud_Mat.IdSolic_Comp = @IdSolic_Comp) ORDER BY IdDetalle DESC">
         <SelectParameters>
             <asp:SessionParameter Name="IdSolic_Comp" SessionField="IdSolic_Comp" />
         </SelectParameters>
@@ -357,7 +363,8 @@ fn_EndCallback();
                                     </dx:ASPxComboBox>
                                     <asp:SqlDataSource ID="SDSMateriales" runat="server"
                                         ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MSCOMP_Solicitud_Mat WHERE (IdSolic_Comp = @IdSolic_Comp)))">
+                                        
+                                        SelectCommand="SELECT IdMaterial, NomMaterial FROM MINV_Materiales WHERE (IdMaterial NOT IN (SELECT IdMaterial FROM MSCOMP_Solicitud_Mat WHERE (IdSolic_Comp = @IdSolic_Comp))) Order By NomMaterial ASC">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="IdSolic_Comp" SessionField="IdSolic_Comp" />
                                         </SelectParameters>

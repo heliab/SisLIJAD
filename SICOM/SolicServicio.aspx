@@ -61,7 +61,7 @@ fn_EndCallback();
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn FieldName="FechaReq" ReadOnly="True" 
-                VisibleIndex="3" Width="15%">
+                VisibleIndex="3" Width="15%" Caption="Fecha Requerida">
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataTextColumn FieldName="Proveedor" 
                 VisibleIndex="4">
@@ -151,10 +151,9 @@ fn_CleanGroup(1);
                                         <div class="second">
                                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Moneda">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxComboBox ID="cmbTipoMo" runat="server" ClientInstanceName="cmbTipoMo" 
-                                                DataSourceID="SDSCurrency" TextField="DescTipoM" Width="90px" 
-                                                ValueField="IdTipoMoneda">
-                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
+                                            <dx:ASPxComboBox ID="cmbTipoMo" runat="server" ClientInstanceName="cmbTipoMo" DataSourceID="SDSCurrency"
+                                                TextField="DescTipoM" Width="90px" ValueField="IdTipoMoneda">
+                                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                                     SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
                                                     <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
@@ -162,62 +161,55 @@ fn_CleanGroup(1);
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
                                             </dx:ASPxComboBox>
-                                            <asp:SqlDataSource ID="SDSCurrency" runat="server" 
-                                                ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                                SelectCommand="SELECT [IdTipoMoneda], [DescTipoM] FROM [MSCOMP_Tipo_Moneda]"></asp:SqlDataSource>
-
+                                            <asp:SqlDataSource ID="SDSCurrency" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                                SelectCommand="SELECT [IdTipoMoneda], [DescTipoM] FROM [MSCOMP_Tipo_Moneda]">
+                                            </asp:SqlDataSource>
                                         </div>
                                     </div>
                                     <div class="row">
-                                    
                                     </div>
-                                   
                                     <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione proveedor">
-                                            </dx:ASPxLabel>
-                                        <dx:ASPxComboBox ID="cmbProveedor" runat="server" 
-                                            ClientInstanceName="cmbProveedor" DataSourceID="SDSProveedor" 
-                                            TextField="Empresa" ValueField="IdEntidad">
-                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
+                                        <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Seleccione proveedor">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxComboBox ID="cmbProveedor" runat="server" ClientInstanceName="cmbProveedor"
+                                            DataSourceID="SDSProveedor" TextField="Empresa" ValueField="IdEntidad">
+                                            <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
+                                                ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                <RegularExpression ErrorText="Informacion Requerida" />
+                                                <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                                <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                                <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                            </ValidationSettings>
                                         </dx:ASPxComboBox>
-                                        <asp:SqlDataSource ID="SDSProveedor" runat="server" 
-                                            ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-                                            SelectCommand="SELECT IdEntidad, Empresa FROM USER_Entidad WHERE (IdTipo = 2)"></asp:SqlDataSource>
-
+                                        <asp:SqlDataSource ID="SDSProveedor" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+                                            SelectCommand="SELECT IdEntidad, Empresa FROM USER_Entidad WHERE (IdTipo = 2)">
+                                        </asp:SqlDataSource>
                                     </div>
                                     <div class="second">
-                                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha de contratacion">
-                                            </dx:ASPxLabel>
-                                    <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq">
+                                        <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Fecha de contratacion">
+                                        </dx:ASPxLabel>
+                                        <dx:ASPxDateEdit ID="deFeReq" runat="server" ClientInstanceName="deFeReq">
                                             <CalendarProperties TodayButtonText="Hoy">
                                             </CalendarProperties>
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                            </dx:ASPxDateEdit>
-                                            </div>
-                                   
+                                                ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
+                                                <RegularExpression ErrorText="Informacion Requerida" />
+                                                <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+                                                <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+                                                <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
+                                            </ValidationSettings>
+                                        </dx:ASPxDateEdit>
+                                    </div>
                                 </div>
-                                </div>
-
-                         <div>
-                                <ul class="frmctrl">
-                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guardar</a></li>
-                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
-                                    </i>Cancelar</a></li>
-                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i
-                                        class="fa fa-repeat"></i>Limpiar</a></li>
+                            </div>
+                            <div>
+                                <ul class="frmctrl centerctrl">
+                                    <li><a class="pure-button green-font" href="javascript:fn_SaveJS()" title="Guardar">
+                                        <i class="fa fa-floppy-o"></i>Guardar</a></li>
+                                    <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar">
+                                        <i class="fa fa-times"></i>Cancelar</a></li>
+                                    <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar">
+                                        <i class="fa fa-repeat"></i>Limpiar</a></li>
                                 </ul>
                             </div>
                         </dx:PanelContent>
