@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.MINV.DSRPT {
     
     
     /// <summary>
@@ -968,7 +968,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.DSGetLoanMatByUserTableAdapters {
+namespace SisLIJAD.MINV.DSRPT.DSGetLoanMatByUserTableAdapters {
     
     
     /// <summary>

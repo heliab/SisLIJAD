@@ -11,8 +11,9 @@
             <MainSource>
               <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_PrestaMatAllSend" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IdPrestamo, Procedimiento, FechaRegistro, FechaPrestar, FechaDevolver, SolicitadoPor, NombCompleto, Asignatura, CodigoAsignatura, Cedula FROM dbo.View_PrestaMatAllSend</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdPrestamo, Procedimiento, FechaRegistro, FechaPrestar, FechaDevolver, SolicitadoPor, NombCompleto, Asignatura, CodigoAsignatura, Cedula
+FROM            View_PrestaMatAllSend</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -40,7 +41,7 @@
   <xs:element name="DSMaterialEnviado" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSMaterialEnviado" msprop:Generator_UserDSName="DSMaterialEnviado">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="View_PrestaMatAllSend" msprop:Generator_TableClassName="View_PrestaMatAllSendDataTable" msprop:Generator_TableVarName="tableView_PrestaMatAllSend" msprop:Generator_TablePropName="View_PrestaMatAllSend" msprop:Generator_RowDeletingName="View_PrestaMatAllSendRowDeleting" msprop:Generator_RowChangingName="View_PrestaMatAllSendRowChanging" msprop:Generator_RowEvHandlerName="View_PrestaMatAllSendRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PrestaMatAllSendRowDeleted" msprop:Generator_UserTableName="View_PrestaMatAllSend" msprop:Generator_RowChangedName="View_PrestaMatAllSendRowChanged" msprop:Generator_RowEvArgName="View_PrestaMatAllSendRowChangeEvent" msprop:Generator_RowClassName="View_PrestaMatAllSendRow">
+        <xs:element name="View_PrestaMatAllSend" msprop:Generator_TableClassName="View_PrestaMatAllSendDataTable" msprop:Generator_TableVarName="tableView_PrestaMatAllSend" msprop:Generator_RowChangedName="View_PrestaMatAllSendRowChanged" msprop:Generator_TablePropName="View_PrestaMatAllSend" msprop:Generator_RowDeletingName="View_PrestaMatAllSendRowDeleting" msprop:Generator_RowChangingName="View_PrestaMatAllSendRowChanging" msprop:Generator_RowEvHandlerName="View_PrestaMatAllSendRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PrestaMatAllSendRowDeleted" msprop:Generator_RowClassName="View_PrestaMatAllSendRow" msprop:Generator_UserTableName="View_PrestaMatAllSend" msprop:Generator_RowEvArgName="View_PrestaMatAllSendRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdPrestamo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdPrestamo" msprop:Generator_ColumnPropNameInRow="IdPrestamo" msprop:Generator_ColumnPropNameInTable="IdPrestamoColumn" msprop:Generator_UserColumnName="IdPrestamo" type="xs:int" />

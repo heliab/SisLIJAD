@@ -104,7 +104,7 @@
                           <Top>0.49077cm</Top>
                           <Left>1.34091cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>4.66958cm</Width>
+                          <Width>3.77943cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -123,7 +123,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>="Nombre: "&amp;Fields!NombCompleto.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -131,9 +133,9 @@
                           </Paragraphs>
                           <rd:DefaultName>NombCompleto</rd:DefaultName>
                           <Top>0.49077cm</Top>
-                          <Left>6.11632cm</Left>
+                          <Left>5.45486cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>10.74208cm</Width>
+                          <Width>11.40354cm</Width>
                           <ZIndex>1</ZIndex>
                           <Style>
                             <Border>
@@ -660,7 +662,7 @@
                           <Top>2.97786cm</Top>
                           <Left>1.39445cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>15.46396cm</Width>
+                          <Width>15.46395cm</Width>
                           <ZIndex>3</ZIndex>
                           <Style>
                             <Border>
@@ -719,8 +721,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DSMaterialPrestamoSend</DataSetName>
-        <Height>4.84286cm</Height>
-        <Width>18.14133cm</Width>
+        <Height>4.84287cm</Height>
+        <Width>18.14134cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

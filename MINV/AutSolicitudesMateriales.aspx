@@ -226,7 +226,7 @@ fn_EndCallback();
                             <dx:TabPage Text="Materiales">
                                 <ContentCollection>
                                     <dx:ContentControl ID="ContentControl1" runat="server" SupportsDisabledAttribute="True">
-                                        <div class="wrapctrl">
+                                       <%-- <div class="wrapctrl">
                                             <ul class="ctrlist">
                                                 <li><a class="pure-button blue-font" href="javascript:fn_NewDetSolJS();" title="Nuevo">
                                                     <i class="fa fa-plus"></i>Agregar</a></li>
@@ -235,7 +235,7 @@ fn_EndCallback();
                                                 <li><a class="pure-button red-font" href="javascript:fn_DeleteDetSolJS();" title="Borrar">
                                                     <i class="fa fa-trash"></i>Borrar</a></li>
                                             </ul>
-                                        </div>
+                                        </div>--%>
                                         <dx:ASPxGridView ID="SubGrid" runat="server" AutoGenerateColumns="False" ClientIDMode="AutoID"
                                             ClientInstanceName="SubGrid" DataSourceID="DetPrestamo" OnBeforePerformDataSelect="SubGrid_BeforePerformDataSelect"
                                             Width="100%" KeyFieldName="CodDetalle">
