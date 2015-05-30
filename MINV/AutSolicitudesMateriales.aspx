@@ -179,31 +179,28 @@ fn_EndCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrestamo" ReadOnly="True" VisibleIndex="0"
-                Width="9%" ToolTip="Cod Prestamo" SortIndex="0" SortOrder="Descending">
+                Width="7%" SortIndex="1" SortOrder="Descending">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Procedimiento" VisibleIndex="1">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn FieldName="FechaPrestamo" ReadOnly="True" 
-                VisibleIndex="2" Width="16%">
+                VisibleIndex="2" Width="11%">
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataDateColumn FieldName="FechaDevolucion" ReadOnly="True" 
-                VisibleIndex="3" Width="16%">
+                VisibleIndex="3" Width="11%">
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataTextColumn FieldName="SolicitadoPor" VisibleIndex="4" 
-                Width="12%">
+                Width="15%">
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaRegistro" VisibleIndex="5" 
-                Width="10%">
-            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="FechaRegistro" ReadOnly="True" 
+                VisibleIndex="5" Width="11%">
+            </dx:GridViewDataDateColumn>
             <dx:GridViewDataCheckColumn FieldName="Aprobado" VisibleIndex="6" Width="7%">
             </dx:GridViewDataCheckColumn>
-            <dx:GridViewCommandColumn VisibleIndex="7" Width="0%">
-                <ClearFilterButton Text="Limpiar" Visible="True">
-                </ClearFilterButton>
-            </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="15">
@@ -324,7 +321,8 @@ fn_EndCallback();
         </Templates>
     </dx:ASPxGridView></div>
     <asp:SqlDataSource ID="SDSPrestamos" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT (Date, FechaPrestar) AS FechaPrestamo, CONVERT (Date, FechaDevolver) AS FechaDevolucion, SolicitadoPor, FechaRegistro, Aprobado FROM MINV_Prestamos WHERE (Enviado = 1) ORDER BY IdPrestamo DESC">
+        
+        SelectCommand="SELECT IdPrestamo, Procedimiento, CONVERT (Date, FechaPrestar) AS FechaPrestamo, CONVERT (Date, FechaDevolver) AS FechaDevolucion, SolicitadoPor, CONVERT(DATE,FechaRegistro) as FechaRegistro, Aprobado FROM MINV_Prestamos WHERE (Enviado = 1) ORDER BY IdPrestamo DESC">
     </asp:SqlDataSource>
         <asp:SqlDataSource ID="DetPrestamo" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
  SelectCommand="SELECT CAST(MINV_Det_Prestamo.IdDetPrest AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdPrestamo AS NVARCHAR) + '.' + CAST(MINV_Det_Prestamo.IdEquipo AS NVARCHAR) AS CodDetalle, MINV_Det_Prestamo.Cantidad, MPR_EquipMaquin.NomMaq, MPR_EquipMaquin.Modelo, MPR_EquipMaquin.Marca FROM MINV_Prestamos INNER JOIN MINV_Det_Prestamo ON MINV_Prestamos.IdPrestamo = MINV_Det_Prestamo.IdPrestamo INNER JOIN MPR_EquipMaquin ON MINV_Det_Prestamo.IdEquipo = MPR_EquipMaquin.IdEquipo WHERE (MINV_Prestamos.IdPrestamo = @IdPrestamo)">

@@ -383,7 +383,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSListaPruebas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DSGetLoanMatByUser.Designer.cs">
+    <Compile Include="MINV\DSRPT\DSGetLoanMatByUser.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
@@ -1264,15 +1264,15 @@
     <None Include="MPR\DSRPT\DSListaPruebas.xss">
       <DependentUpon>DSListaPruebas.xsd</DependentUpon>
     </None>
-    <None Include="DSGetLoanMatByUser.xsc">
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xsc">
       <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
     </None>
-    <None Include="DSGetLoanMatByUser.xsd">
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSGetLoanMatByUser.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DSGetLoanMatByUser.xss">
+    <None Include="MINV\DSRPT\DSGetLoanMatByUser.xss">
       <DependentUpon>DSGetLoanMatByUser.xsd</DependentUpon>
     </None>
     <None Include="MINV\DSRPT\DSMaterialEnviado.xsc">
