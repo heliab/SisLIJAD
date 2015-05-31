@@ -97,7 +97,7 @@ fn_EndCallback();
 }"></ClientSideEvents>
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdPrestLab" ReadOnly="True" VisibleIndex="0"
-                Caption="Id" Width="5%">
+                Caption="Id" Width="5%" SortIndex="0" SortOrder="Descending">
                 <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
                 <Settings AutoFilterCondition="Contains"></Settings>
@@ -109,8 +109,10 @@ fn_EndCallback();
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="DescUbicacion" VisibleIndex="2" Caption="Laboratorio"
                 Width="12%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="3" Width="8%">
+            <dx:GridViewDataTextColumn FieldName="username" VisibleIndex="3" Width="8%" 
+                Caption="Usuario">
                 <Settings AutoFilterCondition="Contains" />
                 <Settings AutoFilterCondition="Contains"></Settings>
             </dx:GridViewDataTextColumn>
@@ -127,13 +129,19 @@ fn_EndCallback();
             </dx:GridViewDataDateColumn>
             <dx:GridViewDataTextColumn FieldName="Horaini" VisibleIndex="7" Caption="H.Inicio"
                 Width="7%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="HoraFin" VisibleIndex="8" Caption="H.Fin" Width="6%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataCheckColumn FieldName="Aprobada" VisibleIndex="9" Width="7%">
             </dx:GridViewDataCheckColumn>
             <dx:GridViewDataCheckColumn FieldName="Cancelada" VisibleIndex="10" Width="7%">
             </dx:GridViewDataCheckColumn>
+            <dx:GridViewCommandColumn VisibleIndex="11" Width="0%">
+                <ClearFilterButton Text="Limpiar" Visible="True">
+                </ClearFilterButton>
+            </dx:GridViewCommandColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True"></SettingsBehavior>
         <SettingsPager AlwaysShowPager="True" PageSize="7">
