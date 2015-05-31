@@ -72,7 +72,7 @@ function fn_GetPayRow() {
             fn_AprobMes(3);
             return
         }
-//        else { fn_PayJS(); }
+       else { fn_PayJS(); }
     }
 }
 function fn_PayJS() {
@@ -94,7 +94,7 @@ function fn_PayJS() {
         closeOnConfirm: false
     },
 function () {
-    fn_AprobMes(0);
+    fn_AprobMes(8);
     HiddenV.Set('Nuevo', 9);
     HiddenV.Set('Pagado', fn_GetIdValue());
     NewCallback.PerformCallback();
@@ -133,6 +133,7 @@ function fn_CancelSolJS() {
         closeOnConfirm: false
     },
 function () {
+    fn_AprobMes(9);
     HiddenV.Set('Nuevo', 8);
     HiddenV.Set('Cancel', fn_GetIdValue());
     NewCallback.PerformCallback();

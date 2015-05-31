@@ -623,7 +623,11 @@ function fn_AprobMes(e) {
             break;
         case 6: swal({ title: "Atención!", text: "¡El registro ya ha sido enviado!", type: "info", confirmButtonText: "Ok" })
             break;
-        case 7: swal("Aprobado!", "¡El registro ha sido aprobado!", "success")
+        case 7: swal("Autorizado!", "¡El registro ha sido autorizado!", "success")
+            break;
+        case 8: swal("Pagado!", "¡Registro establecido pagado!", "success")
+            break;
+        case 9: swal("Cancelado!", "¡El registro ha sido cancelado!", "success")
             break;
             default: alert('error sweet alert');
 
