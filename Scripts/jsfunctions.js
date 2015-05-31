@@ -622,7 +622,10 @@ function fn_AprobMes(e) {
         case 5: swal({ title: "Atención!", text: "¡El registro ya ha sido enviado y no puede realizar cambios!", type: "info", confirmButtonText: "Ok" })
             break;
         case 6: swal({ title: "Atención!", text: "¡El registro ya ha sido enviado!", type: "info", confirmButtonText: "Ok" })
-            default: fn_ClosePopup(1);
+            break;
+        case 7: swal("Aprobado!", "¡El registro ha sido aprobado!", "success")
+            break;
+            default: alert('error sweet alert');
 
     }
     }

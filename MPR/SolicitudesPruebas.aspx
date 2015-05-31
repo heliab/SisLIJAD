@@ -28,14 +28,14 @@
             GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Autorizado', SetAut);
             function SetAut(Value) {
                 if (Value == 1) {
-//            alert('El registro ya ha sido aprobado y no puede realizar cambios');
-            fn_AprobMes(2);
-            return
-        }
-        else { fn_AutorizarJS(); }
-    }
-}
+                    //            alert('El registro ya ha sido aprobado y no puede realizar cambios');
+                    fn_AprobMes(2);
+                    return
+                }
+                else { fn_AutorizarJS(); }
 
+            }
+        }
 function fn_AutorizarJS() {
 //    if (confirm("¿Desea autorizar el registro?")) {
 //        HiddenV.Set('Nuevo', 7);
@@ -54,10 +54,11 @@ function fn_AutorizarJS() {
         closeOnConfirm: false
     },
 function () {
-        HiddenV.Set('Nuevo', 7);
-        HiddenV.Set('Autorizar', fn_GetIdValue());
-        NewCallback.PerformCallback();
-        fn_EndCallback();
+    fn_AprobMes(7);
+    HiddenV.Set('Nuevo', 7);
+    HiddenV.Set('Autorizar', fn_GetIdValue());
+    NewCallback.PerformCallback();
+    fn_EndCallback();
 });
 
 }
@@ -71,7 +72,7 @@ function fn_GetPayRow() {
             fn_AprobMes(3);
             return
         }
-        else { fn_PayJS(); }
+//        else { fn_PayJS(); }
     }
 }
 function fn_PayJS() {
@@ -93,10 +94,12 @@ function fn_PayJS() {
         closeOnConfirm: false
     },
 function () {
-     HiddenV.Set('Nuevo', 9);
-     HiddenV.Set('Pagado', fn_GetIdValue());
-     NewCallback.PerformCallback();
-     fn_EndCallback();
+    fn_AprobMes(0);
+    HiddenV.Set('Nuevo', 9);
+    HiddenV.Set('Pagado', fn_GetIdValue());
+    NewCallback.PerformCallback();
+    fn_EndCallback();
+    
 });
 }
 
