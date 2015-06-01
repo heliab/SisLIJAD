@@ -26,6 +26,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     function fn_PublishJS() {
+        fn_GetMail();
         GridPrincipal.GetRowValues(GridPrincipal.GetFocusedRowIndex(), 'Publicada', fn_GetSend);
         function fn_GetSend(Value) {
             if (Value == 1) {
@@ -37,12 +38,11 @@
             }
             HiddenV.Set('GridId', fn_GetIdPrValue());
             HiddenV.Set('Nuevo', 7);
-            fn_GetMail();
             NewCallback.PerformCallback();
             fn_EndCallback();
             fn_EndCallback();
-        } 
-
+        }
+    }
     function fn_GetIdPrValue() {
         GridId = GridPrincipal.GetRowKey(GridPrincipal.GetFocusedRowIndex());
         return GridId;
@@ -105,7 +105,7 @@ GridPrincipal.PerformCallback();
 }" />
         <Columns>
             <dx:GridViewDataTextColumn FieldName="IdSolicPrueba" ReadOnly="True" VisibleIndex="0"
-                Width="10%">
+                Width="10%" Caption="Id Solicitud">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="HeaderSolicPrueba" VisibleIndex="1" Caption="Descripción Solicitud"
