@@ -289,6 +289,8 @@ namespace SisLIJAD.MPR.DSRPT {
             
             private global::System.Data.DataColumn columnusername;
             
+            private global::System.Data.DataColumn columnNomPrueba;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetTestByUserDataTable() {
@@ -364,6 +366,14 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NomPruebaColumn {
+                get {
+                    return this.columnNomPrueba;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +409,15 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetTestByUserRow AddGetTestByUserRow(string HeaderSolicPrueba, string FechaRegistro, string FechaAprobación, string username) {
+            public GetTestByUserRow AddGetTestByUserRow(string HeaderSolicPrueba, string FechaRegistro, string FechaAprobación, string username, string NomPrueba) {
                 GetTestByUserRow rowGetTestByUserRow = ((GetTestByUserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         HeaderSolicPrueba,
                         FechaRegistro,
                         FechaAprobación,
-                        username};
+                        username,
+                        NomPrueba};
                 rowGetTestByUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetTestByUserRow);
                 return rowGetTestByUserRow;
@@ -441,6 +452,7 @@ namespace SisLIJAD.MPR.DSRPT {
                 this.columnFechaRegistro = base.Columns["FechaRegistro"];
                 this.columnFechaAprobación = base.Columns["FechaAprobación"];
                 this.columnusername = base.Columns["username"];
+                this.columnNomPrueba = base.Columns["NomPrueba"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,6 +468,8 @@ namespace SisLIJAD.MPR.DSRPT {
                 base.Columns.Add(this.columnFechaAprobación);
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusername);
+                this.columnNomPrueba = new global::System.Data.DataColumn("NomPrueba", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNomPrueba);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdSolicPrueba}, true));
                 this.columnIdSolicPrueba.AutoIncrement = true;
@@ -468,6 +482,8 @@ namespace SisLIJAD.MPR.DSRPT {
                 this.columnFechaRegistro.MaxLength = 50;
                 this.columnFechaAprobación.MaxLength = 50;
                 this.columnusername.MaxLength = 50;
+                this.columnNomPrueba.AllowDBNull = false;
+                this.columnNomPrueba.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -675,6 +691,17 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NomPrueba {
+                get {
+                    return ((string)(this[this.tableGetTestByUser.NomPruebaColumn]));
+                }
+                set {
+                    this[this.tableGetTestByUser.NomPruebaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechaAprobaciónNull() {
                 return this.IsNull(this.tableGetTestByUser.FechaAprobaciónColumn);
             }
@@ -862,6 +889,7 @@ namespace SisLIJAD.MPR.DSRPT.BDLabsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("FechaRegistro", "FechaRegistro");
             tableMapping.ColumnMappings.Add("FechaAprobación", "FechaAprobación");
             tableMapping.ColumnMappings.Add("username", "username");
+            tableMapping.ColumnMappings.Add("NomPrueba", "NomPrueba");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

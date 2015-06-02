@@ -441,7 +441,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MPR\DSRPT\BDLabsDataSet.Designer.cs">
+    <Compile Include="BDLabsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BDLabsDataSet.xsd</DependentUpon>
@@ -1330,15 +1330,15 @@
     <None Include="MPR\DSRPT\DS_CostoPruebas.xss">
       <DependentUpon>DS_CostoPruebas.xsd</DependentUpon>
     </None>
-    <None Include="MPR\DSRPT\BDLabsDataSet.xsc">
+    <None Include="BDLabsDataSet.xsc">
       <DependentUpon>BDLabsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MPR\DSRPT\BDLabsDataSet.xsd">
+    <None Include="BDLabsDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BDLabsDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MPR\DSRPT\BDLabsDataSet.xss">
+    <None Include="BDLabsDataSet.xss">
       <DependentUpon>BDLabsDataSet.xsd</DependentUpon>
     </None>
     <None Include="MINV\DSRPT\DataSetListaMatTipo.xsc">
