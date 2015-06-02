@@ -21,7 +21,8 @@
         </rsweb:ReportViewer>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>" 
-            SelectCommand="SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Pagado FROM View_PruebasporAprobar">
+            
+            SelectCommand="SELECT [IdSolicPrueba], [HeaderSolicPrueba], [FechaRegistro], [username], [Pagado], [Enviada], [Pruebas] FROM [View_PruebasporAprobar]">
         </asp:SqlDataSource>
     </div>
 </asp:Content>

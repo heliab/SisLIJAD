@@ -287,9 +287,11 @@ namespace SisLIJAD.MPR.DSRPT {
             
             private global::System.Data.DataColumn columnusername;
             
-            private global::System.Data.DataColumn columnPagado;
-            
             private global::System.Data.DataColumn columnEnviada;
+            
+            private global::System.Data.DataColumn columnPruebas;
+            
+            private global::System.Data.DataColumn columnPagado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -358,17 +360,25 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PagadoColumn {
+            public global::System.Data.DataColumn EnviadaColumn {
                 get {
-                    return this.columnPagado;
+                    return this.columnEnviada;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EnviadaColumn {
+            public global::System.Data.DataColumn PruebasColumn {
                 get {
-                    return this.columnEnviada;
+                    return this.columnPruebas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PagadoColumn {
+                get {
+                    return this.columnPagado;
                 }
             }
             
@@ -409,15 +419,16 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public View_PruebasporAprobarRow AddView_PruebasporAprobarRow(string HeaderSolicPrueba, string FechaRegistro, string username, bool Pagado, bool Enviada) {
+            public View_PruebasporAprobarRow AddView_PruebasporAprobarRow(string HeaderSolicPrueba, string FechaRegistro, string username, bool Enviada, string Pruebas, string Pagado) {
                 View_PruebasporAprobarRow rowView_PruebasporAprobarRow = ((View_PruebasporAprobarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         HeaderSolicPrueba,
                         FechaRegistro,
                         username,
-                        Pagado,
-                        Enviada};
+                        Enviada,
+                        Pruebas,
+                        Pagado};
                 rowView_PruebasporAprobarRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowView_PruebasporAprobarRow);
                 return rowView_PruebasporAprobarRow;
@@ -451,8 +462,9 @@ namespace SisLIJAD.MPR.DSRPT {
                 this.columnHeaderSolicPrueba = base.Columns["HeaderSolicPrueba"];
                 this.columnFechaRegistro = base.Columns["FechaRegistro"];
                 this.columnusername = base.Columns["username"];
-                this.columnPagado = base.Columns["Pagado"];
                 this.columnEnviada = base.Columns["Enviada"];
+                this.columnPruebas = base.Columns["Pruebas"];
+                this.columnPagado = base.Columns["Pagado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -466,10 +478,12 @@ namespace SisLIJAD.MPR.DSRPT {
                 base.Columns.Add(this.columnFechaRegistro);
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusername);
-                this.columnPagado = new global::System.Data.DataColumn("Pagado", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPagado);
                 this.columnEnviada = new global::System.Data.DataColumn("Enviada", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnviada);
+                this.columnPruebas = new global::System.Data.DataColumn("Pruebas", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPruebas);
+                this.columnPagado = new global::System.Data.DataColumn("Pagado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPagado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdSolicPrueba}, true));
                 this.columnIdSolicPrueba.AutoIncrement = true;
@@ -483,6 +497,10 @@ namespace SisLIJAD.MPR.DSRPT {
                 this.columnFechaRegistro.AllowDBNull = false;
                 this.columnFechaRegistro.MaxLength = 50;
                 this.columnusername.MaxLength = 50;
+                this.columnPruebas.AllowDBNull = false;
+                this.columnPruebas.MaxLength = 500;
+                this.columnPagado.ReadOnly = true;
+                this.columnPagado.MaxLength = 9;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -675,22 +693,6 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Pagado {
-                get {
-                    try {
-                        return ((bool)(this[this.tableView_PruebasporAprobar.PagadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Pagado\' de la tabla \'View_PruebasporAprobar\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableView_PruebasporAprobar.PagadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Enviada {
                 get {
                     try {
@@ -702,6 +704,33 @@ namespace SisLIJAD.MPR.DSRPT {
                 }
                 set {
                     this[this.tableView_PruebasporAprobar.EnviadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pruebas {
+                get {
+                    return ((string)(this[this.tableView_PruebasporAprobar.PruebasColumn]));
+                }
+                set {
+                    this[this.tableView_PruebasporAprobar.PruebasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pagado {
+                get {
+                    try {
+                        return ((string)(this[this.tableView_PruebasporAprobar.PagadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Pagado\' de la tabla \'View_PruebasporAprobar\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableView_PruebasporAprobar.PagadoColumn] = value;
                 }
             }
             
@@ -719,18 +748,6 @@ namespace SisLIJAD.MPR.DSRPT {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPagadoNull() {
-                return this.IsNull(this.tableView_PruebasporAprobar.PagadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPagadoNull() {
-                this[this.tableView_PruebasporAprobar.PagadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsEnviadaNull() {
                 return this.IsNull(this.tableView_PruebasporAprobar.EnviadaColumn);
             }
@@ -739,6 +756,18 @@ namespace SisLIJAD.MPR.DSRPT {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEnviadaNull() {
                 this[this.tableView_PruebasporAprobar.EnviadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPagadoNull() {
+                return this.IsNull(this.tableView_PruebasporAprobar.PagadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPagadoNull() {
+                this[this.tableView_PruebasporAprobar.PagadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -905,8 +934,9 @@ namespace SisLIJAD.MPR.DSRPT.DSAprobarPruebasTableAdapters {
             tableMapping.ColumnMappings.Add("HeaderSolicPrueba", "HeaderSolicPrueba");
             tableMapping.ColumnMappings.Add("FechaRegistro", "FechaRegistro");
             tableMapping.ColumnMappings.Add("username", "username");
-            tableMapping.ColumnMappings.Add("Pagado", "Pagado");
             tableMapping.ColumnMappings.Add("Enviada", "Enviada");
+            tableMapping.ColumnMappings.Add("Pruebas", "Pruebas");
+            tableMapping.ColumnMappings.Add("Pagado", "Pagado");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -923,8 +953,14 @@ namespace SisLIJAD.MPR.DSRPT.DSAprobarPruebasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Pagado, Enviada" +
-                " FROM dbo.View_PruebasporAprobar";
+            this._commandCollection[0].CommandText = @"SELECT        MPR_Solic_Pruebas.IdSolicPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba, MPR_Solic_Pruebas.FechaRegistro, MPR_Solic_Pruebas.username, 
+                         MPR_Solic_Pruebas.Enviada, MPR_Prueba.NomPrueba AS Pruebas, 
+                         CASE WHEN dbo.MPR_Solic_Pruebas.Pagado = 'FALSE' THEN 'No Pagado' WHEN dbo.MPR_Solic_Pruebas.Pagado = 'TRUE' THEN 'Pagado' ELSE 'No Pagado' END
+                          AS Pagado
+FROM            MPR_Solic_Pruebas INNER JOIN
+                         MPR_Det_Sol_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Sol_Prueba.IdSolPrueba INNER JOIN
+                         MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba
+WHERE        (MPR_Solic_Pruebas.Autorizado IS NULL) AND (MPR_Solic_Pruebas.Enviada = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

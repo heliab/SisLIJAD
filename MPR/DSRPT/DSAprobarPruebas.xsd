@@ -9,10 +9,17 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_PruebasporAprobarTableAdapter" GeneratorDataComponentClassName="View_PruebasporAprobarTableAdapter" Name="View_PruebasporAprobar" UserDataComponentName="View_PruebasporAprobarTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectName="BDLabs.dbo.View_PruebasporAprobar" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDLabsConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IdSolicPrueba, HeaderSolicPrueba, FechaRegistro, username, Pagado, Enviada FROM dbo.View_PruebasporAprobar</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MPR_Solic_Pruebas.IdSolicPrueba, MPR_Solic_Pruebas.HeaderSolicPrueba, MPR_Solic_Pruebas.FechaRegistro, MPR_Solic_Pruebas.username, 
+                         MPR_Solic_Pruebas.Enviada, MPR_Prueba.NomPrueba AS Pruebas, 
+                         CASE WHEN dbo.MPR_Solic_Pruebas.Pagado = 'FALSE' THEN 'No Pagado' WHEN dbo.MPR_Solic_Pruebas.Pagado = 'TRUE' THEN 'Pagado' ELSE 'No Pagado' END
+                          AS Pagado
+FROM            MPR_Solic_Pruebas INNER JOIN
+                         MPR_Det_Sol_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Sol_Prueba.IdSolPrueba INNER JOIN
+                         MPR_Prueba ON MPR_Det_Sol_Prueba.IdPrueba = MPR_Prueba.IdPrueba
+WHERE        (MPR_Solic_Pruebas.Autorizado IS NULL) AND (MPR_Solic_Pruebas.Enviada = 1)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,8 +30,9 @@
               <Mapping SourceColumn="HeaderSolicPrueba" DataSetColumn="HeaderSolicPrueba" />
               <Mapping SourceColumn="FechaRegistro" DataSetColumn="FechaRegistro" />
               <Mapping SourceColumn="username" DataSetColumn="username" />
-              <Mapping SourceColumn="Pagado" DataSetColumn="Pagado" />
               <Mapping SourceColumn="Enviada" DataSetColumn="Enviada" />
+              <Mapping SourceColumn="Pruebas" DataSetColumn="Pruebas" />
+              <Mapping SourceColumn="Pagado" DataSetColumn="Pagado" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -61,8 +69,21 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Pagado" msprop:Generator_ColumnVarNameInTable="columnPagado" msprop:Generator_ColumnPropNameInRow="Pagado" msprop:Generator_ColumnPropNameInTable="PagadoColumn" msprop:Generator_UserColumnName="Pagado" type="xs:boolean" minOccurs="0" />
               <xs:element name="Enviada" msprop:Generator_ColumnVarNameInTable="columnEnviada" msprop:Generator_ColumnPropNameInRow="Enviada" msprop:Generator_ColumnPropNameInTable="EnviadaColumn" msprop:Generator_UserColumnName="Enviada" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Pruebas" msprop:Generator_ColumnVarNameInTable="columnPruebas" msprop:Generator_ColumnPropNameInRow="Pruebas" msprop:Generator_ColumnPropNameInTable="PruebasColumn" msprop:Generator_UserColumnName="Pruebas">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pagado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPagado" msprop:Generator_ColumnPropNameInRow="Pagado" msprop:Generator_ColumnPropNameInTable="PagadoColumn" msprop:Generator_UserColumnName="Pagado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
