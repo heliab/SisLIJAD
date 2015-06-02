@@ -101,26 +101,33 @@ fn_EndCallback();
             <dx:GridViewDataTextColumn FieldName="IdPrueba" ReadOnly="True" VisibleIndex="0"
                 Width="7%" ShowInCustomizationForm="True" SortIndex="0" 
                 SortOrder="Ascending">
+                <Settings AutoFilterCondition="Contains" />
                 <EditFormSettings Visible="False" />
 <EditFormSettings Visible="False"></EditFormSettings>
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Nombre Ensaye" FieldName="NomPrueba" VisibleIndex="1"
                 Width="17%" ShowInCustomizationForm="True">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Descripción" FieldName="DescPrueba" VisibleIndex="2"
                 Width="21%" ShowInCustomizationForm="True">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Duración días" FieldName="Duracion" VisibleIndex="3"
                 Width="7%" ShowInCustomizationForm="True">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Ubicación" FieldName="DescUbicacion" 
                 VisibleIndex="4" ShowInCustomizationForm="True" Width="15%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Precio" VisibleIndex="5" Caption="Precio" 
                 ReadOnly="True" ShowInCustomizationForm="True" Width="10%">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn Caption="Tipo Prueba" FieldName="NomTipo" 
                 VisibleIndex="6" ShowInCustomizationForm="True">
+                <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="7">
                 <ClearFilterButton Text="Limpiar" Visible="True">
