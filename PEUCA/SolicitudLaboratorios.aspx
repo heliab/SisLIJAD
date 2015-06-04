@@ -433,7 +433,7 @@ fn_CleanGroup(1);
                                             <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Ingrese Cedula Identidad">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtCed" runat="server" Width="170px" ClientSideName="txtCed">
-                                                <MaskSettings Mask="000-000000-0000" />
+                                                <MaskSettings Mask="000-000000-000A" />
                                             <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
                                                     ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
                                                     <RegularExpression ErrorText="Informacion Requerida" />
