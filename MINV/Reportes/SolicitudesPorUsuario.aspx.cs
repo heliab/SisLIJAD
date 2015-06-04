@@ -19,12 +19,13 @@ namespace SisLIJAD.MINV.Reportes
         private void ShowReport()
         {
             ReportViewer1.Reset();
-
+           
             //DataTable dt = GetData((TextBox1.Text).ToString());
             DataTable dt = GetData((cmbUsuarios.Text).ToString());
             ReportDataSource rds = new ReportDataSource("DSGetLoanByUser", dt);
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "MINV/DSRPT/Rpt_SolicitudesPorUsuario.rdlc";
+          //  ReportViewer1.LocalReport.ReportPath = Server.MapPath("MINV/DSRPT/Rpt_SolicitudesPorUsuario.rdlc");
             ReportParameter[] rptParams = new ReportParameter[] { 
             //new ReportParameter("username",TextBox1.Text)
              new ReportParameter("username",cmbUsuarios.Text)
