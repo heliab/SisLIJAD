@@ -281,7 +281,7 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Masa del espécimen seco del horno">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Masa del espécimen seco del horno(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sA" ClientInstanceName="sA" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -302,7 +302,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa del picnómetro lleno de agua">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa del picnómetro lleno de agua(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sB" ClientInstanceName="sB" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -324,7 +324,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                     <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Masa del picnómetro lleno de la muestra y el agua">
+                                     <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Masa del picnómetro lleno de la muestra y el agua(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sC" ClientInstanceName="sC" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -345,7 +345,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                     <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Masa de la muestra saturada y superficialmente seca">
+                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Masa de la muestra saturada y superficialmente seca(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sS" ClientInstanceName="sS" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">

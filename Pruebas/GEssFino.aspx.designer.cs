@@ -139,22 +139,22 @@ namespace SisLIJAD.Pruebas {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtId;
         
         /// <summary>
-        /// Control ASPxLabel1.
+        /// Control ASPxLabel3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
         
         /// <summary>
-        /// Control sA.
+        /// Control sS.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sA;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sS;
         
         /// <summary>
         /// Control ASPxLabel2.
@@ -191,24 +191,6 @@ namespace SisLIJAD.Pruebas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sC;
-        
-        /// <summary>
-        /// Control ASPxLabel3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel ASPxLabel3;
-        
-        /// <summary>
-        /// Control sS.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit sS;
         
         /// <summary>
         /// Control ASPxLabel4.

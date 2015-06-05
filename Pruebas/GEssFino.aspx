@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true" CodeBehind="GEssFino.aspx.cs" Inherits="SisLIJAD.Pruebas.GEssFino" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true"
+    CodeBehind="GEssFino.aspx.cs" Inherits="SisLIJAD.Pruebas.GEssFino" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -31,7 +32,7 @@
         <div class="row">
             <div class="first">
                 <div class="Titulo2">
-                    Gravedad Especifica Corriente Agregado Fino
+                    Gravedad Especifica en Condición de Saturado Superficialmente seca
                 </div>
             </div>
             <%--<div>
@@ -161,82 +162,78 @@ fn_EndCallbackForTest();
     </dx:ASPxHiddenField>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GridContent" runat="server">
-<div class="scroll">
-        <div class="BaseForm wraptitle">
-            <div class="row">
-                <div class="first">
-                    <div class="Titulo2">
-                        Resultados
-                    </div>
-                </div>
-                <div class="second">
-                    <ul class="ctrlist2">
-                        <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                            <i class="fa fa-plus"></i>Calc. OD</a></li>
-                        <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                        <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
-                            <i class="fa fa-trash"></i>Borrar</a></li>
-                    </ul>
+    <div class="BaseForm wraptitle">
+        <div class="row">
+            <div class="first">
+                <div class="Titulo2">
+                    Resultados
                 </div>
             </div>
+            <div class="second">
+                <ul class="ctrlist2">
+                    <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
+                        <i class="fa fa-plus"></i>Calc. SSD</a></li>
+                    <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
+                        <i class="fa fa-pencil-square-o"></i>Editar</a></li>
+                    <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
+                        <i class="fa fa-trash"></i>Borrar</a></li>
+                </ul>
+            </div>
         </div>
-        <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
-            OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
-            ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
-            <Columns>
-                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
-                    Width="8%">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
-                    Width="12%">
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_A_Ge" VisibleIndex="2" 
-                    Caption="Masa del espécimen" ToolTip="Masa del espécimen seco del horno" 
-                    Width="5%">
-                    <PropertiesTextEdit DisplayFormatString="{0} g">
-                    </PropertiesTextEdit>
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_B_Ge" VisibleIndex="3" 
-                    Caption="Picnómetro con agua" ToolTip="Masa del picnómetro lleno de agua" 
-                    Width="5%">
-                    <PropertiesTextEdit DisplayFormatString="{0} g">
-                    </PropertiesTextEdit>
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_C_Ge" VisibleIndex="4" 
-                    Caption="Picnómetro muestra y agua" 
-                    ToolTip="Masa del picnómetro lleno de la muestra y el agua" Width="5%">
-                    <PropertiesTextEdit DisplayFormatString="{0} g">
-                    </PropertiesTextEdit>
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_S_Ge" VisibleIndex="5" 
-                    Caption="Masa muestra saturada seca" Width="5%">
-                    <PropertiesTextEdit DisplayFormatString="{0} g">
-                    </PropertiesTextEdit>
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="C128_OD_Result" VisibleIndex="6" 
-                    Caption="Resultado">
-                </dx:GridViewDataTextColumn>
-            </Columns>
-            <SettingsBehavior AllowFocusedRow="True" />
-            <SettingsPager AlwaysShowPager="True" PageSize="5">
-                <Summary AllPagesText="Páginas: {0} - {1} ({2} items)" Text="Página {0} of {1} ({2} items)" />
-            </SettingsPager>
-            <Settings ShowFilterRow="True" />
-            <SettingsText EmptyDataRow="No hay resultados que mostrar" />
-            <Styles>
-                <FocusedRow BackColor="#5180BF">
-                </FocusedRow>
-            </Styles>
-        </dx:ASPxGridView>
-        <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-            SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C128_A_Ge, MPR_Det_Result_Prueba.C128_B_Ge, MPR_Det_Result_Prueba.C128_C_Ge, MPR_Det_Result_Prueba.C128_S_Ge, MPR_Det_Result_Prueba.C128_OD_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
-                <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
-            </SelectParameters>
-        </asp:SqlDataSource>
     </div>
+    <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
+        OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
+        ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
+        <Columns>
+            <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                Width="12%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="C128_S_Gess" VisibleIndex="2" 
+                Caption="Masa Saturada Seca">
+                <PropertiesTextEdit DisplayFormatString="{0} g">
+                </PropertiesTextEdit>
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="C128_B_Gess" VisibleIndex="3" 
+                Caption="Masa Picnometro con Agua">
+                <PropertiesTextEdit DisplayFormatString="{0} g">
+                </PropertiesTextEdit>
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="C128_C_Gess" VisibleIndex="4" 
+                Caption="Masa Picnometro con Muestra">
+                <PropertiesTextEdit DisplayFormatString="{0} g">
+                </PropertiesTextEdit>
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Resultado" VisibleIndex="5"
+                Width="20%">
+                <Settings AutoFilterCondition="Contains" />
+            </dx:GridViewDataTextColumn>
+        </Columns>
+        <SettingsBehavior AllowFocusedRow="True" />
+        <SettingsPager AlwaysShowPager="True" PageSize="5">
+            <Summary AllPagesText="Páginas: {0} - {1} ({2} items)" Text="Página {0} of {1} ({2} items)" />
+        </SettingsPager>
+        <Settings ShowFilterRow="True" />
+        <SettingsText EmptyDataRow="No hay resultados que mostrar" />
+        <Styles>
+            <FocusedRow BackColor="#5180BF">
+            </FocusedRow>
+        </Styles>
+    </dx:ASPxGridView>
+    <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
+        
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C128_S_Gess, MPR_Det_Result_Prueba.C128_B_Gess, MPR_Det_Result_Prueba.C128_C_Gess, MPR_Det_Result_Prueba.C128_SSD_Gess_Result AS Resultado FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
+            <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
     <dx:ASPxPopupControl ID="FormPopup" runat="server" ClientInstanceName="FormPopup"
@@ -279,9 +276,9 @@ fn_CleanGroup(-1);
                                     <br />
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Masa del espécimen seco del horno">
+                                            <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Masa de la saturada superficialmente seca(g)">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sA" ClientInstanceName="sA" runat="server" Number="0.0" LargeIncrement="1"
+                                            <dx:ASPxSpinEdit ID="sS" ClientInstanceName="sS" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
@@ -300,7 +297,7 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa del picnómetro lleno de agua">
+                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Masa del picnómetro lleno de agua(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sB" ClientInstanceName="sB" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -318,11 +315,10 @@ fn_CleanGroup(-1);
                                                 </ValidationSettings>
                                             </dx:ASPxSpinEdit>
                                         </div>
-                                        
                                     </div>
                                     <div class="row">
-                                    <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Masa del picnómetro lleno de la muestra y el agua">
+                                        <div class="first">
+                                            <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Masa del picnómetro lleno (muestra y agua)(g)">
                                             </dx:ASPxLabel>
                                             <dx:ASPxSpinEdit ID="sC" ClientInstanceName="sC" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
@@ -339,29 +335,8 @@ fn_CleanGroup(-1);
                                                     <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                                 </ValidationSettings>
                                             </dx:ASPxSpinEdit>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="first">
-                                     <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Masa de la muestra saturada y superficialmente seca">
-                                            </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sS" ClientInstanceName="sS" runat="server" Number="0.0" LargeIncrement="1"
-                                                Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
-                                                <SpinButtons ShowLargeIncrementButtons="True">
-                                                </SpinButtons>
-                                                <ClientSideEvents NumberChanged="function(s, e) {
-	                                                                                 ASPxClientEdit.ClearGroup('ControlGroupR');
-                                                                                }" />
-                                                <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" SetFocusOnError="True"
-                                                    ValidationGroup="ControlGroup1" ErrorTextPosition="Bottom">
-                                                    <RegularExpression ErrorText="Informacion Requerida" />
-                                                    <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
-                                                    <RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
-                                                    <RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
-                                                </ValidationSettings>
-                                            </dx:ASPxSpinEdit>
-                                    </div>
-                                    <div class="second">
+                                        </div>
+                                        <div class="second">
                                             <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtResult" runat="server" Width="125px" ClientInstanceName="txtResult"
@@ -420,8 +395,8 @@ fn_CleanGroup(-1);
                 </div>
                 <div>
                     <ul class="frmctrl">
-                        <li><a class="pure-button" href="javascript:fn_ConfirmResDJS()" title="Borrar"><i class="fa fa-trash-o">
-                        </i>Borrar</a></li>
+                        <li><a class="pure-button" href="javascript:fn_ConfirmResDJS()" title="Borrar"><i
+                            class="fa fa-trash-o"></i>Borrar</a></li>
                         <li><a class="pure-button" href="javascript:fn_CancelDJS()" title="Cancelar"><i class="fa fa-times">
                         </i>Cancelar</a></li>
                     </ul>
