@@ -31,8 +31,7 @@
         SubGrid.GetRowValues(SubGrid.GetFocusedRowIndex(), 'IdDetalle;IdPrueba', fn_GetValues);
         function fn_GetValues(val) {
             switch (val[1]) {
-                case 1:
-                    window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() +"&Pr="+val[1] ;
+                case 1: window.location.href = "/Pruebas/PesoVolumetricoSecoSuelto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() +"&Pr="+val[1] ;
                     break;
                 case 2: window.location.href = "/Pruebas/PesoVolumetricoSecoCompacto.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
@@ -42,11 +41,11 @@
                     break;
                 case 5: window.location.href = "/Pruebas/GessFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
+                case 6: window.location.href = "/Pruebas/GeaFino.aspx?Id=" + val[0];
+                    break;
                 case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 13: window.location.href = "/Pruebas/GeaGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
-                    break;
-                case 6: window.location.href = "/Pruebas/?Id=" + val[0];
                     break;
                 case 7: window.location.href = "/Pruebas/?Id=" + val[0];
                     break;

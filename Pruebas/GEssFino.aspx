@@ -337,6 +337,7 @@ fn_CleanGroup(-1);
                                             </dx:ASPxSpinEdit>
                                         </div>
                                         <div class="second">
+                                        <br />
                                             <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtResult" runat="server" Width="125px" ClientInstanceName="txtResult"
