@@ -183,29 +183,32 @@ fn_EndCallbackForTest();
     </div>
     <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
         OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
-        ClientIDMode="AutoID" DataSourceID="SDSEnsayes">
+        ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
         <Columns>
             <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
-                Width="12%">
+                Width="12%" ShowInCustomizationForm="True">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" Width="12%">
+            <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
+                Width="12%" ShowInCustomizationForm="True">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="C128_A_Gea" VisibleIndex="2" 
-                Caption="Masa Seca" Width="10%">
+                Caption="Masa Seca" Width="10%" ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="C128_B_Gea" VisibleIndex="3" 
-                Caption="Masa picnometro con agua" Width="10%">
+                Caption="Masa picnometro con agua" Width="10%" ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="C128_C_Gea" VisibleIndex="4" 
-                Caption="Masa picnometro muestra mas agua" Width="10%">
+                Caption="Masa picnometro muestra mas agua" Width="10%" 
+                ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Resultado" VisibleIndex="5">
+            <dx:GridViewDataTextColumn FieldName="Resultado" VisibleIndex="5" 
+                ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>

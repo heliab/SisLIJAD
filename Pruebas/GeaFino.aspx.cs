@@ -65,9 +65,8 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C128_A_Gea,C128_B_Gea,C128_C_Gea, from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
+                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C128_A_Gea,C128_B_Gea,C128_C_Gea from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
                 cmd.Parameters.AddWithValue("@Codigo", txtId.Text);
-
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
