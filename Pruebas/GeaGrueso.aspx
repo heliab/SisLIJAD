@@ -185,23 +185,26 @@ fn_EndCallbackForTest();
             OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
             ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
             <Columns>
-                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0">
+                <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                    Width="10%">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
                     Width="15%">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_A_Gea" VisibleIndex="2" 
-                    Caption="Peso Muestra Seca" ToolTip="Peso Muestra Seca">
+                    Caption="Peso Muestra Seca" ToolTip="Peso Muestra Seca" Width="20%">
                     <PropertiesTextEdit DisplayFormatString="{0} g">
                     </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_C_Gea" VisibleIndex="3" 
-                    Caption="Peso Muestra Sumergida">
+                    Caption="Peso Muestra Sumergida" Width="20%">
                     <PropertiesTextEdit DisplayFormatString="{0} g">
                     </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="C127_SSD_Gea_Result" VisibleIndex="4" 
-                    Caption="Resultado">
+                    Caption="Resultado" Width="15%">
+                    <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                    </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsBehavior AllowFocusedRow="True" />

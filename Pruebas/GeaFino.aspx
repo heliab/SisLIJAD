@@ -183,33 +183,31 @@ fn_EndCallbackForTest();
     </div>
     <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"
         OnCustomCallback="GridResultados_CustomCallback" Width="100%" AutoGenerateColumns="False"
-        ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
+        ClientIDMode="AutoID" DataSourceID="SDSEnsayes">
         <Columns>
-            <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" Width="8%">
+            <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
+                Width="12%">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" Width="12%">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C128_A_Ge" VisibleIndex="2" Caption="Masa del espécimen"
-                ToolTip="Masa del espécimen seco del horno" Width="5%">
+            <dx:GridViewDataTextColumn FieldName="C128_A_Gea" VisibleIndex="2" 
+                Caption="Masa Seca" Width="10%">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C128_B_Ge" VisibleIndex="3" Caption="Picnómetro con agua"
-                ToolTip="Masa del picnómetro lleno de agua" Width="5%">
+            <dx:GridViewDataTextColumn FieldName="C128_B_Gea" VisibleIndex="3" 
+                Caption="Masa picnometro con agua" Width="10%">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C128_C_Ge" VisibleIndex="4" Caption="Picnómetro muestra y agua"
-                ToolTip="Masa del picnómetro lleno de la muestra y el agua" Width="5%">
+            <dx:GridViewDataTextColumn FieldName="C128_C_Gea" VisibleIndex="4" 
+                Caption="Masa picnometro muestra mas agua" Width="10%">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C128_S_Ge" VisibleIndex="5" Caption="Masa muestra saturada seca"
-                Width="5%">
-                <PropertiesTextEdit DisplayFormatString="{0} g">
+            <dx:GridViewDataTextColumn FieldName="Resultado" VisibleIndex="5">
+                <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
                 </PropertiesTextEdit>
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C128_OD_Result" VisibleIndex="6" Caption="Resultado">
             </dx:GridViewDataTextColumn>
         </Columns>
         <SettingsBehavior AllowFocusedRow="True" />
@@ -224,7 +222,8 @@ fn_EndCallbackForTest();
         </Styles>
     </dx:ASPxGridView>
     <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C128_A_Ge, MPR_Det_Result_Prueba.C128_B_Ge, MPR_Det_Result_Prueba.C128_C_Ge, MPR_Det_Result_Prueba.C128_S_Ge, MPR_Det_Result_Prueba.C128_OD_Result FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
+        
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C128_A_Gea, MPR_Det_Result_Prueba.C128_B_Gea, MPR_Det_Result_Prueba.C128_C_Gea, MPR_Det_Result_Prueba.C128_ASG_Gea_Result AS Resultado FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
