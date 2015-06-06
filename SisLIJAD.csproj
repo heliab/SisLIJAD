@@ -96,6 +96,7 @@
     <Content Include="PEUCA\Default.aspx" />
     <Content Include="Pruebas\GeaFino.aspx" />
     <Content Include="Pruebas\GEssFino.aspx" />
+    <Content Include="Pruebas\GEssGrueso.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -365,6 +366,13 @@
     </Compile>
     <Compile Include="Pruebas\GEssFino.aspx.designer.cs">
       <DependentUpon>GEssFino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\GEssGrueso.aspx.cs">
+      <DependentUpon>GEssGrueso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\GEssGrueso.aspx.designer.cs">
+      <DependentUpon>GEssGrueso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\DSRPT\DSGetAllReqEqById1.Designer.cs">
       <AutoGen>True</AutoGen>

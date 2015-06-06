@@ -7,10 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using DevExpress.Web.ASPxGridView;
 
-
 namespace SisLIJAD.Pruebas
 {
-    public partial class GeaFino : System.Web.UI.Page
+    public partial class GEssGrueso : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,7 +48,7 @@ namespace SisLIJAD.Pruebas
             {
                 case "0": Select();
                     break;
-                case "1": CalASG();
+                case "1": CalGravEspecSatSec();
                     break;
                 default: Response.Write("Error en fillingcallback");
                     break;
@@ -65,20 +64,19 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C128_A_Gea,C128_B_Gea,C128_C_Gea from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
+                SqlCommand cmd = new SqlCommand("Select CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) as Codigo,C127_B_Gess,C127_C_Gess from MPR_Det_Result_Prueba where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @Codigo", con);
                 cmd.Parameters.AddWithValue("@Codigo", txtId.Text);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     // display data in textboxes
                     txtId.Text = dr["Codigo"].ToString();
-                    sA.Text = dr["C128_A_Gea"].ToString();
-                    sB.Text = dr["C128_B_Gea"].ToString();
-                    sC.Text = dr["C128_C_Gea"].ToString();
-                 }
+                    sB.Text = dr["C127_B_Gess"].ToString();
+                    sC.Text = dr["C127_C_Gess"].ToString();
+                   
+                }
                 else
                 {
-
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
 
                 }
@@ -87,8 +85,6 @@ namespace SisLIJAD.Pruebas
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
-
-
             }
             finally
             {
@@ -103,21 +99,18 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C128_A_Gea,C128_B_Gea," +
-               "C128_C_Gea,C128_ASG_Gea_Result) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C128_A_Gea,@C128_B_Gea,@C128_C_Gea,@C128_ASG_Gea_Result)", con);
+                SqlCommand cmd = new SqlCommand("insert into MPR_Det_Result_Prueba(IdSolicPrueba,IdPrueba,FechaEmisionIndiv,C127_B_Gess," +
+               "C127_C_Gess,C127_SSD_Gess_Result) values(@IdSolicPrueba,@IdPrueba,@FechaEmisionIndiv,@C127_B_Gess,@C127_C_Gess,@C127_SSD_Gess_Result)", con);
                 cmd.Parameters.AddWithValue("@IdSolicPrueba", Sol);
                 cmd.Parameters.AddWithValue("@IdPrueba", Pr);
                 cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
-                cmd.Parameters.AddWithValue("@C128_A_Gea", sA.Value);
-                cmd.Parameters.AddWithValue("@C128_B_Gea", sB.Value);
-                cmd.Parameters.AddWithValue("@C128_C_Gea", sC.Value);
-                cmd.Parameters.AddWithValue("@C128_ASG_Gea_Result", txtResult.Text);
+                cmd.Parameters.AddWithValue("@C127_B_Gess", sB.Value);
+                cmd.Parameters.AddWithValue("@C127_C_Gess", sC.Value);
+                cmd.Parameters.AddWithValue("@C127_SSD_Gess_Result", txtResult.Text);
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)
-                {
-                    // Response.Write("<script>alert('" + Server.HtmlEncode("La ubicacion " + txtUbic.Text + " se ha guardado correctamente") + "')</script>");
-                }
+                { }
                 else
                     Response.Write("<script>alert('" + Server.HtmlEncode("Error al guardar los datos, revise los datos del formulario") + "')</script>");
             }
@@ -130,9 +123,6 @@ namespace SisLIJAD.Pruebas
             {
                 con.Close();
             }
-
-
-
         }
         protected void Update()
         {
@@ -140,13 +130,12 @@ namespace SisLIJAD.Pruebas
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update MPR_Det_Result_Prueba set FechaEmisionIndiv=@FechaEmisionIndiv,C128_A_Gea=@C128_A_Gea,C128_B_Gea=@C128_B_Gea,C128_C_Gea=@C128_C_Gea,C128_ASG_Gea_Result=@C128_ASG_Gea_Result where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
+                SqlCommand cmd = new SqlCommand("update MPR_Det_Result_Prueba set FechaEmisionIndiv=@FechaEmisionIndiv,C127_B_Gess=@C127_B_Gess,C127_C_Ge=@C127_C_Gess,C127_SSD_Gess_Result=@C127_SSD_Gess_Result where CAST(IdSolicPrueba AS NVARCHAR) + '.' + CAST(IdPrueba AS NVARCHAR) + '.' + CAST(IdCalc AS NVARCHAR) = @codigo", con);
                 cmd.Parameters.AddWithValue("@codigo", txtId.Text);
                 cmd.Parameters.AddWithValue("@FechaEmisionIndiv", DateTime.Now);
-                cmd.Parameters.AddWithValue("@C128_A_Gea", sA.Value);
-                cmd.Parameters.AddWithValue("@C128_B_Gea", sB.Value);
-                cmd.Parameters.AddWithValue("@C128_C_Gea", sC.Value);
-                cmd.Parameters.AddWithValue("@C128_ASG_Gea_Result", txtResult.Text);
+                cmd.Parameters.AddWithValue("@C127_B_Gess", sB.Value);
+                cmd.Parameters.AddWithValue("@C127_C_Gess", sC.Value);
+                cmd.Parameters.AddWithValue("@C127_SSD_Gess_Result", txtResult.Text);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -197,12 +186,11 @@ namespace SisLIJAD.Pruebas
         #endregion
 
         #region formulas
-        protected void CalASG()
+        protected void CalGravEspecSatSec()
         {
-            double A = Convert.ToDouble(sA.Text);
             double B = Convert.ToDouble(sB.Text);
             double C = Convert.ToDouble(sC.Text);
-            double resultado = A / (B + A - C);
+            double resultado = B / (B - C);
             txtResult.Text = Convert.ToString(resultado);
         }
         #endregion

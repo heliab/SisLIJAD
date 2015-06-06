@@ -45,6 +45,8 @@
                     break;
                 case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
+                case 12: window.location.href = "/Pruebas/GeaGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
                 case 13: window.location.href = "/Pruebas/GeaGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 7: window.location.href = "/Pruebas/?Id=" + val[0];
