@@ -43,9 +43,13 @@
                     break;
                 case 6: window.location.href = "/Pruebas/GeaFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
+                case 7: window.location.href = "/Pruebas/PorcentAbsFino.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
+                case 8: window.location.href = "/Pruebas/PorcentAbsGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                    break;
                 case 11: window.location.href = "/Pruebas/GeGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 12: window.location.href = "/Pruebas/GeaGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                case 12: window.location.href = "/Pruebas/GessGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 13: window.location.href = "/Pruebas/GeaGrueso.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;

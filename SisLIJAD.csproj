@@ -97,6 +97,8 @@
     <Content Include="Pruebas\GeaFino.aspx" />
     <Content Include="Pruebas\GEssFino.aspx" />
     <Content Include="Pruebas\GEssGrueso.aspx" />
+    <Content Include="Pruebas\PorcentAbsFino.aspx" />
+    <Content Include="Pruebas\PorcentAbsGrueso.aspx" />
     <Content Include="RecoverPassword.htm" />
     <Content Include="Recover\RecoverPassword.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -373,6 +375,20 @@
     </Compile>
     <Compile Include="Pruebas\GEssGrueso.aspx.designer.cs">
       <DependentUpon>GEssGrueso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\PorcentAbsFino.aspx.cs">
+      <DependentUpon>PorcentAbsFino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\PorcentAbsFino.aspx.designer.cs">
+      <DependentUpon>PorcentAbsFino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\PorcentAbsGrueso.aspx.cs">
+      <DependentUpon>PorcentAbsGrueso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\PorcentAbsGrueso.aspx.designer.cs">
+      <DependentUpon>PorcentAbsGrueso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tecnicos\DSRPT\DSGetAllReqEqById1.Designer.cs">
       <AutoGen>True</AutoGen>

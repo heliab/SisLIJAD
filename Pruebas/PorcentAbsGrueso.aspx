@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true" CodeBehind="GEssGrueso.aspx.cs" Inherits="SisLIJAD.Pruebas.GEssGrueso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pruebas/PruebasMaster.Master" AutoEventWireup="true" CodeBehind="PorcentAbsGrueso.aspx.cs" Inherits="SisLIJAD.Pruebas.PorcentAbsGrueso" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="first">
                 <div class="Titulo2">
-                    Gravedad Especifica en Condición de Saturado Superficialmente seca
+                    Det. Porcentaje Absorción (Agregado Fino)
                 </div>
             </div>
             <%--<div>
@@ -171,7 +171,7 @@ fn_EndCallbackForTest();
             <div class="second">
                 <ul class="ctrlist2">
                     <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                        <i class="fa fa-plus"></i>Calc. SSD</a></li>
+                        <i class="fa fa-plus"></i>Calc. %</a></li>
                     <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
                         <i class="fa fa-pencil-square-o"></i>Editar</a></li>
                     <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
@@ -185,23 +185,24 @@ fn_EndCallbackForTest();
         ClientIDMode="AutoID" DataSourceID="SDSEnsayes" KeyFieldName="Codigo">
         <Columns>
             <dx:GridViewDataTextColumn FieldName="Codigo" ReadOnly="True" VisibleIndex="0" 
-                Width="10%">
+                ShowInCustomizationForm="True" Width="15%">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="FechaEmisionIndiv" VisibleIndex="1" 
-                Width="20%">
+                Width="16%" ShowInCustomizationForm="True">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C127_B_Gess" VisibleIndex="2" 
-                Caption="Peso muestra saturada superficialmente seca" Width="20%">
+            <dx:GridViewDataTextColumn FieldName="C127_A_Abs" VisibleIndex="2" Caption="Peso de la muestra seca"
+                Width="20%" ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="C127_C_Gess" VisibleIndex="3" 
-                Caption="Peso de muestra sumergida" Width="20%">
+            <dx:GridViewDataTextColumn FieldName="C127_B_Abs" VisibleIndex="3" Caption="Masa del espécimen seco del horno"
+                Width="20%" ShowInCustomizationForm="True">
                 <PropertiesTextEdit DisplayFormatString="{0} g">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Resultados" VisibleIndex="4">
-                <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+            <dx:GridViewDataTextColumn FieldName="Resultados" VisibleIndex="4" 
+                ShowInCustomizationForm="True">
+                <PropertiesTextEdit DisplayFormatString="{0} %">
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
         </Columns>
@@ -219,7 +220,7 @@ fn_EndCallbackForTest();
     <asp:SqlDataSource ID="SDSEnsayes" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
         
-        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C127_B_Gess, MPR_Det_Result_Prueba.C127_C_Gess, MPR_Det_Result_Prueba.C127_SSD_Gess_Result AS Resultados FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
+        SelectCommand="SELECT CAST(MPR_Solic_Pruebas.IdSolicPrueba AS NVARCHAR) + '.' + CAST(MPR_Prueba.IdPrueba AS NVARCHAR) + '.' + CAST(MPR_Det_Result_Prueba.IdCalc AS NVARCHAR) AS Codigo, MPR_Det_Result_Prueba.FechaEmisionIndiv, MPR_Det_Result_Prueba.C127_A_Abs, MPR_Det_Result_Prueba.C127_B_Abs, MPR_Det_Result_Prueba.C127_Abs_Results AS Resultados FROM MPR_Solic_Pruebas INNER JOIN MPR_Det_Result_Prueba ON MPR_Solic_Pruebas.IdSolicPrueba = MPR_Det_Result_Prueba.IdSolicPrueba INNER JOIN MPR_Prueba ON MPR_Det_Result_Prueba.IdPrueba = MPR_Prueba.IdPrueba WHERE (MPR_Solic_Pruebas.Autorizado = 1) AND (MPR_Solic_Pruebas.IdSolicPrueba = @Sol) AND (MPR_Prueba.IdPrueba = @Pr)">
         <SelectParameters>
             <asp:QueryStringParameter Name="Sol" QueryStringField="Sol" />
             <asp:QueryStringParameter Name="Pr" QueryStringField="Pr" />
@@ -265,12 +266,11 @@ fn_CleanGroup(-1);
                                         </div>
                                     </div>
                                     <br />
-                                    
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Peso muestra en condición saturada superficialmente seca(g)">
+                                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Peso de la muestra seca(g)">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sB" ClientInstanceName="sB" runat="server" Number="0.0" LargeIncrement="1"
+                                            <dx:ASPxSpinEdit ID="sA" ClientInstanceName="sA" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
@@ -289,9 +289,10 @@ fn_CleanGroup(-1);
                                     </div>
                                     <div class="row">
                                         <div class="first">
-                                            <dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Peso de muestra sumergida(g)">
+                                            <dx:ASPxLabel ID="ASPxLabel5" runat="server" 
+                                                Text="Masa del espécimen seco del horno(g)">
                                             </dx:ASPxLabel>
-                                            <dx:ASPxSpinEdit ID="sC" ClientInstanceName="sC" runat="server" Number="0.0" LargeIncrement="1"
+                                            <dx:ASPxSpinEdit ID="sB" ClientInstanceName="sB" runat="server" Number="0.0" LargeIncrement="1"
                                                 Increment="0.1" NullText="0" Width="160px" MaxValue="2147483647">
                                                 <SpinButtons ShowLargeIncrementButtons="True">
                                                 </SpinButtons>
@@ -308,7 +309,7 @@ fn_CleanGroup(-1);
                                             </dx:ASPxSpinEdit>
                                         </div>
                                         <div class="second">
-                                           <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
+                                            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Resultado">
                                             </dx:ASPxLabel>
                                             <dx:ASPxTextBox ID="txtResult" runat="server" Width="125px" ClientInstanceName="txtResult"
                                                 ReadOnly="True">
