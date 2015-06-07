@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
   <DataSources>
-    <DataSource Name="DSGetASTM566ById">
+    <DataSource Name="GetASTM128_ABS_ById">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>e4ced4e1-4bc2-41ca-a9e8-66af2723a3be</rd:DataSourceID>
+      <rd:DataSourceID>c5d7da72-d02e-46e4-8aaf-481617c01a54</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DSGetASTM566ById">
+    <DataSet Name="GetASTM128_ABS_ById">
       <Fields>
         <Field Name="IdSol">
           <DataField>IdSol</DataField>
@@ -24,18 +24,6 @@
           <DataField>CodigoResultado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="C566_W">
-          <DataField>C566_W</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C566_D">
-          <DataField>C566_D</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C566_p_Result">
-          <DataField>C566_p_Result</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="username">
           <DataField>username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -44,117 +32,64 @@
           <DataField>NomPrueba</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="C128_A_Abs">
+          <DataField>C128_A_Abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="C128_S_Abs">
+          <DataField>C128_S_Abs</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="C128_Abs_Result">
+          <DataField>C128_Abs_Result</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
-        <DataSourceName>DSGetASTM566ById</DataSourceName>
+        <DataSourceName>GetASTM128_ABS_ById</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSGetASTM566ById</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\DSGetASTM566ById.xsd</rd:SchemaPath>
-        <rd:TableName>GetASTM566ById</rd:TableName>
+        <rd:DataSetName>GetASTM128_ABS_ById</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\GetASTM128_ABS_ById.xsd</rd:SchemaPath>
+        <rd:TableName>GetASTM128_ABS_ById</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>GetASTM566ByIdTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GetASTM128_ABS_ByIdTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix5">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.05184in</Width>
+              <Width>5.95809in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.453in</Height>
+              <Height>1.54675in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Rectangle Name="Rectangle1">
+                    <Rectangle Name="Rectangle12">
                       <ReportItems>
-                        <Textbox Name="IdSol">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>="Id Solicitud: "&amp;Fields!IdSol.Value</Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>IdSol</rd:DefaultName>
-                          <Top>0.52917cm</Top>
-                          <Left>0.84667cm</Left>
-                          <Height>0.6cm</Height>
-                          <Width>5.54271cm</Width>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="username">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>="Usuario: "&amp;Fields!username.Value</Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>username</rd:DefaultName>
-                          <Top>0.52917cm</Top>
-                          <Left>6.90562cm</Left>
-                          <Height>0.6cm</Height>
-                          <Width>7.5033cm</Width>
-                          <ZIndex>1</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Tablix Name="Tablix2">
+                        <Tablix Name="Tablix6">
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
                                 <Width>0.98425in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.79675in</Width>
+                                <Width>0.86967in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>2.30338in</Width>
+                                <Width>2.17175in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.22384in</Width>
+                                <Width>1.47384in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -163,7 +98,7 @@
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox22">
+                                      <Textbox Name="Textbox37">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -179,7 +114,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox22</rd:DefaultName>
+                                        <rd:DefaultName>Textbox37</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -215,7 +150,7 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox24">
+                                      <Textbox Name="Textbox39">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -231,7 +166,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox24</rd:DefaultName>
+                                        <rd:DefaultName>Textbox39</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -267,7 +202,7 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox26">
+                                      <Textbox Name="Textbox41">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -283,7 +218,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox26</rd:DefaultName>
+                                        <rd:DefaultName>Textbox41</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -319,7 +254,7 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox28">
+                                      <Textbox Name="Textbox43">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
@@ -335,7 +270,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox28</rd:DefaultName>
+                                        <rd:DefaultName>Textbox43</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -466,21 +401,21 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="C566_p_Result">
+                                      <Textbox Name="C128_Abs_Result">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!C566_p_Result.Value</Value>
+                                                <Value>=Fields!C128_Abs_Result.Value</Value>
                                                 <Style />
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>C566_p_Result</rd:DefaultName>
+                                        <rd:DefaultName>C128_Abs_Result</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -516,12 +451,11 @@
                               </TablixMember>
                             </TablixMembers>
                           </TablixRowHierarchy>
-                          <DataSetName>DSGetASTM566ById</DataSetName>
-                          <Top>1.905cm</Top>
-                          <Left>0.92604cm</Left>
+                          <DataSetName>GetASTM128_ABS_ById</DataSetName>
+                          <Top>2.32833cm</Top>
+                          <Left>0.44017cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>13.48288cm</Width>
-                          <ZIndex>2</ZIndex>
+                          <Width>13.96875cm</Width>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -548,6 +482,72 @@
                             </RightBorder>
                           </Style>
                         </Tablix>
+                        <Textbox Name="Textbox45">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Id Solicitud: "&amp;Fields!IdSol.Value</Value>
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox45</rd:DefaultName>
+                          <Top>0.79375cm</Top>
+                          <Left>0.44017cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>5.46333cm</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox46">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Usuario: "&amp;Fields!username.Value</Value>
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox46</rd:DefaultName>
+                          <Top>0.79375cm</Top>
+                          <Left>7.14375cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>7.26517cm</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -578,11 +578,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DSGetASTM566ById</DataSetName>
-        <Top>0.44133cm</Top>
-        <Left>0.54716cm</Left>
-        <Height>3.69062cm</Height>
-        <Width>15.37167cm</Width>
+        <DataSetName>GetASTM128_ABS_ById</DataSetName>
+        <Top>0.57362cm</Top>
+        <Left>0.89112cm</Left>
+        <Height>3.92875cm</Height>
+        <Width>15.13354cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -590,7 +590,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.8125in</Height>
+    <Height>2.43786in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>
@@ -613,6 +613,32 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
+        <Rectangle Name="Rectangle4">
+          <KeepTogether>true</KeepTogether>
+          <Top>2.34187cm</Top>
+          <Height>0.19813cm</Height>
+          <Width>16.51cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>#104373</BackgroundColor>
+          </Style>
+        </Rectangle>
+        <Image Name="Image71">
+          <Source>Embedded</Source>
+          <Value>SisLIJAD3</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>0.54716cm</Left>
+          <Height>2.40771cm</Height>
+          <Width>2.64583cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
         <Textbox Name="Textbox157">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -634,6 +660,7 @@
           <Left>7.176cm</Left>
           <Height>0.6cm</Height>
           <Width>2.1825cm</Width>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -666,8 +693,8 @@
           <Top>0.31722cm</Top>
           <Left>6.33129cm</Left>
           <Height>1.15562cm</Height>
-          <Width>4.61667cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>5.22521cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -678,33 +705,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Rectangle Name="Rectangle4">
-          <KeepTogether>true</KeepTogether>
-          <Top>2.34187cm</Top>
-          <Height>0.19813cm</Height>
-          <Width>16.51cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <BackgroundColor>#104373</BackgroundColor>
-          </Style>
-        </Rectangle>
-        <Image Name="Image71">
-          <Source>Embedded</Source>
-          <Value>SisLIJAD3</Value>
-          <Sizing>FitProportional</Sizing>
-          <Left>0.54716cm</Left>
-          <Height>2.40771cm</Height>
-          <Width>2.64583cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
       </ReportItems>
       <Style>
         <Border>
@@ -735,7 +735,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox158</rd:DefaultName>
-          <Top>0.824cm</Top>
+          <Top>0.69171cm</Top>
           <Left>5.8815cm</Left>
           <Height>0.6cm</Height>
           <Width>4.59021cm</Width>
@@ -798,6 +798,6 @@ D1UkWN+C89QWXBXKEpsPj7vQUPVIlCnoFtTLHCMUrH3RgxrcEGU0JPocSnk1WtdFCoVkLjL5blHhk11I
 oWQed/vtvdP/eUct1NSDmz3KKOEbtgdd0K3QvGEePTyBmKxDAjJMfUNgF44Lwod/jn98gRBMoAduGN34YwQ9gTSPK2x31GoT/Tvotbhj/QjbfCaahpnK/ciGdqszbW4nk6cZsmwuzME9Gbwoghdr8HJz51q3CPeF0jAaJXzZfgEtxkzlV2i+b2SmP/BGMlz2URpGMwksLFMZR+nNRtJuoOEuJpTGbCHP9IlIbsDxpLFG+phQGrOFnZgc0QSa2/4mWpQwjIqYUBozm3Ch4gA2j3L5GbKQWW/SqIoJpTEb6EVG6qgx+mrg08AGE0mjFiaUxswl7E0ezuQEDSvR6ncj2ciNWYQJpTHT2QJ4D2FaspuBU4B/ADbkNurChNKYmag3mUc9x+chI/xfgRNQmJ2JpFE3JpTGzEMi2YPK+74LRZBcgEJHbwRMJI1YWGSOMbOQSC5G+RqXo1jkLwAXA8MmkEYSTCiNmUGY3PgZwPtQ0pHLga+jxBAzPh7ZaB0uZw8yjLg8GSVofgClSFNmIhNIo0H+HwZ1BKHix9TSAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTI3VDE3OjI0OjMyLTA1OjAwhru7lQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yN1QxNzoyNDozMi0wNTowMPfmAykAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportID>76e4d88e-b687-41cd-b482-be2821f1f905</rd:ReportID>
+  <rd:ReportID>f7ff818d-a67c-4d22-b2b8-841ed9c2143a</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>

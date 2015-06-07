@@ -66,6 +66,7 @@
     <Content Include="Clientes\Default.aspx" />
     <Content Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx" />
     <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
+    <Content Include="Clientes\Results\PorcentAbsFinoRes.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
     <Content Include="Cuenta\PersonalInfo.aspx" />
     <Content Include="Images\blackcheck.png" />
@@ -308,12 +309,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Results\PorcentAbsFinoRes.aspx.cs">
+      <DependentUpon>PorcentAbsFinoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\PorcentAbsFinoRes.aspx.designer.cs">
+      <DependentUpon>PorcentAbsFinoRes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cuenta\PersonalInfo.aspx.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetASTM128_ABS_ById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
     </Compile>
     <Compile Include="MINV\DSRPT\DSListaEquipo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1097,6 +1110,7 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clientes\DSRPT\PorcentAbsFino.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeaGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeFinoRes.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEGrueso.rdlc" />
@@ -1228,6 +1242,17 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
+    <None Include="GetASTM128_ABS_ById.xsc">
+      <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
+    </None>
+    <None Include="GetASTM128_ABS_ById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GetASTM128_ABS_ById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GetASTM128_ABS_ById.xss">
+      <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
+    </None>
     <None Include="MINV\DSRPT\DSListaEquipo.xsc">
       <DependentUpon>DSListaEquipo.xsd</DependentUpon>
     </None>
