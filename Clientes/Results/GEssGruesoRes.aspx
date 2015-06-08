@@ -171,16 +171,6 @@ fn_EndCallbackForTest();
                     Resultados
                 </div>
             </div>
-            <div class="second">
-                <ul class="ctrlist2">
-                    <li><a class="pure-button blue-font" href="javascript:fn_NewMainTest();" title="Peso seco unitario suelto con Volumen definido">
-                        <i class="fa fa-plus"></i>Calc. SSD</a></li>
-                    <li><a class="pure-button green-font" href="javascript:fn_EditTestJS();" title="Editar">
-                        <i class="fa fa-pencil-square-o"></i>Editar</a></li>
-                    <li><a class="pure-button red-font" href="javascript:fn_DeleteTestJS();" title="Borrar">
-                        <i class="fa fa-trash"></i>Borrar</a></li>
-                </ul>
-            </div>
         </div>
     </div>
     <dx:ASPxGridView ID="GridResultados" runat="server" ClientInstanceName="GridResultados"

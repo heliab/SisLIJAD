@@ -39,7 +39,7 @@
                     break;
                 case 5: window.location.href = "/Clientes/Results/GeFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 6: window.location.href = "/Clientes/Results/HumedadAridosRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                case 6: window.location.href = "/Clientes/Results/GeaFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 7: window.location.href = "/Clientes/Results/PorcentAbsFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;

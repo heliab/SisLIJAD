@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
   <DataSources>
-    <DataSource Name="DSPVSC">
+    <DataSource Name="GetASTM128_GEA_ById">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>51cbcf39-95a2-4580-bf6f-5c070e5e864f</rd:DataSourceID>
+      <rd:DataSourceID>e7bd668d-4556-4f27-8fca-71d20fc7e849</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DSAPVSC">
+    <DataSet Name="GetASTM128_GEA_ById">
       <Fields>
         <Field Name="IdSol">
           <DataField>IdSol</DataField>
@@ -24,26 +24,6 @@
           <DataField>CodigoResultado</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="C29_G">
-          <DataField>C29_G</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C29_T">
-          <DataField>C29_T</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C29_V">
-          <DataField>C29_V</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C29_F">
-          <DataField>C29_F</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="C29_M_Result">
-          <DataField>C29_M_Result</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="username">
           <DataField>username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -52,18 +32,34 @@
           <DataField>NomPrueba</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="C128_A_Gea">
+          <DataField>C128_A_Gea</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="C128_B_Gea">
+          <DataField>C128_B_Gea</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="C128_C_Gea">
+          <DataField>C128_C_Gea</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="C128_ASG_Gea_Result">
+          <DataField>C128_ASG_Gea_Result</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
-        <DataSourceName>DSPVSC</DataSourceName>
+        <DataSourceName>GetASTM128_GEA_ById</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSPVSC</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\DSPVSC.xsd</rd:SchemaPath>
-        <rd:TableName>GetResultById</rd:TableName>
+        <rd:DataSetName>GetASTM128_GEA_ById</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Haniel\Documents\Visual Studio 2010\Projects\SisLIJAD\SisLIJAD\SisLIJAD\GetASTM128_GEA_ById.xsd</rd:SchemaPath>
+        <rd:TableName>GetASTM128_GEA_ById</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>GetResultByIdTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GetASTM128_GEA_ByIdTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -73,12 +69,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.09194in</Width>
+              <Width>6.07267in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.36967in</Height>
+              <Height>1.35925in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -88,16 +84,16 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>0.93646in</Width>
+                                <Width>0.99232in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.93998in</Width>
+                                <Width>0.89141in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>2.72123in</Width>
+                                <Width>2.42266in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.14831in</Width>
+                                <Width>1.381in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -409,21 +405,21 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="C29_M_Result">
+                                      <Textbox Name="C128_ASG_Gea_Result">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!C29_M_Result.Value</Value>
+                                                <Value>=Fields!C128_ASG_Gea_Result.Value</Value>
                                                 <Style />
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>C29_M_Result</rd:DefaultName>
+                                        <rd:DefaultName>C128_ASG_Gea_Result</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -459,11 +455,11 @@
                               </TablixMember>
                             </TablixMembers>
                           </TablixRowHierarchy>
-                          <DataSetName>DSAPVSC</DataSetName>
-                          <Top>1.50812cm</Top>
-                          <Left>0.41936cm</Left>
+                          <DataSetName>GetASTM128_GEA_ById</DataSetName>
+                          <Top>2.06375cm</Top>
+                          <Left>0.36116cm</Left>
                           <Height>1.2cm</Height>
-                          <Width>14.59479cm</Width>
+                          <Width>14.44597cm</Width>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -490,40 +486,7 @@
                             </RightBorder>
                           </Style>
                         </Tablix>
-                        <Textbox Name="username">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>="Usuario: "&amp;Fields!username.Value</Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>username</rd:DefaultName>
-                          <Top>0.29104cm</Top>
-                          <Left>6.37253cm</Left>
-                          <Height>0.6cm</Height>
-                          <Width>5.72492cm</Width>
-                          <ZIndex>1</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                        <Textbox Name="IdSol">
+                        <Textbox Name="Textbox19">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -540,11 +503,44 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IdSol</rd:DefaultName>
-                          <Top>0.29104cm</Top>
-                          <Left>0.41936cm</Left>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Top>0.71438cm</Top>
+                          <Left>0.36116cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>4.76616cm</Width>
+                          <Width>5.43687cm</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox20">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Usuario: "&amp;Fields!username.Value</Value>
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <Top>0.71438cm</Top>
+                          <Left>6.73369cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>8.07344cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -586,11 +582,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DSAPVSC</DataSetName>
-        <Top>0.89112cm</Top>
-        <Left>0.57759cm</Left>
-        <Height>3.47896cm</Height>
-        <Width>15.47353cm</Width>
+        <DataSetName>GetASTM128_GEA_ById</DataSetName>
+        <Top>0.71944cm</Top>
+        <Left>0.65299cm</Left>
+        <Height>3.4525cm</Height>
+        <Width>15.42458cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -617,24 +613,41 @@
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.98979cm</Height>
+      <Height>2.71168cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Image71">
-          <Source>Embedded</Source>
-          <Value>SisLIJAD3</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.09701cm</Top>
-          <Left>0.57759cm</Left>
-          <Height>2.40771cm</Height>
-          <Width>2.64583cm</Width>
+        <Textbox Name="Textbox157">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Resultados</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox157</rd:DefaultName>
+          <Top>1.56558cm</Top>
+          <Left>7.38668cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.39417cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
           </Style>
-        </Image>
+        </Textbox>
         <Textbox Name="Textbox156">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -654,43 +667,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox156</rd:DefaultName>
-          <Top>0.51579cm</Top>
-          <Left>5.92894cm</Left>
+          <Top>0.41878cm</Top>
+          <Left>6.44488cm</Left>
           <Height>1.15562cm</Height>
-          <Width>4.62116cm</Width>
+          <Width>5.96604cm</Width>
           <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox157">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Resultados</Value>
-                  <Style>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox157</rd:DefaultName>
-          <Top>1.66259cm</Top>
-          <Left>7.2147cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.02375cm</Width>
-          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -703,10 +684,10 @@
         </Textbox>
         <Rectangle Name="Rectangle4">
           <KeepTogether>true</KeepTogether>
-          <Top>2.79166cm</Top>
+          <Top>2.51355cm</Top>
           <Height>0.19813cm</Height>
           <Width>16.51cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -714,6 +695,20 @@
             <BackgroundColor>#104373</BackgroundColor>
           </Style>
         </Rectangle>
+        <Image Name="Image71">
+          <Source>Embedded</Source>
+          <Value>SisLIJAD3</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>1.01415cm</Left>
+          <Height>2.40771cm</Height>
+          <Width>2.64583cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>
@@ -744,7 +739,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox158</rd:DefaultName>
-          <Top>0.97cm</Top>
+          <Top>0.93061cm</Top>
           <Left>5.95989cm</Left>
           <Height>0.6cm</Height>
           <Width>4.59021cm</Width>
@@ -807,6 +802,6 @@ D1UkWN+C89QWXBXKEpsPj7vQUPVIlCnoFtTLHCMUrH3RgxrcEGU0JPocSnk1WtdFCoVkLjL5blHhk11I
 oWQed/vtvdP/eUct1NSDmz3KKOEbtgdd0K3QvGEePTyBmKxDAjJMfUNgF44Lwod/jn98gRBMoAduGN34YwQ9gTSPK2x31GoT/Tvotbhj/QjbfCaahpnK/ciGdqszbW4nk6cZsmwuzME9Gbwoghdr8HJz51q3CPeF0jAaJXzZfgEtxkzlV2i+b2SmP/BGMlz2URpGMwksLFMZR+nNRtJuoOEuJpTGbCHP9IlIbsDxpLFG+phQGrOFnZgc0QSa2/4mWpQwjIqYUBozm3Ch4gA2j3L5GbKQWW/SqIoJpTEb6EVG6qgx+mrg08AGE0mjFiaUxswl7E0ezuQEDSvR6ncj2ciNWYQJpTHT2QJ4D2FaspuBU4B/ADbkNurChNKYmag3mUc9x+chI/xfgRNQmJ2JpFE3JpTGzEMi2YPK+74LRZBcgEJHbwRMJI1YWGSOMbOQSC5G+RqXo1jkLwAXA8MmkEYSTCiNmUGY3PgZwPtQ0pHLga+jxBAzPh7ZaB0uZw8yjLg8GSVofgClSFNmIhNIo0H+HwZ1BKHix9TSAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTAxLTI3VDE3OjI0OjMyLTA1OjAwhru7lQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0wMS0yN1QxNzoyNDozMi0wNTowMPfmAykAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportID>d56ad2c0-4523-4ad9-8d01-e5a8e72ddaa7</rd:ReportID>
+  <rd:ReportID>160fb8ad-a6f6-4973-89e6-db47ee26cb0b</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>
