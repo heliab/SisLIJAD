@@ -212,6 +212,8 @@ fn_EndCallbackForTest();
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="Resultado" VisibleIndex="5"
                 Width="20%">
+                <PropertiesTextEdit DisplayFormatString="{0} kg/m3">
+                </PropertiesTextEdit>
                 <Settings AutoFilterCondition="Contains" />
             </dx:GridViewDataTextColumn>
         </Columns>

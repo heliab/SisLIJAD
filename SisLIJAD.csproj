@@ -67,6 +67,7 @@
     <Content Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx" />
     <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
     <Content Include="Clientes\Results\GeaFinoRes.aspx" />
+    <Content Include="Clientes\Results\GEssFinoRes.aspx" />
     <Content Include="Clientes\Results\GEssGruesoRes.aspx" />
     <Content Include="Clientes\Results\PorcentAbsFinoRes.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
@@ -318,6 +319,13 @@
     <Compile Include="Clientes\Results\GeaFinoRes.aspx.designer.cs">
       <DependentUpon>GeaFinoRes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Results\GEssFinoRes.aspx.cs">
+      <DependentUpon>GEssFinoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\GEssFinoRes.aspx.designer.cs">
+      <DependentUpon>GEssFinoRes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Results\GEssGruesoRes.aspx.cs">
       <DependentUpon>GEssGruesoRes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,6 +361,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM128_GEA_ById.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GetASTM128_SSD_ById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
     </Compile>
     <Compile Include="MINV\DSRPT\DSListaEquipo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1141,6 +1154,7 @@
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeaGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeFinoRes.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEGrueso.rdlc" />
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEssFino.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEssGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GetReqMatById.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_HumedadAridos.rdlc" />
@@ -1302,6 +1316,17 @@
     </None>
     <None Include="GetASTM128_GEA_ById.xss">
       <DependentUpon>GetASTM128_GEA_ById.xsd</DependentUpon>
+    </None>
+    <None Include="GetASTM128_SSD_ById.xsc">
+      <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
+    </None>
+    <None Include="GetASTM128_SSD_ById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GetASTM128_SSD_ById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GetASTM128_SSD_ById.xss">
+      <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
     </None>
     <None Include="MINV\DSRPT\DSListaEquipo.xsc">
       <DependentUpon>DSListaEquipo.xsd</DependentUpon>

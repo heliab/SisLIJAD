@@ -35,9 +35,9 @@
                     break;
                 case 3: window.location.href = "/Clientes/Results/HumedadAridosRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 4: window.location.href = "/Clientes/Results/HumedadAridosRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                case 4: window.location.href = "/Clientes/Results/GeFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
-                case 5: window.location.href = "/Clientes/Results/GeFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
+                case 5: window.location.href = "/Clientes/Results/GEssFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
                 case 6: window.location.href = "/Clientes/Results/GeaFinoRes.aspx?Id=" + val[0] + "&Sol=" + fn_GetIdPrValue() + "&Pr=" + val[1];
                     break;
