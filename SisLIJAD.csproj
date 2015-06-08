@@ -66,6 +66,7 @@
     <Content Include="Clientes\Default.aspx" />
     <Content Include="Clientes\Reportes\Rpt_MaterialesRequeridos.aspx" />
     <Content Include="Clientes\Reportes\SolicitudesEnviadasRpt.aspx" />
+    <Content Include="Clientes\Results\GEssGruesoRes.aspx" />
     <Content Include="Clientes\Results\PorcentAbsFinoRes.aspx" />
     <Content Include="Cuenta\InfoUser.aspx" />
     <Content Include="Cuenta\PersonalInfo.aspx" />
@@ -309,6 +310,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Results\GEssGruesoRes.aspx.cs">
+      <DependentUpon>GEssGruesoRes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Results\GEssGruesoRes.aspx.designer.cs">
+      <DependentUpon>GEssGruesoRes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Results\PorcentAbsFinoRes.aspx.cs">
       <DependentUpon>PorcentAbsFinoRes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +330,11 @@
     </Compile>
     <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetASTM127_GESS_ById.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
     </Compile>
     <Compile Include="GetASTM128_ABS_ById.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1114,6 +1127,7 @@
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeaGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GeFinoRes.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEGrueso.rdlc" />
+    <EmbeddedResource Include="Clientes\DSRPT\Rpt_GEssGrueso.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_GetReqMatById.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_HumedadAridos.rdlc" />
     <EmbeddedResource Include="Clientes\DSRPT\Rpt_PVSC.rdlc" />
@@ -1242,6 +1256,17 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
+    <None Include="GetASTM127_GESS_ById.xsc">
+      <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
+    </None>
+    <None Include="GetASTM127_GESS_ById.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GetASTM127_GESS_ById.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GetASTM127_GESS_ById.xss">
+      <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
+    </None>
     <None Include="GetASTM128_ABS_ById.xsc">
       <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
     </None>

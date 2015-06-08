@@ -219,10 +219,10 @@ fn_EndCallbackForTest();
         </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PopupContent" runat="server">
-<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div class="reportframe">
-    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="642px">
-    </rsweb:ReportViewer>
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="642px">
+        </rsweb:ReportViewer>
     </div>
 </asp:Content>

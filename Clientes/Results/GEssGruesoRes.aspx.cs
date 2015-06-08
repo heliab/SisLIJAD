@@ -11,13 +11,12 @@ using DevExpress.Web.ASPxGridView;
 
 namespace SisLIJAD.Clientes.Results
 {
-    public partial class GeaGruesoRes : System.Web.UI.Page
+    public partial class GEssGruesoRes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
         {
 
@@ -39,7 +38,7 @@ namespace SisLIJAD.Clientes.Results
             DataTable dt = GetData((IdSol), (IdPr));
             ReportDataSource rds = new ReportDataSource("GetASTM127_GESS_ById", dt);
             ReportViewer1.LocalReport.DataSources.Add(rds);
-            ReportViewer1.LocalReport.ReportPath = "Clientes/DSRPT/Rpt_GEssGrueso.rdlc.rdlc";
+            ReportViewer1.LocalReport.ReportPath = "Clientes/DSRPT/Rpt_GEssGrueso.rdlc";
             ReportParameter[] rptParams = new ReportParameter[] { 
             new ReportParameter("IdSol",IdSol),
             new ReportParameter("IdPr",IdPr)
