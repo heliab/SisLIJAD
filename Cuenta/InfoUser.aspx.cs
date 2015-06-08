@@ -10,6 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Net.Mail;
+using System.Data.SqlClient;
 
 namespace SisLIJAD.Cuenta
 {
@@ -49,7 +51,10 @@ namespace SisLIJAD.Cuenta
             MembershipUser usr = Membership.GetUser(userName);
             usr.IsApproved = IsApproved.Checked;
             Membership.UpdateUser(usr);
-
+            if (IsApproved.Checked == true)
+            {
+                EnviarMensaje();
+            }
             StatusMessage.Text = "El estado de aprobado ha sido actualizado.";
         }
 
@@ -72,5 +77,62 @@ namespace SisLIJAD.Cuenta
             //FormsAuthentication.SignOut();
             //FormsAuthentication.RedirectToLoginPage();
         }
-    }
+        #region Mensaje
+        protected void EnviarMensaje(){
+         string userName = Request.QueryString["user"];
+
+                          SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
+                //Mail membership
+                SqlCommand cmd = new SqlCommand("SELECT     dbo.aspnet_Membership.Email FROM  dbo.aspnet_Membership INNER JOIN  dbo.aspnet_Users ON dbo.aspnet_Membership.UserId = dbo.aspnet_Users.UserId INNER JOIN dbo.USER_Entidad ON dbo.aspnet_Users.UserName = dbo.USER_Entidad.username  where dbo.aspnet_Users.UserName=@username", con);
+                cmd.Parameters.AddWithValue("@username", userName);
+                //Thye data reader is only present in Select, due its function is to read and the we can display those readen values
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string getemail = dr["Email"].ToString();
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("sislijad@gmail.com", "Alerta del sistema");
+                mail.To.Add(getemail);
+                mail.Subject = "Aprobacion de Usuario";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = "<div style='width:100;height:34px;background-color:#3B71B8'><h2 style='text-align: center;'><span style='color:#FAFAFA;'>Notificacion SISLIJAD</span></h2></div><p>Saludos,<br> <br>Su usuario ha sido aprobado en el sistema. Desde ahora puede acceder a SISLIJAD.</p><p>Gracias!,</p><br><div style='width:100;height:25px;background-color:#3B71B8'><h4 style='text-align: center;'><span style='color:#FAFAFA;'>Copyrights © Sislijad 2015</span></h4></div>";
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("SisLijad@gmail.com", "administracion2015");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                }
+                else
+                {
+                    Response.Write("<script>alert('" + Server.HtmlEncode("Error al recuperar la informacion") + "')</script>");
+
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            }
+        #endregion
+     }
 }

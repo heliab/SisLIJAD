@@ -387,11 +387,12 @@ namespace SisLIJAD.MINV
         protected void EnviarMensaje()
         {
             string getemail;
-             SqlConnection con = new SqlConnection(Database.ConnectionString);
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();
                 //SqlCommand cmd = new SqlCommand("Select * from MINV_Prestamos where IdPrestamo= @IdPrestamo", con);
+                //Mail membership
                 SqlCommand cmd = new SqlCommand("SELECT DISTINCT  dbo.MINV_Prestamos.SolicitadoPor, dbo.aspnet_Membership.Email FROM  dbo.aspnet_Users INNER JOIN dbo.aspnet_Membership ON dbo.aspnet_Users.UserId = dbo.aspnet_Membership.UserId INNER JOIN dbo.MINV_Prestamos ON dbo.aspnet_Users.UserName = dbo.MINV_Prestamos.SolicitadoPor WHERE dbo.MINV_Prestamos.IdPrestamo=@IdPrestamo", con);
                 cmd.Parameters.AddWithValue("@IdPrestamo", txtId.Text);
                 //Thye data reader is only present in Select, due its function is to read and the we can display those readen values

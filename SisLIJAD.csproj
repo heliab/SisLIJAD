@@ -355,27 +355,27 @@
     <Compile Include="Cuenta\PersonalInfo.aspx.designer.cs">
       <DependentUpon>PersonalInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GetASTM127_ABS_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\GetASTM127_ABS_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM127_ABS_ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GetASTM127_GESS_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\GetASTM127_GESS_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GetASTM128_ABS_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\GetASTM128_ABS_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GetASTM128_GEA_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\GetASTM128_GEA_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM128_GEA_ById.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GetASTM128_SSD_ById.Designer.cs">
+    <Compile Include="Clientes\DSRPT\GetASTM128_SSD_ById.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
@@ -1298,59 +1298,59 @@
       <DependentUpon>DsGetASTM127_SSD_ById.xsd</DependentUpon>
     </None>
     <Content Include="Perfil\PerfilesMaster.Master" />
-    <None Include="GetASTM127_ABS_ById.xsc">
+    <None Include="Clientes\DSRPT\GetASTM127_ABS_ById.xsc">
       <DependentUpon>GetASTM127_ABS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM127_ABS_ById.xsd">
+    <None Include="Clientes\DSRPT\GetASTM127_ABS_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GetASTM127_ABS_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GetASTM127_ABS_ById.xss">
+    <None Include="Clientes\DSRPT\GetASTM127_ABS_ById.xss">
       <DependentUpon>GetASTM127_ABS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM127_GESS_ById.xsc">
+    <None Include="Clientes\DSRPT\GetASTM127_GESS_ById.xsc">
       <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM127_GESS_ById.xsd">
+    <None Include="Clientes\DSRPT\GetASTM127_GESS_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GetASTM127_GESS_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GetASTM127_GESS_ById.xss">
+    <None Include="Clientes\DSRPT\GetASTM127_GESS_ById.xss">
       <DependentUpon>GetASTM127_GESS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_ABS_ById.xsc">
+    <None Include="Clientes\DSRPT\GetASTM128_ABS_ById.xsc">
       <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_ABS_ById.xsd">
+    <None Include="Clientes\DSRPT\GetASTM128_ABS_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GetASTM128_ABS_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GetASTM128_ABS_ById.xss">
+    <None Include="Clientes\DSRPT\GetASTM128_ABS_ById.xss">
       <DependentUpon>GetASTM128_ABS_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_GEA_ById.xsc">
+    <None Include="Clientes\DSRPT\GetASTM128_GEA_ById.xsc">
       <DependentUpon>GetASTM128_GEA_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_GEA_ById.xsd">
+    <None Include="Clientes\DSRPT\GetASTM128_GEA_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GetASTM128_GEA_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GetASTM128_GEA_ById.xss">
+    <None Include="Clientes\DSRPT\GetASTM128_GEA_ById.xss">
       <DependentUpon>GetASTM128_GEA_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_SSD_ById.xsc">
+    <None Include="Clientes\DSRPT\GetASTM128_SSD_ById.xsc">
       <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
     </None>
-    <None Include="GetASTM128_SSD_ById.xsd">
+    <None Include="Clientes\DSRPT\GetASTM128_SSD_ById.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GetASTM128_SSD_ById.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GetASTM128_SSD_ById.xss">
+    <None Include="Clientes\DSRPT\GetASTM128_SSD_ById.xss">
       <DependentUpon>GetASTM128_SSD_ById.xsd</DependentUpon>
     </None>
     <None Include="MINV\DSRPT\DSListaEquipo.xsc">
