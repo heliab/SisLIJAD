@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.Clientes.DSRPT {
     
     
     /// <summary>
@@ -933,7 +933,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.GetASTM128_SSD_ByIdTableAdapters {
+namespace SisLIJAD.Clientes.DSRPT.GetASTM128_SSD_ByIdTableAdapters {
     
     
     /// <summary>

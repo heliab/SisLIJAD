@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace SisLIJAD {
+namespace SisLIJAD.Clientes.DSRPT {
     
     
     /// <summary>
@@ -890,7 +890,7 @@ namespace SisLIJAD {
         }
     }
 }
-namespace SisLIJAD.GetASTM127_GESS_ByIdTableAdapters {
+namespace SisLIJAD.Clientes.DSRPT.GetASTM127_GESS_ByIdTableAdapters {
     
     
     /// <summary>
