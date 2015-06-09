@@ -81,7 +81,7 @@ namespace SisLIJAD.Cuenta
         protected void EnviarMensaje(){
          string userName = Request.QueryString["user"];
 
-                          SqlConnection con = new SqlConnection(Database.ConnectionString);
+        SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {
                 con.Open();

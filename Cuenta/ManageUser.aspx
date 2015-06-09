@@ -23,8 +23,8 @@
                             Text="Administrar" />
                         <asp:BoundField DataField="UserName" HeaderText="Usuario" />
                         <asp:BoundField DataField="Email" HeaderText="Email" />
-                        <asp:CheckBoxField DataField="IsApproved" HeaderText="Aprovado?" />
-                        <asp:CheckBoxField DataField="IsLockedOut" HeaderText="Bloquado?" />
+                        <asp:CheckBoxField DataField="IsApproved" HeaderText="Aprobado?" />
+                        <asp:CheckBoxField DataField="IsLockedOut" HeaderText="Bloqueado?" />
                         <asp:CheckBoxField DataField="IsOnline" HeaderText="En linea?" />
                         <asp:BoundField DataField="Comment" HeaderText="Comentario" />
                     </Columns>

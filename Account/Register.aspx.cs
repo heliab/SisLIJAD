@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
 
 namespace SisLIJAD.Account
 {
@@ -20,6 +21,16 @@ namespace SisLIJAD.Account
         {
             FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
 
+         }
+
+        protected void RegisterUser_SendingMail(object sender, MailMessageEventArgs e)
+        {
+            SmtpClient email = new SmtpClient();
+            email.EnableSsl = true;
+            email.Send(e.Message);
+            e.Cancel = true;
+
+
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))
             {
@@ -27,6 +38,5 @@ namespace SisLIJAD.Account
             }
             Response.Redirect(continueUrl);
         }
-
     }
 }

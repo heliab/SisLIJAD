@@ -97,6 +97,7 @@
     <Content Include="MPR\Reportes\PruebasPorAprobar.aspx" />
     <Content Include="MPR\Reportes\PruebasPorUsuario.aspx" />
     <Content Include="MPR\VincularMAteriales.aspx" />
+    <Content Include="NewUser.htm" />
     <Content Include="Perfil\Perfil.aspx" />
     <Content Include="PEUCA\Default.aspx" />
     <Content Include="Pruebas\GeaFino.aspx" />

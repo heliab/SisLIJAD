@@ -5,10 +5,10 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="GridContent">
     <div class="registerbg">
-    <asp:CreateUserWizard ID="RegisterUser" runat="server" 
+    <asp:CreateUserWizard ID="RegisterUser" onsendingmail="RegisterUser_SendingMail" runat="server" 
     EnableViewState="False" OnCreatedUser="RegisterUser_CreatedUser" 
     DisableCreatedUser="True" BackColor="#F7F6F3" BorderColor="#E6E2D8" 
-        BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+        BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" >
         <HeaderStyle BackColor="#5D7B9D" BorderStyle="Solid" Font-Bold="True" 
             Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
         <LayoutTemplate>
@@ -21,6 +21,9 @@
         <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" 
             BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
             ForeColor="#284775" />
+        <MailDefinition BodyFileName="~/NewUser.htm" CC="SisLijad@gmail.com" 
+            From="sislijad@gmail.com" IsBodyHtml="True" Subject="Creacion de usuario">
+        </MailDefinition>
         <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
