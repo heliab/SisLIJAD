@@ -457,11 +457,6 @@ function fn_NewMainTest() {
       }
 
   }
-  function fn_CancelTestJS() {
-      fn_CleanGroup(-1);
-      fn_CleanGroup(0);
-      FormPopup.Hide();
-  }
   function fn_DeleteTestJS() {
       HiddenV.Set('Nuevo', 2);
       fn_ShowDeleteTestJS();

@@ -1,23 +1,22 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Perfil/PerfilesMaster.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="SisLIJAD.Perfil.Perfil" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Perfil/PerfilesMaster.Master" AutoEventWireup="true"
+    CodeBehind="Perfil.aspx.cs" Inherits="SisLIJAD.Perfil.Perfil" %>
 
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxHiddenField" TagPrefix="dx" %>
-
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
-
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
-
 <%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.ASPxGridView.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
-<%@ Register assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
-<%@ Register assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxCallback" tagprefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.ASPxEditors.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v9.3, Version=9.3.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="FormContent" runat="server">
 <div class="wrapctrl">
         <ul class="ctrlist">
@@ -160,6 +159,12 @@ fn_EndCallback();
                             <b>
                                 <%# Eval("Empresa") %></b>
                         </div>
+                        <div class="second">
+                             <div>
+                                Rol Solicitado</div>
+                            <b>
+                                <%# Eval("ReqRole") %></b>
+                        </div>
                     </div>
                 </div>
             </DataRow>
@@ -168,7 +173,7 @@ fn_EndCallback();
     </div>
     <asp:SqlDataSource ID="SDSEstadoMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:BDLabsConnectionString %>"
         
-        SelectCommand="SELECT USER_Entidad.IdEntidad, USER_Entidad.Empresa, USER_Entidad.Web, USER_Entidad.username, USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS Nombre, USER_Entidad.Celular, aspnet_Membership.Email FROM USER_Entidad INNER JOIN aspnet_Users ON USER_Entidad.username = aspnet_Users.UserName INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId WHERE (USER_Entidad.username = @username)">
+        SelectCommand="SELECT USER_Entidad.IdEntidad, USER_Entidad.ReqRole,USER_Entidad.Empresa, USER_Entidad.Web, USER_Entidad.username, USER_Entidad.PNombre + ' ' + USER_Entidad.SNombre + ' ' + USER_Entidad.PApellido + ' ' + USER_Entidad.SApellido AS Nombre, USER_Entidad.Celular, aspnet_Membership.Email FROM USER_Entidad INNER JOIN aspnet_Users ON USER_Entidad.username = aspnet_Users.UserName INNER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId WHERE (USER_Entidad.username = @username)">
         <SelectParameters>
             <asp:SessionParameter Name="username" SessionField="username" />
         </SelectParameters>
@@ -183,6 +188,10 @@ fn_EndCallback();
     <ClientSideEvents CloseUp="function(s, e) {
 fn_CleanGroup(1);
 }" />
+<ClientSideEvents CloseUp="function(s, e) {
+fn_CleanGroup(1);
+}"></ClientSideEvents>
+
     <ContentStyle BackColor="#F9F9F9">
     </ContentStyle>
     <ContentCollection>
@@ -210,6 +219,9 @@ fn_CleanGroup(1);
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+<RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+
+<RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                     </div>
@@ -220,6 +232,8 @@ fn_CleanGroup(1);
                                         </dx:ASPxLabel>
                                          <dx:ASPxTextBox ID="txtSNom" runat="server" Width="199px" ClientInstanceName="txtSNom"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
+                                       
+<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
                                        
                                     </dx:ASPxTextBox>
                                     </div>
@@ -234,6 +248,9 @@ fn_CleanGroup(1);
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+<RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+
+<RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                     </div>
@@ -244,6 +261,8 @@ fn_CleanGroup(1);
                                         </dx:ASPxLabel>
                                          <dx:ASPxTextBox ID="txtSApel" runat="server" Width="199px" ClientInstanceName="txtSApel"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
+                                       
+<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
                                        
                                     </dx:ASPxTextBox>
                                     </div>
@@ -271,10 +290,15 @@ fn_CleanGroup(1);
                                          <dx:ASPxTextBox ID="txtCel" runat="server" Width="199px" ClientInstanceName="txtCel"
                                         ValidationSettings-ValidationGroup="ControlGroup1">
                                              <MaskSettings Mask="0000-0000" />
+<MaskSettings Mask="0000-0000"></MaskSettings>
+
                                         <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom"
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+<RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+
+<RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                     </div>
@@ -289,26 +313,44 @@ fn_CleanGroup(1);
                                             SetFocusOnError="True" ValidationGroup="ControlGroup1">
                                             <RegularExpression ErrorText="Informacion Requerida" />
                                             <RequiredField ErrorText="Informacion Requerida" IsRequired="True" />
+<RegularExpression ErrorText="Informacion Requerida"></RegularExpression>
+
+<RequiredField IsRequired="True" ErrorText="Informacion Requerida"></RequiredField>
                                         </ValidationSettings>
                                     </dx:ASPxTextBox>
                                     </div>
                                 </div>
-                                <div class="row">
-                                <div class="first">
-                                        <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Web">
-                                        </dx:ASPxLabel>
-                                         <dx:ASPxTextBox ID="txtWeb" runat="server" Width="199px" ClientInstanceName="txtWeb"
-                                        ValidationSettings-ValidationGroup="ControlGroup1">
-                                      
-                                    </dx:ASPxTextBox>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <ul class="frmctrl centerctrl">
-                                <li><a class="pure-button green-font" href="javascript:fn_SaveProfileJS()" title="Guardar"><i class="fa fa-floppy-o">
-                                    </i>Guardar</a></li>
+    <div class="row">
+        <div class="first">
+            <dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Web">
+            </dx:ASPxLabel>
+            <dx:ASPxTextBox ID="txtWeb" runat="server" Width="199px" ClientInstanceName="txtWeb"
+                ValidationSettings-ValidationGroup="ControlGroup1">
+<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
+            </dx:ASPxTextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="first">
+            <dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Rol Solicitado">
+            </dx:ASPxLabel>
+            <dx:ASPxComboBox runat="server" ID="cmbRol" Width="199px" ClientInstanceName="cmbRol"
+                ValidationSettings-ValidationGroup="ControlGroup1">
+                <Items>
+                    <dx:ListEditItem Text="Usuario Uca" Value="Usuario Uca" />
+                    <dx:ListEditItem Text="Cliente" Value="Cliente" />
+                    <dx:ListEditItem Text="Técnico" Value="Técnico" />
+                </Items>
+<ValidationSettings ValidationGroup="ControlGroup1"></ValidationSettings>
+            </dx:ASPxComboBox>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div>
+        <ul class="frmctrl centerctrl">
+            <li><a class="pure-button green-font" href="javascript:fn_SaveProfileJS()" title="Guardar">
+                <i class="fa fa-floppy-o"></i>Guardar</a></li>
                                     <li><a class="pure-button red-font" href="javascript:fn_CancelJS()" title="Cancelar"><i class="fa fa-times">
                                     </i>Cancelar</a></li>
                                     <li><a class="pure-button yellow-font" href="javascript:fn_CleanGroup(1);" title="Limpiar"><i

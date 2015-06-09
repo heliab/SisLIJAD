@@ -13,20 +13,31 @@ namespace SisLIJAD.Perfil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["username"] = User.Identity.Name;
-            ClientScript.RegisterStartupScript(GetType(), "show", "fn_Welcome();", true);
+            if (!Page.IsPostBack)
+            {
+                bool flag = true;
+                Session["username"] = User.Identity.Name;
+                if (CheckFlag(flag) == true)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "show", "fn_Welcome();", true);
+                }
+            }
         }
-
+        #region CAllback
         protected void GridPrincipal_CustomCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs e)
         {
             GridPrincipal.DataBind();
             GridPrincipal.Focus();
         }
-
+        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
+        {
+            ChangeProfile();
+        }
         protected void FillingCallback_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             Select();
         }
+        #endregion
         #region CRUD
         protected void Select()
         {
@@ -35,7 +46,7 @@ namespace SisLIJAD.Perfil
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand(" Select PNombre,SNombre,PApellido,SApellido,Empresa,Celular,Web,username from USER_Entidad where username= @username", con);
+                SqlCommand cmd = new SqlCommand(" Select PNombre,SNombre,PApellido,SApellido,Empresa,Celular,Web,username,ReqRole from USER_Entidad where username= @username", con);
                 cmd.Parameters.AddWithValue("@username", username);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -49,7 +60,7 @@ namespace SisLIJAD.Perfil
                     txtCel.Text = dr["Celular"].ToString();
                     //txtMail.Text = dr["Email"].ToString();
                     txtWeb.Text = dr["Web"].ToString();
-                    
+                    cmbRol.Text=dr["ReqRole"].ToString();
                    
                 }
                 else
@@ -69,12 +80,6 @@ namespace SisLIJAD.Perfil
                 con.Close();
             }
         }
-        #endregion
-
-        protected void NewCallback_Callback(object source, DevExpress.Web.ASPxCallback.CallbackEventArgs e)
-        {
-            ChangeProfile();
-        }
         protected void ChangeProfile()
         {
             string username= User.Identity.Name;
@@ -92,6 +97,7 @@ namespace SisLIJAD.Perfil
                 cmd.Parameters.Add("@Celular", SqlDbType.NVarChar).Value = txtCel.Text ;
                 //cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtMail.Text;
                 cmd.Parameters.Add("@Web", SqlDbType.NVarChar).Value = txtWeb.Text;
+                cmd.Parameters.Add("@ReqRole", SqlDbType.NVarChar).Value = cmbRol.Text;
                 cmd.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
                
 
@@ -112,6 +118,52 @@ namespace SisLIJAD.Perfil
             {
                 con.Close();
             }
+        
+        }  
+        #endregion
+        
+  
+        #region CheckFlag
+        protected Boolean CheckFlag(bool Flag) 
+        {
+            string username = User.Identity.Name;
+            string NewFlag;
+            
+            SqlConnection con = new SqlConnection(Database.ConnectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(" Select NewFlag from USER_Entidad Where username=@username", con);
+                cmd.Parameters.AddWithValue("@username", username);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    NewFlag = dr["NewFlag"].ToString();
+                    if (NewFlag == "True")
+                    {
+                        Flag = true;
+                    }
+                    else
+                    {
+                        Flag = false;
+                    }
+                }
+                else
+                {
+                    Flag = false;
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + Server.HtmlEncode(ex.ToString()) + "')</script>");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return Flag;
         }
-    }
+        #endregion
+      }
 }
